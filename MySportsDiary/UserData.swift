@@ -11,6 +11,6 @@ import Foundation
 class UserData {
 
 
-    internal static var initialQuestionnareAnswered: Bool = false ;
+    internal static var initialQuestionnareAnswered: Bool = false ; 
 
 }
