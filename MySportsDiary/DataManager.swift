@@ -10,9 +10,9 @@ import Foundation
 
 
 class DataManager {
-
-
-
+    
+    
+    
     
     static var instance: DataManager?;
     
@@ -23,7 +23,7 @@ class DataManager {
         return instance!;
     }
     
-    private static func getManagerDelegate() -> SQLiteDataManagerDelegate {
+    private static func getManagerDelegate() -> DataManagerDelegate {
         return SQLiteDataManagerDelegate();
     }
     
@@ -33,9 +33,9 @@ class DataManager {
     
     
     
-    private var dataSource: SQLiteDataManagerDelegate;
+    private var dataSource: DataManagerDelegate;
     
-    private init(_dataSource: SQLiteDataManagerDelegate) {
+    private init(_dataSource: DataManagerDelegate) {
         dataSource = _dataSource;
     }
     
@@ -54,5 +54,10 @@ class DataManager {
     func getAge() -> Int?{
         return dataSource.getAge();
     }
+    
+    func saveAnswer(event_id: Int, page: Int, answer: Int) {
+        dataSource.saveAnswer(event_id, page: page,answer: answer);
+    }
+    
     
 }

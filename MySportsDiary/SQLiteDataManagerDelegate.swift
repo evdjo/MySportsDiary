@@ -48,6 +48,10 @@ class SQLiteDataManagerDelegate : DataManagerDelegate {
         print("gender saved successfully");
     }
     
+    func saveAnswer(event_id: Int, page: Int, answer: Int) {
+        
+    }
+    
     
     
     
