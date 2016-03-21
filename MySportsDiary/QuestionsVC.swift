@@ -25,7 +25,6 @@ class QuestionsVC: UIViewController {
     // MARK: App lifecycle methods
     
     override func viewDidLoad() {
-        super.viewDidLoad();
         if let id = self.restorationIdentifier {
             switch(id) {
             case("QuestionsPartA") : page = 1;
@@ -34,12 +33,20 @@ class QuestionsVC: UIViewController {
             default : fatalError("Uknown identifier, cennot setup page property!");
             }
         }
+        super.viewDidLoad();
     }
     
     override func viewDidAppear(animated: Bool) {
         self.navigationController?.setNavigationBarHidden(false, animated: true);
-        super.viewDidAppear(animated);
+        loadAnswers()
         checkIfQuestionsAnswered();
+        super.viewDidAppear(animated);
+        
+    }
+    
+    
+    override func viewDidDisappear(animated: Bool) {
+        saveAnswers();
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -47,6 +54,8 @@ class QuestionsVC: UIViewController {
             vc.type = type;
         }
     }
+    
+    
     
     
     // MARK: Handle the events that occurr in the questionnaire view
@@ -68,9 +77,11 @@ class QuestionsVC: UIViewController {
         }
     }
     @IBAction func onNextPress(sender: UIButton) {
-        DataManager.getManagerInstance().saveAnswer(page * 3 - 3 + 0,answer: answersSegControl[0].selectedSegmentIndex);
-        DataManager.getManagerInstance().saveAnswer(page * 3 - 3 + 1,answer: answersSegControl[1].selectedSegmentIndex);
-        DataManager.getManagerInstance().saveAnswer(page * 3 - 3 + 2,answer: answersSegControl[2].selectedSegmentIndex);
+        
+    }
+    
+    private func questionID(page: Int, index : Int) ->Int {
+        return page * 3 - 3 + index;
     }
     
     private func initialQuestionnaireFinished() {
@@ -113,8 +124,6 @@ class QuestionsVC: UIViewController {
         checkIfQuestionsAnswered();
     }
     
-    
-    
     private func checkIfQuestionsAnswered() {
         currentQuestionsAnswered =
             (answersSegControl[0].selectedSegmentIndex != -1) &&
@@ -128,6 +137,25 @@ class QuestionsVC: UIViewController {
         } else {
             button.enabled = false;
             button.alpha = 0.5;
+        }
+    }
+    
+    private func saveAnswers() {
+        let manager = DataManager.getManagerInstance();
+        for i in 0...2 {
+            let index = answersSegControl[i].selectedSegmentIndex
+            if(index != -1) {
+                manager.saveAnswer(questionID(page,index: i),answer: index);
+            }
+        }
+    }
+    
+    private func loadAnswers() {
+        let manager = DataManager.getManagerInstance();
+        for i in 0...2 {
+            if let answer = manager.getAnswer(questionID(page,index: i)) {
+                answersSegControl[i].selectedSegmentIndex = answer;
+            }
         }
     }
 }

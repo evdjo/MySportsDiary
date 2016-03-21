@@ -24,7 +24,7 @@ class DataManager {
     }
     
     private static func getManagerDelegate() -> DataManagerDelegate {
-        return SQLiteDataManagerDelegate();
+        return PropertyListDataManagerDelegate();
     }
     
     
@@ -41,10 +41,14 @@ class DataManager {
     
     func saveGender(gender: Gender) {
         dataSource.setGender(gender);
+        print("gender saved successfully");
+
     }
     
     func saveAge(age: Int) {
         dataSource.setAge(age);
+        print("age saved successfully");
+
     }
     
     func getGender() -> Gender? {
@@ -57,6 +61,10 @@ class DataManager {
     
     func saveAnswer(questionID: Int, answer: Int) {
         dataSource.saveAnswer(questionID,answer: answer);
+    }
+    
+    func getAnswer(questionID: Int) -> Int? {
+        return dataSource.getAnswer(questionID);
     }
     
     

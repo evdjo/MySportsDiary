@@ -16,6 +16,7 @@ protocol DataManagerDelegate {
     func setAge(age:Int)
     func setGender(gender:Gender)
     func saveAnswer(questionID: Int, answer: Int)
+    func getAnswer(questionID: Int) -> Int?
 
 }
 
