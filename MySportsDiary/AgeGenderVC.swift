@@ -78,7 +78,7 @@ class AgeGenderVC: UIViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let vc = segue.destinationViewController as? QuestionsVC {
-            vc.current_event = 0;
+            vc.type = .INITIAL;
         }
     }
     

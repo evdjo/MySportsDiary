@@ -25,6 +25,7 @@
 		1B396BF81C960D9B00986749 /* SQLiteDataManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B396BF71C960D9B00986749 /* SQLiteDataManagerDelegate.swift */; };
 		1B396BFA1C960EB000986749 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B396BF91C960EB000986749 /* libsqlite3.tbd */; };
 		1B396BFF1C96200500986749 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B396BF91C960EB000986749 /* libsqlite3.tbd */; };
+		1B84158E1CA03F20001EF9CE /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B84158D1CA03F20001EF9CE /* File.swift */; };
 		1B8866431C9F9C78007F7BEB /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8866421C9F9C78007F7BEB /* Util.swift */; };
 /* End PBXBuildFile section */
 
@@ -70,6 +71,7 @@
 		1B396BF71C960D9B00986749 /* SQLiteDataManagerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLiteDataManagerDelegate.swift; sourceTree = "<group>"; };
 		1B396BF91C960EB000986749 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		1B396BFB1C960F0D00986749 /* MySportsDiary-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MySportsDiary-Bridging-Header.h"; sourceTree = "<group>"; };
+		1B84158D1CA03F20001EF9CE /* File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		1B8866421C9F9C78007F7BEB /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -168,6 +170,7 @@
 				1B396BF71C960D9B00986749 /* SQLiteDataManagerDelegate.swift */,
 				1B396BF11C96007400986749 /* DataManager.swift */,
 				1B396B8C1C9389C800986749 /* UserData.swift */,
+				1B84158D1CA03F20001EF9CE /* File.swift */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -339,6 +342,7 @@
 				1B8866431C9F9C78007F7BEB /* Util.swift in Sources */,
 				1B396B851C936B2F00986749 /* AgeGenderVC.swift in Sources */,
 				1B396BF21C96007400986749 /* DataManager.swift in Sources */,
+				1B84158E1CA03F20001EF9CE /* File.swift in Sources */,
 				1B396BF81C960D9B00986749 /* SQLiteDataManagerDelegate.swift in Sources */,
 				1B396B731C9251D900986749 /* FirstViewController.swift in Sources */,
 			);

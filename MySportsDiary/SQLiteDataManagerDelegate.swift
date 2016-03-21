@@ -48,9 +48,21 @@ class SQLiteDataManagerDelegate : DataManagerDelegate {
         print("gender saved successfully");
     }
     
-    func saveAnswer(event_id: Int, page: Int, answer: Int) {
+    func saveAnswer(questionID: Int, answer: Int) {
+        let fileURL = self.dataFileURL("temp.plist")
+        if (NSFileManager.defaultManager().fileExistsAtPath(fileURL.path!)) {
+            if var dict = NSDictionary(contentsOfURL: fileURL) as? Dictionary<String,Int> {
+                dict.updateValue(answer, forKey: String(questionID));
+                (dict as NSDictionary).writeToURL(fileURL,atomically: true);
+                print(dict)
+            }
+        } else {
+            ([String(questionID) : answer] as NSDictionary).writeToURL(fileURL, atomically: true);
+        }
         
     }
+    
+    
     
     
     
@@ -74,7 +86,7 @@ class SQLiteDataManagerDelegate : DataManagerDelegate {
     private func saveToDB(value:Int, dbName: String, dbCreate: String, dbUpdate:String) {
         // Open the db
         var database:COpaquePointer = nil;
-        var result = sqlite3_open(dataBaseFile(dbName), &database);
+        var result = sqlite3_open(dataFilePath(dbName), &database);
         if(result != SQLITE_OK){print("opening user db has failed"); sqlite3_close(database); return;}
         // Create the table
         var errMsg:UnsafeMutablePointer<Int8> = nil;
@@ -94,7 +106,7 @@ class SQLiteDataManagerDelegate : DataManagerDelegate {
     private func loadFromDB(dbName dbName: String, dbCreate: String, dbGet:String) -> Int? {
         // Open the db
         var database:COpaquePointer = nil;
-        var result = sqlite3_open(dataBaseFile(dbName), &database);
+        var result = sqlite3_open(dataFilePath(dbName), &database);
         if(result != SQLITE_OK){print("opening user DB has failed"); sqlite3_close(database); return nil;}
         // Create the table
         var errMsg:UnsafeMutablePointer<Int8> = nil;
@@ -114,10 +126,16 @@ class SQLiteDataManagerDelegate : DataManagerDelegate {
     }
     
     
-    private func dataBaseFile(whichDB: String) -> String {
+    private func dataFilePath(whichFile: String) -> String {
         let urls = NSFileManager.defaultManager().URLsForDirectory(
             .DocumentDirectory, inDomains: .UserDomainMask);
-        return urls.first!.URLByAppendingPathComponent(whichDB).path!;
+        return urls.first!.URLByAppendingPathComponent(whichFile).path!;
+    }
+    
+    private func dataFileURL(whichFile: String) -> NSURL {
+        let urls = NSFileManager.defaultManager().URLsForDirectory(
+        .DocumentDirectory, inDomains: .UserDomainMask)
+        return urls.first!.URLByAppendingPathComponent(whichFile)
     }
     
     

@@ -46,7 +46,7 @@ class InitialVC: UIViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let vc = segue.destinationViewController as? QuestionsVC {
-            vc.current_event = 1;
+            vc.type = .FINAL;
         }
     }
     

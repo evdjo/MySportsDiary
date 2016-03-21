@@ -190,16 +190,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0h6-XI-Xtb">
-                                <rect key="frame" x="28" y="513" width="544" height="30"/>
-                                <color key="backgroundColor" red="0.68627450980000004" green="0.82352941180000006" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Next">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="ded-VF-84n" kind="show" identifier="toPageThree" id="NHG-mP-QK0"/>
-                                </connections>
-                            </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="5Hp-mx-Znt">
                                 <rect key="frame" x="28" y="101" width="544" height="29"/>
                                 <segments>
@@ -209,6 +199,9 @@
                                     <segment title="" image="Happy-50"/>
                                     <segment title="" image="Cool-50"/>
                                 </segments>
+                                <connections>
+                                    <action selector="onAnswerSelected:" destination="7kt-Vz-nvq" eventType="valueChanged" id="oQo-Jw-sqD"/>
+                                </connections>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I accept responsibility for my behaviour" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Len-7w-aqc">
                                 <rect key="frame" x="20" y="160" width="560" height="21"/>
@@ -225,6 +218,9 @@
                                     <segment title="" image="Happy-50"/>
                                     <segment title="" image="Cool-50"/>
                                 </segments>
+                                <connections>
+                                    <action selector="onAnswerSelected:" destination="7kt-Vz-nvq" eventType="valueChanged" id="RKr-Zp-KIV"/>
+                                </connections>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I do very well in my school work" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ho2-H3-Qj8">
                                 <rect key="frame" x="20" y="249" width="560" height="21"/>
@@ -241,6 +237,9 @@
                                     <segment title="" image="Happy-50"/>
                                     <segment title="" image="Cool-50"/>
                                 </segments>
+                                <connections>
+                                    <action selector="onAnswerSelected:" destination="7kt-Vz-nvq" eventType="valueChanged" id="uaE-hC-EAc"/>
+                                </connections>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I hit people if they start the fight" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ymk-dS-aVT">
                                 <rect key="frame" x="20" y="72" width="560" height="21"/>
@@ -254,6 +253,17 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0h6-XI-Xtb">
+                                <rect key="frame" x="28" y="513" width="544" height="30"/>
+                                <color key="backgroundColor" red="0.68627450980000004" green="0.82352941180000006" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Next">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="onNextPress:" destination="7kt-Vz-nvq" eventType="touchUpInside" id="f6M-52-Xwr"/>
+                                    <segue destination="ded-VF-84n" kind="show" identifier="toPageThree" id="NHG-mP-QK0"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -285,6 +295,12 @@
                             <constraint firstAttribute="trailingMargin" secondItem="5Hp-mx-Znt" secondAttribute="trailing" constant="8" id="v5l-Sc-hzQ"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outletCollection property="answersSegControl" destination="5Hp-mx-Znt" collectionClass="NSMutableArray" id="bky-EA-Ipj"/>
+                        <outletCollection property="answersSegControl" destination="rOz-9I-TeS" collectionClass="NSMutableArray" id="O5f-ub-BP3"/>
+                        <outletCollection property="answersSegControl" destination="ONQ-XM-CeZ" collectionClass="NSMutableArray" id="hII-fG-hXD"/>
+                        <outletCollection property="nextOrFinishButtons" destination="0h6-XI-Xtb" collectionClass="NSMutableArray" id="hQA-9L-qyX"/>
+                    </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="1159" y="1560"/>
@@ -383,6 +399,7 @@
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
+                                    <action selector="onNextPress:" destination="pbZ-6v-qqf" eventType="touchUpInside" id="xDB-zJ-EpU"/>
                                     <segue destination="7kt-Vz-nvq" kind="show" identifier="toPageTwo" id="D3J-KG-8lp"/>
                                 </connections>
                             </button>
@@ -401,6 +418,9 @@
                                     <segment title="" image="Happy-50"/>
                                     <segment title="" image="Cool-50"/>
                                 </segments>
+                                <connections>
+                                    <action selector="onAnswerSelected:" destination="pbZ-6v-qqf" eventType="valueChanged" id="hpE-P9-bcg"/>
+                                </connections>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I am happy to be me" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9uc-DB-nY0">
                                 <rect key="frame" x="20" y="161" width="560" height="21"/>
@@ -423,6 +443,9 @@
                                     <segment title="" image="Happy-50"/>
                                     <segment title="" image="Cool-50"/>
                                 </segments>
+                                <connections>
+                                    <action selector="onAnswerSelected:" destination="pbZ-6v-qqf" eventType="valueChanged" id="CXe-FT-gl4"/>
+                                </connections>
                             </segmentedControl>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="Ywx-Jk-MmP">
                                 <rect key="frame" x="28" y="190" width="544" height="29"/>
@@ -433,6 +456,9 @@
                                     <segment title="" image="Happy-50"/>
                                     <segment title="" image="Cool-50"/>
                                 </segments>
+                                <connections>
+                                    <action selector="onAnswerSelected:" destination="pbZ-6v-qqf" eventType="valueChanged" id="Awm-GY-ndh"/>
+                                </connections>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 of 3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AEq-4L-DRe">
                                 <rect key="frame" x="278" y="484" width="43" height="21"/>
@@ -471,6 +497,12 @@
                             <constraint firstItem="8Yt-Rg-Zjf" firstAttribute="centerX" secondItem="CFz-Ps-dlT" secondAttribute="centerX" id="yMV-wy-5Ud"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outletCollection property="answersSegControl" destination="cYI-2o-Mgh" collectionClass="NSMutableArray" id="sz8-IF-NeW"/>
+                        <outletCollection property="answersSegControl" destination="Ywx-Jk-MmP" collectionClass="NSMutableArray" id="Jfd-6b-cpo"/>
+                        <outletCollection property="answersSegControl" destination="K86-bc-vPG" collectionClass="NSMutableArray" id="zYk-af-9rv"/>
+                        <outletCollection property="nextOrFinishButtons" destination="II1-0a-9Up" collectionClass="NSMutableArray" id="Wod-1C-Sia"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wEi-FR-lqE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -498,6 +530,9 @@
                                     <segment title="" image="Happy-50"/>
                                     <segment title="" image="Cool-50"/>
                                 </segments>
+                                <connections>
+                                    <action selector="onAnswerSelected:" destination="ded-VF-84n" eventType="valueChanged" id="cWZ-3Q-hqD"/>
+                                </connections>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I want to help make my community a better place to live" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GzP-1v-0SU">
                                 <rect key="frame" x="20" y="161" width="560" height="21"/>
@@ -514,6 +549,9 @@
                                     <segment title="" image="Happy-50"/>
                                     <segment title="" image="Cool-50"/>
                                 </segments>
+                                <connections>
+                                    <action selector="onAnswerSelected:" destination="ded-VF-84n" eventType="valueChanged" id="eCR-l0-e0G"/>
+                                </connections>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I feel important in my community" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xn3-p5-TMi">
                                 <rect key="frame" x="20" y="250" width="560" height="21"/>
@@ -530,6 +568,9 @@
                                     <segment title="" image="Happy-50"/>
                                     <segment title="" image="Cool-50"/>
                                 </segments>
+                                <connections>
+                                    <action selector="onAnswerSelected:" destination="ded-VF-84n" eventType="valueChanged" id="Ijr-jD-Lmb"/>
+                                </connections>
                             </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uah-A9-tQG">
                                 <rect key="frame" x="28" y="513" width="544" height="30"/>
@@ -590,6 +631,12 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outletCollection property="answersSegControl" destination="EZG-9a-Gvv" collectionClass="NSMutableArray" id="YaT-NH-3s0"/>
+                        <outletCollection property="answersSegControl" destination="w3C-o8-Wjs" collectionClass="NSMutableArray" id="79r-Dq-8L8"/>
+                        <outletCollection property="answersSegControl" destination="AEp-hI-es9" collectionClass="NSMutableArray" id="bUI-tw-lka"/>
+                        <outletCollection property="nextOrFinishButtons" destination="Uah-A9-tQG" collectionClass="NSMutableArray" id="Tgz-lv-WlZ"/>
+                    </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="1927" y="1560"/>
@@ -606,6 +653,6 @@
         <image name="second" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="eUc-fk-lPY"/>
+        <segue reference="zFt-bB-jtg"/>
     </inferredMetricsTieBreakers>
 </document>

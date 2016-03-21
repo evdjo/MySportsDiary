@@ -55,8 +55,8 @@ class DataManager {
         return dataSource.getAge();
     }
     
-    func saveAnswer(event_id: Int, page: Int, answer: Int) {
-        dataSource.saveAnswer(event_id, page: page,answer: answer);
+    func saveAnswer(questionID: Int, answer: Int) {
+        dataSource.saveAnswer(questionID,answer: answer);
     }
     
     
