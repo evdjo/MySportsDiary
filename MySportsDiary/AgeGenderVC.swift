@@ -19,10 +19,10 @@ class AgeGenderVC: UIViewController {
     private var ageIsSet = false;
     private var genderIsSet = false;
     
-    override func viewDidLoad() {
-        super.viewDidLoad();
-    }
-    
+    ///
+    /// Put age and gender back
+    /// enable/disable next button
+    ///
     override func viewDidAppear(animated: Bool) {
         self.navigationController?.setNavigationBarHidden(false, animated: true);
         super.viewDidAppear(animated);
@@ -35,29 +35,9 @@ class AgeGenderVC: UIViewController {
             nextButton.alpha = 0.5;
         }
     }
-    
-    @IBAction func onAgeSliderMoved(sender: UISlider) {
-        ageTextField.text = String(Int(ageSlider.value));
-    }
-    @IBAction func onAgeSliderValueChanged(sender: UISlider) {
-        DataManager.getManagerInstance().saveAge(Int(ageSlider.value));
-        ageIsSet = true;
-        if(genderIsSet) {
-            nextButton.enabled = true;
-            nextButton.alpha = 1.0;
-        }
-    }
-    
-    @IBAction func onGenderSegmentChanged(sender: AnyObject) {
-        let gender: Gender = genderSegmentedControl.selectedSegmentIndex == 0 ? .BOY : .GIRL;
-        DataManager.getManagerInstance().saveGender(gender);
-        genderIsSet = true;
-        if(ageIsSet) {
-            nextButton.enabled = true;
-            nextButton.alpha = 1.0;
-        }
-    }
-    
+    ///
+    /// Persist the age and gender
+    ///
     private func loadGender(){
         let gender = DataManager.getManagerInstance().getGender();
         if let gender = gender {
@@ -76,6 +56,37 @@ class AgeGenderVC: UIViewController {
         
     }
     
+    ///
+    /// Age slider
+    ///
+    @IBAction func onAgeSliderMoved(sender: UISlider) {
+        ageTextField.text = String(Int(ageSlider.value));
+    }
+    @IBAction func onAgeSliderValueChanged(sender: UISlider) {
+        DataManager.getManagerInstance().setAge(Int(ageSlider.value));
+        ageIsSet = true;
+        if(genderIsSet) {
+            nextButton.enabled = true;
+            nextButton.alpha = 1.0;
+        }
+    }
+    ///
+    /// Gender segment control
+    ///
+    @IBAction func onGenderSegmentChanged(sender: AnyObject) {
+        let gender: Gender = genderSegmentedControl.selectedSegmentIndex == 0 ? .BOY : .GIRL;
+        DataManager.getManagerInstance().setGender(gender);
+        genderIsSet = true;
+        if(ageIsSet) {
+            nextButton.enabled = true;
+            nextButton.alpha = 1.0;
+        }
+    }
+    
+
+    ///
+    /// If we start from the age and gender, then it is the inital questionnaire
+    ///
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let vc = segue.destinationViewController as? QuestionsVC {
             vc.type = .INITIAL;

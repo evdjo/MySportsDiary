@@ -8,23 +8,21 @@
 
 import Foundation
 
-class PropertyListDataManagerDelegate: DataManagerDelegate {
+class PlistDataSource: DataSource {
+    
     
     private let UserInfo = "userinfo.plist";
     private let AGE = "AGE";
     private let GENDER = "GENDER";
-    
     private let AnswersTemp = "answerstemp.plist"
     
-    func getAge()-> Int? {
-        return getProperty(AGE);
+    
+    
+    func initialQuestionnareAnswered() -> Bool {
+        return getProperty(AGE) != nil && getProperty(GENDER) != nil;
     }
-    func getGender()-> Gender? {
-        if let gender = getProperty(GENDER) {
-            return Gender(rawValue: gender);
-        }
-        return nil;
-    }
+    
+    
     
     func getProperty(key: String) ->Int? {
         let fileURL = dataFileURL(UserInfo)
@@ -34,6 +32,13 @@ class PropertyListDataManagerDelegate: DataManagerDelegate {
             }
         }
         return nil;
+    }
+    
+    ///
+    /// Age
+    ///
+    func getAge()-> Int? {
+        return getProperty(AGE);
     }
     
     
@@ -48,6 +53,18 @@ class PropertyListDataManagerDelegate: DataManagerDelegate {
             ([AGE: age] as NSDictionary).writeToURL(fileURL, atomically: true);
         }
     }
+    
+    ///
+    /// Gender
+    ///
+    func getGender()-> Gender? {
+        if let gender = getProperty(GENDER) {
+            return Gender(rawValue: gender);
+        }
+        return nil;
+    }
+    
+    
     func setGender(gender:Gender) {
         let fileURL = dataFileURL(UserInfo)
         if (NSFileManager.defaultManager().fileExistsAtPath(fileURL.path!)) {
@@ -59,6 +76,13 @@ class PropertyListDataManagerDelegate: DataManagerDelegate {
             ([GENDER: gender.rawValue] as NSDictionary).writeToURL(fileURL, atomically: true);
         }
     }
+    
+    
+    
+    ///
+    /// Questionnaire answers
+    ///
+    
     func saveAnswer(questionID: Int, answer: Int) {
         let fileURL = dataFileURL(AnswersTemp)
         if (NSFileManager.defaultManager().fileExistsAtPath(fileURL.path!)) {

@@ -10,13 +10,13 @@ import UIKit
 
 class InitialVC: UIViewController {
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
+    ///
+    /// Hide back button
+    /// Set the tab bar buttons enabledness
+    ///
     override func viewDidAppear(animated: Bool) {
         
-        if(!UserData.initialQuestionnareAnswered) {
+        if(!DataManager.getManagerInstance().initialQuestionnareAnswered()) {
             self.tabBarController!.tabBar.items![1].enabled = false;
             self.tabBarController!.tabBar.items![2].enabled = false;
             mainLabel.text = "Click the bellow button to answer the initial questionnaire."
@@ -35,8 +35,12 @@ class InitialVC: UIViewController {
     
     @IBOutlet weak var mainLabel: UILabel!
     
+    
+    ///
+    /// See if it is the first survey or final survey...
+    ///
     @IBAction func onSurveyBegin(sender: AnyObject) {
-        if(!UserData.initialQuestionnareAnswered) {
+        if(!DataManager.getManagerInstance().initialQuestionnareAnswered()) {
             self.performSegueWithIdentifier("AgeAndGenderSegue", sender: sender);
             
         } else {

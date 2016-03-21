@@ -15,7 +15,6 @@ class QuestionsVC: UIViewController {
     
     internal var type: QuestionnaireType?;
     private var page: Int = 0;
-    private var currentQuestionsAnswered: Bool = false;
     
     @IBOutlet var answersSegControl: [UISegmentedControl]!
     @IBOutlet var nextOrFinishButtons: [UIButton]!
@@ -77,7 +76,7 @@ class QuestionsVC: UIViewController {
         }
     }
     @IBAction func onNextPress(sender: UIButton) {
-        
+        saveAnswers();
     }
     
     private func questionID(page: Int, index : Int) ->Int {
@@ -96,7 +95,7 @@ class QuestionsVC: UIViewController {
             style: .Default,
             handler: { action in
                 // then save answers
-                
+                DataManager.getManagerInstance().initialQuestionnareAnswered();
                 
                 // start timer
                 
@@ -125,8 +124,8 @@ class QuestionsVC: UIViewController {
     }
     
     private func checkIfQuestionsAnswered() {
-        currentQuestionsAnswered =
-            (answersSegControl[0].selectedSegmentIndex != -1) &&
+        let currentQuestionsAnswered =
+        (answersSegControl[0].selectedSegmentIndex != -1) &&
             (answersSegControl[1].selectedSegmentIndex != -1) &&
             (answersSegControl[2].selectedSegmentIndex != -1);
         

@@ -9,63 +9,39 @@
 import Foundation
 
 
+//
+// Handles all persistent data, such as user Age, Gender, Questionnaire Answers, Events
+//
 class DataManager {
     
     
+    //
+    // Singleton
+    //
+    static var instance: DataSource?;
     
-    
-    static var instance: DataManager?;
-    
-    static func getManagerInstance() -> DataManager {
+    static func getManagerInstance() -> DataSource {
         if instance == nil {
-            instance = DataManager(_dataSource: getManagerDelegate());
+            instance = constructInstance();
         }
         return instance!;
     }
     
-    private static func getManagerDelegate() -> DataManagerDelegate {
-        return PropertyListDataManagerDelegate();
+    private static func constructInstance() -> DataSource {
+        return PlistDataSource();
     }
     
-    
-    
-    
-    
-    
-    
-    private var dataSource: DataManagerDelegate;
-    
-    private init(_dataSource: DataManagerDelegate) {
-        dataSource = _dataSource;
-    }
-    
-    func saveGender(gender: Gender) {
-        dataSource.setGender(gender);
-        print("gender saved successfully");
-
-    }
-    
-    func saveAge(age: Int) {
-        dataSource.setAge(age);
-        print("age saved successfully");
-
-    }
-    
-    func getGender() -> Gender? {
-        return dataSource.getGender();
-    }
-    
-    func getAge() -> Int?{
-        return dataSource.getAge();
-    }
-    
-    func saveAnswer(questionID: Int, answer: Int) {
-        dataSource.saveAnswer(questionID,answer: answer);
-    }
-    
-    func getAnswer(questionID: Int) -> Int? {
-        return dataSource.getAnswer(questionID);
-    }
     
     
 }
+protocol DataSource {
+    func getAge()-> Int?
+    func getGender()-> Gender?
+    func setAge(age:Int)
+    func setGender(gender:Gender)
+    func saveAnswer(questionID: Int, answer: Int)
+    func getAnswer(questionID: Int) -> Int?
+    func initialQuestionnareAnswered() -> Bool
+    
+}
+

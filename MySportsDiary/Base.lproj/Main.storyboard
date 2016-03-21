@@ -158,7 +158,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uqr-Hg-57q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-292" y="748"/>
+            <point key="canvasLocation" x="-730" y="738"/>
         </scene>
         <!--Questionnaire-->
         <scene sceneID="Uje-Gp-RRb">
@@ -175,12 +175,11 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ebl-1W-3SF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-974" y="748"/>
+            <point key="canvasLocation" x="-1450" y="738"/>
         </scene>
         <!--QuestionsVC-->
         <scene sceneID="SlR-ny-ZVV">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="v46-jf-nPq" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="QuestionsPartB" useStoryboardIdentifierAsRestorationIdentifier="YES" id="7kt-Vz-nvq" customClass="QuestionsVC" customModule="MySportsDiary" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="EEy-ES-auY"/>
@@ -302,8 +301,9 @@
                         <outletCollection property="nextOrFinishButtons" destination="0h6-XI-Xtb" collectionClass="NSMutableArray" id="hQA-9L-qyX"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="v46-jf-nPq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1159" y="1560"/>
+            <point key="canvasLocation" x="-216" y="1592"/>
         </scene>
         <!--Age GenderVC-->
         <scene sceneID="Gd9-8Y-Ymc">
@@ -378,7 +378,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iMB-Je-KZn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-292" y="1560"/>
+            <point key="canvasLocation" x="-1136" y="1532"/>
         </scene>
         <!--QuestionsVC-->
         <scene sceneID="u7F-RL-OaB">
@@ -506,12 +506,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wEi-FR-lqE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="458" y="1560"/>
+            <point key="canvasLocation" x="-254" y="1532"/>
         </scene>
         <!--QuestionsVC-->
         <scene sceneID="eKP-j6-cYf">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rvi-ct-Vpk" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="QuestionsPartC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ded-VF-84n" customClass="QuestionsVC" customModule="MySportsDiary" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9Xd-Gb-l7q"/>
@@ -638,8 +637,9 @@
                         <outletCollection property="nextOrFinishButtons" destination="Uah-A9-tQG" collectionClass="NSMutableArray" id="Tgz-lv-WlZ"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rvi-ct-Vpk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1927" y="1560"/>
+            <point key="canvasLocation" x="-165" y="1650"/>
         </scene>
     </scenes>
     <resources>
@@ -653,6 +653,6 @@
         <image name="second" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="zFt-bB-jtg"/>
+        <segue reference="eUc-fk-lPY"/>
     </inferredMetricsTieBreakers>
 </document>
