@@ -13,9 +13,9 @@
 		1B396B781C9251D900986749 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B396B761C9251D900986749 /* Main.storyboard */; };
 		1B396B7A1C9251D900986749 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B396B791C9251D900986749 /* Assets.xcassets */; };
 		1B396B7D1C9251D900986749 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B396B7B1C9251D900986749 /* LaunchScreen.storyboard */; };
-		1B396B851C936B2F00986749 /* AgeAndGenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B396B841C936B2F00986749 /* AgeAndGenderViewController.swift */; };
-		1B396B871C936B5F00986749 /* QuestionnaireViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B396B861C936B5F00986749 /* QuestionnaireViewController.swift */; };
-		1B396B891C936BBD00986749 /* QuestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B396B881C936BBD00986749 /* QuestionsViewController.swift */; };
+		1B396B851C936B2F00986749 /* AgeGenderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B396B841C936B2F00986749 /* AgeGenderVC.swift */; };
+		1B396B871C936B5F00986749 /* InitialVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B396B861C936B5F00986749 /* InitialVC.swift */; };
+		1B396B891C936BBD00986749 /* QuestionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B396B881C936BBD00986749 /* QuestionsVC.swift */; };
 		1B396B8B1C93774C00986749 /* MasterTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B396B8A1C93774C00986749 /* MasterTabBarViewController.swift */; };
 		1B396B8D1C9389C800986749 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B396B8C1C9389C800986749 /* UserData.swift */; };
 		1B396B951C93AD9600986749 /* MySportsDiaryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B396B941C93AD9600986749 /* MySportsDiaryTests.swift */; };
@@ -25,6 +25,7 @@
 		1B396BF81C960D9B00986749 /* SQLiteDataManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B396BF71C960D9B00986749 /* SQLiteDataManagerDelegate.swift */; };
 		1B396BFA1C960EB000986749 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B396BF91C960EB000986749 /* libsqlite3.tbd */; };
 		1B396BFF1C96200500986749 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B396BF91C960EB000986749 /* libsqlite3.tbd */; };
+		1B8866431C9F9C78007F7BEB /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8866421C9F9C78007F7BEB /* Util.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,9 +54,9 @@
 		1B396B791C9251D900986749 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1B396B7C1C9251D900986749 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1B396B7E1C9251D900986749 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1B396B841C936B2F00986749 /* AgeAndGenderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgeAndGenderViewController.swift; sourceTree = "<group>"; };
-		1B396B861C936B5F00986749 /* QuestionnaireViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionnaireViewController.swift; sourceTree = "<group>"; };
-		1B396B881C936BBD00986749 /* QuestionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionsViewController.swift; sourceTree = "<group>"; };
+		1B396B841C936B2F00986749 /* AgeGenderVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgeGenderVC.swift; sourceTree = "<group>"; };
+		1B396B861C936B5F00986749 /* InitialVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialVC.swift; sourceTree = "<group>"; };
+		1B396B881C936BBD00986749 /* QuestionsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionsVC.swift; sourceTree = "<group>"; };
 		1B396B8A1C93774C00986749 /* MasterTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterTabBarViewController.swift; sourceTree = "<group>"; };
 		1B396B8C1C9389C800986749 /* UserData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		1B396B921C93AD9600986749 /* MySportsDiaryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MySportsDiaryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -69,6 +70,7 @@
 		1B396BF71C960D9B00986749 /* SQLiteDataManagerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLiteDataManagerDelegate.swift; sourceTree = "<group>"; };
 		1B396BF91C960EB000986749 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		1B396BFB1C960F0D00986749 /* MySportsDiary-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MySportsDiary-Bridging-Header.h"; sourceTree = "<group>"; };
+		1B8866421C9F9C78007F7BEB /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,22 +124,11 @@
 		1B396B6F1C9251D900986749 /* MySportsDiary */ = {
 			isa = PBXGroup;
 			children = (
-				1B396B701C9251D900986749 /* AppDelegate.swift */,
-				1B396B721C9251D900986749 /* FirstViewController.swift */,
-				1B396B741C9251D900986749 /* SecondViewController.swift */,
+				1B8866471C9F9D87007F7BEB /* Other */,
+				1B8866461C9F9D69007F7BEB /* Main */,
+				1B8866451C9F9D42007F7BEB /* Data */,
 				1B396B761C9251D900986749 /* Main.storyboard */,
-				1B396B791C9251D900986749 /* Assets.xcassets */,
-				1B396B7B1C9251D900986749 /* LaunchScreen.storyboard */,
-				1B396B7E1C9251D900986749 /* Info.plist */,
-				1B396B841C936B2F00986749 /* AgeAndGenderViewController.swift */,
-				1B396B861C936B5F00986749 /* QuestionnaireViewController.swift */,
-				1B396B881C936BBD00986749 /* QuestionsViewController.swift */,
-				1B396B8A1C93774C00986749 /* MasterTabBarViewController.swift */,
-				1B396B8C1C9389C800986749 /* UserData.swift */,
-				1B396BF11C96007400986749 /* DataManager.swift */,
-				1B396BF31C96016B00986749 /* DataManagerDelegate.swift */,
-				1B396BF71C960D9B00986749 /* SQLiteDataManagerDelegate.swift */,
-				1B396BFB1C960F0D00986749 /* MySportsDiary-Bridging-Header.h */,
+				1B8866441C9F9D28007F7BEB /* Questionnaire */,
 			);
 			path = MySportsDiary;
 			sourceTree = "<group>";
@@ -158,6 +149,50 @@
 				1B396BA61C93AF0800986749 /* Info.plist */,
 			);
 			path = MySportsDiaryUITests;
+			sourceTree = "<group>";
+		};
+		1B8866441C9F9D28007F7BEB /* Questionnaire */ = {
+			isa = PBXGroup;
+			children = (
+				1B396B841C936B2F00986749 /* AgeGenderVC.swift */,
+				1B396B861C936B5F00986749 /* InitialVC.swift */,
+				1B396B881C936BBD00986749 /* QuestionsVC.swift */,
+			);
+			name = Questionnaire;
+			sourceTree = "<group>";
+		};
+		1B8866451C9F9D42007F7BEB /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				1B396BF31C96016B00986749 /* DataManagerDelegate.swift */,
+				1B396BF71C960D9B00986749 /* SQLiteDataManagerDelegate.swift */,
+				1B396BF11C96007400986749 /* DataManager.swift */,
+				1B396B8C1C9389C800986749 /* UserData.swift */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
+		1B8866461C9F9D69007F7BEB /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				1B396B721C9251D900986749 /* FirstViewController.swift */,
+				1B396B8A1C93774C00986749 /* MasterTabBarViewController.swift */,
+				1B396B741C9251D900986749 /* SecondViewController.swift */,
+			);
+			name = Main;
+			sourceTree = "<group>";
+		};
+		1B8866471C9F9D87007F7BEB /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				1B8866421C9F9C78007F7BEB /* Util.swift */,
+				1B396B791C9251D900986749 /* Assets.xcassets */,
+				1B396B701C9251D900986749 /* AppDelegate.swift */,
+				1B396B7B1C9251D900986749 /* LaunchScreen.storyboard */,
+				1B396BFB1C960F0D00986749 /* MySportsDiary-Bridging-Header.h */,
+				1B396B7E1C9251D900986749 /* Info.plist */,
+			);
+			name = Other;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -295,13 +330,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B396B751C9251D900986749 /* SecondViewController.swift in Sources */,
-				1B396B871C936B5F00986749 /* QuestionnaireViewController.swift in Sources */,
+				1B396B871C936B5F00986749 /* InitialVC.swift in Sources */,
 				1B396B8D1C9389C800986749 /* UserData.swift in Sources */,
 				1B396B8B1C93774C00986749 /* MasterTabBarViewController.swift in Sources */,
-				1B396B891C936BBD00986749 /* QuestionsViewController.swift in Sources */,
+				1B396B891C936BBD00986749 /* QuestionsVC.swift in Sources */,
 				1B396BF41C96016B00986749 /* DataManagerDelegate.swift in Sources */,
 				1B396B711C9251D900986749 /* AppDelegate.swift in Sources */,
-				1B396B851C936B2F00986749 /* AgeAndGenderViewController.swift in Sources */,
+				1B8866431C9F9C78007F7BEB /* Util.swift in Sources */,
+				1B396B851C936B2F00986749 /* AgeGenderVC.swift in Sources */,
 				1B396BF21C96007400986749 /* DataManager.swift in Sources */,
 				1B396BF81C960D9B00986749 /* SQLiteDataManagerDelegate.swift in Sources */,
 				1B396B731C9251D900986749 /* FirstViewController.swift in Sources */,

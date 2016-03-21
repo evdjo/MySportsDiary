@@ -109,7 +109,7 @@
         <!--Questionnaire-->
         <scene sceneID="Adx-SM-VtV">
             <objects>
-                <viewController id="SN9-zF-AZY" customClass="QuestionnaireViewController" customModule="MySportsDiary" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="SN9-zF-AZY" customClass="InitialVC" customModule="MySportsDiary" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="YmQ-Lb-w3J"/>
                         <viewControllerLayoutGuide type="bottom" id="Obc-kJ-r5S"/>
@@ -177,10 +177,11 @@
             </objects>
             <point key="canvasLocation" x="-974" y="748"/>
         </scene>
-        <!--Questions View Controller-->
+        <!--QuestionsVC-->
         <scene sceneID="SlR-ny-ZVV">
             <objects>
-                <viewController storyboardIdentifier="QuestionsPartB" useStoryboardIdentifierAsRestorationIdentifier="YES" id="7kt-Vz-nvq" customClass="QuestionsViewController" customModule="MySportsDiary" customModuleProvider="target" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="v46-jf-nPq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="QuestionsPartB" useStoryboardIdentifierAsRestorationIdentifier="YES" id="7kt-Vz-nvq" customClass="QuestionsVC" customModule="MySportsDiary" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="EEy-ES-auY"/>
                         <viewControllerLayoutGuide type="bottom" id="CwF-f5-nlh"/>
@@ -284,20 +285,14 @@
                             <constraint firstAttribute="trailingMargin" secondItem="5Hp-mx-Znt" secondAttribute="trailing" constant="8" id="v5l-Sc-hzQ"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outletCollection property="lickertSegmentedControls" destination="5Hp-mx-Znt" collectionClass="NSMutableArray" id="w0I-7E-guI"/>
-                        <outletCollection property="lickertSegmentedControls" destination="rOz-9I-TeS" collectionClass="NSMutableArray" id="Nhw-pB-TqZ"/>
-                        <outletCollection property="lickertSegmentedControls" destination="ONQ-XM-CeZ" collectionClass="NSMutableArray" id="HPN-y1-Lcv"/>
-                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="v46-jf-nPq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1159" y="1560"/>
         </scene>
-        <!--Age And Gender View Controller-->
+        <!--Age GenderVC-->
         <scene sceneID="Gd9-8Y-Ymc">
             <objects>
-                <viewController storyboardIdentifier="AgeAndGender" id="KBN-8C-xNN" customClass="AgeAndGenderViewController" customModule="MySportsDiary" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AgeAndGender" id="KBN-8C-xNN" customClass="AgeGenderVC" customModule="MySportsDiary" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hjw-S0-fCh"/>
                         <viewControllerLayoutGuide type="bottom" id="r5y-Mz-RyC"/>
@@ -369,10 +364,10 @@
             </objects>
             <point key="canvasLocation" x="-292" y="1560"/>
         </scene>
-        <!--Questions View Controller-->
+        <!--QuestionsVC-->
         <scene sceneID="u7F-RL-OaB">
             <objects>
-                <viewController storyboardIdentifier="QuestionsPartA" useStoryboardIdentifierAsRestorationIdentifier="YES" id="pbZ-6v-qqf" customClass="QuestionsViewController" customModule="MySportsDiary" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="QuestionsPartA" useStoryboardIdentifierAsRestorationIdentifier="YES" id="pbZ-6v-qqf" customClass="QuestionsVC" customModule="MySportsDiary" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="w7K-eN-w2N"/>
                         <viewControllerLayoutGuide type="bottom" id="b30-bO-0re"/>
@@ -476,23 +471,16 @@
                             <constraint firstItem="8Yt-Rg-Zjf" firstAttribute="centerX" secondItem="CFz-Ps-dlT" secondAttribute="centerX" id="yMV-wy-5Ud"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outletCollection property="questions" destination="cYI-2o-Mgh" collectionClass="NSMutableArray" id="W68-3w-mHx"/>
-                        <outletCollection property="questions" destination="Ywx-Jk-MmP" collectionClass="NSMutableArray" id="Dlr-Zm-ptt"/>
-                        <outletCollection property="questions" destination="K86-bc-vPG" collectionClass="NSMutableArray" id="D3b-61-HJP"/>
-                        <outletCollection property="lickertSegmentedControls" destination="cYI-2o-Mgh" collectionClass="NSMutableArray" id="lXH-gQ-Lg5"/>
-                        <outletCollection property="lickertSegmentedControls" destination="Ywx-Jk-MmP" collectionClass="NSMutableArray" id="GDw-Jd-hpt"/>
-                        <outletCollection property="lickertSegmentedControls" destination="K86-bc-vPG" collectionClass="NSMutableArray" id="mpb-Hd-ieu"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wEi-FR-lqE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="458" y="1560"/>
         </scene>
-        <!--Questions View Controller-->
+        <!--QuestionsVC-->
         <scene sceneID="eKP-j6-cYf">
             <objects>
-                <viewController storyboardIdentifier="QuestionsPartC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ded-VF-84n" customClass="QuestionsViewController" customModule="MySportsDiary" customModuleProvider="target" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rvi-ct-Vpk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="QuestionsPartC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ded-VF-84n" customClass="QuestionsVC" customModule="MySportsDiary" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9Xd-Gb-l7q"/>
                         <viewControllerLayoutGuide type="bottom" id="MUE-hu-jvO"/>
@@ -602,13 +590,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <connections>
-                        <outletCollection property="lickertSegmentedControls" destination="EZG-9a-Gvv" collectionClass="NSMutableArray" id="7B8-FC-Vcb"/>
-                        <outletCollection property="lickertSegmentedControls" destination="w3C-o8-Wjs" collectionClass="NSMutableArray" id="Obs-Kp-2qW"/>
-                        <outletCollection property="lickertSegmentedControls" destination="AEp-hI-es9" collectionClass="NSMutableArray" id="8QF-IF-Xni"/>
-                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rvi-ct-Vpk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1927" y="1560"/>
         </scene>
@@ -624,6 +606,6 @@
         <image name="second" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="zFt-bB-jtg"/>
+        <segue reference="eUc-fk-lPY"/>
     </inferredMetricsTieBreakers>
 </document>

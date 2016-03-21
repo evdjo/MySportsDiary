@@ -8,14 +8,10 @@
 
 import UIKit
 
-class QuestionsViewController: UIViewController {
+class QuestionsVC: UIViewController {
     
-    
-    @IBOutlet var lickertSegmentedControls: [UISegmentedControl]!
-    
+    public var type: QuestionnaireType?;
     private var page: Int?;
-    public var event_id = 0;
-    
     
     override func viewDidLoad() {
         super.viewDidLoad();
@@ -27,23 +23,31 @@ class QuestionsViewController: UIViewController {
             default : break;
             }
         }
-//        print("load");
-//        print(page);
     }
-    
-    
-    
     
     override func viewDidAppear(animated: Bool) {
         self.navigationController?.setNavigationBarHidden(false, animated: true);
         super.viewDidAppear(animated);
-//        print("appear");
-//        print(page);
     }
     
-    @IBOutlet var questions: [UISegmentedControl]!
-    
     @IBAction func onFinishPress(sender: AnyObject) {
+        
+        if let type = type {
+            
+            switch(type) {
+            case(.INITIAL) :
+                initialQuestionnaireFinished(); return;
+            case(.FINAL) : break
+                // final questionnaire
+            case(.NORMAL) : break
+                // another event
+                
+            }
+            
+        }
+    }
+    
+    private func initialQuestionnaireFinished() {
         // confirm
         let controller = UIAlertController(
             title: "Are you sure?",
@@ -76,22 +80,13 @@ class QuestionsViewController: UIViewController {
         controller.addAction(yesAction)
         controller.addAction(noAction)
         presentViewController(controller, animated: true, completion: nil)
-        
-        
     }
     
-    override func viewWillDisappear(animated: Bool) {
-        super.viewWillDisappear(animated);
-        
- 
-
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let vc = segue.destinationViewController as? QuestionsVC {
+        vc.type = type;
+        }
     }
 }
 
-//    override func willMoveToParentViewController(parent: UIViewController?) {
-//        page--;
-//        print("current page is  --\(page)");
-//
-//    }
-//
 

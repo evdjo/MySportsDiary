@@ -8,14 +8,14 @@
 
 import UIKit
 
-class QuestionnaireViewController: UIViewController {
+class InitialVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
     override func viewDidAppear(animated: Bool) {
-    
+        
         if(!UserData.initialQuestionnareAnswered) {
             self.tabBarController!.tabBar.items![1].enabled = false;
             self.tabBarController!.tabBar.items![2].enabled = false;
@@ -30,7 +30,7 @@ class QuestionnaireViewController: UIViewController {
         
         self.navigationController?.setNavigationBarHidden(true, animated: true);
         super.viewDidAppear(animated);
-
+        
     }
     
     @IBOutlet weak var mainLabel: UILabel!
@@ -38,10 +38,18 @@ class QuestionnaireViewController: UIViewController {
     @IBAction func onSurveyBegin(sender: AnyObject) {
         if(!UserData.initialQuestionnareAnswered) {
             self.performSegueWithIdentifier("AgeAndGenderSegue", sender: sender);
+            
         } else {
             self.performSegueWithIdentifier("QuestionnaireSegue", sender: sender);
         }
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let vc = segue.destinationViewController as? QuestionsVC {
+            vc.current_event = 1;
+        }
+    }
+    
     
     @IBOutlet weak var beginButton: UIButton!
 }

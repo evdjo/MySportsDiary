@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AgeAndGenderViewController: UIViewController {
+class AgeGenderVC: UIViewController {
     
     
     @IBOutlet weak var genderSegmentedControl: UISegmentedControl!
@@ -41,6 +41,7 @@ class AgeAndGenderViewController: UIViewController {
     }
     @IBAction func onAgeSliderValueChanged(sender: UISlider) {
         DataManager.getManagerInstance().saveAge(Int(ageSlider.value));
+        ageIsSet = true;
         if(genderIsSet) {
             nextButton.enabled = true;
             nextButton.alpha = 1.0;
@@ -73,6 +74,12 @@ class AgeAndGenderViewController: UIViewController {
             ageIsSet = true;
         } else {print("age was not set yet, not loading ");ageIsSet=false;}
         
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let vc = segue.destinationViewController as? QuestionsVC {
+            vc.current_event = 0;
+        }
     }
     
 }

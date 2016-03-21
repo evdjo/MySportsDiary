@@ -20,7 +20,3 @@ protocol DataManagerDelegate {
 }
 
 
-enum Gender : Int {
-   case BOY = 1
-   case GIRL = 2
-}
