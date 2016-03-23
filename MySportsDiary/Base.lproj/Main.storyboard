@@ -466,10 +466,14 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="gmI-os-Y9J">
+                                <rect key="frame" x="18" y="332" width="564" height="31"/>
+                            </slider>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="Ywx-Jk-MmP" secondAttribute="trailing" constant="8" id="0Ci-1N-EVd"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="gmI-os-Y9J" secondAttribute="trailing" id="1du-js-J7p"/>
                             <constraint firstAttribute="trailingMargin" secondItem="K86-bc-vPG" secondAttribute="trailing" constant="8" id="3rf-zZ-xq3"/>
                             <constraint firstItem="9uc-DB-nY0" firstAttribute="leading" secondItem="CFz-Ps-dlT" secondAttribute="leadingMargin" id="5Dm-92-8r6"/>
                             <constraint firstItem="K86-bc-vPG" firstAttribute="leading" secondItem="CFz-Ps-dlT" secondAttribute="leadingMargin" constant="8" id="AFv-A8-x9O"/>
@@ -478,10 +482,12 @@
                             <constraint firstItem="Gtp-vC-73r" firstAttribute="top" secondItem="w7K-eN-w2N" secondAttribute="bottom" constant="8" id="R20-tO-cCr"/>
                             <constraint firstItem="Gtp-vC-73r" firstAttribute="centerX" secondItem="CFz-Ps-dlT" secondAttribute="centerX" id="Weo-Xt-Iwa"/>
                             <constraint firstItem="Ywx-Jk-MmP" firstAttribute="top" secondItem="9uc-DB-nY0" secondAttribute="bottom" constant="8" id="Xd3-Ll-f9k"/>
+                            <constraint firstItem="gmI-os-Y9J" firstAttribute="top" secondItem="K86-bc-vPG" secondAttribute="bottom" constant="25" id="XvT-7Y-qNE"/>
                             <constraint firstAttribute="trailingMargin" secondItem="cYI-2o-Mgh" secondAttribute="trailing" constant="8" id="cNd-Be-XFU"/>
                             <constraint firstItem="8Yt-Rg-Zjf" firstAttribute="leading" secondItem="CFz-Ps-dlT" secondAttribute="leadingMargin" id="eeZ-23-BUG"/>
                             <constraint firstAttribute="trailingMargin" secondItem="II1-0a-9Up" secondAttribute="trailing" constant="8" id="ek4-Qa-G5y"/>
                             <constraint firstItem="cYI-2o-Mgh" firstAttribute="leading" secondItem="CFz-Ps-dlT" secondAttribute="leadingMargin" constant="8" id="fDy-3B-ci4"/>
+                            <constraint firstItem="gmI-os-Y9J" firstAttribute="leading" secondItem="CFz-Ps-dlT" secondAttribute="leadingMargin" id="j9z-rq-24m"/>
                             <constraint firstItem="Gtp-vC-73r" firstAttribute="leading" secondItem="CFz-Ps-dlT" secondAttribute="leadingMargin" id="mfX-nO-tFO"/>
                             <constraint firstAttribute="trailingMargin" secondItem="8Yt-Rg-Zjf" secondAttribute="trailing" id="nCE-An-fe5"/>
                             <constraint firstItem="II1-0a-9Up" firstAttribute="top" secondItem="AEq-4L-DRe" secondAttribute="bottom" constant="8" id="sgP-R5-KvH"/>

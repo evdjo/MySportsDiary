@@ -10,22 +10,68 @@ import Foundation
 
 class PlistDataSource: DataSource {
     
-    
-    private let UserInfo = "userinfo.plist";
+    private let UserInfoFile = "userinfo.plist";
     private let AGE = "AGE";
     private let GENDER = "GENDER";
-    private let AnswersTemp = "answerstemp.plist"
+    
+    private let APPSTATE = "APPSTATE";
+    private let AppPropertiesFile = "appstate.plist";
+    
+    private let AnswersTempFile = "answerstemp.plist";
     
     
     
-    func initialQuestionnareAnswered() -> Bool {
-        return getProperty(AGE) != nil && getProperty(GENDER) != nil;
+    
+    ///
+    /// Application state
+    ///
+    func getAppState() -> ApplicationState? {
+        let fileURL = dataFileURL(AppPropertiesFile)
+        if (NSFileManager.defaultManager().fileExistsAtPath(fileURL.path!)) {
+            if let dict = NSDictionary(contentsOfURL: fileURL) as? Dictionary<String,String> {
+                if let appState = dict[APPSTATE] {
+                    return ApplicationState(rawValue: appState)
+                }
+            }
+        }
+        return nil;
+    }
+    
+    func setAppState(appState: ApplicationState){
+        let fileURL = dataFileURL(AppPropertiesFile)
+        if (NSFileManager.defaultManager().fileExistsAtPath(fileURL.path!)) {
+            if var dict = NSDictionary(contentsOfURL: fileURL) as? Dictionary<String,String> {
+                dict.updateValue(appState.rawValue, forKey: APPSTATE);
+                (dict as NSDictionary).writeToURL(fileURL,atomically: true);
+            }
+        } else {
+            ([APPSTATE : appState.rawValue] as NSDictionary).writeToURL(fileURL, atomically: true);
+        }
+        
+        
+    }
+    func saveCurrentAnswersInitial(){
+        
     }
     
     
     
-    func getProperty(key: String) ->Int? {
-        let fileURL = dataFileURL(UserInfo)
+    ///
+    /// Age and Gender
+    ///
+    func getAge()-> Int? {
+        return getUserProperty(AGE);
+    }
+    
+    func getGender()-> Gender? {
+        if let gender = getUserProperty(GENDER) {
+            return Gender(rawValue: gender);
+        }
+        return nil;
+    }
+    
+    private func getUserProperty(key: String) ->Int? {
+        let fileURL = dataFileURL(UserInfoFile)
         if (NSFileManager.defaultManager().fileExistsAtPath(fileURL.path!)) {
             if var dict = NSDictionary(contentsOfURL: fileURL) as? Dictionary<String,Int> {
                 return dict[key];
@@ -34,16 +80,8 @@ class PlistDataSource: DataSource {
         return nil;
     }
     
-    ///
-    /// Age
-    ///
-    func getAge()-> Int? {
-        return getProperty(AGE);
-    }
-    
-    
     func setAge(age:Int) {
-        let fileURL = dataFileURL(UserInfo)
+        let fileURL = dataFileURL(UserInfoFile)
         if (NSFileManager.defaultManager().fileExistsAtPath(fileURL.path!)) {
             if var dict = NSDictionary(contentsOfURL: fileURL) as? Dictionary<String,Int> {
                 dict[AGE] = age;
@@ -54,19 +92,10 @@ class PlistDataSource: DataSource {
         }
     }
     
-    ///
-    /// Gender
-    ///
-    func getGender()-> Gender? {
-        if let gender = getProperty(GENDER) {
-            return Gender(rawValue: gender);
-        }
-        return nil;
-    }
     
     
     func setGender(gender:Gender) {
-        let fileURL = dataFileURL(UserInfo)
+        let fileURL = dataFileURL(UserInfoFile)
         if (NSFileManager.defaultManager().fileExistsAtPath(fileURL.path!)) {
             if var dict = NSDictionary(contentsOfURL: fileURL) as? Dictionary<String,Int> {
                 dict[GENDER] = gender.rawValue;
@@ -80,11 +109,11 @@ class PlistDataSource: DataSource {
     
     
     ///
-    /// Questionnaire answers
+    /// Questionnaire temp answers
     ///
     
     func saveAnswer(questionID: Int, answer: Int) {
-        let fileURL = dataFileURL(AnswersTemp)
+        let fileURL = dataFileURL(AnswersTempFile)
         if (NSFileManager.defaultManager().fileExistsAtPath(fileURL.path!)) {
             if var dict = NSDictionary(contentsOfURL: fileURL) as? Dictionary<String,Int> {
                 dict.updateValue(answer, forKey: String(questionID));
@@ -97,7 +126,7 @@ class PlistDataSource: DataSource {
     }
     
     func getAnswer(questionID: Int) -> Int? {
-        let fileURL = dataFileURL(AnswersTemp)
+        let fileURL = dataFileURL(AnswersTempFile)
         if (NSFileManager.defaultManager().fileExistsAtPath(fileURL.path!)) {
             if var dict = NSDictionary(contentsOfURL: fileURL) as? Dictionary<String,Int> {
                 return dict[String(questionID)];
@@ -105,5 +134,4 @@ class PlistDataSource: DataSource {
         }
         return nil;
     }
-    
 }

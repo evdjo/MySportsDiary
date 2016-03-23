@@ -17,7 +17,6 @@
 		1B396B871C936B5F00986749 /* InitialVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B396B861C936B5F00986749 /* InitialVC.swift */; };
 		1B396B891C936BBD00986749 /* QuestionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B396B881C936BBD00986749 /* QuestionsVC.swift */; };
 		1B396B8B1C93774C00986749 /* MasterTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B396B8A1C93774C00986749 /* MasterTabBarViewController.swift */; };
-		1B396B8D1C9389C800986749 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B396B8C1C9389C800986749 /* UserData.swift */; };
 		1B396B951C93AD9600986749 /* MySportsDiaryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B396B941C93AD9600986749 /* MySportsDiaryTests.swift */; };
 		1B396BA51C93AF0800986749 /* MySportsDiaryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B396BA41C93AF0800986749 /* MySportsDiaryUITests.swift */; };
 		1B396BF21C96007400986749 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B396BF11C96007400986749 /* DataManager.swift */; };
@@ -58,7 +57,6 @@
 		1B396B861C936B5F00986749 /* InitialVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialVC.swift; sourceTree = "<group>"; };
 		1B396B881C936BBD00986749 /* QuestionsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionsVC.swift; sourceTree = "<group>"; };
 		1B396B8A1C93774C00986749 /* MasterTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterTabBarViewController.swift; sourceTree = "<group>"; };
-		1B396B8C1C9389C800986749 /* UserData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		1B396B921C93AD9600986749 /* MySportsDiaryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MySportsDiaryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B396B941C93AD9600986749 /* MySportsDiaryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySportsDiaryTests.swift; sourceTree = "<group>"; };
 		1B396B961C93AD9600986749 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -164,9 +162,9 @@
 		1B8866451C9F9D42007F7BEB /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				1B8866421C9F9C78007F7BEB /* Util.swift */,
 				1B396BF71C960D9B00986749 /* SQLiteDataManagerDelegate.swift */,
 				1B396BF11C96007400986749 /* DataManager.swift */,
-				1B396B8C1C9389C800986749 /* UserData.swift */,
 				1B84158D1CA03F20001EF9CE /* PlistDataSource.swift */,
 			);
 			name = Data;
@@ -185,7 +183,6 @@
 		1B8866471C9F9D87007F7BEB /* Other */ = {
 			isa = PBXGroup;
 			children = (
-				1B8866421C9F9C78007F7BEB /* Util.swift */,
 				1B396B791C9251D900986749 /* Assets.xcassets */,
 				1B396B701C9251D900986749 /* AppDelegate.swift */,
 				1B396B7B1C9251D900986749 /* LaunchScreen.storyboard */,
@@ -331,7 +328,6 @@
 			files = (
 				1B396B751C9251D900986749 /* SecondViewController.swift in Sources */,
 				1B396B871C936B5F00986749 /* InitialVC.swift in Sources */,
-				1B396B8D1C9389C800986749 /* UserData.swift in Sources */,
 				1B396B8B1C93774C00986749 /* MasterTabBarViewController.swift in Sources */,
 				1B396B891C936BBD00986749 /* QuestionsVC.swift in Sources */,
 				1B396B711C9251D900986749 /* AppDelegate.swift in Sources */,

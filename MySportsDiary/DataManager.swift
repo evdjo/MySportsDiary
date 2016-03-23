@@ -35,13 +35,19 @@ class DataManager {
     
 }
 protocol DataSource {
+
     func getAge()-> Int?
     func getGender()-> Gender?
+    
     func setAge(age:Int)
     func setGender(gender:Gender)
+    
     func saveAnswer(questionID: Int, answer: Int)
     func getAnswer(questionID: Int) -> Int?
-    func initialQuestionnareAnswered() -> Bool
     
+    func getAppState() -> ApplicationState?
+    func setAppState(appState: ApplicationState);
+    func saveCurrentAnswersInitial();
+
 }
 

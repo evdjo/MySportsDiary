@@ -24,9 +24,8 @@ class AgeGenderVC: UIViewController {
     /// enable/disable next button
     ///
     override func viewDidAppear(animated: Bool) {
-        self.navigationController?.setNavigationBarHidden(false, animated: true);
-        super.viewDidAppear(animated);
-        loadAge(); loadGender();
+        loadAge();
+        loadGender();
         if(ageIsSet && genderIsSet) {
             nextButton.enabled = true;
             nextButton.alpha = 1.0;
@@ -34,6 +33,9 @@ class AgeGenderVC: UIViewController {
             nextButton.enabled = false;
             nextButton.alpha = 0.5;
         }
+        
+        self.navigationController?.setNavigationBarHidden(false, animated: true);
+        super.viewDidAppear(animated);
     }
     ///
     /// Persist the age and gender
@@ -82,15 +84,4 @@ class AgeGenderVC: UIViewController {
             nextButton.alpha = 1.0;
         }
     }
-    
-
-    ///
-    /// If we start from the age and gender, then it is the inital questionnaire
-    ///
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let vc = segue.destinationViewController as? QuestionsVC {
-            vc.type = .INITIAL;
-        }
-    }
-    
 }

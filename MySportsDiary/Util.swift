@@ -9,19 +9,30 @@
 import Foundation
 
 
+///
+/// Gender 
+///
 enum Gender : Int {
     case BOY = 1
     case GIRL = 2
 }
 
-enum QuestionnaireType {
-    
-    case INITIAL
-    case FINAL
-    case NORMAL
-    
+
+
+///
+/// Initial means we need to ask initial questionnaire & age/gender
+/// Diary means the user is currently able to record new events
+/// Final means the user must answer the final questionnaire and send the data
+///
+enum ApplicationState : String {
+    case Initial = "InitialState"
+    case Diary = "DiaryState"
+    case Final = "FinalState"
 }
 
+///
+/// File path/url functions
+///
 internal func dataFilePath(whichFile: String) -> String {
     let urls = NSFileManager.defaultManager().URLsForDirectory(
         .DocumentDirectory, inDomains: .UserDomainMask);
