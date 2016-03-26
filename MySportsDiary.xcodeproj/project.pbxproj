@@ -18,13 +18,15 @@
 		1B396B891C936BBD00986749 /* QuestionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B396B881C936BBD00986749 /* QuestionsVC.swift */; };
 		1B396B8B1C93774C00986749 /* MasterTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B396B8A1C93774C00986749 /* MasterTabBarViewController.swift */; };
 		1B396B951C93AD9600986749 /* MySportsDiaryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B396B941C93AD9600986749 /* MySportsDiaryTests.swift */; };
-		1B396BA51C93AF0800986749 /* MySportsDiaryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B396BA41C93AF0800986749 /* MySportsDiaryUITests.swift */; };
 		1B396BF21C96007400986749 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B396BF11C96007400986749 /* DataManager.swift */; };
 		1B396BF81C960D9B00986749 /* SQLiteDataManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B396BF71C960D9B00986749 /* SQLiteDataManagerDelegate.swift */; };
 		1B396BFA1C960EB000986749 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B396BF91C960EB000986749 /* libsqlite3.tbd */; };
 		1B396BFF1C96200500986749 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B396BF91C960EB000986749 /* libsqlite3.tbd */; };
+		1B510DA61CA742FD008A4F6B /* QuestionnaireUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B510DA51CA742FD008A4F6B /* QuestionnaireUITests.swift */; };
+		1B510DA81CA74D14008A4F6B /* Dummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B510DA71CA74D14008A4F6B /* Dummy.swift */; };
 		1B84158E1CA03F20001EF9CE /* PlistDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B84158D1CA03F20001EF9CE /* PlistDataSource.swift */; };
 		1B8866431C9F9C78007F7BEB /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8866421C9F9C78007F7BEB /* Util.swift */; };
+		1BC2B9C71CA7418A00F519AF /* MySportsDiaryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC2B9C61CA7418A00F519AF /* MySportsDiaryUITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,7 +37,7 @@
 			remoteGlobalIDString = 1B396B6C1C9251D900986749;
 			remoteInfo = MySportsDiary;
 		};
-		1B396BA71C93AF0800986749 /* PBXContainerItemProxy */ = {
+		1BC2B9C91CA7418A00F519AF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 1B396B651C9251D900986749 /* Project object */;
 			proxyType = 1;
@@ -60,15 +62,17 @@
 		1B396B921C93AD9600986749 /* MySportsDiaryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MySportsDiaryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B396B941C93AD9600986749 /* MySportsDiaryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySportsDiaryTests.swift; sourceTree = "<group>"; };
 		1B396B961C93AD9600986749 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1B396BA21C93AF0800986749 /* MySportsDiaryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MySportsDiaryUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1B396BA41C93AF0800986749 /* MySportsDiaryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySportsDiaryUITests.swift; sourceTree = "<group>"; };
-		1B396BA61C93AF0800986749 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1B396BF11C96007400986749 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		1B396BF71C960D9B00986749 /* SQLiteDataManagerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLiteDataManagerDelegate.swift; sourceTree = "<group>"; };
 		1B396BF91C960EB000986749 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		1B396BFB1C960F0D00986749 /* MySportsDiary-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MySportsDiary-Bridging-Header.h"; sourceTree = "<group>"; };
+		1B510DA51CA742FD008A4F6B /* QuestionnaireUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionnaireUITests.swift; sourceTree = "<group>"; };
+		1B510DA71CA74D14008A4F6B /* Dummy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dummy.swift; sourceTree = "<group>"; };
 		1B84158D1CA03F20001EF9CE /* PlistDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlistDataSource.swift; sourceTree = "<group>"; };
 		1B8866421C9F9C78007F7BEB /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		1BC2B9C41CA7418A00F519AF /* MySportsDiaryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MySportsDiaryUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1BC2B9C61CA7418A00F519AF /* MySportsDiaryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySportsDiaryUITests.swift; sourceTree = "<group>"; };
+		1BC2B9C81CA7418A00F519AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,7 +92,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		1B396B9F1C93AF0800986749 /* Frameworks */ = {
+		1BC2B9C11CA7418A00F519AF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -104,7 +108,7 @@
 				1B396BF91C960EB000986749 /* libsqlite3.tbd */,
 				1B396B6F1C9251D900986749 /* MySportsDiary */,
 				1B396B931C93AD9600986749 /* MySportsDiaryTests */,
-				1B396BA31C93AF0800986749 /* MySportsDiaryUITests */,
+				1BC2B9C51CA7418A00F519AF /* MySportsDiaryUITests */,
 				1B396B6E1C9251D900986749 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -114,7 +118,7 @@
 			children = (
 				1B396B6D1C9251D900986749 /* MySportsDiary.app */,
 				1B396B921C93AD9600986749 /* MySportsDiaryTests.xctest */,
-				1B396BA21C93AF0800986749 /* MySportsDiaryUITests.xctest */,
+				1BC2B9C41CA7418A00F519AF /* MySportsDiaryUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -136,17 +140,9 @@
 			children = (
 				1B396B941C93AD9600986749 /* MySportsDiaryTests.swift */,
 				1B396B961C93AD9600986749 /* Info.plist */,
+				1B510DA71CA74D14008A4F6B /* Dummy.swift */,
 			);
 			path = MySportsDiaryTests;
-			sourceTree = "<group>";
-		};
-		1B396BA31C93AF0800986749 /* MySportsDiaryUITests */ = {
-			isa = PBXGroup;
-			children = (
-				1B396BA41C93AF0800986749 /* MySportsDiaryUITests.swift */,
-				1B396BA61C93AF0800986749 /* Info.plist */,
-			);
-			path = MySportsDiaryUITests;
 			sourceTree = "<group>";
 		};
 		1B8866441C9F9D28007F7BEB /* Questionnaire */ = {
@@ -192,6 +188,16 @@
 			name = Other;
 			sourceTree = "<group>";
 		};
+		1BC2B9C51CA7418A00F519AF /* MySportsDiaryUITests */ = {
+			isa = PBXGroup;
+			children = (
+				1BC2B9C61CA7418A00F519AF /* MySportsDiaryUITests.swift */,
+				1BC2B9C81CA7418A00F519AF /* Info.plist */,
+				1B510DA51CA742FD008A4F6B /* QuestionnaireUITests.swift */,
+			);
+			path = MySportsDiaryUITests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -230,22 +236,22 @@
 			productReference = 1B396B921C93AD9600986749 /* MySportsDiaryTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		1B396BA11C93AF0800986749 /* MySportsDiaryUITests */ = {
+		1BC2B9C31CA7418A00F519AF /* MySportsDiaryUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1B396BA91C93AF0800986749 /* Build configuration list for PBXNativeTarget "MySportsDiaryUITests" */;
+			buildConfigurationList = 1BC2B9CB1CA7418A00F519AF /* Build configuration list for PBXNativeTarget "MySportsDiaryUITests" */;
 			buildPhases = (
-				1B396B9E1C93AF0800986749 /* Sources */,
-				1B396B9F1C93AF0800986749 /* Frameworks */,
-				1B396BA01C93AF0800986749 /* Resources */,
+				1BC2B9C01CA7418A00F519AF /* Sources */,
+				1BC2B9C11CA7418A00F519AF /* Frameworks */,
+				1BC2B9C21CA7418A00F519AF /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				1B396BA81C93AF0800986749 /* PBXTargetDependency */,
+				1BC2B9CA1CA7418A00F519AF /* PBXTargetDependency */,
 			);
 			name = MySportsDiaryUITests;
 			productName = MySportsDiaryUITests;
-			productReference = 1B396BA21C93AF0800986749 /* MySportsDiaryUITests.xctest */;
+			productReference = 1BC2B9C41CA7418A00F519AF /* MySportsDiaryUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -254,7 +260,7 @@
 		1B396B651C9251D900986749 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0720;
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Evdzhan Mustafa";
 				TargetAttributes = {
@@ -267,8 +273,8 @@
 						DevelopmentTeam = THUMBBZ8LL;
 						TestTargetID = 1B396B6C1C9251D900986749;
 					};
-					1B396BA11C93AF0800986749 = {
-						CreatedOnToolsVersion = 7.2;
+					1BC2B9C31CA7418A00F519AF = {
+						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = THUMBBZ8LL;
 						TestTargetID = 1B396B6C1C9251D900986749;
 					};
@@ -289,7 +295,7 @@
 			targets = (
 				1B396B6C1C9251D900986749 /* MySportsDiary */,
 				1B396B911C93AD9600986749 /* MySportsDiaryTests */,
-				1B396BA11C93AF0800986749 /* MySportsDiaryUITests */,
+				1BC2B9C31CA7418A00F519AF /* MySportsDiaryUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -312,7 +318,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		1B396BA01C93AF0800986749 /* Resources */ = {
+		1BC2B9C21CA7418A00F519AF /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -344,15 +350,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B510DA81CA74D14008A4F6B /* Dummy.swift in Sources */,
 				1B396B951C93AD9600986749 /* MySportsDiaryTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		1B396B9E1C93AF0800986749 /* Sources */ = {
+		1BC2B9C01CA7418A00F519AF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1B396BA51C93AF0800986749 /* MySportsDiaryUITests.swift in Sources */,
+				1BC2B9C71CA7418A00F519AF /* MySportsDiaryUITests.swift in Sources */,
+				1B510DA61CA742FD008A4F6B /* QuestionnaireUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,10 +372,10 @@
 			target = 1B396B6C1C9251D900986749 /* MySportsDiary */;
 			targetProxy = 1B396B971C93AD9600986749 /* PBXContainerItemProxy */;
 		};
-		1B396BA81C93AF0800986749 /* PBXTargetDependency */ = {
+		1BC2B9CA1CA7418A00F519AF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 1B396B6C1C9251D900986749 /* MySportsDiary */;
-			targetProxy = 1B396BA71C93AF0800986749 /* PBXContainerItemProxy */;
+			targetProxy = 1BC2B9C91CA7418A00F519AF /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -427,7 +435,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -466,7 +474,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -480,6 +488,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = MySportsDiary/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = uk.ac.aber.MySportsDiary;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -494,6 +503,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = MySportsDiary/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = uk.ac.aber.MySportsDiary;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -506,6 +516,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = MySportsDiaryTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = uk.ac.aber.MySportsDiaryTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -518,6 +529,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = MySportsDiaryTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = uk.ac.aber.MySportsDiaryTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -525,27 +537,29 @@
 			};
 			name = Release;
 		};
-		1B396BAA1C93AF0800986749 /* Debug */ = {
+		1BC2B9CC1CA7418A00F519AF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
 				INFOPLIST_FILE = MySportsDiaryUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = uk.ac.aber.MySportsDiaryUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = uk.ac.aber.enm3.MySportsDiaryUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_TARGET_NAME = MySportsDiary;
-				USES_XCTRUNNER = YES;
 			};
 			name = Debug;
 		};
-		1B396BAB1C93AF0800986749 /* Release */ = {
+		1BC2B9CD1CA7418A00F519AF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
 				INFOPLIST_FILE = MySportsDiaryUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = uk.ac.aber.MySportsDiaryUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = uk.ac.aber.enm3.MySportsDiaryUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_TARGET_NAME = MySportsDiary;
-				USES_XCTRUNNER = YES;
 			};
 			name = Release;
 		};
@@ -579,11 +593,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1B396BA91C93AF0800986749 /* Build configuration list for PBXNativeTarget "MySportsDiaryUITests" */ = {
+		1BC2B9CB1CA7418A00F519AF /* Build configuration list for PBXNativeTarget "MySportsDiaryUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1B396BAA1C93AF0800986749 /* Debug */,
-				1B396BAB1C93AF0800986749 /* Release */,
+				1BC2B9CC1CA7418A00F519AF /* Debug */,
+				1BC2B9CD1CA7418A00F519AF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -20,6 +20,20 @@
                ReferencedContainer = "container:MySportsDiary.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "1B396B911C93AD9600986749"
+               BuildableName = "MySportsDiaryTests.xctest"
+               BlueprintName = "MySportsDiaryTests"
+               ReferencedContainer = "container:MySportsDiary.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -32,9 +46,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1B396B911C93AD9600986749"
-               BuildableName = "MySportsDiaryTests.xctest"
-               BlueprintName = "MySportsDiaryTests"
+               BlueprintIdentifier = "1B396BA11C93AF0800986749"
+               BuildableName = "MySportsDiaryUITests.xctest"
+               BlueprintName = "MySportsDiaryUITests"
                ReferencedContainer = "container:MySportsDiary.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -42,9 +56,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1B396BA11C93AF0800986749"
-               BuildableName = "MySportsDiaryUITests.xctest"
-               BlueprintName = "MySportsDiaryUITests"
+               BlueprintIdentifier = "1BC2B9B11CA73F9200F519AF"
+               BuildableName = "QuestionnaireUITests.xctest"
+               BlueprintName = "QuestionnaireUITests"
                ReferencedContainer = "container:MySportsDiary.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -58,6 +72,12 @@
             ReferencedContainer = "container:MySportsDiary.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
+      <CommandLineArguments>
+         <CommandLineArgument
+            argument = "TEST_ENVIRONMENT"
+            isEnabled = "YES">
+         </CommandLineArgument>
+      </CommandLineArguments>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -81,6 +101,12 @@
             ReferencedContainer = "container:MySportsDiary.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <CommandLineArguments>
+         <CommandLineArgument
+            argument = "TEST_ENVIRONMENT"
+            isEnabled = "YES">
+         </CommandLineArgument>
+      </CommandLineArguments>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>

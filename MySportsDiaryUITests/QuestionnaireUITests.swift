@@ -52,6 +52,7 @@ class QuestionnaireUITests: XCTestCase {
         ///
         /// Assert only the first tab is enabled
         ///
+        
         XCTAssertTrue(tabBarQuestionnaire.selected);
         XCTAssertFalse(tabBarFirst.selected);
         XCTAssertFalse(tabBarSecond.selected);

@@ -11,6 +11,8 @@ import XCTest
 class MySportsDiaryTests: XCTestCase {
     
     override func setUp() {
+        DataManager.getManagerInstance().deleteAllFiles();
+        DataManager.getManagerInstance().setAppState(.Initial);
         super.setUp()
     }
     
@@ -42,12 +44,5 @@ class MySportsDiaryTests: XCTestCase {
         XCTAssertEqual(appState, .Final);
     }
     
-    
-//    func testAppInitialStartAppStateIsInitialButChangesToDiaryWhenQuestionnaireFinished() {
-//        var appState = DataManager.getManagerInstance().getAppState();
-//        XCTAssertEqual(appState, .Initial);
-//        
-//    }
-
     
 }

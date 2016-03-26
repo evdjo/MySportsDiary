@@ -32,7 +32,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1B396BA11C93AF0800986749"
+               BlueprintIdentifier = "1BC2B9C31CA7418A00F519AF"
                BuildableName = "MySportsDiaryUITests.xctest"
                BlueprintName = "MySportsDiaryUITests"
                ReferencedContainer = "container:MySportsDiary.xcodeproj">
@@ -71,6 +71,12 @@
             ReferencedContainer = "container:MySportsDiary.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <CommandLineArguments>
+         <CommandLineArgument
+            argument = "TEST_ENVIRONMENT"
+            isEnabled = "YES">
+         </CommandLineArgument>
+      </CommandLineArguments>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
