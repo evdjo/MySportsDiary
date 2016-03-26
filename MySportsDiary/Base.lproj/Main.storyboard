@@ -192,11 +192,11 @@
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="5Hp-mx-Znt">
                                 <rect key="frame" x="28" y="101" width="544" height="29"/>
                                 <segments>
-                                    <segment title="" image="Crying-50"/>
-                                    <segment title="" image="Sad-50"/>
-                                    <segment title="" image="Neutral-50"/>
-                                    <segment title="" image="Happy-50"/>
-                                    <segment title="" image="Cool-50"/>
+                                    <segment title="" image="1"/>
+                                    <segment title="" image="2"/>
+                                    <segment title="" image="3"/>
+                                    <segment title="" image="4"/>
+                                    <segment title="" image="5"/>
                                 </segments>
                                 <connections>
                                     <action selector="onAnswerSelected:" destination="7kt-Vz-nvq" eventType="valueChanged" id="oQo-Jw-sqD"/>
@@ -211,11 +211,11 @@
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="rOz-9I-TeS">
                                 <rect key="frame" x="28" y="189" width="544" height="29"/>
                                 <segments>
-                                    <segment title="" image="Crying-50"/>
-                                    <segment title="" image="Sad-50"/>
-                                    <segment title="" image="Neutral-50"/>
-                                    <segment title="" image="Happy-50"/>
-                                    <segment title="" image="Cool-50"/>
+                                    <segment title="" image="1"/>
+                                    <segment title="" image="2"/>
+                                    <segment title="" image="3"/>
+                                    <segment title="" image="4"/>
+                                    <segment title="" image="5"/>
                                 </segments>
                                 <connections>
                                     <action selector="onAnswerSelected:" destination="7kt-Vz-nvq" eventType="valueChanged" id="RKr-Zp-KIV"/>
@@ -230,11 +230,11 @@
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="ONQ-XM-CeZ">
                                 <rect key="frame" x="28" y="278" width="544" height="29"/>
                                 <segments>
-                                    <segment title="" image="Crying-50"/>
-                                    <segment title="" image="Sad-50"/>
-                                    <segment title="" image="Neutral-50"/>
-                                    <segment title="" image="Happy-50"/>
-                                    <segment title="" image="Cool-50"/>
+                                    <segment title="" image="1"/>
+                                    <segment title="" image="2"/>
+                                    <segment title="" image="3"/>
+                                    <segment title="" image="4"/>
+                                    <segment title="" image="5"/>
                                 </segments>
                                 <connections>
                                     <action selector="onAnswerSelected:" destination="7kt-Vz-nvq" eventType="valueChanged" id="uaE-hC-EAc"/>
@@ -317,7 +317,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BAa-cl-7ax">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BAa-cl-7ax">
                                 <rect key="frame" x="20" y="105" width="32" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="32" id="sNZ-IE-a25"/>
@@ -333,16 +333,6 @@
                                     <action selector="onAgeSliderValueChanged:" destination="KBN-8C-xNN" eventType="touchUpInside" id="koe-xU-j3L"/>
                                 </connections>
                             </slider>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="Mer-OE-1HC">
-                                <rect key="frame" x="28" y="216" width="544" height="29"/>
-                                <segments>
-                                    <segment title="Boy"/>
-                                    <segment title="Girl"/>
-                                </segments>
-                                <connections>
-                                    <action selector="onGenderSegmentChanged:" destination="KBN-8C-xNN" eventType="valueChanged" id="LUd-Y0-JxN"/>
-                                </connections>
-                            </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How old are you?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xUg-rL-XRX">
                                 <rect key="frame" x="234" y="72" width="132" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -365,6 +355,16 @@
                                     <segue destination="pbZ-6v-qqf" kind="show" identifier="toPageOne" id="zFt-bB-jtg"/>
                                 </connections>
                             </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" restorationIdentifier="GenderSegmentedControl" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="Mer-OE-1HC">
+                                <rect key="frame" x="28" y="216" width="544" height="29"/>
+                                <segments>
+                                    <segment title="Boy"/>
+                                    <segment title="Girl"/>
+                                </segments>
+                                <connections>
+                                    <action selector="onGenderSegmentChanged:" destination="KBN-8C-xNN" eventType="valueChanged" id="LUd-Y0-JxN"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -387,8 +387,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="ageLabel" destination="BAa-cl-7ax" id="gKP-S0-9QX"/>
                         <outlet property="ageSlider" destination="8Vk-qR-bpS" id="Ll2-wj-p3s"/>
-                        <outlet property="ageTextField" destination="BAa-cl-7ax" id="KEc-iW-5s8"/>
                         <outlet property="genderSegmentedControl" destination="Mer-OE-1HC" id="nG2-R8-iVe"/>
                         <outlet property="nextButton" destination="FcI-tA-V46" id="ZQn-kV-huo"/>
                     </connections>
@@ -429,11 +429,11 @@
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="cYI-2o-Mgh">
                                 <rect key="frame" x="28" y="101" width="544" height="29"/>
                                 <segments>
-                                    <segment title="" image="Crying-50"/>
-                                    <segment title="" image="Sad-50"/>
-                                    <segment title="" image="Neutral-50"/>
-                                    <segment title="" image="Happy-50"/>
-                                    <segment title="" image="Cool-50"/>
+                                    <segment title="" image="1"/>
+                                    <segment title="" image="2"/>
+                                    <segment title="" image="3"/>
+                                    <segment title="" image="4"/>
+                                    <segment title="" image="5"/>
                                 </segments>
                                 <connections>
                                     <action selector="onAnswerSelected:" destination="pbZ-6v-qqf" eventType="valueChanged" id="hpE-P9-bcg"/>
@@ -454,11 +454,11 @@
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="K86-bc-vPG">
                                 <rect key="frame" x="28" y="279" width="544" height="29"/>
                                 <segments>
-                                    <segment title="" image="Crying-50"/>
-                                    <segment title="" image="Sad-50"/>
-                                    <segment title="" image="Neutral-50"/>
-                                    <segment title="" image="Happy-50"/>
-                                    <segment title="" image="Cool-50"/>
+                                    <segment title="" image="1"/>
+                                    <segment title="" image="2"/>
+                                    <segment title="" image="3"/>
+                                    <segment title="" image="4"/>
+                                    <segment title="" image="5"/>
                                 </segments>
                                 <connections>
                                     <action selector="onAnswerSelected:" destination="pbZ-6v-qqf" eventType="valueChanged" id="CXe-FT-gl4"/>
@@ -467,11 +467,11 @@
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="Ywx-Jk-MmP">
                                 <rect key="frame" x="28" y="190" width="544" height="29"/>
                                 <segments>
-                                    <segment title="" image="Crying-50"/>
-                                    <segment title="" image="Sad-50"/>
-                                    <segment title="" image="Neutral-50"/>
-                                    <segment title="" image="Happy-50"/>
-                                    <segment title="" image="Cool-50"/>
+                                    <segment title="" image="1"/>
+                                    <segment title="" image="2"/>
+                                    <segment title="" image="3"/>
+                                    <segment title="" image="4"/>
+                                    <segment title="" image="5"/>
                                 </segments>
                                 <connections>
                                     <action selector="onAnswerSelected:" destination="pbZ-6v-qqf" eventType="valueChanged" id="Awm-GY-ndh"/>
@@ -546,11 +546,11 @@
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="EZG-9a-Gvv">
                                 <rect key="frame" x="28" y="101" width="544" height="29"/>
                                 <segments>
-                                    <segment title="" image="Crying-50"/>
-                                    <segment title="" image="Sad-50"/>
-                                    <segment title="" image="Neutral-50"/>
-                                    <segment title="" image="Happy-50"/>
-                                    <segment title="" image="Cool-50"/>
+                                    <segment title="" image="1"/>
+                                    <segment title="" image="2"/>
+                                    <segment title="" image="3"/>
+                                    <segment title="" image="4"/>
+                                    <segment title="" image="5"/>
                                 </segments>
                                 <connections>
                                     <action selector="onAnswerSelected:" destination="ded-VF-84n" eventType="valueChanged" id="cWZ-3Q-hqD"/>
@@ -565,11 +565,11 @@
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="w3C-o8-Wjs">
                                 <rect key="frame" x="28" y="190" width="544" height="29"/>
                                 <segments>
-                                    <segment title="" image="Crying-50"/>
-                                    <segment title="" image="Sad-50"/>
-                                    <segment title="" image="Neutral-50"/>
-                                    <segment title="" image="Happy-50"/>
-                                    <segment title="" image="Cool-50"/>
+                                    <segment title="" image="1"/>
+                                    <segment title="" image="2"/>
+                                    <segment title="" image="3"/>
+                                    <segment title="" image="4"/>
+                                    <segment title="" image="5"/>
                                 </segments>
                                 <connections>
                                     <action selector="onAnswerSelected:" destination="ded-VF-84n" eventType="valueChanged" id="eCR-l0-e0G"/>
@@ -584,11 +584,11 @@
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="AEp-hI-es9">
                                 <rect key="frame" x="28" y="279" width="544" height="29"/>
                                 <segments>
-                                    <segment title="" image="Crying-50"/>
-                                    <segment title="" image="Sad-50"/>
-                                    <segment title="" image="Neutral-50"/>
-                                    <segment title="" image="Happy-50"/>
-                                    <segment title="" image="Cool-50"/>
+                                    <segment title="" image="1"/>
+                                    <segment title="" image="2"/>
+                                    <segment title="" image="3"/>
+                                    <segment title="" image="4"/>
+                                    <segment title="" image="5"/>
                                 </segments>
                                 <connections>
                                     <action selector="onAnswerSelected:" destination="ded-VF-84n" eventType="valueChanged" id="Ijr-jD-Lmb"/>
@@ -666,11 +666,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Cool-50" width="50" height="50"/>
-        <image name="Crying-50" width="50" height="50"/>
-        <image name="Happy-50" width="50" height="50"/>
-        <image name="Neutral-50" width="50" height="50"/>
-        <image name="Sad-50" width="50" height="50"/>
+        <image name="1" width="50" height="50"/>
+        <image name="2" width="50" height="50"/>
+        <image name="3" width="50" height="50"/>
+        <image name="4" width="50" height="50"/>
+        <image name="5" width="50" height="50"/>
         <image name="Survey-25" width="25" height="25"/>
         <image name="first" width="30" height="30"/>
         <image name="second" width="30" height="30"/>

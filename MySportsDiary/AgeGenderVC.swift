@@ -13,11 +13,17 @@ class AgeGenderVC: UIViewController {
     
     @IBOutlet weak var genderSegmentedControl: UISegmentedControl!
     @IBOutlet weak var ageSlider: UISlider!
-    @IBOutlet weak var ageTextField: UILabel!
+    @IBOutlet weak var ageLabel: UILabel!
     @IBOutlet weak var nextButton: UIButton!
     
     private var ageIsSet = false;
     private var genderIsSet = false;
+    
+    override func viewDidLoad() {
+        genderSegmentedControl.accessibilityLabel = "genderSegmentedControl";
+        ageSlider.accessibilityLabel = "ageSlider";
+    }
+    
     
     ///
     /// Put age and gender back
@@ -51,7 +57,7 @@ class AgeGenderVC: UIViewController {
     private func loadAge(){
         let age = DataManager.getManagerInstance().getAge();
         if let age = age {
-            ageTextField.text = String(age);
+            ageLabel.text = String(age);
             ageSlider.value = Float(age);
             ageIsSet = true;
         } else {print("age was not set yet, not loading ");ageIsSet=false;}
@@ -62,7 +68,7 @@ class AgeGenderVC: UIViewController {
     /// Age slider
     ///
     @IBAction func onAgeSliderMoved(sender: UISlider) {
-        ageTextField.text = String(Int(ageSlider.value));
+        ageLabel.text = String(Int(ageSlider.value));
     }
     @IBAction func onAgeSliderValueChanged(sender: UISlider) {
         DataManager.getManagerInstance().setAge(Int(ageSlider.value));

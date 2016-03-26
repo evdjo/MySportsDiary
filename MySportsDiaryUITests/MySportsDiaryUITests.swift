@@ -10,115 +10,238 @@ import XCTest
 
 class MySportsDiaryUITests: XCTestCase {
     
+    private let maxAge: CGFloat = 65.0;
+    private let girl = "Girl";
+    private let boy = "Boy";
+    
+    
+    private var app: XCUIApplication = XCUIApplication();
+    private var beginButton = XCUIApplication().buttons["Begin"];
+    private let nextButton = XCUIApplication().buttons["Next"];
+    private let finishButton = XCUIApplication().buttons["Finish"];
+    private let tabBarQuestionnaire = XCUIApplication().tabBars.buttons["Questionnaire"];
+    private let tabBarFirst = XCUIApplication().tabBars.buttons["First"];
+    private let tabBarSecond = XCUIApplication().tabBars.buttons["Second"];
+    private let backButtonAgeGender = XCUIApplication().navigationBars["MySportsDiary.AgeGenderVC"]
+    .childrenMatchingType(.Button).matchingIdentifier("Back").elementBoundByIndex(0);
+    
+    private let backButtonQuestions = XCUIApplication().navigationBars["MySportsDiary.QuestionsVC"]
+    .childrenMatchingType(.Button).matchingIdentifier("Back").elementBoundByIndex(0);
+
+    
+    private let girlButton = XCUIApplication().segmentedControls["genderSegmentedControl"].buttons["Girl"];
+    private let boyButton = XCUIApplication().segmentedControls["genderSegmentedControl"].buttons["Boy"];
+    
+    private let firstQuestion = XCUIApplication().segmentedControls["firstQuestion"];
+    private let secondQuestion = XCUIApplication().segmentedControls["secondQuestion"];
+    private let thirdQuestion = XCUIApplication().segmentedControls["thirdQuestion"];
+
+    
+    private let ageSlider = XCUIApplication().sliders["ageSlider"];
+    private let genderSegmentedControl = XCUIApplication().segmentedControls["genderSegmentedControl"];
+    
+    
     override func setUp() {
         super.setUp()
-        
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-        
-        // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
-        // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
         let app = XCUIApplication()
         app.launchArguments.append("TEST_ENVIRONMENT");
         app.launch()
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
-    }
-    
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
     }
     
     func testAnswerTheInitialQuestionnaireEnablesTheSecondAndThirdTabBar() {
         
-        let app = XCUIApplication()
-                
-        var tabBarsButtons = app.tabBars.buttons;
-        XCTAssertEqual(tabBarsButtons.count, 3)
-        XCTAssertTrue(tabBarsButtons["Questionnaire"].selected)
-        XCTAssertFalse(tabBarsButtons["First"].selected)
-        XCTAssertFalse(tabBarsButtons["Second"].selected)
+        XCTAssertEqual(app.tabBars.buttons.count, 3)
         
+        ///
+        /// Assert only the first tab is enabled
+        ///
+        XCTAssertTrue(tabBarQuestionnaire.selected)
+        XCTAssertFalse(tabBarFirst.selected)
+        XCTAssertFalse(tabBarSecond.selected)
         
-        XCUIApplication().tabBars.buttons["First"].tap()
-        XCTAssertTrue(tabBarsButtons["Questionnaire"].selected)
-        XCTAssertFalse(tabBarsButtons["First"].selected)
-        XCTAssertFalse(tabBarsButtons["Second"].selected)
+        tabBarFirst.tap()
+        XCTAssertTrue(tabBarQuestionnaire.selected)
+        XCTAssertFalse(tabBarFirst.selected)
+        XCTAssertFalse(tabBarSecond.selected)
         
-        XCUIApplication().tabBars.buttons["Second"].tap()
-        XCTAssertTrue(tabBarsButtons["Questionnaire"].selected)
-        XCTAssertFalse(tabBarsButtons["First"].selected)
-        XCTAssertFalse(tabBarsButtons["Second"].selected)
+        tabBarSecond.tap()
+        XCTAssertTrue(tabBarQuestionnaire.selected)
+        XCTAssertFalse(tabBarFirst.selected)
+        XCTAssertFalse(tabBarSecond.selected)
         
+        ///
+        /// Answer the questionnaire
+        ///
+        beginButton.tap()
+        answerAgeAndGender(0.5, boyOrGirl: girl);
         
-        app.buttons["Begin"].tap()
-        app.buttons["Girl"].tap()
-        app.sliders["0%"].tap()
-        
-        let nextButton = app.buttons["Next"]
-        nextButton.tap()
-        
-        let element = app.childrenMatchingType(.Window).elementBoundByIndex(0).childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).element
-        let neutral50Button = element.childrenMatchingType(.SegmentedControl).elementBoundByIndex(2).buttons["Neutral 50"]
-        neutral50Button.tap()
-        
-        let neutral50Button2 = element.childrenMatchingType(.SegmentedControl).elementBoundByIndex(1).buttons["Neutral 50"]
-        neutral50Button2.tap()
-        
-        let neutral50Button3 = element.childrenMatchingType(.SegmentedControl).elementBoundByIndex(0).buttons["Neutral 50"]
-        neutral50Button3.tap()
-        nextButton.tap()
-        neutral50Button.tap()
-        neutral50Button2.tap()
-        neutral50Button3.tap()
-        nextButton.tap()
-        neutral50Button.tap()
-        neutral50Button2.tap()
-        neutral50Button3.tap()
-        app.buttons["Finish"].tap()
+        nextButton.tap();
+        answerQuestionnareOnCurrentPage([3,3,3]);
+        nextButton.tap();
+        answerQuestionnareOnCurrentPage([3,3,3]);
+        nextButton.tap();
+        answerQuestionnareOnCurrentPage([3,3,3]);
+        finishButton.tap()
         app.sheets["Are you sure?"].collectionViews.buttons["Yes"].tap()
-        app.staticTexts["Thanks for having answered the initial questionnaire. You will answer the questionnaire again at the end. Now you can add new entries in the diary."].tap()
         
+        ///
+        /// Assert both tab bars are clickable and active
+        ///
+        app.staticTexts["Thanks for having answered the initial questionnaire. You will answer " +
+            "the questionnaire again at the end. Now you can add new entries in the diary."].tap();
         
-        tabBarsButtons = app.tabBars.buttons;
-        XCTAssertEqual(tabBarsButtons.count, 3)
+        tabBarFirst.tap()
+        XCTAssertFalse(tabBarQuestionnaire.selected)
+        XCTAssertTrue(tabBarFirst.selected)
+        XCTAssertFalse(tabBarSecond.selected)
         
-        XCUIApplication().tabBars.buttons["First"].tap()
-        XCTAssertFalse(tabBarsButtons["Questionnaire"].selected)
-        XCTAssertTrue(tabBarsButtons["First"].selected)
-        XCTAssertFalse(tabBarsButtons["Second"].selected)
-        
-        XCUIApplication().tabBars.buttons["Second"].tap()
-        XCTAssertFalse(tabBarsButtons["Questionnaire"].selected)
-        XCTAssertFalse(tabBarsButtons["First"].selected)
-        XCTAssertTrue(tabBarsButtons["Second"].selected)
+        tabBarSecond.tap()
+        XCTAssertFalse(tabBarQuestionnaire.selected)
+        XCTAssertFalse(tabBarFirst.selected)
+        XCTAssertTrue(tabBarSecond.selected)
     }
     
-    func testAgeAndGenderPersistence() {
-        
-        
-        
-        let app = XCUIApplication()
-        let beginButton = app.buttons["Begin"]
-        
-        /// assert no gender is selected and no age is selected
-        
-        
+    func testAgeAndGenderPersistenceNavigateBackAndForward() {
+        ///
+        /// Assert initial state
+        ///
         beginButton.tap()
-        app.sliders["0%"].tap()
-        app.buttons["Girl"].tap()
-        app.navigationBars["MySportsDiary.AgeGenderVC"].childrenMatchingType(.Button).matchingIdentifier("Back").elementBoundByIndex(0).tap()
-        beginButton.tap()
+        XCTAssertFalse(girlButton.selected);
+        XCTAssertFalse(boyButton.selected);
         
+        XCTAssertEqual(ageSlider.normalizedSliderPosition, 0.0);
+        XCTAssert(app.staticTexts["..."].exists);
         
+        ///
+        /// Modifiy the inital state
+        ///
+        answerAgeAndGender(1.0, boyOrGirl: girl);
         
+        ///
+        /// Navigate back, and then forward again
+        ///
+        backButtonAgeGender.tap();
+        beginButton.tap();
+        
+        ///
+        /// Assert state was preserved
+        ///
+        XCTAssertTrue(girlButton.selected);
+        XCTAssertFalse(boyButton.selected);
+        
+        XCTAssertEqual(ageSlider.normalizedSliderPosition, 1.0);
+        XCTAssert(app.staticTexts["65"].exists);
+    }
+    
+    func testQuestionnaireAnswersPersistenceNavigateBackAndForward() {
+        beginButton.tap();
+        answerAgeAndGender(0.5, boyOrGirl: boy);
+        
+        nextButton.tap();
+        answerQuestionnareOnCurrentPage([2,5,2]);
+        
+        nextButton.tap();
+        answerQuestionnareOnCurrentPage([3,4,3]);
+        
+        backButtonQuestions.tap();
+        assertAnswersOnCurrentPage([2,5,2])
+        nextButton.tap();
+        assertAnswersOnCurrentPage([3,4,3])
         
     }
     
-    func testQuestionnaireAnswersPersistnce(){
-    
+    func testPersistenceAppRestart(){
+        ///
+        /// Answer the questionnaire
+        ///
+        beginButton.tap();
+        answerAgeAndGender(1.0, boyOrGirl: boy);
+        
+        nextButton.tap();
+        answerQuestionnareOnCurrentPage([1,3,5]);
+        
+        nextButton.tap();
+        answerQuestionnareOnCurrentPage([1,2,3]);
+        
+        nextButton.tap();
+        answerQuestionnareOnCurrentPage([4,4,4]);
+        
+        ///
+        /// Restart the app, without pressing Finish button
+        ///
+        XCUIDevice().pressButton(XCUIDeviceButton.Home)
+        sleep(1); // give time to the main process to handle the home button press...
+        // http://stackoverflow.com/questions/31182637/delay-wait-in-a-test-case-of-xcode-ui-testing
+        
+        app.terminate();
+        app.launch();
+        
+        ///
+        /// See if values persisted
+        ///
+        beginButton.tap();
+        assertAgeAndGender(65, boyOrGirl: boy);
+        
+        nextButton.tap();
+        assertAnswersOnCurrentPage([1,3,5]);
+        
+        nextButton.tap();
+        assertAnswersOnCurrentPage([1,2,3]);
+        
+        nextButton.tap();
+        assertAnswersOnCurrentPage([4,4,4]);
+        
     }
     
     
+    ///
+    /// Answer functions
+    ///
+    private func answerAgeAndGender(sliderValue: CGFloat, boyOrGirl: String) {
+        ageSlider.adjustToNormalizedSliderPosition(sliderValue);
+        genderSegmentedControl.buttons[boyOrGirl].tap();
+    }
+    
+    private func answerQuestionnareOnCurrentPage(values:[Int]) {
+        firstQuestion.buttons[String(values[0])].tap();
+        secondQuestion.buttons[String(values[1])].tap();
+        thirdQuestion.buttons[String(values[2])].tap();
+    }
+    
+    
+    ///
+    /// Assertions
+    ///
+    private func assertAgeAndGender(age: Int, boyOrGirl: String) {
+        XCTAssertEqual(Int(ageSlider.normalizedSliderPosition * maxAge), age);
+        XCTAssertEqual(selectedGender(genderSegmentedControl),boyOrGirl);
+        XCTAssert(app.staticTexts[String(age)].exists);
+    }
+    
+    private func assertAnswersOnCurrentPage(values: [Int]) {
+        XCTAssertEqual(selectedAnswer(firstQuestion), values[0])
+        XCTAssertEqual(selectedAnswer(secondQuestion), values[1])
+        XCTAssertEqual(selectedAnswer(thirdQuestion), values[2])
+    }
+    
+    private func selectedAnswer(segmentedControls: XCUIElement) -> Int {
+        for i in 1...5 {
+            if(segmentedControls.buttons[String(i)].selected){
+                return i;
+            }
+        }
+        XCTFail("No answer was selected!");
+        return -1;
+    }
+    
+    private func selectedGender(segmentedControls: XCUIElement) -> String {
+        if(segmentedControls.buttons[boy].selected){
+            return "Boy";
+        } else if(segmentedControls.buttons["Girl"].selected){
+            return "Girl";
+        }
+        XCTFail("No gender was selected!");
+        return "";
+    }
 }
-

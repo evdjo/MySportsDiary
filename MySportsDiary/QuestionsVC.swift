@@ -31,6 +31,17 @@ class QuestionsVC: UIViewController {
             default : fatalError("Uknown identifier, cannot setup page property!");
             }
         }
+        
+        answersSegControl[0].accessibilityIdentifier = "firstQuestion";
+        answersSegControl[1].accessibilityIdentifier = "secondQuestion";
+        answersSegControl[2].accessibilityIdentifier = "thirdQuestion";
+        
+        
+        let app = UIApplication.sharedApplication()
+        NSNotificationCenter.defaultCenter().addObserver(self,
+                                                         selector: #selector(applicationWillResignActive(_:)),
+                                                         name: UIApplicationWillResignActiveNotification,
+                                                         object: app)
         super.viewDidLoad();
     }
     
@@ -44,6 +55,11 @@ class QuestionsVC: UIViewController {
     }
     
     override func viewDidDisappear(animated: Bool) {
+        saveAnswers();
+    }
+    
+    func applicationWillResignActive(notification: NSNotification) {
+        print("applicationWillResignActive was called");
         saveAnswers();
     }
     
@@ -72,7 +88,7 @@ class QuestionsVC: UIViewController {
     @IBAction func onNextPress(sender: UIButton) {
         saveAnswers();
     }
-
+    
     //
     // After the inital questionnaire, set the mode to .Diary save the anwers,
     // enable the other two tab bars, and let the user create events
@@ -117,7 +133,7 @@ class QuestionsVC: UIViewController {
         //TODO
     }
     
-
+    
     //
     // When the user selects any answer, see if we can enable the "Next" button
     //
@@ -135,7 +151,7 @@ class QuestionsVC: UIViewController {
                 (answersSegControl[1].selectedSegmentIndex != -1) &&
                 (answersSegControl[2].selectedSegmentIndex != -1);
         
-
+        
         if(currentQuestionsAnswered) {
             nextOrFinishButton.enabled = true;
             nextOrFinishButton.alpha = 1.0;

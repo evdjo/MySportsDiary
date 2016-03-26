@@ -5,5 +5,13 @@
       <ContextState
          contextName = "QuestionsVC.(checkIfQuestionsAnswered in _948409F79B06CA7EDBD82DFE7A9C3F47)() -&gt; ():QuestionsVC.swift">
       </ContextState>
+      <ContextState
+         contextName = "MySportsDiaryUITests.testAgeAndGenderPersistence() -&gt; ():MySportsDiaryUITests.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "app.staticTexts[&quot;ageLabel&quot;].exists">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
    </ContextStates>
 </VariablesViewState>

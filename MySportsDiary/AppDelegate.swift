@@ -14,14 +14,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        initIfTestEnvironment();
+        clearContentsIfTestEnvironment();
         initApp();
         
         // Override point for customization after application launch.
         return true
     }
     
-    private func initIfTestEnvironment() {
+    private func clearContentsIfTestEnvironment() {
         let appArgs = Process.arguments;
         print(appArgs);
         if(appArgs.count > 1 && appArgs.contains("TEST_ENVIRONMENT")) {
@@ -55,7 +55,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func applicationWillTerminate(application: UIApplication) {
-        initIfTestEnvironment();
+        clearContentsIfTestEnvironment();
     }
     
     
