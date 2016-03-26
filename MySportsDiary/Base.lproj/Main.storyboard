@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -180,7 +180,7 @@
         <!--QuestionsVC-->
         <scene sceneID="SlR-ny-ZVV">
             <objects>
-                <viewController storyboardIdentifier="QuestionsPartB" useStoryboardIdentifierAsRestorationIdentifier="YES" id="7kt-Vz-nvq" customClass="QuestionsVC" customModule="MySportsDiary" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="QuestionsPartB" hidesBottomBarWhenPushed="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="7kt-Vz-nvq" customClass="QuestionsVC" customModule="MySportsDiary" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="EEy-ES-auY"/>
                         <viewControllerLayoutGuide type="bottom" id="CwF-f5-nlh"/>
@@ -295,20 +295,20 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="nextOrFinishButton" destination="0h6-XI-Xtb" id="vl4-3T-5o1"/>
                         <outletCollection property="answersSegControl" destination="5Hp-mx-Znt" collectionClass="NSMutableArray" id="bky-EA-Ipj"/>
                         <outletCollection property="answersSegControl" destination="rOz-9I-TeS" collectionClass="NSMutableArray" id="O5f-ub-BP3"/>
                         <outletCollection property="answersSegControl" destination="ONQ-XM-CeZ" collectionClass="NSMutableArray" id="hII-fG-hXD"/>
-                        <outletCollection property="nextOrFinishButtons" destination="0h6-XI-Xtb" collectionClass="NSMutableArray" id="hQA-9L-qyX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v46-jf-nPq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-216" y="1592"/>
+            <point key="canvasLocation" x="-298" y="1486"/>
         </scene>
         <!--Age GenderVC-->
         <scene sceneID="Gd9-8Y-Ymc">
             <objects>
-                <viewController storyboardIdentifier="AgeAndGender" id="KBN-8C-xNN" customClass="AgeGenderVC" customModule="MySportsDiary" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AgeAndGender" hidesBottomBarWhenPushed="YES" id="KBN-8C-xNN" customClass="AgeGenderVC" customModule="MySportsDiary" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hjw-S0-fCh"/>
                         <viewControllerLayoutGuide type="bottom" id="r5y-Mz-RyC"/>
@@ -317,34 +317,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FcI-tA-V46">
-                                <rect key="frame" x="28" y="513" width="544" height="30"/>
-                                <color key="backgroundColor" red="0.68627450980000004" green="0.82352941180000006" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Next">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="pbZ-6v-qqf" kind="show" identifier="toPageOne" id="zFt-bB-jtg"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BAa-cl-7ax">
-                                <rect key="frame" x="28" y="118" width="32" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BAa-cl-7ax">
+                                <rect key="frame" x="20" y="105" width="32" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="32" id="Sfn-Jb-VqV"/>
+                                    <constraint firstAttribute="width" constant="32" id="sNZ-IE-a25"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="65" translatesAutoresizingMaskIntoConstraints="NO" id="8Vk-qR-bpS">
-                                <rect key="frame" x="66" y="114" width="508" height="31"/>
+                                <rect key="frame" x="58" y="101" width="516" height="31"/>
                                 <connections>
                                     <action selector="onAgeSliderMoved:" destination="KBN-8C-xNN" eventType="valueChanged" id="By1-Gv-UAH"/>
                                     <action selector="onAgeSliderValueChanged:" destination="KBN-8C-xNN" eventType="touchUpInside" id="koe-xU-j3L"/>
                                 </connections>
                             </slider>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="Mer-OE-1HC">
-                                <rect key="frame" x="28" y="177" width="544" height="29"/>
+                                <rect key="frame" x="28" y="216" width="544" height="29"/>
                                 <segments>
                                     <segment title="Boy"/>
                                     <segment title="Girl"/>
@@ -353,20 +343,47 @@
                                     <action selector="onGenderSegmentChanged:" destination="KBN-8C-xNN" eventType="valueChanged" id="LUd-Y0-JxN"/>
                                 </connections>
                             </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How old are you?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xUg-rL-XRX">
+                                <rect key="frame" x="234" y="72" width="132" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Are you a girl or a boy?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lwI-hM-qFL">
+                                <rect key="frame" x="213" y="179" width="175" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FcI-tA-V46">
+                                <rect key="frame" x="28" y="562" width="544" height="30"/>
+                                <color key="backgroundColor" red="0.68627450980000004" green="0.82352941180000006" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Next">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="pbZ-6v-qqf" kind="show" identifier="toPageOne" id="zFt-bB-jtg"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="FcI-tA-V46" secondAttribute="trailing" constant="8" id="1Ps-nc-fKw"/>
-                            <constraint firstItem="BAa-cl-7ax" firstAttribute="leading" secondItem="RxC-LA-IAW" secondAttribute="leadingMargin" constant="8" id="37Y-kP-jYT"/>
-                            <constraint firstItem="Mer-OE-1HC" firstAttribute="leading" secondItem="RxC-LA-IAW" secondAttribute="leadingMargin" constant="8" id="HMD-mb-5bz"/>
-                            <constraint firstItem="r5y-Mz-RyC" firstAttribute="top" secondItem="FcI-tA-V46" secondAttribute="bottom" constant="8" id="IVv-fK-Bme"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="8Vk-qR-bpS" secondAttribute="trailing" constant="8" id="U9F-4B-He0"/>
-                            <constraint firstItem="8Vk-qR-bpS" firstAttribute="centerY" secondItem="BAa-cl-7ax" secondAttribute="centerY" id="W5x-Cj-08C"/>
-                            <constraint firstItem="BAa-cl-7ax" firstAttribute="top" secondItem="hjw-S0-fCh" secondAttribute="bottom" constant="54" id="YcD-Kd-iUl"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Mer-OE-1HC" secondAttribute="trailing" constant="8" id="hhL-T1-EI4"/>
-                            <constraint firstItem="8Vk-qR-bpS" firstAttribute="leading" secondItem="BAa-cl-7ax" secondAttribute="trailing" constant="8" id="iVE-xT-Wff"/>
-                            <constraint firstItem="FcI-tA-V46" firstAttribute="leading" secondItem="RxC-LA-IAW" secondAttribute="leadingMargin" constant="8" id="ibD-8j-qmq"/>
-                            <constraint firstItem="Mer-OE-1HC" firstAttribute="top" secondItem="hjw-S0-fCh" secondAttribute="bottom" constant="113" id="sRy-xq-k1c"/>
+                            <constraint firstItem="8Vk-qR-bpS" firstAttribute="top" secondItem="xUg-rL-XRX" secondAttribute="bottom" constant="8" id="4Cw-fP-VlX"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="FcI-tA-V46" secondAttribute="trailing" constant="8" id="6Go-lJ-Sjz"/>
+                            <constraint firstItem="BAa-cl-7ax" firstAttribute="top" secondItem="hjw-S0-fCh" secondAttribute="bottom" constant="41" id="6vS-Jx-mSr"/>
+                            <constraint firstItem="BAa-cl-7ax" firstAttribute="leading" secondItem="RxC-LA-IAW" secondAttribute="leadingMargin" id="77d-0M-AXE"/>
+                            <constraint firstItem="8Vk-qR-bpS" firstAttribute="leading" secondItem="BAa-cl-7ax" secondAttribute="trailing" constant="8" id="7Ce-Tp-o2p"/>
+                            <constraint firstItem="lwI-hM-qFL" firstAttribute="top" secondItem="hjw-S0-fCh" secondAttribute="bottom" constant="115" id="9px-oX-4a5"/>
+                            <constraint firstItem="FcI-tA-V46" firstAttribute="leading" secondItem="RxC-LA-IAW" secondAttribute="leadingMargin" constant="8" id="F6T-8s-p96"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="8Vk-qR-bpS" secondAttribute="trailing" constant="8" id="HIi-mL-Hrg"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="FcI-tA-V46" secondAttribute="bottom" constant="8" id="IaQ-RE-dOW"/>
+                            <constraint firstItem="Mer-OE-1HC" firstAttribute="top" secondItem="lwI-hM-qFL" secondAttribute="bottom" constant="16" id="Ksp-WR-QrL"/>
+                            <constraint firstItem="xUg-rL-XRX" firstAttribute="top" secondItem="hjw-S0-fCh" secondAttribute="bottom" constant="8" id="bXO-VQ-Qi7"/>
+                            <constraint firstItem="8Vk-qR-bpS" firstAttribute="leading" secondItem="BAa-cl-7ax" secondAttribute="trailing" constant="8" id="bh0-6T-LQn"/>
+                            <constraint firstItem="lwI-hM-qFL" firstAttribute="centerX" secondItem="RxC-LA-IAW" secondAttribute="centerX" id="rrF-DL-Ivb"/>
+                            <constraint firstItem="Mer-OE-1HC" firstAttribute="leading" secondItem="RxC-LA-IAW" secondAttribute="leadingMargin" constant="8" id="sGn-Ic-bTp"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Mer-OE-1HC" secondAttribute="trailing" constant="8" id="swT-WD-M3F"/>
+                            <constraint firstItem="xUg-rL-XRX" firstAttribute="centerX" secondItem="RxC-LA-IAW" secondAttribute="centerX" id="t6e-Js-9vq"/>
                         </constraints>
                     </view>
                     <connections>
@@ -383,7 +400,7 @@
         <!--QuestionsVC-->
         <scene sceneID="u7F-RL-OaB">
             <objects>
-                <viewController storyboardIdentifier="QuestionsPartA" useStoryboardIdentifierAsRestorationIdentifier="YES" id="pbZ-6v-qqf" customClass="QuestionsVC" customModule="MySportsDiary" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="QuestionsPartA" hidesBottomBarWhenPushed="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="pbZ-6v-qqf" customClass="QuestionsVC" customModule="MySportsDiary" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="w7K-eN-w2N"/>
                         <viewControllerLayoutGuide type="bottom" id="b30-bO-0re"/>
@@ -504,20 +521,20 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="nextOrFinishButton" destination="II1-0a-9Up" id="j02-M4-YvP"/>
                         <outletCollection property="answersSegControl" destination="cYI-2o-Mgh" collectionClass="NSMutableArray" id="sz8-IF-NeW"/>
                         <outletCollection property="answersSegControl" destination="Ywx-Jk-MmP" collectionClass="NSMutableArray" id="Jfd-6b-cpo"/>
                         <outletCollection property="answersSegControl" destination="K86-bc-vPG" collectionClass="NSMutableArray" id="zYk-af-9rv"/>
-                        <outletCollection property="nextOrFinishButtons" destination="II1-0a-9Up" collectionClass="NSMutableArray" id="Wod-1C-Sia"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wEi-FR-lqE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-254" y="1532"/>
+            <point key="canvasLocation" x="-320" y="1453"/>
         </scene>
         <!--QuestionsVC-->
         <scene sceneID="eKP-j6-cYf">
             <objects>
-                <viewController storyboardIdentifier="QuestionsPartC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ded-VF-84n" customClass="QuestionsVC" customModule="MySportsDiary" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="QuestionsPartC" hidesBottomBarWhenPushed="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ded-VF-84n" customClass="QuestionsVC" customModule="MySportsDiary" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9Xd-Gb-l7q"/>
                         <viewControllerLayoutGuide type="bottom" id="MUE-hu-jvO"/>
@@ -637,15 +654,15 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="nextOrFinishButton" destination="Uah-A9-tQG" id="uyF-dG-gyh"/>
                         <outletCollection property="answersSegControl" destination="EZG-9a-Gvv" collectionClass="NSMutableArray" id="YaT-NH-3s0"/>
                         <outletCollection property="answersSegControl" destination="w3C-o8-Wjs" collectionClass="NSMutableArray" id="79r-Dq-8L8"/>
                         <outletCollection property="answersSegControl" destination="AEp-hI-es9" collectionClass="NSMutableArray" id="bUI-tw-lka"/>
-                        <outletCollection property="nextOrFinishButtons" destination="Uah-A9-tQG" collectionClass="NSMutableArray" id="Tgz-lv-WlZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rvi-ct-Vpk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-165" y="1650"/>
+            <point key="canvasLocation" x="-276" y="1518"/>
         </scene>
     </scenes>
     <resources>
@@ -659,6 +676,6 @@
         <image name="second" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="eUc-fk-lPY"/>
+        <segue reference="zFt-bB-jtg"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -15,7 +15,7 @@ class QuestionsVC: UIViewController {
     ///
     private var page: Int = 0;
     @IBOutlet var answersSegControl: [UISegmentedControl]!
-    @IBOutlet var nextOrFinishButtons: [UIButton]!
+    @IBOutlet var nextOrFinishButton: UIButton!
     
     ///
     /// App lifecycle methods
@@ -135,13 +135,13 @@ class QuestionsVC: UIViewController {
                 (answersSegControl[1].selectedSegmentIndex != -1) &&
                 (answersSegControl[2].selectedSegmentIndex != -1);
         
-        let button = nextOrFinishButtons[0];
+
         if(currentQuestionsAnswered) {
-            button.enabled = true;
-            button.alpha = 1.0;
+            nextOrFinishButton.enabled = true;
+            nextOrFinishButton.alpha = 1.0;
         } else {
-            button.enabled = false;
-            button.alpha = 0.5;
+            nextOrFinishButton.enabled = false;
+            nextOrFinishButton.alpha = 0.5;
         }
     }
     

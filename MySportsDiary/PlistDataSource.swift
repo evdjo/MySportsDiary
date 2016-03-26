@@ -10,9 +10,9 @@ import Foundation
 
 class PlistDataSource: DataSource {
     
-    private let UserInfoFile = "userinfo.plist";
-    private let AGE = "AGE";
-    private let GENDER = "GENDER";
+    internal let UserInfoFile = "userinfo.plist";
+    internal let AGE = "AGE";
+    internal let GENDER = "GENDER";
     
     private let APPSTATE = "APPSTATE";
     private let AppPropertiesFile = "appstate.plist";
@@ -134,4 +134,28 @@ class PlistDataSource: DataSource {
         }
         return nil;
     }
+    
+    ///
+    /// Delete a file
+    ///
+    
+    private func deleteFile(fileName: String) -> Bool{
+        let filePath = dataFilePath(fileName)
+        if (NSFileManager.defaultManager().fileExistsAtPath(filePath)) {
+            do {
+                try NSFileManager.defaultManager().removeItemAtPath(filePath);
+                return true;
+            } catch {
+                return false;
+            }
+        }
+        return false;
+    }
+    
+    func deleteAllFiles() {
+        deleteFile(UserInfoFile);
+        deleteFile(AnswersTempFile);
+        deleteFile(AppPropertiesFile);
+    }
+    
 }

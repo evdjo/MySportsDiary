@@ -17,6 +17,7 @@ class InitialVC: UIViewController {
     ///
     override func viewDidAppear(animated: Bool) {
         
+        
         let appState = DataManager.getManagerInstance().getAppState() ?? .Initial
         switch(appState) {
         case(.Diary) :
@@ -31,15 +32,23 @@ class InitialVC: UIViewController {
         super.viewDidAppear(animated);
         
     }
-    
+    ///
+    /// Enable the second and third tabs
+    /// Hide the begin button in the first tab
+    ///
     private func setForDiaryMode() {
         self.tabBarController!.tabBar.items![1].enabled = true;
         self.tabBarController!.tabBar.items![2].enabled = true;
-        mainLabel.text = "You've answered the initial questionnaire." +
-        " Now you can add new events. You will answer the inital questionnaire in ..."
+        mainLabel.text = "Thanks for having answered the initial questionnaire." +
+        " You will answer the questionnaire again at the end." +
+        " Now you can add new entries in the diary."
         beginButton.hidden = true;
     }
     
+    ///
+    /// Hide the second and third tabs
+    /// Enable the begin button
+    ///
     private func setForInitialMode() {
         self.tabBarController!.tabBar.items![1].enabled = false;
         self.tabBarController!.tabBar.items![2].enabled = false;
@@ -47,8 +56,15 @@ class InitialVC: UIViewController {
         beginButton.hidden = false;
     }
     
+    ///
+    /// Disable the second and third tabs again
+    /// Enable the begin button
+    ///
     private func setForFinalMode() {
-        // TODO
+        self.tabBarController!.tabBar.items![1].enabled = false;
+        self.tabBarController!.tabBar.items![2].enabled = false;
+        mainLabel.text = "Now you must answer the final questionnaire. Click below to begin."
+        beginButton.hidden = false;
     }
     @IBOutlet weak var mainLabel: UILabel!
     
