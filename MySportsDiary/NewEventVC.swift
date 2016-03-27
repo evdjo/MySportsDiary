@@ -8,10 +8,16 @@
 
 import UIKit
 
-class FirstViewController: UIViewController {
+class NewEventVC: UIViewController {
 
+    @IBOutlet weak var eventsPicker: UIPickerView!
+    let eventsPickerDelegateDataSrc = EventsPickerDelegateDataSource();
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        eventsPicker.dataSource = eventsPickerDelegateDataSrc;
+        eventsPicker.delegate = eventsPickerDelegateDataSrc;
+
         // Do any additional setup after loading the view, typically from a nib.
     }
 

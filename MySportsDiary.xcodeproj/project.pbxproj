@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1B396B711C9251D900986749 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B396B701C9251D900986749 /* AppDelegate.swift */; };
-		1B396B731C9251D900986749 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B396B721C9251D900986749 /* FirstViewController.swift */; };
+		1B396B731C9251D900986749 /* NewEventVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B396B721C9251D900986749 /* NewEventVC.swift */; };
 		1B396B751C9251D900986749 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B396B741C9251D900986749 /* SecondViewController.swift */; };
 		1B396B781C9251D900986749 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B396B761C9251D900986749 /* Main.storyboard */; };
 		1B396B7A1C9251D900986749 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B396B791C9251D900986749 /* Assets.xcassets */; };
@@ -24,6 +24,7 @@
 		1B396BFF1C96200500986749 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B396BF91C960EB000986749 /* libsqlite3.tbd */; };
 		1B510DA61CA742FD008A4F6B /* QuestionnaireUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B510DA51CA742FD008A4F6B /* QuestionnaireUITests.swift */; };
 		1B510DA81CA74D14008A4F6B /* Dummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B510DA71CA74D14008A4F6B /* Dummy.swift */; };
+		1B510DAA1CA75311008A4F6B /* EventsPickerDelegateDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B510DA91CA75311008A4F6B /* EventsPickerDelegateDataSource.swift */; };
 		1B84158E1CA03F20001EF9CE /* PlistDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B84158D1CA03F20001EF9CE /* PlistDataSource.swift */; };
 		1B8866431C9F9C78007F7BEB /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8866421C9F9C78007F7BEB /* Util.swift */; };
 		1BC2B9C71CA7418A00F519AF /* MySportsDiaryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC2B9C61CA7418A00F519AF /* MySportsDiaryUITests.swift */; };
@@ -49,7 +50,7 @@
 /* Begin PBXFileReference section */
 		1B396B6D1C9251D900986749 /* MySportsDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MySportsDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B396B701C9251D900986749 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1B396B721C9251D900986749 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		1B396B721C9251D900986749 /* NewEventVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEventVC.swift; sourceTree = "<group>"; };
 		1B396B741C9251D900986749 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		1B396B771C9251D900986749 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1B396B791C9251D900986749 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -68,6 +69,7 @@
 		1B396BFB1C960F0D00986749 /* MySportsDiary-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MySportsDiary-Bridging-Header.h"; sourceTree = "<group>"; };
 		1B510DA51CA742FD008A4F6B /* QuestionnaireUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionnaireUITests.swift; sourceTree = "<group>"; };
 		1B510DA71CA74D14008A4F6B /* Dummy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dummy.swift; sourceTree = "<group>"; };
+		1B510DA91CA75311008A4F6B /* EventsPickerDelegateDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsPickerDelegateDataSource.swift; sourceTree = "<group>"; };
 		1B84158D1CA03F20001EF9CE /* PlistDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlistDataSource.swift; sourceTree = "<group>"; };
 		1B8866421C9F9C78007F7BEB /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		1BC2B9C41CA7418A00F519AF /* MySportsDiaryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MySportsDiaryUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -169,7 +171,7 @@
 		1B8866461C9F9D69007F7BEB /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				1B396B721C9251D900986749 /* FirstViewController.swift */,
+				1B396B721C9251D900986749 /* NewEventVC.swift */,
 				1B396B8A1C93774C00986749 /* MasterTabBarViewController.swift */,
 				1B396B741C9251D900986749 /* SecondViewController.swift */,
 			);
@@ -184,6 +186,7 @@
 				1B396B7B1C9251D900986749 /* LaunchScreen.storyboard */,
 				1B396BFB1C960F0D00986749 /* MySportsDiary-Bridging-Header.h */,
 				1B396B7E1C9251D900986749 /* Info.plist */,
+				1B510DA91CA75311008A4F6B /* EventsPickerDelegateDataSource.swift */,
 			);
 			name = Other;
 			sourceTree = "<group>";
@@ -339,10 +342,11 @@
 				1B396B711C9251D900986749 /* AppDelegate.swift in Sources */,
 				1B8866431C9F9C78007F7BEB /* Util.swift in Sources */,
 				1B396B851C936B2F00986749 /* AgeGenderVC.swift in Sources */,
+				1B510DAA1CA75311008A4F6B /* EventsPickerDelegateDataSource.swift in Sources */,
 				1B396BF21C96007400986749 /* DataManager.swift in Sources */,
 				1B84158E1CA03F20001EF9CE /* PlistDataSource.swift in Sources */,
 				1B396BF81C960D9B00986749 /* SQLiteDataManagerDelegate.swift in Sources */,
-				1B396B731C9251D900986749 /* FirstViewController.swift in Sources */,
+				1B396B731C9251D900986749 /* NewEventVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

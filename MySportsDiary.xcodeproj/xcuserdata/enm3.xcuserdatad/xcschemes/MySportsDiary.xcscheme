@@ -40,25 +40,15 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES">
+      shouldUseLaunchSchemeArgsEnv = "NO">
       <Testables>
          <TestableReference
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1B396BA11C93AF0800986749"
+               BlueprintIdentifier = "1BC2B9C31CA7418A00F519AF"
                BuildableName = "MySportsDiaryUITests.xctest"
                BlueprintName = "MySportsDiaryUITests"
-               ReferencedContainer = "container:MySportsDiary.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1BC2B9B11CA73F9200F519AF"
-               BuildableName = "QuestionnaireUITests.xctest"
-               BlueprintName = "QuestionnaireUITests"
                ReferencedContainer = "container:MySportsDiary.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -104,7 +94,7 @@
       <CommandLineArguments>
          <CommandLineArgument
             argument = "TEST_ENVIRONMENT"
-            isEnabled = "YES">
+            isEnabled = "NO">
          </CommandLineArgument>
       </CommandLineArguments>
       <AdditionalOptions>
