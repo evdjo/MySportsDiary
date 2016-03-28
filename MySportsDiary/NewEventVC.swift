@@ -8,24 +8,58 @@
 
 import UIKit
 
-class NewEventVC: UIViewController {
-
+class NewEventVC: UIViewController, UIPopoverPresentationControllerDelegate, UITextFieldDelegate {
+    
     @IBOutlet weak var eventsPicker: UIPickerView!
-    let eventsPickerDelegateDataSrc = EventsPickerDelegateDataSource();
+    @IBOutlet weak var descriptionTextField: UITextField!
+    
+    
+    let eventsPickerDelegateDataSrc: EventsPickerDelegateDataSource = EventsPickerDelegateDataSource();
     
     override func viewDidLoad() {
         super.viewDidLoad()
         eventsPicker.dataSource = eventsPickerDelegateDataSrc;
         eventsPicker.delegate = eventsPickerDelegateDataSrc;
-
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    override func viewWillAppear(animated: Bool) {
+        self.navigationController?.navigationBarHidden = true ;
+        descriptionTextField.delegate = self;
+        super.viewWillAppear(true);
     }
-
-
+    
+    override func viewWillDisappear(animated: Bool) {
+        if(navigationController?.topViewController != self) {
+            self.navigationController?.navigationBarHidden = false;
+        }
+        super.viewWillDisappear(true);
+    }
+    
+    
+    
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        //segue for the popover configuration window
+        if segue.identifier == "id" {
+            let controller = segue.destinationViewController;
+            controller.popoverPresentationController!.delegate = self
+            controller.preferredContentSize = CGSize(width: 240, height: self.view.frame.height / 2)
+            controller.popoverPresentationController!.sourceRect = (sender as! UIButton).bounds
+            
+        }
+    }
+    
+    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .None
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder();
+        return true;
+    }
+    
+    
 }
 

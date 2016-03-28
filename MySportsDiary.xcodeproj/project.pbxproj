@@ -25,6 +25,7 @@
 		1B510DA61CA742FD008A4F6B /* QuestionnaireUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B510DA51CA742FD008A4F6B /* QuestionnaireUITests.swift */; };
 		1B510DA81CA74D14008A4F6B /* Dummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B510DA71CA74D14008A4F6B /* Dummy.swift */; };
 		1B510DAA1CA75311008A4F6B /* EventsPickerDelegateDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B510DA91CA75311008A4F6B /* EventsPickerDelegateDataSource.swift */; };
+		1B6FAA821CA764B20061A219 /* MediaVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6FAA811CA764B20061A219 /* MediaVC.swift */; };
 		1B84158E1CA03F20001EF9CE /* PlistDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B84158D1CA03F20001EF9CE /* PlistDataSource.swift */; };
 		1B8866431C9F9C78007F7BEB /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8866421C9F9C78007F7BEB /* Util.swift */; };
 		1BC2B9C71CA7418A00F519AF /* MySportsDiaryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC2B9C61CA7418A00F519AF /* MySportsDiaryUITests.swift */; };
@@ -70,6 +71,7 @@
 		1B510DA51CA742FD008A4F6B /* QuestionnaireUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionnaireUITests.swift; sourceTree = "<group>"; };
 		1B510DA71CA74D14008A4F6B /* Dummy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dummy.swift; sourceTree = "<group>"; };
 		1B510DA91CA75311008A4F6B /* EventsPickerDelegateDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsPickerDelegateDataSource.swift; sourceTree = "<group>"; };
+		1B6FAA811CA764B20061A219 /* MediaVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaVC.swift; sourceTree = "<group>"; };
 		1B84158D1CA03F20001EF9CE /* PlistDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlistDataSource.swift; sourceTree = "<group>"; };
 		1B8866421C9F9C78007F7BEB /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		1BC2B9C41CA7418A00F519AF /* MySportsDiaryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MySportsDiaryUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -128,6 +130,7 @@
 		1B396B6F1C9251D900986749 /* MySportsDiary */ = {
 			isa = PBXGroup;
 			children = (
+				1B6FAA801CA762B20061A219 /* New Group */,
 				1B8866471C9F9D87007F7BEB /* Other */,
 				1B8866461C9F9D69007F7BEB /* Main */,
 				1B8866451C9F9D42007F7BEB /* Data */,
@@ -145,6 +148,16 @@
 				1B510DA71CA74D14008A4F6B /* Dummy.swift */,
 			);
 			path = MySportsDiaryTests;
+			sourceTree = "<group>";
+		};
+		1B6FAA801CA762B20061A219 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				1B396B721C9251D900986749 /* NewEventVC.swift */,
+				1B6FAA811CA764B20061A219 /* MediaVC.swift */,
+				1B510DA91CA75311008A4F6B /* EventsPickerDelegateDataSource.swift */,
+			);
+			name = "New Group";
 			sourceTree = "<group>";
 		};
 		1B8866441C9F9D28007F7BEB /* Questionnaire */ = {
@@ -171,7 +184,6 @@
 		1B8866461C9F9D69007F7BEB /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				1B396B721C9251D900986749 /* NewEventVC.swift */,
 				1B396B8A1C93774C00986749 /* MasterTabBarViewController.swift */,
 				1B396B741C9251D900986749 /* SecondViewController.swift */,
 			);
@@ -186,7 +198,6 @@
 				1B396B7B1C9251D900986749 /* LaunchScreen.storyboard */,
 				1B396BFB1C960F0D00986749 /* MySportsDiary-Bridging-Header.h */,
 				1B396B7E1C9251D900986749 /* Info.plist */,
-				1B510DA91CA75311008A4F6B /* EventsPickerDelegateDataSource.swift */,
 			);
 			name = Other;
 			sourceTree = "<group>";
@@ -347,6 +358,7 @@
 				1B84158E1CA03F20001EF9CE /* PlistDataSource.swift in Sources */,
 				1B396BF81C960D9B00986749 /* SQLiteDataManagerDelegate.swift in Sources */,
 				1B396B731C9251D900986749 /* NewEventVC.swift in Sources */,
+				1B6FAA821CA764B20061A219 /* MediaVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
