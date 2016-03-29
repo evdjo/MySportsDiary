@@ -122,7 +122,7 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate {
         if let images = images where images.count > 1 {
             let decrementedIndex = imageIndex - 1;
             if decrementedIndex < 0 {
-                imageIndex = images.count;
+                imageIndex = images.count - 1;
             } else {
                 imageIndex = decrementedIndex;
             }
