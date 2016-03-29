@@ -3,7 +3,16 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "PlistDataSource.getTempImages() -&gt; [UIImage?]:PlistDataSource.swift">
+      </ContextState>
+      <ContextState
+         contextName = "MediaPopoverVC.viewDidAppear(Bool) -&gt; ():MediaVC.swift">
+      </ContextState>
+      <ContextState
          contextName = "QuestionsVC.(checkIfQuestionsAnswered in _948409F79B06CA7EDBD82DFE7A9C3F47)() -&gt; ():QuestionsVC.swift">
+      </ContextState>
+      <ContextState
+         contextName = "PlistDataSource.saveTempImage(UIImage) -&gt; String:PlistDataSource.swift">
       </ContextState>
       <ContextState
          contextName = "MySportsDiaryUITests.testAgeAndGenderPersistence() -&gt; ():MySportsDiaryUITests.swift">

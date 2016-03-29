@@ -45,7 +45,7 @@ class NewEventVC: UIViewController, UIPopoverPresentationControllerDelegate, UIT
         if segue.identifier == "id" {
             let controller = segue.destinationViewController;
             controller.popoverPresentationController!.delegate = self
-            controller.preferredContentSize = CGSize(width: 240, height: self.view.frame.height / 2)
+            controller.preferredContentSize = CGSize(width: self.view.frame.width, height: self.view.frame.height)
             controller.popoverPresentationController!.sourceRect = (sender as! UIButton).bounds
             
         }

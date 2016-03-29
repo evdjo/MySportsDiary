@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class PlistDataSource: DataSource {
     
@@ -18,6 +19,8 @@ class PlistDataSource: DataSource {
     private let AppPropertiesFile = "appstate.plist";
     
     private let AnswersTempFile = "answerstemp.plist";
+    
+    private let TempImageURLs = "tempImageURLs.plist";
     
     
     
@@ -151,6 +154,67 @@ class PlistDataSource: DataSource {
         }
         return false;
     }
+    
+    
+    
+    
+    ///
+    /// Save image to a temp folder
+    ///
+    func saveTempImage(image: UIImage) {
+        let imageFileName = "MySportsDiaryTempImage_\(timestamp()).png"
+        let path = tempMediaFolderURL()
+        let imagePath = path.URLByAppendingPathComponent(imageFileName);
+        UIImagePNGRepresentation(image)?.writeToURL(imagePath, atomically: true);
+        saveTempImageName(imageFileName);
+    }
+    
+    func getTempImages() -> [UIImage?] {
+        let imageURLs: [NSURL] = getImageURLs();
+        var images: [UIImage?] = Array<UIImage>();
+        for url in imageURLs {
+            print(NSFileManager.defaultManager().fileExistsAtPath(url.path!))
+            if let image = UIImage(contentsOfFile: url.path!) {
+                images.append(image);
+            }
+        }
+        
+        return images;
+    }
+    
+    ///
+    /// List of all temp images currently cached to files
+    ///
+    private func getImageURLs() -> [NSURL] {
+        let fileURL = dataFileURL(TempImageURLs)
+        if (NSFileManager.defaultManager().fileExistsAtPath(fileURL.path!)) {
+            if let dict = NSArray(contentsOfURL: fileURL) as? Array<String> {
+                var returnURLs = Array<NSURL>();
+                let folderURL = tempMediaFolderURL();
+                for name in dict {
+                    returnURLs.append(folderURL.URLByAppendingPathComponent(name));
+                }
+                return returnURLs;
+            }
+        }
+        return [];
+    }
+    
+    private func saveTempImageName(name: String) {
+        let fileURL = dataFileURL(TempImageURLs)
+        if (NSFileManager.defaultManager().fileExistsAtPath(fileURL.path!)) {
+            if var dict = NSArray(contentsOfURL: fileURL) as? Array<String> {
+                dict.append(name);
+                (dict as NSArray).writeToURL(fileURL,atomically: true);
+            }
+        } else {
+            ([name as NSString] as NSArray).writeToURL(fileURL, atomically: true);
+        }
+        
+    }
+    
+    
+    
     
     func deleteAllFiles() {
         deleteFile(UserInfoFile);

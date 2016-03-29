@@ -10,7 +10,7 @@ import Foundation
 
 
 ///
-/// Gender 
+/// Gender
 ///
 enum Gender : Int {
     case BOY = 1
@@ -35,12 +35,36 @@ enum ApplicationState : String {
 ///
 internal func dataFilePath(whichFile: String) -> String {
     let urls = NSFileManager.defaultManager().URLsForDirectory(
-        .DocumentDirectory, inDomains: .UserDomainMask);
+        .LibraryDirectory, inDomains: .UserDomainMask);
     return urls.first!.URLByAppendingPathComponent(whichFile).path!;
 }
 
 internal func dataFileURL(whichFile: String) -> NSURL {
     let urls = NSFileManager.defaultManager().URLsForDirectory(
-        .DocumentDirectory, inDomains: .UserDomainMask)
+        .LibraryDirectory, inDomains: .UserDomainMask)
     return urls.first!.URLByAppendingPathComponent(whichFile)
+}
+
+internal func documentsURL() -> NSURL {
+    let urls = NSFileManager.defaultManager().URLsForDirectory(
+        .LibraryDirectory, inDomains: .UserDomainMask)
+    return urls.first!
+}
+
+internal func tempMediaFolderURL() -> NSURL{
+    let mediaTempFolder = documentsURL().URLByAppendingPathComponent("mediaTemp");
+    
+    try! NSFileManager.defaultManager().createDirectoryAtURL(mediaTempFolder, withIntermediateDirectories: true, attributes: nil);
+ 
+    return mediaTempFolder;
+    
+}
+
+///
+/// Timestamp since epoch
+///
+
+internal func timestamp() -> String {
+    return "\(NSDate().timeIntervalSince1970 * 1000)";
+    
 }

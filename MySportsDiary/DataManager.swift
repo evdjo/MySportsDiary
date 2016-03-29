@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import UIKit
 
 //
 // Handles all persistent data, such as user Age, Gender, Questionnaire Answers, Events
@@ -48,6 +48,10 @@ protocol DataSource {
     func getAppState() -> ApplicationState?
     func setAppState(appState: ApplicationState);
     func saveCurrentAnswersInitial();
+    
+    
+    func saveTempImage(image: UIImage);
+    func getTempImages() -> [UIImage?];
     
     func deleteAllFiles()
 

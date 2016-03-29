@@ -16,7 +16,12 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     var lastMedia: String?
     var AVPlayerVC: AVPlayerViewController?
-    var image: UIImage?
+    
+    
+    var images: [UIImage?]?;
+    var imageIndex = 0;
+    
+    
     var videoURL: NSURL?
     
     @IBOutlet weak var photoImageView: UIImageView!
@@ -24,20 +29,14 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
     
     override func viewDidAppear(animated: Bool) {
-        if let image = image {
-            photoImageView.image = image;
-            photoImageView.hidden = false;
-        } else {
-            photoImageView.hidden = true;
-        }
-        
+        imageIndex = 0;
+        setCurrentImage();
         super.viewDidAppear(animated);
     }
-
+    
     
     
     
@@ -83,7 +82,11 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate {
         lastMedia = info[UIImagePickerControllerMediaType] as? String
         if let mediaType = lastMedia {
             if mediaType == kUTTypeImage as NSString {
-                image = info[UIImagePickerControllerEditedImage] as? UIImage
+                if let image = info[UIImagePickerControllerEditedImage] as? UIImage {
+                    DataManager.getManagerInstance().saveTempImage(image);
+                    imageIndex += 1;
+                    setCurrentImage();
+                }
             } else if mediaType == kUTTypeMovie as NSString {
                 videoURL = info[UIImagePickerControllerMediaURL] as? NSURL
             }
@@ -91,14 +94,60 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate {
             
         }
         
-//        self.dismissViewControllerAnimated(true, completion: nil)
+        //        self.dismissViewControllerAnimated(true, completion: nil)
         
         
     }
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         picker.dismissViewControllerAnimated(true, completion:nil)
-//        self.dismissViewControllerAnimated(true, completion: nil)
+        //        self.dismissViewControllerAnimated(true, completion: nil)
         
     }
+    
+    
+    
+    private func setCurrentImage() {
+        images = DataManager.getManagerInstance().getTempImages();
+        if let images = images where images.count > imageIndex, let image = images[imageIndex] {
+            photoImageView.image = image;
+            photoImageView.hidden = false;
+        } else {
+            photoImageView.hidden = true;
+        }
+        
+    }
+    
+    @IBAction func onPrevious(sender: AnyObject) {
+        if let images = images where images.count > 1 {
+            let decrementedIndex = imageIndex - 1;
+            if decrementedIndex < 0 {
+                imageIndex = images.count;
+            } else {
+                imageIndex = decrementedIndex;
+            }
+            
+            setCurrentImage();
+            
+        }
+    }
+    
+    @IBAction func onNext(sender: AnyObject) {
+        
+        if let images = images where images.count > 1 {
+            let incrementedIndex = imageIndex + 1;
+            if incrementedIndex < images.count {
+                imageIndex = incrementedIndex;
+            } else {
+                imageIndex = 0;
+            }
+            
+            setCurrentImage();
+            
+        }
+        
+    }
+    
+    
+    
 }
