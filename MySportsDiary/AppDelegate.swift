@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let appArgs = Process.arguments;
         print(appArgs);
         if(appArgs.count > 1 && appArgs.contains("TEST_ENVIRONMENT")) {
-            DataManager.getManagerInstance().deleteAllFiles();
+            DataManager.getManagerInstance().purgeData();
             print("The app was launched in TEST mode, clearing" +
                 " all previous contents from the data manager.");
         }

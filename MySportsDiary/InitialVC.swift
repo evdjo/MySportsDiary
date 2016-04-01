@@ -15,8 +15,9 @@ class InitialVC: UIViewController {
     /// Set the tab bar buttons enabledness
     /// See which mode we're at currently
     ///
-    override func viewDidAppear(animated: Bool) {
-        
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated);
+
         
         let appState = DataManager.getManagerInstance().getAppState() ?? .Initial
         switch(appState) {
@@ -29,7 +30,6 @@ class InitialVC: UIViewController {
         }
         /// hide the bar above, since there is no back screen to move to
         self.navigationController?.setNavigationBarHidden(true, animated: true);
-        super.viewDidAppear(animated);
         
     }
     ///
@@ -37,8 +37,9 @@ class InitialVC: UIViewController {
     /// Hide the begin button in the first tab
     ///
     private func setForDiaryMode() {
-        self.tabBarController!.tabBar.items![1].enabled = true;
-        self.tabBarController!.tabBar.items![2].enabled = true;
+        self.tabBarController?.tabBar.items![1].enabled = true;
+        self.tabBarController?.tabBar.items![2].enabled = true;
+        self.tabBarController?.selectedIndex = 1;
         mainLabel.text = "Thanks for having answered the initial questionnaire." +
         " You will answer the questionnaire again at the end." +
         " Now you can add new entries in the diary."
@@ -50,8 +51,8 @@ class InitialVC: UIViewController {
     /// Enable the begin button
     ///
     private func setForInitialMode() {
-        self.tabBarController!.tabBar.items![1].enabled = false;
-        self.tabBarController!.tabBar.items![2].enabled = false;
+        self.tabBarController?.tabBar.items?[1].enabled = false;
+        self.tabBarController?.tabBar.items?[2].enabled = false;
         mainLabel.text = "Click the bellow button to answer the initial questionnaire."
         beginButton.hidden = false;
     }
@@ -61,11 +62,12 @@ class InitialVC: UIViewController {
     /// Enable the begin button
     ///
     private func setForFinalMode() {
-        self.tabBarController!.tabBar.items![1].enabled = false;
-        self.tabBarController!.tabBar.items![2].enabled = false;
+        self.tabBarController?.tabBar.items?[1].enabled = false;
+        self.tabBarController?.tabBar.items?[2].enabled = false;
         mainLabel.text = "Now you must answer the final questionnaire. Click below to begin."
         beginButton.hidden = false;
     }
+    
     @IBOutlet weak var mainLabel: UILabel!
     
     

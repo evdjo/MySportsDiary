@@ -20,7 +20,6 @@ class QuestionsVC: UIViewController {
     ///
     /// App lifecycle methods
     ///
-    
     override func viewDidLoad() {
         /// load the page of questionnaire, based on the story board identifier
         if let id = self.restorationIdentifier {
@@ -55,11 +54,11 @@ class QuestionsVC: UIViewController {
     }
     
     override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated);
         saveAnswers();
     }
     
     func applicationWillResignActive(notification: NSNotification) {
-        print("applicationWillResignActive was called");
         saveAnswers();
     }
     
@@ -106,7 +105,6 @@ class QuestionsVC: UIViewController {
             handler: { action in
                 // then save answers
                 DataManager.getManagerInstance().setAppState(.Diary);
-                DataManager.getManagerInstance().saveCurrentAnswersInitial();
                 
                 // enable second and third tabs, disable first, switch to second
                 // self.tabBarController!.tabBar.items![0].enabled = false;
@@ -169,7 +167,7 @@ class QuestionsVC: UIViewController {
         for i in 0...2 {
             let index = answersSegControl[i].selectedSegmentIndex
             if(index != -1) {
-                manager.saveAnswer(questionID(page,index: i),answer: index);
+                manager.setAnswer(questionID(page,index: i),answer: index);
             }
         }
     }

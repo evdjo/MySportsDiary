@@ -18,7 +18,6 @@ enum Gender : Int {
 }
 
 
-
 ///
 /// Initial means we need to ask initial questionnaire & age/gender
 /// Diary means the user is currently able to record new events
@@ -28,36 +27,6 @@ enum ApplicationState : String {
     case Initial = "InitialState"
     case Diary = "DiaryState"
     case Final = "FinalState"
-}
-
-///
-/// File path/url functions
-///
-internal func dataFilePath(whichFile: String) -> String {
-    let urls = NSFileManager.defaultManager().URLsForDirectory(
-        .LibraryDirectory, inDomains: .UserDomainMask);
-    return urls.first!.URLByAppendingPathComponent(whichFile).path!;
-}
-
-internal func dataFileURL(whichFile: String) -> NSURL {
-    let urls = NSFileManager.defaultManager().URLsForDirectory(
-        .LibraryDirectory, inDomains: .UserDomainMask)
-    return urls.first!.URLByAppendingPathComponent(whichFile)
-}
-
-internal func documentsURL() -> NSURL {
-    let urls = NSFileManager.defaultManager().URLsForDirectory(
-        .LibraryDirectory, inDomains: .UserDomainMask)
-    return urls.first!
-}
-
-internal func tempMediaFolderURL() -> NSURL{
-    let mediaTempFolder = documentsURL().URLByAppendingPathComponent("mediaTemp");
-    
-    try! NSFileManager.defaultManager().createDirectoryAtURL(mediaTempFolder, withIntermediateDirectories: true, attributes: nil);
- 
-    return mediaTempFolder;
-    
 }
 
 ///

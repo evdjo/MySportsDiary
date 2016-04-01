@@ -19,7 +19,7 @@ class QuestionnaireUITests: XCTestCase {
     private let nextButton = XCUIApplication().buttons["Next"];
     private let finishButton = XCUIApplication().buttons["Finish"];
     private let tabBarQuestionnaire = XCUIApplication().tabBars.buttons["Questionnaire"];
-    private let tabBarFirst = XCUIApplication().tabBars.buttons["First"];
+    private let tabDiary = XCUIApplication().tabBars.buttons["New Entry"];
     private let tabBarSecond = XCUIApplication().tabBars.buttons["Second"];
     private let backButtonAgeGender = XCUIApplication().navigationBars["MySportsDiary.AgeGenderVC"]
     .childrenMatchingType(.Button).matchingIdentifier("Back").elementBoundByIndex(0);
@@ -54,15 +54,15 @@ class QuestionnaireUITests: XCTestCase {
         ///
         
         XCTAssertTrue(tabBarQuestionnaire.selected);
-        XCTAssertFalse(tabBarFirst.selected);
+        XCTAssertFalse(tabDiary.selected);
         XCTAssertFalse(tabBarSecond.selected);
-        tabBarFirst.tap();
+        tabDiary.tap();
         XCTAssertTrue(tabBarQuestionnaire.selected);
-        XCTAssertFalse(tabBarFirst.selected);
+        XCTAssertFalse(tabDiary.selected);
         XCTAssertFalse(tabBarSecond.selected);
         tabBarSecond.tap();
         XCTAssertTrue(tabBarQuestionnaire.selected);
-        XCTAssertFalse(tabBarFirst.selected);
+        XCTAssertFalse(tabDiary.selected);
         XCTAssertFalse(tabBarSecond.selected);
         ///
         /// Answer the questionnaire
@@ -82,13 +82,13 @@ class QuestionnaireUITests: XCTestCase {
         ///
         app.staticTexts["Thanks for having answered the initial questionnaire. You will answer " +
             "the questionnaire again at the end. Now you can add new entries in the diary."].tap();
-        tabBarFirst.tap();
+        tabDiary.tap();
         XCTAssertFalse(tabBarQuestionnaire.selected);
-        XCTAssertTrue(tabBarFirst.selected);
+        XCTAssertTrue(tabDiary.selected);
         XCTAssertFalse(tabBarSecond.selected);
         tabBarSecond.tap();
         XCTAssertFalse(tabBarQuestionnaire.selected);
-        XCTAssertFalse(tabBarFirst.selected);
+        XCTAssertFalse(tabDiary.selected);
         XCTAssertTrue(tabBarSecond.selected);
     }
     

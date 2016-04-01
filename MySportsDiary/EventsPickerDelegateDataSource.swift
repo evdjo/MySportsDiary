@@ -20,11 +20,15 @@ class EventsPickerDelegateDataSource: NSObject, UIPickerViewDelegate,  UIPickerV
     /// Data Source Methods
     ///
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
-        return 1
+        return 2
     }
     func pickerView(pickerView: UIPickerView,
                     numberOfRowsInComponent component: Int) -> Int {
-        return eventNames.count;
+        if(component == 0){
+            return 1;
+        } else {
+            return eventNames.count;
+        }
     }
     
     ///
@@ -32,6 +36,17 @@ class EventsPickerDelegateDataSource: NSObject, UIPickerViewDelegate,  UIPickerV
     ///
     func pickerView(pickerView: UIPickerView,titleForRow row: Int, forComponent component: Int)
         -> String? {
+            if(component == 0) {
+                return "I feel";
+            }
             return eventNames[row];
+    }
+    
+    func pickerView(pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
+        if(component == 0) {
+            return pickerView.frame.width / 3;
+        } else {
+            return pickerView.frame.width * 2 / 3;
+        }
     }
 }

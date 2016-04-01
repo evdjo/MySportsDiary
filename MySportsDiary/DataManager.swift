@@ -9,51 +9,53 @@
 import Foundation
 import UIKit
 
-//
-// Handles all persistent data, such as user Age, Gender, Questionnaire Answers, Events
-//
+///
+/// Handles all persistent data, such as user Age, Gender, Questionnaire Answers, Events
+///
 class DataManager {
     
     
-    //
-    // Singleton
-    //
-    static var instance: DataSource?;
+    ///
+    /// Singleton
+    ///
+    private static var instance: DataSource?;
     
-    static func getManagerInstance() -> DataSource {
-        if instance == nil {
-            instance = constructInstance();
-        }
+    internal static func getManagerInstance() -> DataSource {
+        if instance == nil {instance = constructInstance();}
         return instance!;
     }
     
     private static func constructInstance() -> DataSource {
-        return PlistDataSource();
+        return PropertyListDataSource();
     }
     
     
     
 }
 protocol DataSource {
-
-    func getAge()-> Int?
-    func getGender()-> Gender?
     
-    func setAge(age:Int)
-    func setGender(gender:Gender)
+    func getAge()-> Int?;
+    func getGender()-> Gender?;
+    func setAge(age:Int);
+    func setGender(gender:Gender);
     
-    func saveAnswer(questionID: Int, answer: Int)
-    func getAnswer(questionID: Int) -> Int?
     
-    func getAppState() -> ApplicationState?
+    func setAnswer(questionID: Int, answer: Int);
+    func getAnswer(questionID: Int) -> Int?;
+    
+    func getAppState() -> ApplicationState?;
     func setAppState(appState: ApplicationState);
-    func saveCurrentAnswersInitial();
     
+    
+    func setTempImages(images: [UIImage]);
+    func getTempImages() -> [UIImage]?;
     
     func saveTempImage(image: UIImage);
-    func getTempImages() -> [UIImage?];
-    
-    func deleteAllFiles()
+    func removeTempImage(index: Int);
 
+    
+    /// CAUTION --- deletes everything ! Used for testing purposes
+    func purgeData();
+    
 }
 
