@@ -8,14 +8,12 @@
 
 import UIKit
 
-class EventsPickerDelegateDataSource: NSObject, UIPickerViewDelegate,  UIPickerViewDataSource {
-    
-    
+class EventsPickerDelegateDataSource: NSObject, UIPickerViewDelegate, UIPickerViewDataSource {
+
     private let eventNames = [
         "Leadership", "Fear", "Loneliness", "Anxiety", "Upset",
-        "Excited", "Angry", "Happy", "Stressed", "Vulnarable","Guilty","Depressed"]
-    
-    
+        "Excited", "Angry", "Happy", "Stressed", "Vulnarable", "Guilty", "Depressed"]
+
     ///
     /// Data Source Methods
     ///
@@ -23,27 +21,27 @@ class EventsPickerDelegateDataSource: NSObject, UIPickerViewDelegate,  UIPickerV
         return 2
     }
     func pickerView(pickerView: UIPickerView,
-                    numberOfRowsInComponent component: Int) -> Int {
-        if(component == 0){
-            return 1;
-        } else {
-            return eventNames.count;
-        }
+        numberOfRowsInComponent component: Int) -> Int {
+            if (component == 0) {
+                return 1;
+            } else {
+                return eventNames.count;
+            }
     }
-    
+
     ///
     /// Delegate Methods
     ///
-    func pickerView(pickerView: UIPickerView,titleForRow row: Int, forComponent component: Int)
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int)
         -> String? {
-            if(component == 0) {
+            if (component == 0) {
                 return "I feel";
             }
             return eventNames[row];
     }
-    
+
     func pickerView(pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
-        if(component == 0) {
+        if (component == 0) {
             return pickerView.frame.width / 3;
         } else {
             return pickerView.frame.width * 2 / 3;

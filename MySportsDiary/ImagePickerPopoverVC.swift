@@ -13,8 +13,7 @@ import MobileCoreServices
 
 class ImagePickerPopoverVC: UIViewController,
 UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
-    
+
     /// The images shown in the image view
     private var images: [UIImage]?;
     /// Which image showing currently
@@ -22,9 +21,7 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var noImagesLabel: UILabel!
     @IBOutlet weak var imageControls: UIStackView!
-    
-    
-    
+
     ///
     /// App lifecycle methods
     ///
@@ -33,17 +30,15 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate {
         let app = UIApplication.sharedApplication()
         NSNotificationCenter.defaultCenter()
             .addObserver(self,
-                         selector: #selector(applicationWillResignActive(_:)),
-                         name: UIApplicationWillResignActiveNotification,
-                         object: app);
-        
+                selector: #selector(applicationWillResignActive(_:)),
+                name: UIApplicationWillResignActiveNotification,
+                object: app);
     }
-    
+
     func applicationWillResignActive(notification: NSNotification) {
         saveTempImages();
     }
-    
-    
+
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated);
         loadTempImages();
@@ -53,18 +48,18 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate {
         super.viewWillDisappear(animated);
         saveTempImages();
     }
-    
+
     ///
     /// Action handlers
     ///
     @IBAction func onLibraryButtonPressed(sender: AnyObject) {
         pickImageFrom(.PhotoLibrary)
     }
-    
+
     @IBAction func onPhotoButtonPressed(sender: AnyObject) {
         pickImageFrom(.Camera)
     }
-    
+
     @IBAction func onPrevious(sender: AnyObject) {
         if let images = images where images.count > 1 {
             let decrementedIndex = imageIndex - 1;
@@ -76,7 +71,7 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate {
             setCurrentImage();
         }
     }
-    
+
     @IBAction func onNext(sender: AnyObject) {
         if let images = images where images.count > 1 {
             let incrementedIndex = imageIndex + 1;
@@ -88,79 +83,72 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate {
             setCurrentImage();
         }
     }
-    
+
     @IBAction func onDelete(sender: AnyObject) {
         if images != nil && imageIndex < images!.count {
-            let controller = UIAlertController(title: "Delete the image?",message: nil,preferredStyle: .ActionSheet)
-            let yesAction = UIAlertAction(title: "Yes",style: .Default, handler: { action in
+            let controller = UIAlertController(title: "Delete the image?", message: nil, preferredStyle: .ActionSheet)
+            let yesAction = UIAlertAction(title: "Yes", style: .Default, handler: { action in
                 self.images!.removeAtIndex(self.imageIndex);
                 DataManager.getManagerInstance().removeTempImage(self.imageIndex);
                 self.imageIndex -= max(0, self.imageIndex);
                 self.setCurrentImage();
             });
             controller.addAction(yesAction)
-            controller.addAction(UIAlertAction(title: "No",style: .Cancel,handler: nil))
+            controller.addAction(UIAlertAction(title: "No", style: .Cancel, handler: nil))
             presentViewController(controller, animated: true, completion: nil)
-            
         }
     }
-    
+
     ///
     /// When the user picks image, via camera or library
     ///
     func pickImageFrom(sourceType: UIImagePickerControllerSourceType) {
         if let mediaTypes = UIImagePickerController.availableMediaTypesForSourceType(sourceType)
-            where UIImagePickerController.isSourceTypeAvailable(sourceType)
-                && mediaTypes.contains(kUTTypeImage as String) {
+        where UIImagePickerController.isSourceTypeAvailable(sourceType)
+        && mediaTypes.contains(kUTTypeImage as String) {
             let picker = UIImagePickerController()
             picker.mediaTypes = [kUTTypeImage as String];
             picker.delegate = self
             picker.allowsEditing = true;
             picker.sourceType = sourceType
-            presentViewController(picker,animated: true, completion: nil);
-            
+            presentViewController(picker, animated: true, completion: nil);
         } else {
             let alertController = UIAlertController(title: "The device does not have a camera.",
-                                                    message: nil,
-                                                    preferredStyle: UIAlertControllerStyle.Alert);
+                message: nil,
+                preferredStyle: UIAlertControllerStyle.Alert);
             let okAction = UIAlertAction(title: "OK",
-                                         style: UIAlertActionStyle.Cancel, handler: nil);
+                style: UIAlertActionStyle.Cancel, handler: nil);
             alertController.addAction(okAction);
-            presentViewController(alertController,animated: true, completion: nil);
-            
+            presentViewController(alertController, animated: true, completion: nil);
         }
-        
     }
-    
+
     ///
     /// When we receive an image from the user...
     ///
     func imagePickerController(picker: UIImagePickerController,
-                               didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        
-        if let image = info[UIImagePickerControllerEditedImage] as? UIImage {
-            if images == nil {
-                images = Array<UIImage>();
-                imageIndex = 0 ;
+        didFinishPickingMediaWithInfo info: [String: AnyObject]) {
+
+            if let image = info[UIImagePickerControllerEditedImage] as? UIImage {
+                if images == nil {
+                    images = Array<UIImage>();
+                    imageIndex = 0 ;
+                }
+                images!.append(image);
+                imageIndex = images!.count - 1;
+                DataManager.getManagerInstance().saveTempImage(image);
+                setCurrentImage();
             }
-            images!.append(image);
-            imageIndex = images!.count - 1;
-            DataManager.getManagerInstance().saveTempImage(image);
-            setCurrentImage();
-            
-        }
-        picker.dismissViewControllerAnimated(true, completion: nil);
+            picker.dismissViewControllerAnimated(true, completion: nil);
     }
-    
+
     ///
     /// On image pick cancellation
     ///
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
-        picker.dismissViewControllerAnimated(true, completion:nil)
+        picker.dismissViewControllerAnimated(true, completion: nil)
     }
-    
-    
-    
+
     private func setCurrentImage() {
         if let images = images where images.count > imageIndex {
             let image = images[imageIndex];
@@ -173,21 +161,18 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate {
             noImagesLabel.hidden = false;
             imageControls.hidden = true;
         }
-        
     }
-    
+
     func loadTempImages() {
         guard images != nil else {
             images = DataManager.getManagerInstance().getTempImages();
             return;
         }
     }
-    
+
     func saveTempImages() {
-        //        if let images = images {
-        //            DataManager.getManagerInstance().setTempImages(images);
-        //        }
+        // if let images = images {
+        // DataManager.getManagerInstance().setTempImages(images);
+        // }
     }
-    
-    
 }

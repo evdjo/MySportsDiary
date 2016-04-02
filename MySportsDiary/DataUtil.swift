@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 ///
 /// File path/url functions
 ///
@@ -26,7 +25,7 @@ internal func dirURL(directory: NSSearchPathDirectory) -> NSURL {
     return urls[0];
 }
 
-internal func createSubDir(dir subDirName: String,under: NSSearchPathDirectory) -> NSURL {
+internal func createSubDir(dir subDirName: String, under: NSSearchPathDirectory) -> NSURL {
     let subDir = dirURL(under).URLByAppendingPathComponent(subDirName);
     do {
         try fileManager.createDirectoryAtURL(subDir, withIntermediateDirectories: true, attributes: nil);
@@ -36,7 +35,6 @@ internal func createSubDir(dir subDirName: String,under: NSSearchPathDirectory) 
     }
     return subDir;
 }
-
 
 internal func deleteFile(file fileToDeleteURL: NSURL) -> Bool {
     if let filePath = fileToDeleteURL.path {

@@ -192,10 +192,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xUe-cY-pqE">
-                                <rect key="frame" x="8" y="8" width="584" height="527"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            </imageView>
                             <stackView opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="2Hd-7G-z5h" userLabel="PickImage">
                                 <rect key="frame" x="20" y="535" width="560" height="65"/>
                                 <subviews>
@@ -290,6 +286,10 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xUe-cY-pqE">
+                                <rect key="frame" x="8" y="8" width="584" height="527"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="2Hd-7G-z5h" secondAttribute="trailing" id="1LX-8s-pfm"/>
@@ -460,7 +460,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uqr-Hg-57q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="41" y="540"/>
+            <point key="canvasLocation" x="150" y="525"/>
         </scene>
         <!--Questionnaire-->
         <scene sceneID="Uje-Gp-RRb">
@@ -610,7 +610,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v46-jf-nPq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-778" y="2248"/>
+            <point key="canvasLocation" x="-792" y="2188"/>
         </scene>
         <!--Age GenderVC-->
         <scene sceneID="Gd9-8Y-Ymc">
@@ -707,7 +707,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iMB-Je-KZn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-792" y="1421"/>
+            <point key="canvasLocation" x="-792" y="1416"/>
         </scene>
         <!--QuestionsVC-->
         <scene sceneID="u7F-RL-OaB">
@@ -846,7 +846,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wEi-FR-lqE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="41" y="1421"/>
+            <point key="canvasLocation" x="150" y="1416"/>
         </scene>
         <!--QuestionsVC-->
         <scene sceneID="eKP-j6-cYf">
@@ -984,7 +984,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rvi-ct-Vpk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="41" y="2248"/>
+            <point key="canvasLocation" x="125" y="2188"/>
         </scene>
     </scenes>
     <resources>
@@ -1005,6 +1005,6 @@
         <image name="second" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="eUc-fk-lPY"/>
+        <segue reference="zFt-bB-jtg"/>
     </inferredMetricsTieBreakers>
 </document>

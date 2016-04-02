@@ -14,7 +14,6 @@
 		1B396B7A1C9251D900986749 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B396B791C9251D900986749 /* Assets.xcassets */; };
 		1B396B7D1C9251D900986749 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B396B7B1C9251D900986749 /* LaunchScreen.storyboard */; };
 		1B396B851C936B2F00986749 /* AgeGenderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B396B841C936B2F00986749 /* AgeGenderVC.swift */; };
-		1B396B871C936B5F00986749 /* InitialVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B396B861C936B5F00986749 /* InitialVC.swift */; };
 		1B396B891C936BBD00986749 /* QuestionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B396B881C936BBD00986749 /* QuestionsVC.swift */; };
 		1B396B8B1C93774C00986749 /* MasterTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B396B8A1C93774C00986749 /* MasterTabBarViewController.swift */; };
 		1B396B951C93AD9600986749 /* MySportsDiaryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B396B941C93AD9600986749 /* MySportsDiaryTests.swift */; };
@@ -34,6 +33,7 @@
 		1B6FAA821CA764B20061A219 /* ImagePickerPopoverVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6FAA811CA764B20061A219 /* ImagePickerPopoverVC.swift */; };
 		1B8866431C9F9C78007F7BEB /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8866421C9F9C78007F7BEB /* Util.swift */; };
 		1BC2B9C71CA7418A00F519AF /* MySportsDiaryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC2B9C61CA7418A00F519AF /* MySportsDiaryUITests.swift */; };
+		2F93C0551AF2A01D77E867AD /* InitialVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F93CB82990A53BF73B2C3AC /* InitialVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,7 +63,6 @@
 		1B396B7C1C9251D900986749 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1B396B7E1C9251D900986749 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1B396B841C936B2F00986749 /* AgeGenderVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgeGenderVC.swift; sourceTree = "<group>"; };
-		1B396B861C936B5F00986749 /* InitialVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialVC.swift; sourceTree = "<group>"; };
 		1B396B881C936BBD00986749 /* QuestionsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionsVC.swift; sourceTree = "<group>"; };
 		1B396B8A1C93774C00986749 /* MasterTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterTabBarViewController.swift; sourceTree = "<group>"; };
 		1B396B921C93AD9600986749 /* MySportsDiaryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MySportsDiaryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -87,6 +86,7 @@
 		1BC2B9C41CA7418A00F519AF /* MySportsDiaryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MySportsDiaryUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BC2B9C61CA7418A00F519AF /* MySportsDiaryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySportsDiaryUITests.swift; sourceTree = "<group>"; };
 		1BC2B9C81CA7418A00F519AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2F93CB82990A53BF73B2C3AC /* InitialVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,7 +174,6 @@
 		1B6FAA801CA762B20061A219 /* NewEventTab */ = {
 			isa = PBXGroup;
 			children = (
-				1B396B721C9251D900986749 /* NewEventVC.swift */,
 				1B6FAA811CA764B20061A219 /* ImagePickerPopoverVC.swift */,
 				1B510DA91CA75311008A4F6B /* EventsPickerDelegateDataSource.swift */,
 			);
@@ -185,7 +184,6 @@
 			isa = PBXGroup;
 			children = (
 				1B396B841C936B2F00986749 /* AgeGenderVC.swift */,
-				1B396B861C936B5F00986749 /* InitialVC.swift */,
 				1B396B881C936BBD00986749 /* QuestionsVC.swift */,
 			);
 			name = Questionnaire;
@@ -206,8 +204,11 @@
 		1B8866461C9F9D69007F7BEB /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				1B396B701C9251D900986749 /* AppDelegate.swift */,
+				1B396B721C9251D900986749 /* NewEventVC.swift */,
 				1B396B8A1C93774C00986749 /* MasterTabBarViewController.swift */,
 				1B396B741C9251D900986749 /* SecondViewController.swift */,
+				2F93CB82990A53BF73B2C3AC /* InitialVC.swift */,
 			);
 			name = Main;
 			sourceTree = "<group>";
@@ -217,7 +218,6 @@
 			children = (
 				1B8866421C9F9C78007F7BEB /* Util.swift */,
 				1B396B791C9251D900986749 /* Assets.xcassets */,
-				1B396B701C9251D900986749 /* AppDelegate.swift */,
 				1B396B7B1C9251D900986749 /* LaunchScreen.storyboard */,
 				1B396BFB1C960F0D00986749 /* MySportsDiary-Bridging-Header.h */,
 				1B396B7E1C9251D900986749 /* Info.plist */,
@@ -370,7 +370,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B396B751C9251D900986749 /* SecondViewController.swift in Sources */,
-				1B396B871C936B5F00986749 /* InitialVC.swift in Sources */,
 				1B396B8B1C93774C00986749 /* MasterTabBarViewController.swift in Sources */,
 				1B5A3C321CAD0B3B00DA118A /* QuestionnaireAnswers.swift in Sources */,
 				1B396B891C936BBD00986749 /* QuestionsVC.swift in Sources */,
@@ -387,6 +386,7 @@
 				1B396BF81C960D9B00986749 /* SQLiteDataSource.swift in Sources */,
 				1B396B731C9251D900986749 /* NewEventVC.swift in Sources */,
 				1B6FAA821CA764B20061A219 /* ImagePickerPopoverVC.swift in Sources */,
+				2F93C0551AF2A01D77E867AD /* InitialVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
