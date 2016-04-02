@@ -18,9 +18,9 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     private var images: [UIImage]?;
     /// Which image showing currently
     private var imageIndex = 0;
-    @IBOutlet weak var photoImageView: UIImageView!
-    @IBOutlet weak var noImagesLabel: UILabel!
-    @IBOutlet weak var imageControls: UIStackView!
+    @IBOutlet weak var photoImageView: UIImageView!;
+    @IBOutlet weak var noImagesLabel: UILabel!;
+    @IBOutlet weak var imageControls: UIStackView!;
 
     ///
     /// App lifecycle methods
