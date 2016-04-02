@@ -19,15 +19,17 @@ class AgeGenderVC: UIViewController {
     private var genderIsSet = false;
 
     override func viewDidLoad() {
-        genderSegmentedControl.accessibilityLabel = "genderSegmentedControl";
-        ageSlider.accessibilityLabel = "ageSlider";
+        /// set the accesibility identifiers -- used in testing
+        genderSegmentedControl.accessibilityIdentifier = Accessibility.GenderSegmentedControl
+        ageSlider.accessibilityIdentifier = Accessibility.AgeSlider;
     }
 
     ///
     /// Put age and gender back
     /// enable/disable next button
     ///
-    override func viewDidAppear(animated: Bool) {
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated);
         loadAge();
         loadGender();
         if (ageIsSet && genderIsSet) {
@@ -38,8 +40,7 @@ class AgeGenderVC: UIViewController {
             nextButton.alpha = 0.5;
         }
 
-        self.navigationController?.setNavigationBarHidden(false, animated: true);
-        super.viewDidAppear(animated);
+        self.navigationController?.setNavigationBarHidden(false, animated: animated);
     }
     ///
     /// Persist the age and gender

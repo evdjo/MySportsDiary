@@ -19,10 +19,15 @@ class InitialVC: UIViewController {
     @IBOutlet weak var mainLabel: UILabel!;
     @IBOutlet weak var beginButton: UIButton!;
 
+    override func viewDidLoad() {
+        super.viewDidLoad();
+        mainLabel.accessibilityIdentifier = Accessibility.MainLabel;
+        beginButton.accessibilityIdentifier = Accessibility.BeginButton;
+    }
+
     ///
-    /// Hide back button
-    /// If enable the second and third tab bars if we are in Diary mode,
-    /// else only the first tab bar is enabled.
+    /// Hide back button. If enable the second and third
+    /// tab bars if we are in Diary mode, else only the first tab bar is enabled.
     ///
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated);

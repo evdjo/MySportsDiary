@@ -30,6 +30,7 @@
 		1B5A3C321CAD0B3B00DA118A /* QuestionnaireAnswers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5A3C311CAD0B3B00DA118A /* QuestionnaireAnswers.swift */; };
 		1B5A3C341CAD0E2000DA118A /* TemporaryImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5A3C331CAD0E2000DA118A /* TemporaryImages.swift */; };
 		1B5A3C371CAD0F3200DA118A /* PropertyListsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5A3C361CAD0F3200DA118A /* PropertyListsDataSource.swift */; };
+		1B64DFAD1CAFD6330087D353 /* Accessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B64DFAC1CAFD6330087D353 /* Accessibility.swift */; };
 		1B6FAA821CA764B20061A219 /* ImagePickerPopoverVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6FAA811CA764B20061A219 /* ImagePickerPopoverVC.swift */; };
 		1B8866431C9F9C78007F7BEB /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8866421C9F9C78007F7BEB /* Util.swift */; };
 		1BC2B9C71CA7418A00F519AF /* MySportsDiaryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC2B9C61CA7418A00F519AF /* MySportsDiaryUITests.swift */; };
@@ -81,6 +82,7 @@
 		1B5A3C311CAD0B3B00DA118A /* QuestionnaireAnswers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionnaireAnswers.swift; sourceTree = "<group>"; };
 		1B5A3C331CAD0E2000DA118A /* TemporaryImages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemporaryImages.swift; sourceTree = "<group>"; };
 		1B5A3C361CAD0F3200DA118A /* PropertyListsDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PropertyListsDataSource.swift; sourceTree = "<group>"; };
+		1B64DFAC1CAFD6330087D353 /* Accessibility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Accessibility.swift; sourceTree = "<group>"; };
 		1B6FAA811CA764B20061A219 /* ImagePickerPopoverVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePickerPopoverVC.swift; sourceTree = "<group>"; };
 		1B8866421C9F9C78007F7BEB /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		1BC2B9C41CA7418A00F519AF /* MySportsDiaryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MySportsDiaryUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -174,6 +176,7 @@
 		1B6FAA801CA762B20061A219 /* NewEventTab */ = {
 			isa = PBXGroup;
 			children = (
+				1B396B721C9251D900986749 /* NewEventVC.swift */,
 				1B6FAA811CA764B20061A219 /* ImagePickerPopoverVC.swift */,
 				1B510DA91CA75311008A4F6B /* EventsPickerDelegateDataSource.swift */,
 			);
@@ -183,6 +186,7 @@
 		1B8866441C9F9D28007F7BEB /* Questionnaire */ = {
 			isa = PBXGroup;
 			children = (
+				2F93CB82990A53BF73B2C3AC /* InitialVC.swift */,
 				1B396B841C936B2F00986749 /* AgeGenderVC.swift */,
 				1B396B881C936BBD00986749 /* QuestionsVC.swift */,
 			);
@@ -205,10 +209,8 @@
 			isa = PBXGroup;
 			children = (
 				1B396B701C9251D900986749 /* AppDelegate.swift */,
-				1B396B721C9251D900986749 /* NewEventVC.swift */,
 				1B396B8A1C93774C00986749 /* MasterTabBarViewController.swift */,
 				1B396B741C9251D900986749 /* SecondViewController.swift */,
-				2F93CB82990A53BF73B2C3AC /* InitialVC.swift */,
 			);
 			name = Main;
 			sourceTree = "<group>";
@@ -216,6 +218,7 @@
 		1B8866471C9F9D87007F7BEB /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				1B64DFAC1CAFD6330087D353 /* Accessibility.swift */,
 				1B8866421C9F9C78007F7BEB /* Util.swift */,
 				1B396B791C9251D900986749 /* Assets.xcassets */,
 				1B396B7B1C9251D900986749 /* LaunchScreen.storyboard */,
@@ -385,6 +388,7 @@
 				1B5A3C301CAD08E000DA118A /* UserProperties.swift in Sources */,
 				1B396BF81C960D9B00986749 /* SQLiteDataSource.swift in Sources */,
 				1B396B731C9251D900986749 /* NewEventVC.swift in Sources */,
+				1B64DFAD1CAFD6330087D353 /* Accessibility.swift in Sources */,
 				1B6FAA821CA764B20061A219 /* ImagePickerPopoverVC.swift in Sources */,
 				2F93C0551AF2A01D77E867AD /* InitialVC.swift in Sources */,
 			);
@@ -590,6 +594,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = uk.ac.aber.enm3.MySportsDiaryUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = host;
 				TEST_TARGET_NAME = MySportsDiary;
 			};
 			name = Debug;
@@ -603,6 +608,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = uk.ac.aber.enm3.MySportsDiaryUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = host;
 				TEST_TARGET_NAME = MySportsDiary;
 			};
 			name = Release;

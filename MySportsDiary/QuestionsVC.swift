@@ -21,6 +21,8 @@ class QuestionsVC: UIViewController {
     /// App lifecycle methods
     ///
     override func viewDidLoad() {
+        super.viewDidLoad();
+
         /// load the page of questionnaire, based on the story board identifier
         if let id = self.restorationIdentifier {
             switch (id) {
@@ -30,31 +32,31 @@ class QuestionsVC: UIViewController {
             default: fatalError("Uknown identifier, cannot setup page property!");
             }
         }
+        /// set the accesibility identifiers -- used in testing
+        answersSegControl[0].accessibilityIdentifier = Accessibility.Questions[0];
+        answersSegControl[1].accessibilityIdentifier = Accessibility.Questions[1];
+        answersSegControl[2].accessibilityIdentifier = Accessibility.Questions[2];
+    }
 
-        answersSegControl[0].accessibilityIdentifier = "firstQuestion";
-        answersSegControl[1].accessibilityIdentifier = "secondQuestion";
-        answersSegControl[2].accessibilityIdentifier = "thirdQuestion";
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated);
 
-        let app = UIApplication.sharedApplication()
+        let app = UIApplication.sharedApplication();
         NSNotificationCenter.defaultCenter().addObserver(self,
             selector: #selector(applicationWillResignActive(_:)),
             name: UIApplicationWillResignActiveNotification,
             object: app)
-        super.viewDidLoad();
-    }
-
-    override func viewDidAppear(animated: Bool) {
         self.navigationController?.setNavigationBarHidden(false, animated: true);
         /// load any answers
-        loadAnswers()
-        /// if all questions answered, the enable the next button
+        loadAnswers();
+        /// if all questions answered, the enable the next/finish button
         enableButtonIfAllQuestionsAnswered();
-        super.viewDidAppear(animated);
     }
 
-    override func viewDidDisappear(animated: Bool) {
-        super.viewDidDisappear(animated);
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated);
         saveAnswers();
+        NSNotificationCenter.defaultCenter().removeObserver(self);
     }
 
     func applicationWillResignActive(notification: NSNotification) {
@@ -93,8 +95,7 @@ class QuestionsVC: UIViewController {
     //
     private func initialQuestionnaireFinished() {
         // confirm
-        let controller = UIAlertController(
-            title: "Are you sure?",
+        let controller = UIAlertController(title: "Are you sure?",
             message: "Once finished, you cannot change your answers.",
             preferredStyle: .ActionSheet)
 

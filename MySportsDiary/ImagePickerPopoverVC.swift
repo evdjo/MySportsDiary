@@ -49,6 +49,11 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate {
         saveTempImages();
     }
 
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated);
+ 
+    }
+
     ///
     /// Action handlers
     ///
@@ -158,8 +163,9 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate {
             imageControls.hidden = false;
         } else {
             photoImageView.hidden = true;
-            noImagesLabel.hidden = false;
             imageControls.hidden = true;
+            noImagesLabel.hidden = false;
+            
         }
     }
 
