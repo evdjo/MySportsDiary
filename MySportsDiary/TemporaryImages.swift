@@ -12,7 +12,7 @@ import UIKit
 class TemporaryImages {
 
     static private let tempImagesDir = "tempImages";
-    static private let tempImagesDirURL = createSubDir(dir: tempImagesDir, under: .CachesDirectory);
+    static private var tempImagesDirURL = createSubDir(dir: tempImagesDir, under: .CachesDirectory);
 
     ///
     /// Save image to a temp folder
@@ -73,5 +73,10 @@ class TemporaryImages {
         } catch {
             /// todo error handling
         }
+    }
+
+    static func purgeData() {
+        deleteFile(file: tempImagesDirURL)
+        tempImagesDirURL = createSubDir(dir: tempImagesDir, under: .CachesDirectory)
     }
 }

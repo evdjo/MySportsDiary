@@ -9,45 +9,6 @@
 import XCTest
 class QuestionnaireUITests: XCTestCase {
 
-    struct Accessibility {
-        static let MainLabel = "MainLabel";
-        static let BeginButton = "BeginButton";
-        static let AgeQuestionLabel = "AgeQuestionLabel";
-        static let AgeSlider = "AgeSlider";
-        static let AgeLabel = "AgeLabel";
-        static let GenderQuestionLabel = "GenderQuestionLabel";
-        static let GenderSegmentedControl = "GenderSegmentedControl";
-        static let NextButton = "NextButton";
-        static let Questions = ["QuestionOne", "QuestionTwo", "QuestionThree"]
-        static let QuestionsLabels = ["QuestionOneLabel", "QuestionTwoLabel", "QuestionThreeLabel"]
-    }
-
-    private let maxAge: CGFloat = 65.0;
-    private let girl = "Girl";
-    private let boy = "Boy";
-    private let app: XCUIApplication! = XCUIApplication();
-    private let beginButton = XCUIApplication().buttons["Begin"];
-    private let nextButton = XCUIApplication().buttons["Next"];
-    private let finishButton = XCUIApplication().buttons["Finish"];
-    private let tabBarQuestionnaire = XCUIApplication().tabBars.buttons["Questionnaire"];
-    private let tabDiary = XCUIApplication().tabBars.buttons["New Entry"];
-    private let tabBarSecond = XCUIApplication().tabBars.buttons["Second"];
-    private let backButtonAgeGender = XCUIApplication().navigationBars["MySportsDiary.AgeGenderVC"]
-    .childrenMatchingType(.Button).matchingIdentifier("Back").elementBoundByIndex(0);
-    private let backButtonQuestions = XCUIApplication().navigationBars["MySportsDiary.QuestionsVC"]
-    .childrenMatchingType(.Button).matchingIdentifier("Back").elementBoundByIndex(0);
-    private let girlButton = XCUIApplication()
-    .segmentedControls[Accessibility.GenderSegmentedControl].buttons["Girl"];
-    private let boyButton = XCUIApplication()
-    .segmentedControls[Accessibility.GenderSegmentedControl].buttons["Boy"];
-    private let firstQuestion = XCUIApplication().segmentedControls[Accessibility.Questions[0]];
-    private let secondQuestion = XCUIApplication().segmentedControls[Accessibility.Questions[1]];
-    private let thirdQuestion = XCUIApplication().segmentedControls[Accessibility.Questions[2]];
-    private let ageSlider = XCUIApplication().sliders[Accessibility.AgeSlider];
-    private let genderSegmentedControl = XCUIApplication()
-    .segmentedControls[Accessibility.GenderSegmentedControl];
-    private let mainLabel = XCUIApplication().staticTexts[Accessibility.MainLabel];
-
     override func setUp() {
         super.setUp();
         continueAfterFailure = false;

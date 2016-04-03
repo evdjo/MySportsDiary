@@ -96,6 +96,10 @@
             argument = "TEST_ENVIRONMENT"
             isEnabled = "NO">
          </CommandLineArgument>
+         <CommandLineArgument
+            argument = "DELETE_TEMP_MEDIA"
+            isEnabled = "YES">
+         </CommandLineArgument>
       </CommandLineArguments>
       <AdditionalOptions>
       </AdditionalOptions>

@@ -39,14 +39,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ekE-3g-LTe">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ekE-3g-LTe" userLabel="AddButton">
                                 <rect key="frame" x="20" y="501" width="560" height="50"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <accessibility key="accessibilityConfiguration" identifier="AddButton" label="AddButton"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="94C-Jr-PYr"/>
                                 </constraints>
                                 <state key="normal" title="Add entry">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -55,42 +56,47 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </button>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RMk-kP-xtM">
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RMk-kP-xtM" userLabel="SkillPicker">
                                 <rect key="frame" x="20" y="64" width="560" height="125"/>
+                                <accessibility key="accessibilityConfiguration" identifier="SkillPicker" label="SkillPicker"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="125" id="jHD-RJ-joF"/>
                                 </constraints>
                             </pickerView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="add voice" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pW6-Kt-tp9">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="add voice" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pW6-Kt-tp9" userLabel="AddVoiceLabel">
                                 <rect key="frame" x="20" y="471" width="180" height="15"/>
+                                <accessibility key="accessibilityConfiguration" identifier="AddVoiceLabel" label="AddVoiceLabel"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="15" id="dW3-qO-pEb"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="add photo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qVM-F2-2fi">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="add photo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qVM-F2-2fi" userLabel="AddPhotoLabel">
                                 <rect key="frame" x="210" y="471" width="180" height="15"/>
+                                <accessibility key="accessibilityConfiguration" identifier="AddPhotoLabel" label="AddPhotoLabel"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="15" id="Lih-H6-JRC"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="add video" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KF0-Iy-h5L">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="add video" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KF0-Iy-h5L" userLabel="AddVideoLabel">
                                 <rect key="frame" x="400" y="471" width="180" height="15"/>
+                                <accessibility key="accessibilityConfiguration" identifier="AddVideoLabel" label="AddVideoLabel"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="15" id="Udq-JZ-j1m"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" borderStyle="roundedRect" placeholder="Describe your event..." minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="WFE-Kn-s1w">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" borderStyle="roundedRect" placeholder="Describe your event..." minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="WFE-Kn-s1w" userLabel="EventDescriptionTextField">
                                 <rect key="frame" x="20" y="197" width="560" height="174"/>
                                 <color key="backgroundColor" red="0.89785987140000001" green="0.94141292570000001" blue="0.76126772170000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <accessibility key="accessibilityConfiguration" identifier="EventDescriptionTextField" label="EventDescriptionTextField"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                             </textField>
@@ -99,6 +105,7 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dGx-5A-Xwu" userLabel="AddVoiceButton">
                                         <rect key="frame" x="0.0" y="0.0" width="180" height="65"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="AddVoiceButton" label="AddVoiceButton"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="65" id="2bL-Ji-mWf"/>
                                         </constraints>
@@ -111,6 +118,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bTr-zN-c7S" userLabel="AddPhotoButton">
                                         <rect key="frame" x="190" y="0.0" width="180" height="65"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="AddPhotoButton" label="AddPhotoButton"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="65" id="UW8-eK-YOP"/>
                                         </constraints>
@@ -128,6 +136,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XJY-ap-NON" userLabel="AddVideoButton">
                                         <rect key="frame" x="380" y="0.0" width="180" height="65"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="AddVideoButton" label="AddVideoButton"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="65" id="ZBl-45-Ne3"/>
                                         </constraints>
@@ -143,7 +152,7 @@
                                     <constraint firstAttribute="height" constant="65" id="Ifd-s4-KMa"/>
                                 </constraints>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ho3-lR-U49">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ho3-lR-U49" userLabel="ImagesCountLabel">
                                 <rect key="frame" x="370" y="421" width="20" height="20"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -202,10 +211,10 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="hW7-Ks-iql"/>
                                 <exclude reference="JwX-0R-ZaG"/>
                                 <exclude reference="O9i-j7-sMu"/>
                                 <exclude reference="mNg-Mw-7Vm"/>
-                                <exclude reference="hW7-Ks-iql"/>
                             </mask>
                         </variation>
                     </view>
@@ -239,13 +248,13 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="capture new image" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hOb-1Z-RTz" userLabel="cameraPickImageButtonLabel">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="10"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="8"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="choose from photos" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dyJ-hU-N8M" userLabel="photosPickImageButtonLabel">
                                         <rect key="frame" x="300" y="0.0" width="300" height="10"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="8"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -264,9 +273,9 @@
                                             <action selector="onPhotoButtonPressed:" destination="Gey-6I-YOX" eventType="touchUpInside" id="PlI-ox-mhS"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2jH-Ml-lKy" userLabel="photosPickeImageButton">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2jH-Ml-lKy" userLabel="photosPickImageButton">
                                         <rect key="frame" x="300" y="0.0" width="300" height="50"/>
-                                        <accessibility key="accessibilityConfiguration" identifier="photosPickeImageButton" label="photosPickeImageButton"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="photosPickImageButton" label="photosPickImageButton"/>
                                         <state key="normal" image="photos"/>
                                         <connections>
                                             <action selector="onLibraryButtonPressed:" destination="Gey-6I-YOX" eventType="touchUpInside" id="3mh-s9-v6X"/>
@@ -338,7 +347,7 @@
                                     <button opaque="NO" alpha="0.34999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Zp-ZC-dXp" userLabel="deleteImageButton">
                                         <rect key="frame" x="275" y="0.0" width="50" height="50"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <accessibility key="accessibilityConfiguration" identifier="nextImageButton" label="nextImageButton"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="deleteImageButton" label="deleteImageButton"/>
                                         <state key="normal" image="trash-50"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">

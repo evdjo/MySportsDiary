@@ -20,9 +20,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     private func clearContentsIfTestEnvironment() {
+        print(Process.arguments);
+        print("ASDASDASDASDAS");
+
         if (Process.arguments.contains("TEST_ENVIRONMENT")) {
             DataManager.getManagerInstance().purgeData();
             print("TEST_ENVIRONMENT -- clearing all data!");
+        }
+
+        if (Process.arguments.contains("DELETE_TEMP_MEDIA")) {
+            DataManager.getManagerInstance().purgeTempMedia();
+            print("DELETE_TEMP_MEDIA -- clearing temp media!");
         }
     }
     private func initApp() {
@@ -53,4 +61,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         clearContentsIfTestEnvironment();
     }
 }
-

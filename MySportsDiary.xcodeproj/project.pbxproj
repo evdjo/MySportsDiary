@@ -33,7 +33,8 @@
 		1B64DFAD1CAFD6330087D353 /* Accessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B64DFAC1CAFD6330087D353 /* Accessibility.swift */; };
 		1B6FAA821CA764B20061A219 /* ImagePickerPopoverVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6FAA811CA764B20061A219 /* ImagePickerPopoverVC.swift */; };
 		1B8866431C9F9C78007F7BEB /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8866421C9F9C78007F7BEB /* Util.swift */; };
-		1BC2B9C71CA7418A00F519AF /* MySportsDiaryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC2B9C61CA7418A00F519AF /* MySportsDiaryUITests.swift */; };
+		1B96F1861CB1A44C003DD435 /* ImagePickerPopoverVCUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B96F1851CB1A44C003DD435 /* ImagePickerPopoverVCUITests.swift */; };
+		1B96F1881CB1A49B003DD435 /* TestUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B96F1871CB1A49B003DD435 /* TestUtil.swift */; };
 		2F93C0551AF2A01D77E867AD /* InitialVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F93CB82990A53BF73B2C3AC /* InitialVC.swift */; };
 /* End PBXBuildFile section */
 
@@ -85,8 +86,9 @@
 		1B64DFAC1CAFD6330087D353 /* Accessibility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Accessibility.swift; sourceTree = "<group>"; };
 		1B6FAA811CA764B20061A219 /* ImagePickerPopoverVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePickerPopoverVC.swift; sourceTree = "<group>"; };
 		1B8866421C9F9C78007F7BEB /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		1B96F1851CB1A44C003DD435 /* ImagePickerPopoverVCUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePickerPopoverVCUITests.swift; sourceTree = "<group>"; };
+		1B96F1871CB1A49B003DD435 /* TestUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestUtil.swift; sourceTree = "<group>"; };
 		1BC2B9C41CA7418A00F519AF /* MySportsDiaryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MySportsDiaryUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1BC2B9C61CA7418A00F519AF /* MySportsDiaryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySportsDiaryUITests.swift; sourceTree = "<group>"; };
 		1BC2B9C81CA7418A00F519AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2F93CB82990A53BF73B2C3AC /* InitialVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -231,9 +233,10 @@
 		1BC2B9C51CA7418A00F519AF /* MySportsDiaryUITests */ = {
 			isa = PBXGroup;
 			children = (
-				1BC2B9C61CA7418A00F519AF /* MySportsDiaryUITests.swift */,
 				1BC2B9C81CA7418A00F519AF /* Info.plist */,
 				1B510DA51CA742FD008A4F6B /* QuestionnaireUITests.swift */,
+				1B96F1851CB1A44C003DD435 /* ImagePickerPopoverVCUITests.swift */,
+				1B96F1871CB1A49B003DD435 /* TestUtil.swift */,
 			);
 			path = MySportsDiaryUITests;
 			sourceTree = "<group>";
@@ -407,8 +410,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1BC2B9C71CA7418A00F519AF /* MySportsDiaryUITests.swift in Sources */,
+				1B96F1861CB1A44C003DD435 /* ImagePickerPopoverVCUITests.swift in Sources */,
 				1B510DA61CA742FD008A4F6B /* QuestionnaireUITests.swift in Sources */,
+				1B96F1881CB1A49B003DD435 /* TestUtil.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

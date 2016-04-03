@@ -35,4 +35,8 @@ class PropertyListDataSource: DataSource {
         AppProperties.purgeData();
         QuestionnaireAnswers.purgeData();
     }
+
+    func purgeTempMedia() {
+        TemporaryImages.purgeData();
+    }
 }
