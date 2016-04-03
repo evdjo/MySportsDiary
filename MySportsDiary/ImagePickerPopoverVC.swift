@@ -9,60 +9,160 @@
 import UIKit
 import AVKit
 import AVFoundation
+import Photos
 import MobileCoreServices
 
 class ImagePickerPopoverVC: UIViewController,
 UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
-    /// The images shown in the image view
+    private let noPhotoLibraryMessage = "The device does have photo library."
+    private let noCameraMessage = "The device does have photo library."
+
+    private let deniedMessagePhotoLib = "You've denied permission of this app to use the photo library. You can grant permission in the settings menu.";
+    private let deniedMessageCamera = "You've denied permission of this app to use the camera device. You can grant permission in the settings menu.";
+    private let takeMeThereText = "Take me there";
+    private let cancelText = "Cancel";
+    private let noAccessMessagePhotoLib = "Cannot access your photo library.";
+    private let noAccessMessageCamera = "Cannot access your camera device.";
+    private let deleteTheImageText = "Delete the image?";
+    private let yes = "Yes";
+    private let no = "No";
+    private let cancel = "Cancel";
+
+/// The images shown in the image view
+    var imageCountDelegate: ImageCountDelegate?;
     private var images: [UIImage]?;
-    /// Which image showing currently
+/// Which image showing currently
     private var imageIndex = 0;
     @IBOutlet weak var photoImageView: UIImageView!;
     @IBOutlet weak var noImagesLabel: UILabel!;
-    @IBOutlet weak var imageControls: UIStackView!;
+    @IBOutlet var imageControls: UIView!
 
-    ///
-    /// App lifecycle methods
-    ///
-    override func viewDidLoad() {
-        super.viewDidLoad();
-        let app = UIApplication.sharedApplication()
-        NSNotificationCenter.defaultCenter()
-            .addObserver(self,
-                selector: #selector(applicationWillResignActive(_:)),
-                name: UIApplicationWillResignActiveNotification,
-                object: app);
-    }
-
-    func applicationWillResignActive(notification: NSNotification) {
-        saveTempImages();
-    }
-
+///
+/// Load any temp images, and show the first
+///
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated);
+        
+        
         loadTempImages();
         setCurrentImage();
     }
-    override func viewWillDisappear(animated: Bool) {
-        super.viewWillDisappear(animated);
-        saveTempImages();
+
+    @IBAction func onLibraryButtonPressed(sender: AnyObject) { pickImageFromPhotoLibrary() }
+    @IBAction func onPhotoButtonPressed(sender: AnyObject) { pickImageUsingCamera(); }
+
+///
+/// Shoot new photo using the camera
+///
+    func pickImageUsingCamera() {
+        guard imagePickerMediaAvailable(.Camera) else {
+            alertWithMessage(self, title: noCameraMessage);
+            return;
+        }
+        let authorisationStatus = AVCaptureDevice.authorizationStatusForMediaType(AVMediaTypeVideo);
+        switch (authorisationStatus) {
+        case .Authorized: self.presentImagePickerFor(.Camera);
+        case .NotDetermined: AVCaptureDevice.requestAccessForMediaType(AVMediaTypeVideo,
+            completionHandler: { (granted) in
+                if granted { self.presentImagePickerFor(.Camera) } })
+        case .Denied: binaryChoiceMessage(self,
+            title: deniedMessageCamera,
+            choice0: takeMeThereText,
+            handler0: { (_) in goToSettings(); },
+            choice1: cancelText,
+            handler1: nil);
+        case .Restricted: alertWithMessage(self, title: noAccessMessageCamera);
+        }
     }
 
-    override func viewDidDisappear(animated: Bool) {
-        super.viewDidDisappear(animated);
- 
+///
+/// Choose from library (folder button selected)
+///
+    func pickImageFromPhotoLibrary() {
+        guard imagePickerMediaAvailable(.PhotoLibrary) else {
+            alertWithMessage(self, title: noPhotoLibraryMessage);
+            return;
+        }
+        let authorisationStatus = PHPhotoLibrary.authorizationStatus();
+        switch (authorisationStatus) {
+
+        case .Authorized: self.presentImagePickerFor(.PhotoLibrary);
+        case .NotDetermined: PHPhotoLibrary.requestAuthorization({ (newAuthStatus) in
+            if newAuthStatus == .Authorized { self.presentImagePickerFor(.PhotoLibrary); }
+            });
+
+        case .Denied: binaryChoiceMessage(self,
+            title: deniedMessagePhotoLib,
+            choice0: takeMeThereText,
+            handler0: { (_) in goToSettings(); },
+            choice1: cancelText,
+            handler1: nil);
+
+        case .Restricted: alertWithMessage(self, title: noAccessMessagePhotoLib);
+        }
+    }
+///
+/// Present image picker view controller -- either from camera or photo library
+///
+    private func presentImagePickerFor(sourceType: UIImagePickerControllerSourceType) {
+        let picker = UIImagePickerController()
+        picker.mediaTypes = [kUTTypeImage as String];
+        picker.delegate = self
+        picker.allowsEditing = false;
+        picker.sourceType = sourceType
+        presentViewController(picker, animated: true, completion: nil);
     }
 
-    ///
-    /// Action handlers
-    ///
-    @IBAction func onLibraryButtonPressed(sender: AnyObject) {
-        pickImageFrom(.PhotoLibrary)
+///
+/// When we receive an image from the user
+///
+    func imagePickerController(picker: UIImagePickerController,
+        didFinishPickingMediaWithInfo info: [String: AnyObject]) {
+
+            if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+                if images == nil {
+                    images = Array<UIImage>();
+                    imageIndex = 0 ;
+                }
+                images!.append(image);
+                imageIndex = images!.count - 1;
+                DataManager.getManagerInstance().saveTempImage(image);
+                imageCountDelegate?.onImageCountChange();
+                setCurrentImage();
+            }
+            picker.dismissViewControllerAnimated(true, completion: nil);
     }
 
-    @IBAction func onPhotoButtonPressed(sender: AnyObject) {
-        pickImageFrom(.Camera)
+///
+/// On image pick cancel
+///
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        picker.dismissViewControllerAnimated(true, completion: nil)
+    }
+///
+/// If we have images in the images array, set the one at position image index to our image view
+/// else hide the image view, along with the controls assosicated with it
+///
+    private func setCurrentImage() {
+        if let images = images where images.count > imageIndex {
+            let image = images[imageIndex];
+            photoImageView.image = image;
+            noImagesLabel.hidden = true;
+            imageControls.hidden = false;
+        } else {
+            photoImageView.image = nil;
+            noImagesLabel.hidden = false;
+            imageControls.hidden = true;
+        }
+    }
+///
+/// Load any temp images
+///
+    func loadTempImages() {
+        if images == nil {
+            images = DataManager.getManagerInstance().getTempImages();
+        }
     }
 
     @IBAction func onPrevious(sender: AnyObject) {
@@ -91,94 +191,24 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBAction func onDelete(sender: AnyObject) {
         if images != nil && imageIndex < images!.count {
-            let controller = UIAlertController(title: "Delete the image?", message: nil, preferredStyle: .ActionSheet)
-            let yesAction = UIAlertAction(title: "Yes", style: .Default, handler: { action in
-                self.images!.removeAtIndex(self.imageIndex);
-                DataManager.getManagerInstance().removeTempImage(self.imageIndex);
-                self.imageIndex -= max(0, self.imageIndex);
-                self.setCurrentImage();
+            let controller = UIAlertController(
+                title: deleteTheImageText,
+                message: nil,
+                preferredStyle: .ActionSheet)
+            let yesAction = UIAlertAction(
+                title: yes,
+                style: .Default,
+                handler: {
+                    action in
+                    self.images!.removeAtIndex(self.imageIndex);
+                    DataManager.getManagerInstance().removeTempImage(self.imageIndex);
+                    self.imageCountDelegate?.onImageCountChange();
+                    self.imageIndex -= max(0, self.imageIndex);
+                    self.setCurrentImage();
             });
             controller.addAction(yesAction)
-            controller.addAction(UIAlertAction(title: "No", style: .Cancel, handler: nil))
+            controller.addAction(UIAlertAction(title: no, style: .Cancel, handler: nil))
             presentViewController(controller, animated: true, completion: nil)
         }
-    }
-
-    ///
-    /// When the user picks image, via camera or library
-    ///
-    func pickImageFrom(sourceType: UIImagePickerControllerSourceType) {
-        if let mediaTypes = UIImagePickerController.availableMediaTypesForSourceType(sourceType)
-        where UIImagePickerController.isSourceTypeAvailable(sourceType)
-        && mediaTypes.contains(kUTTypeImage as String) {
-            let picker = UIImagePickerController()
-            picker.mediaTypes = [kUTTypeImage as String];
-            picker.delegate = self
-            picker.allowsEditing = true;
-            picker.sourceType = sourceType
-            presentViewController(picker, animated: true, completion: nil);
-        } else {
-            let alertController = UIAlertController(title: "The device does not have a camera.",
-                message: nil,
-                preferredStyle: UIAlertControllerStyle.Alert);
-            let okAction = UIAlertAction(title: "OK",
-                style: UIAlertActionStyle.Cancel, handler: nil);
-            alertController.addAction(okAction);
-            presentViewController(alertController, animated: true, completion: nil);
-        }
-    }
-
-    ///
-    /// When we receive an image from the user...
-    ///
-    func imagePickerController(picker: UIImagePickerController,
-        didFinishPickingMediaWithInfo info: [String: AnyObject]) {
-
-            if let image = info[UIImagePickerControllerEditedImage] as? UIImage {
-                if images == nil {
-                    images = Array<UIImage>();
-                    imageIndex = 0 ;
-                }
-                images!.append(image);
-                imageIndex = images!.count - 1;
-                DataManager.getManagerInstance().saveTempImage(image);
-                setCurrentImage();
-            }
-            picker.dismissViewControllerAnimated(true, completion: nil);
-    }
-
-    ///
-    /// On image pick cancellation
-    ///
-    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
-        picker.dismissViewControllerAnimated(true, completion: nil)
-    }
-
-    private func setCurrentImage() {
-        if let images = images where images.count > imageIndex {
-            let image = images[imageIndex];
-            photoImageView.image = image;
-            photoImageView.hidden = false;
-            noImagesLabel.hidden = true;
-            imageControls.hidden = false;
-        } else {
-            photoImageView.hidden = true;
-            imageControls.hidden = true;
-            noImagesLabel.hidden = false;
-            
-        }
-    }
-
-    func loadTempImages() {
-        guard images != nil else {
-            images = DataManager.getManagerInstance().getTempImages();
-            return;
-        }
-    }
-
-    func saveTempImages() {
-        // if let images = images {
-        // DataManager.getManagerInstance().setTempImages(images);
-        // }
     }
 }

@@ -16,18 +16,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         clearContentsIfTestEnvironment();
         initApp();
-
-        // Override point for customization after application launch.
-        return true
+        return true;
     }
 
     private func clearContentsIfTestEnvironment() {
-        let appArgs = Process.arguments;
-        print(appArgs);
-        if (appArgs.count > 1 && appArgs.contains("TEST_ENVIRONMENT")) {
+        if (Process.arguments.contains("TEST_ENVIRONMENT")) {
             DataManager.getManagerInstance().purgeData();
-            print("The app was launched in TEST mode, clearing" +
-                    " all previous contents from the data manager.");
+            print("TEST_ENVIRONMENT -- clearing all data!");
         }
     }
     private func initApp() {

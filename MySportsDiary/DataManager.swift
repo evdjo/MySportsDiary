@@ -43,6 +43,7 @@ protocol DataSource {
 
     func setTempImages(images: [UIImage]);
     func getTempImages() -> [UIImage]?;
+    func getImagesCount() -> Int;
 
     func saveTempImage(image: UIImage);
     func removeTempImage(index: Int);

@@ -45,6 +45,18 @@ class TemporaryImages {
         return nil;
     }
 
+    static func getImagesCount() -> Int {
+        do {
+            if let path = tempImagesDirURL.path {
+                let files = try fileManager.contentsOfDirectoryAtPath(path);
+                return files.count;
+            }
+        } catch {
+            /// todo error handling
+        }
+        return 0;
+    }
+
     static func saveTempImage(image: UIImage) {
         let path = tempImagesDirURL.URLByAppendingPathComponent(timestamp());
         UIImagePNGRepresentation(image)?.writeToURL(path, atomically: true);

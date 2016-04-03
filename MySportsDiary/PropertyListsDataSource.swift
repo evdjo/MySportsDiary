@@ -27,6 +27,7 @@ class PropertyListDataSource: DataSource {
     func getTempImages() -> Array<UIImage>? { return TemporaryImages.getTempImages(); }
     func saveTempImage(image: UIImage) { TemporaryImages.saveTempImage(image); }
     func removeTempImage(index: Int) { TemporaryImages.removeTempImage(index); }
+    func getImagesCount() -> Int { return TemporaryImages.getImagesCount(); }
 
     /// CAUTION --- deletes everything ! Used for testing purposes.
     func purgeData() {
