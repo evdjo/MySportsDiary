@@ -11,7 +11,9 @@ import XCTest
 class MySportsDiaryTests: XCTestCase {
 
     override func setUp() {
+
         DataManager.getManagerInstance().purgeData();
+
         DataManager.getManagerInstance().setAppState(.Initial);
         super.setUp()
     }

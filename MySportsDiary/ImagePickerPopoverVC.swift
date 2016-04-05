@@ -16,7 +16,7 @@ class ImagePickerPopoverVC: UIViewController,
 UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     private let noPhotoLibraryMessage = "The device does have photo library."
-    private let noCameraMessage = "The device does have photo library."
+    private let noCameraMessage = "The device does have camera."
 
     private let deniedMessagePhotoLib = "You've denied permission of this app to use the photo library. You can grant permission in the settings menu.";
     private let deniedMessageCamera = "You've denied permission of this app to use the camera device. You can grant permission in the settings menu.";
@@ -43,8 +43,7 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 ///
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated);
-        
-        
+
         loadTempImages();
         setCurrentImage();
     }

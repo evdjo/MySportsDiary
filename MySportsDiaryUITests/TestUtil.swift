@@ -56,3 +56,6 @@ let cancel = app.buttons["Cancel"]
 let navigationPhotosCancel = app.navigationBars["Photos"].buttons["Cancel"]
 let photoCaptureButton = app.buttons["PhotoCapture"]
 let usePhotoButton = app.buttons["Use Photo"]
+let cameraRollButton = app.tables.buttons["Camera Roll"]
+let photosgridviewCollectionView = app.collectionViews["PhotosGridView"]
+

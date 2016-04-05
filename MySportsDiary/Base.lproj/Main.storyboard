@@ -153,20 +153,20 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ho3-lR-U49" userLabel="ImagesCountLabel">
-                                <rect key="frame" x="370" y="421" width="20" height="20"/>
+                                <rect key="frame" x="375" y="421" width="15" height="15"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="Jw2-tB-mKP"/>
-                                    <constraint firstAttribute="height" constant="20" id="Rvf-D4-D0E"/>
+                                    <constraint firstAttribute="height" constant="15" id="Rvf-D4-D0E"/>
                                     <constraint firstAttribute="height" constant="30" id="bPz-Gh-40T"/>
-                                    <constraint firstAttribute="width" constant="20" id="yF7-Ix-UXf"/>
+                                    <constraint firstAttribute="width" constant="15" id="yF7-Ix-UXf"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <nil key="highlightedColor"/>
                                 <size key="shadowOffset" width="0.0" height="0.0"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="10"/>
+                                        <real key="value" value="7.5"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
@@ -296,7 +296,6 @@
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No photos added" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EfA-gD-1oP" userLabel="NoImageLabel">
                                         <rect key="frame" x="234" y="260" width="133" height="21"/>
-                                        <accessibility key="accessibilityConfiguration" identifier="NoImageLabel" label="NoImageLabel"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
