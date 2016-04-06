@@ -11,6 +11,10 @@ import AVKit
 import AVFoundation
 import Photos
 import MobileCoreServices
+import UIKit
+import AVKit
+import AVFoundation
+import MobileCoreServices
 
 ///
 /// Gender
@@ -29,6 +33,14 @@ enum ApplicationState: String {
     case Initial = "InitialState"
     case Diary = "DiaryState"
     case Final = "FinalState"
+}
+
+///
+/// When in the popover for image/video
+///
+enum mediaType {
+    case photo
+    case video
 }
 
 ///

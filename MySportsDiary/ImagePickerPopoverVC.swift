@@ -15,46 +15,87 @@ import MobileCoreServices
 class ImagePickerPopoverVC: UIViewController,
 UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
-    private let noPhotoLibraryMessage = "The device does have photo library."
-    private let noCameraMessage = "The device does have camera."
+/// video or image
+    var mediaType: String!;
 
-    private let deniedMessagePhotoLib = "You've denied permission of this app to use the photo library. You can grant permission in the settings menu.";
-    private let deniedMessageCamera = "You've denied permission of this app to use the camera device. You can grant permission in the settings menu.";
-    private let takeMeThereText = "Take me there";
-    private let cancelText = "Cancel";
-    private let noAccessMessagePhotoLib = "Cannot access your photo library.";
-    private let noAccessMessageCamera = "Cannot access your camera device.";
-    private let deleteTheImageText = "Delete the image?";
-    private let yes = "Yes";
-    private let no = "No";
-    private let cancel = "Cancel";
+/// Video stuff
+    var movieToPlay: NSURL?;
+    let persistentTempMovie = fileURL(file: "tempVideo.MOV", under: .CachesDirectory);
+    var avPlayerViewController: AVPlayerViewController?;
 
-/// The images shown in the image view
-    var imageCountDelegate: ImageCountDelegate?;
-    private var images: [UIImage]?;
-/// Which image showing currently
-    private var imageIndex = 0;
+/// Image stuff
+    var imageCountDelegate: ImageCountDelegate?; /// when the count of images changes
+    private var images: [UIImage]?; /// The images shown in the image view
+    private var imageIndex = 0; /// Which image showing currently
+
     @IBOutlet weak var photoImageView: UIImageView!;
     @IBOutlet weak var noImagesLabel: UILabel!;
     @IBOutlet var imageControls: UIView!
+    @IBOutlet weak var useCameraButton: UIButton!
+    @IBOutlet weak var controlsStackView: UIStackView!
+    @IBOutlet weak var deleteButton: UIButton!
+
+/// the containers
+    @IBOutlet weak var videoContainer: UIView!;
+    @IBOutlet weak var imageContainer: UIView!
 
 ///
 /// Load any temp images, and show the first
 ///
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated);
-
+        if (mediaType == kUTTypeImage as String) {
+            appearedSetForImage();
+        } else if (mediaType == kUTTypeMovie as String) {
+            appearedSetForVideo();
+        }
+    }
+    private func appearedSetForImage() {
+        useCameraButton.setImage(UIImage(named: "photo-cam"), forState: .Normal);
+        imageContainer.hidden = false;
+        imageControls.hidden = false;
+        imageControls.subviews.forEach({ view in view.hidden = false; });
+        videoContainer.hidden = true ;
         loadTempImages();
         setCurrentImage();
     }
+    private func appearedSetForVideo() {
+        useCameraButton.setImage(UIImage(named: "video-cam"), forState: .Normal);
+        imageContainer.hidden = true;
+        imageControls.hidden = true;
+        imageControls.subviews.forEach({ view in view.hidden = true; });
+        videoContainer.hidden = false ;
 
-    @IBAction func onLibraryButtonPressed(sender: AnyObject) { pickImageFromPhotoLibrary() }
-    @IBAction func onPhotoButtonPressed(sender: AnyObject) { pickImageUsingCamera(); }
+        loadTempVideo();
+
+        if (avPlayerViewController == nil) {
+            avPlayerViewController = AVPlayerViewController();
+            let avPlayerView = avPlayerViewController!.view;
+            avPlayerView.frame = videoContainer.frame;
+            avPlayerView.clipsToBounds = true;
+            videoContainer.addSubview(avPlayerView);
+        }
+        if let url = movieToPlay {
+            avPlayerViewController!.player = AVPlayer(URL: url)
+            avPlayerViewController!.view.hidden = false
+        }
+    }
+
+    func loadTempVideo() {
+        if let path = persistentTempMovie.path where NSFileManager.defaultManager().fileExistsAtPath(path) {
+            movieToPlay = persistentTempMovie
+        } else {
+            movieToPlay = nil;
+        }
+    }
+
+    @IBAction func onLibraryButtonPressed(sender: AnyObject) { pickFromLibrary() }
+    @IBAction func onCameraButtonPressed(sender: AnyObject) { pickUsingCamera(); }
 
 ///
 /// Shoot new photo using the camera
 ///
-    func pickImageUsingCamera() {
+    func pickUsingCamera() {
         guard imagePickerMediaAvailable(.Camera) else {
             alertWithMessage(self, title: noCameraMessage);
             return;
@@ -78,7 +119,7 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 ///
 /// Choose from library (folder button selected)
 ///
-    func pickImageFromPhotoLibrary() {
+    func pickFromLibrary() {
         guard imagePickerMediaAvailable(.PhotoLibrary) else {
             alertWithMessage(self, title: noPhotoLibraryMessage);
             return;
@@ -106,35 +147,43 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 ///
     private func presentImagePickerFor(sourceType: UIImagePickerControllerSourceType) {
         let picker = UIImagePickerController()
-        picker.mediaTypes = [kUTTypeImage as String];
+        picker.mediaTypes = [mediaType];
         picker.delegate = self
         picker.allowsEditing = false;
-        picker.sourceType = sourceType
+        picker.sourceType = sourceType;
+        picker.videoMaximumDuration = NSTimeInterval(30.0);
         presentViewController(picker, animated: true, completion: nil);
     }
 
 ///
-/// When we receive an image from the user
+/// When we receive an media from the user
 ///
     func imagePickerController(picker: UIImagePickerController,
         didFinishPickingMediaWithInfo info: [String: AnyObject]) {
 
-            if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
-                if images == nil {
-                    images = Array<UIImage>();
-                    imageIndex = 0 ;
-                }
-                images!.append(image);
-                imageIndex = images!.count - 1;
-                DataManager.getManagerInstance().saveTempImage(image);
-                imageCountDelegate?.onImageCountChange();
-                setCurrentImage();
+            if mediaType == kUTTypeImage as NSString,
+                let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+                    if images == nil {
+                        images = Array<UIImage>();
+                        imageIndex = 0 ;
+                    }
+                    images!.append(image);
+                    imageIndex = images!.count - 1;
+                    DataManager.getManagerInstance().saveTempImage(image);
+                    imageCountDelegate?.onImageCountChange();
+                    setCurrentImage();
+            } else if mediaType == kUTTypeMovie as NSString {
+                    if let movieURL = info[UIImagePickerControllerMediaURL] as? NSURL {
+                        deleteFile(file: persistentTempMovie);
+                        myCopy(movieURL, toPath: persistentTempMovie);
+                        movieToPlay = persistentTempMovie;
+                    }
             }
             picker.dismissViewControllerAnimated(true, completion: nil);
     }
 
 ///
-/// On image pick cancel
+/// On pick cancel
 ///
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         picker.dismissViewControllerAnimated(true, completion: nil)
@@ -144,15 +193,16 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 /// else hide the image view, along with the controls assosicated with it
 ///
     private func setCurrentImage() {
-        if let images = images where images.count > imageIndex {
-            let image = images[imageIndex];
-            photoImageView.image = image;
+        if let images = images where images.count > imageIndex && 0 <= imageIndex {
+            photoImageView.image = images[imageIndex];
             noImagesLabel.hidden = true;
             imageControls.hidden = false;
+            deleteButton.hidden = false;
         } else {
             photoImageView.image = nil;
             noImagesLabel.hidden = false;
             imageControls.hidden = true;
+            deleteButton.hidden = true;
         }
     }
 ///
@@ -166,48 +216,52 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBAction func onPrevious(sender: AnyObject) {
         if let images = images where images.count > 1 {
-            let decrementedIndex = imageIndex - 1;
-            if decrementedIndex < 0 {
-                imageIndex = images.count - 1;
-            } else {
-                imageIndex = decrementedIndex;
-            }
+            imageIndex = imageIndex - 1 < 0 ? images.count - 1: imageIndex - 1;
             setCurrentImage();
         }
     }
 
     @IBAction func onNext(sender: AnyObject) {
         if let images = images where images.count > 1 {
-            let incrementedIndex = imageIndex + 1;
-            if incrementedIndex < images.count {
-                imageIndex = incrementedIndex;
-            } else {
-                imageIndex = 0;
-            }
+            imageIndex = imageIndex + 1 < images.count ? imageIndex + 1: 0;
             setCurrentImage();
         }
     }
 
     @IBAction func onDelete(sender: AnyObject) {
-        if images != nil && imageIndex < images!.count {
-            let controller = UIAlertController(
-                title: deleteTheImageText,
-                message: nil,
-                preferredStyle: .ActionSheet)
-            let yesAction = UIAlertAction(
-                title: yes,
-                style: .Default,
-                handler: {
+        if (mediaType == kUTTypeImage as String) {
+            if let images = self.images where images.count > imageIndex {
+                let controller = UIAlertController(title: deleteTheImageText,
+                    message: nil, preferredStyle: .ActionSheet)
+
+                let yesAction = UIAlertAction(title: yes, style: .Destructive, handler: {
                     action in
                     self.images!.removeAtIndex(self.imageIndex);
                     DataManager.getManagerInstance().removeTempImage(self.imageIndex);
                     self.imageCountDelegate?.onImageCountChange();
-                    self.imageIndex -= max(0, self.imageIndex);
+                    self.imageIndex = max(0, self.imageIndex - 1);
                     self.setCurrentImage();
-            });
-            controller.addAction(yesAction)
-            controller.addAction(UIAlertAction(title: no, style: .Cancel, handler: nil))
-            presentViewController(controller, animated: true, completion: nil)
+                });
+                controller.addAction(yesAction)
+                controller.addAction(UIAlertAction(title: no, style: .Cancel, handler: nil))
+                presentViewController(controller, animated: true, completion: nil)
+            }
+        } else if (mediaType == kUTTypeMovie as String) {
+            if let player = avPlayerViewController?.player {
+                player.pause()
+                let controller = UIAlertController(title: "Delete the video?",
+                    message: nil, preferredStyle: .ActionSheet)
+
+                let yesAction = UIAlertAction(title: yes, style: .Destructive, handler: {
+                    action in
+                    self.movieToPlay = nil;
+                    deleteFile(file: self.persistentTempMovie);
+                    self.avPlayerViewController!.player = nil;
+                });
+                controller.addAction(yesAction)
+                controller.addAction(UIAlertAction(title: no, style: .Cancel, handler: nil))
+                presentViewController(controller, animated: true, completion: nil)
+            }
         }
     }
 }

@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -130,7 +131,7 @@
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <segue destination="Gey-6I-YOX" kind="popoverPresentation" identifier="photoSegue" popoverAnchorView="bTr-zN-c7S" id="jos-Am-bly">
-                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                                <popoverArrowDirection key="popoverArrowDirection" down="YES"/>
                                             </segue>
                                         </connections>
                                     </button>
@@ -146,6 +147,11 @@
                                                 <integer key="value" value="10"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <segue destination="Gey-6I-YOX" kind="popoverPresentation" identifier="videoSegue" popoverAnchorView="XJY-ap-NON" id="ZIR-j1-4u5">
+                                                <popoverArrowDirection key="popoverArrowDirection" down="YES"/>
+                                            </segue>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -242,16 +248,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="TTE-Qv-8iP" userLabel="PickImageLabels">
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="TTE-Qv-8iP" userLabel="LabelsView">
                                 <rect key="frame" x="0.0" y="590" width="600" height="10"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="capture new image" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hOb-1Z-RTz" userLabel="cameraPickImageButtonLabel">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="use camera" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hOb-1Z-RTz" userLabel="usecamera">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="10"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="8"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="choose from photos" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dyJ-hU-N8M" userLabel="photosPickImageButtonLabel">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="choose from existing" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dyJ-hU-N8M" userLabel="choosefromexisting">
                                         <rect key="frame" x="300" y="0.0" width="300" height="10"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="8"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -262,20 +268,20 @@
                                     <constraint firstAttribute="height" constant="10" id="sPj-k0-2HK"/>
                                 </constraints>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="p6Q-dS-fV4" userLabel="PickImageButtons">
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="p6Q-dS-fV4" userLabel="PickFromSourceButtons">
                                 <rect key="frame" x="0.0" y="540" width="600" height="60"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1It-mS-yA0" userLabel="cameraPickImageButton">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1It-mS-yA0" userLabel="cameraButton">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="50"/>
-                                        <accessibility key="accessibilityConfiguration" identifier="cameraPickImageButton" label="cameraPickImageButton"/>
-                                        <state key="normal" image="cam"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="cameraButton" label="cameraButton"/>
+                                        <state key="normal" image="photo-cam"/>
                                         <connections>
-                                            <action selector="onPhotoButtonPressed:" destination="Gey-6I-YOX" eventType="touchUpInside" id="PlI-ox-mhS"/>
+                                            <action selector="onCameraButtonPressed:" destination="Gey-6I-YOX" eventType="touchUpInside" id="n0g-An-Q1r"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2jH-Ml-lKy" userLabel="photosPickImageButton">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2jH-Ml-lKy" userLabel="photosVideosButton">
                                         <rect key="frame" x="300" y="0.0" width="300" height="50"/>
-                                        <accessibility key="accessibilityConfiguration" identifier="photosPickImageButton" label="photosPickImageButton"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="photosVideosButton" label="photosVideosButton"/>
                                         <state key="normal" image="photos"/>
                                         <connections>
                                             <action selector="onLibraryButtonPressed:" destination="Gey-6I-YOX" eventType="touchUpInside" id="3mh-s9-v6X"/>
@@ -286,6 +292,10 @@
                                     <constraint firstAttribute="height" constant="60" id="6Ny-Ch-lK1"/>
                                 </constraints>
                             </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H10-Bn-dsf" userLabel="VideoContainerView">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="540"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                             <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pYY-8L-iCP" userLabel="ImageContainerView">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="540"/>
                                 <subviews>
@@ -310,11 +320,11 @@
                                     <constraint firstAttribute="bottom" secondItem="1qs-Jf-UWP" secondAttribute="bottom" id="pi4-Zp-EDz"/>
                                 </constraints>
                             </view>
-                            <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ull-YM-qSk" userLabel="ImageViewControls">
+                            <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ull-YM-qSk" userLabel="ImageNavigateControls">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="540"/>
                                 <subviews>
                                     <button opaque="NO" alpha="0.34999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZfS-tj-jX4" userLabel="previousImageButton">
-                                        <rect key="frame" x="0.0" y="490" width="50" height="50"/>
+                                        <rect key="frame" x="32" y="490" width="50" height="50"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <accessibility key="accessibilityConfiguration" identifier="previousImageButton" label="previousImageButton"/>
                                         <state key="normal" image="arrow-left"/>
@@ -329,7 +339,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" alpha="0.34999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yIE-Db-vr0" userLabel="nextImageButton">
-                                        <rect key="frame" x="550" y="490" width="50" height="50"/>
+                                        <rect key="frame" x="518" y="490" width="50" height="50"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <accessibility key="accessibilityConfiguration" identifier="nextImageButton" label="nextImageButton"/>
                                         <state key="normal" image="arrow-right"/>
@@ -343,47 +353,51 @@
                                             <action selector="onNext:" destination="Gey-6I-YOX" eventType="touchUpInside" id="QTp-tZ-yvS"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" alpha="0.34999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Zp-ZC-dXp" userLabel="deleteImageButton">
-                                        <rect key="frame" x="275" y="0.0" width="50" height="50"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <accessibility key="accessibilityConfiguration" identifier="deleteImageButton" label="deleteImageButton"/>
-                                        <state key="normal" image="trash-50"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="20"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="onDelete:" destination="Gey-6I-YOX" eventType="touchUpInside" id="vNC-WA-Gj2"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="yIE-Db-vr0" secondAttribute="trailing" id="5up-cv-uM7"/>
-                                    <constraint firstItem="3Zp-ZC-dXp" firstAttribute="top" secondItem="ull-YM-qSk" secondAttribute="top" id="YhG-RT-MMi"/>
+                                    <constraint firstAttribute="trailing" secondItem="yIE-Db-vr0" secondAttribute="trailing" constant="32" id="5up-cv-uM7"/>
                                     <constraint firstAttribute="bottom" secondItem="ZfS-tj-jX4" secondAttribute="bottom" id="ZNx-nm-Jmd"/>
                                     <constraint firstAttribute="bottom" secondItem="yIE-Db-vr0" secondAttribute="bottom" id="p0y-Ss-rVK"/>
-                                    <constraint firstItem="3Zp-ZC-dXp" firstAttribute="centerX" secondItem="ull-YM-qSk" secondAttribute="centerX" id="w3X-NM-BYZ"/>
-                                    <constraint firstItem="ZfS-tj-jX4" firstAttribute="leading" secondItem="ull-YM-qSk" secondAttribute="leading" id="xm6-Uq-y1b"/>
+                                    <constraint firstItem="ZfS-tj-jX4" firstAttribute="leading" secondItem="ull-YM-qSk" secondAttribute="leading" constant="32" id="xm6-Uq-y1b"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" alpha="0.34999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Zp-ZC-dXp" userLabel="deleteButton">
+                                <rect key="frame" x="275" y="0.0" width="50" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <accessibility key="accessibilityConfiguration" identifier="deleteImageButton" label="deleteImageButton"/>
+                                <state key="normal" image="trash-50"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onDelete:" destination="Gey-6I-YOX" eventType="touchUpInside" id="vNC-WA-Gj2"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="H10-Bn-dsf" secondAttribute="trailing" id="17a-5V-C1z"/>
                             <constraint firstAttribute="trailing" secondItem="TTE-Qv-8iP" secondAttribute="trailing" id="2g0-xy-n2G"/>
                             <constraint firstItem="p6Q-dS-fV4" firstAttribute="top" secondItem="pYY-8L-iCP" secondAttribute="bottom" id="4Ow-VM-EYJ"/>
+                            <constraint firstItem="H10-Bn-dsf" firstAttribute="top" secondItem="T87-Of-q2p" secondAttribute="topMargin" id="5M8-MM-9cJ"/>
                             <constraint firstAttribute="trailing" secondItem="pYY-8L-iCP" secondAttribute="trailing" id="5Ob-0l-cKt"/>
                             <constraint firstItem="jUU-yB-yha" firstAttribute="top" secondItem="p6Q-dS-fV4" secondAttribute="bottom" id="64d-c7-p9Q"/>
                             <constraint firstItem="p6Q-dS-fV4" firstAttribute="leading" secondItem="T87-Of-q2p" secondAttribute="leading" id="EDS-7p-9J3"/>
+                            <constraint firstItem="H10-Bn-dsf" firstAttribute="leading" secondItem="T87-Of-q2p" secondAttribute="leading" id="GsE-Uy-hBg"/>
                             <constraint firstAttribute="trailing" secondItem="ull-YM-qSk" secondAttribute="trailing" id="HRb-Yo-7Rq"/>
                             <constraint firstItem="pYY-8L-iCP" firstAttribute="top" secondItem="kRF-Ez-EwY" secondAttribute="bottom" id="P9v-fL-wHY"/>
+                            <constraint firstItem="3Zp-ZC-dXp" firstAttribute="top" secondItem="T87-Of-q2p" secondAttribute="topMargin" id="Uaf-CC-NNL"/>
                             <constraint firstItem="ull-YM-qSk" firstAttribute="top" secondItem="kRF-Ez-EwY" secondAttribute="bottom" id="Uib-j5-9cX"/>
                             <constraint firstItem="ull-YM-qSk" firstAttribute="leading" secondItem="T87-Of-q2p" secondAttribute="leading" id="XtY-Ny-9cJ"/>
                             <constraint firstItem="pYY-8L-iCP" firstAttribute="leading" secondItem="T87-Of-q2p" secondAttribute="leading" id="Xz6-IR-5cK"/>
+                            <constraint firstItem="3Zp-ZC-dXp" firstAttribute="centerX" secondItem="T87-Of-q2p" secondAttribute="centerXWithinMargins" id="biT-gR-i6g"/>
                             <constraint firstItem="TTE-Qv-8iP" firstAttribute="top" secondItem="p6Q-dS-fV4" secondAttribute="bottom" id="hQb-eg-OTA"/>
                             <constraint firstItem="p6Q-dS-fV4" firstAttribute="top" secondItem="ull-YM-qSk" secondAttribute="bottom" id="hYm-8x-kq5"/>
                             <constraint firstItem="TTE-Qv-8iP" firstAttribute="leading" secondItem="T87-Of-q2p" secondAttribute="leading" id="i9U-Un-F4Z"/>
                             <constraint firstItem="jUU-yB-yha" firstAttribute="top" secondItem="TTE-Qv-8iP" secondAttribute="bottom" id="ke8-I0-vid"/>
+                            <constraint firstItem="p6Q-dS-fV4" firstAttribute="top" secondItem="H10-Bn-dsf" secondAttribute="bottom" id="m2N-fn-JY2"/>
                             <constraint firstItem="pYY-8L-iCP" firstAttribute="top" secondItem="T87-Of-q2p" secondAttribute="topMargin" id="ow5-V5-YzB"/>
                             <constraint firstItem="jUU-yB-yha" firstAttribute="top" secondItem="p6Q-dS-fV4" secondAttribute="bottom" id="pDI-y8-UGe"/>
                             <constraint firstAttribute="trailing" secondItem="p6Q-dS-fV4" secondAttribute="trailing" id="vWi-PC-vu7"/>
@@ -400,9 +414,14 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="600" height="600"/>
                     <connections>
+                        <outlet property="controlsStackView" destination="p6Q-dS-fV4" id="3a5-SP-mPK"/>
+                        <outlet property="deleteButton" destination="3Zp-ZC-dXp" id="vCB-Zb-hKj"/>
+                        <outlet property="imageContainer" destination="pYY-8L-iCP" id="i5o-pE-p2f"/>
                         <outlet property="imageControls" destination="ull-YM-qSk" id="OAB-Xk-UyT"/>
                         <outlet property="noImagesLabel" destination="EfA-gD-1oP" id="uWa-2X-ckd"/>
                         <outlet property="photoImageView" destination="1qs-Jf-UWP" id="Jrl-YL-oAy"/>
+                        <outlet property="useCameraButton" destination="1It-mS-yA0" id="Usp-y1-bja"/>
+                        <outlet property="videoContainer" destination="H10-Bn-dsf" id="neq-Fj-tFD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bfe-kU-T8V" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1065,15 +1084,16 @@
         <image name="Survey-25" width="25" height="25"/>
         <image name="arrow-left" width="50" height="50"/>
         <image name="arrow-right" width="50" height="50"/>
-        <image name="cam" width="50" height="50"/>
         <image name="microphone" width="50" height="50"/>
         <image name="movie" width="50" height="50"/>
         <image name="photo" width="50" height="50"/>
+        <image name="photo-cam" width="50" height="50"/>
         <image name="photos" width="50" height="50"/>
         <image name="second" width="30" height="30"/>
         <image name="trash-50" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="eUc-fk-lPY"/>
+        <segue reference="ZIR-j1-4u5"/>
     </inferredMetricsTieBreakers>
 </document>

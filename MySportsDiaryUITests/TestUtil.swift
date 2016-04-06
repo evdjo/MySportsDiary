@@ -43,8 +43,8 @@ let genderSegmentedControl = app.segmentedControls[Accessibility.GenderSegmented
 let mainLabel = app.staticTexts[Accessibility.MainLabel];
 
 let addPhotoButton = app.buttons["AddPhotoButton"]
-let cameraPickImageButton = app.buttons["cameraPickImageButton"]
-let photosPickImageButton = app.buttons["photosPickImageButton"]
+let cameraPickImageButton = app.buttons["cameraButton"]
+let photosPickImageButton = app.buttons["photosVideosButton"]
 
 let nextImageButton = app.buttons["nextImageButton"]
 let previousImageButton = app.buttons["previousImageButton"]
@@ -58,4 +58,3 @@ let photoCaptureButton = app.buttons["PhotoCapture"]
 let usePhotoButton = app.buttons["Use Photo"]
 let cameraRollButton = app.tables.buttons["Camera Roll"]
 let photosgridviewCollectionView = app.collectionViews["PhotosGridView"]
-

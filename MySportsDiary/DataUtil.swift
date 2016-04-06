@@ -93,3 +93,16 @@ internal func deleteFile(file fileToDeleteURL: NSURL) -> Bool {
     }
     return false;
 }
+
+///
+/// Copy from src to destination
+///
+internal func  myCopy(srcPath: NSURL, toPath: NSURL) -> Bool {
+    do {
+        if let srcPath = srcPath.path, let toPath = toPath.path {
+            try fileManager.copyItemAtPath(srcPath, toPath: toPath)
+            return true;
+        }
+    } catch { }
+    return false;
+}
