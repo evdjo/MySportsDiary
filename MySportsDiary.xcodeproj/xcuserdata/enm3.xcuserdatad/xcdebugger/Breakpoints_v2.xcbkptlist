@@ -25,13 +25,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MySportsDiary/ImagePickerPopoverVC.swift"
-            timestampString = "481596176.47948"
+            filePath = "MySportsDiary/EventsPickerDelegateDataSource.swift"
+            timestampString = "481729811.443561"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
-            landmarkName = "appearedSetForVideo()"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "pickerView(_:didSelectRow:inComponent:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
