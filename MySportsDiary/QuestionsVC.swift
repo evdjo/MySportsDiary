@@ -16,7 +16,17 @@ class QuestionsVC: UIViewController {
     private var page: Int = 0;
     @IBOutlet var answersSegControl: [UISegmentedControl]!
     @IBOutlet var nextOrFinishButton: UIButton!
+    @IBOutlet weak var questionSlider: UISlider!
 
+    @IBAction func onSliderMoved(sender: UISlider) {
+        if sender.value > 2.0 {
+            answersSegControl[2].selectedSegmentIndex = 2;
+        } else if sender.value < 1.0 {
+            answersSegControl[2].selectedSegmentIndex = 0;
+        } else {
+            answersSegControl[2].selectedSegmentIndex = 1;
+        }
+    }
     ///
     /// App lifecycle methods
     ///

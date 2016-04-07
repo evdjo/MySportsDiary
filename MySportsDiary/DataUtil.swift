@@ -97,7 +97,7 @@ internal func deleteFile(file fileToDeleteURL: NSURL) -> Bool {
 ///
 /// Copy from src to destination
 ///
-internal func  myCopy(srcPath: NSURL, toPath: NSURL) -> Bool {
+internal func myCopy(srcPath: NSURL, toPath: NSURL) -> Bool {
     do {
         if let srcPath = srcPath.path, let toPath = toPath.path {
             try fileManager.copyItemAtPath(srcPath, toPath: toPath)
@@ -105,4 +105,16 @@ internal func  myCopy(srcPath: NSURL, toPath: NSURL) -> Bool {
         }
     } catch { }
     return false;
+}
+
+///
+/// See if file exists
+///
+
+internal func fileExists(fileURL: NSURL) -> Bool {
+    if let filePath = fileURL.path {
+        return fileManager.fileExistsAtPath(filePath)
+    } else {
+        return false;
+    }
 }
