@@ -16,12 +16,26 @@ class NewEventVC: UIViewController, UIPopoverPresentationControllerDelegate, UIT
     @IBOutlet weak var descriptionTextField: UITextField!;
     @IBOutlet weak var imagesCountLabel: UILabel!;
 
-    let eventsPickerDelegateDataSrc = EventsPickerDelegateDataSource();
+    let popOverColor = UIColor(
+        colorLiteralRed: 175 / 255,
+        green: 210 / 255,
+        blue: 234 / 255,
+        alpha: 1);
+
+    var eventsPickerDelegateDataSrc: EventsPickerDelegateDataSource?;
 
     override func viewDidLoad() {
         super.viewDidLoad();
+        eventsPickerDelegateDataSrc = EventsPickerDelegateDataSource(parentVC: self)
         eventsPicker.dataSource = eventsPickerDelegateDataSrc;
         eventsPicker.delegate = eventsPickerDelegateDataSrc;
+        let numComponents = eventsPickerDelegateDataSrc!.pickerView(eventsPicker,
+            numberOfRowsInComponent: 0);
+        eventsPicker.selectRow(numComponents / 2, inComponent: 0, animated: false);
+    }
+
+    func newSkillEntered(skillName: String) {
+        descriptionTextField.text = "event...  " + skillName;
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -30,7 +44,6 @@ class NewEventVC: UIViewController, UIPopoverPresentationControllerDelegate, UIT
         descriptionTextField.delegate = self;
         updateTempMediaCount();
         self.view.alpha = 1;
-        self.view.subviews.forEach({ view in view.alpha = 1 });
     }
 
     override func viewWillDisappear(animated: Bool) {
@@ -41,31 +54,25 @@ class NewEventVC: UIViewController, UIPopoverPresentationControllerDelegate, UIT
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        //dispatch_async(dispatch_get_main_queue(), {
-            self.view.alpha = 0.5;
-        //})
+        self.view.alpha = 0.5;
         let controller = segue.destinationViewController;
-
-        // segue for the popover configuration window
-        if let imagePickerVC = controller as? ImagePickerPopoverVC {
-            imagePickerVC.imageCountDelegate = self;
-            if segue.identifier == "photoSegue" {
-                imagePickerVC.mediaType = kUTTypeImage as String
-            } else if segue.identifier == "videoSegue" {
-                imagePickerVC.mediaType = kUTTypeMovie as String
-            }
+        if segue.identifier == "photoSegue" {
+            print("Photo segue");
+        } else if segue.identifier == "videoSegue" {
+            print("videoSegue");
+        } else if segue.identifier == "audioSegue" {
+            print("Audio segue");
         }
+        /// segue configure the popover presentation
         controller.popoverPresentationController?.delegate = self;
-        controller.preferredContentSize = CGSize(width: self.view.frame.width, height: self.view.frame.height);
+        controller.preferredContentSize = CGSize(width: view.frame.width, height: view.frame.height);
         controller.popoverPresentationController?.sourceRect = (sender as! UIButton).bounds;
-        controller.popoverPresentationController?.backgroundColor = UIColor(colorLiteralRed: 175 / 255, green: 210 / 255, blue: 234 / 255, alpha: 1);
+        controller.popoverPresentationController?.backgroundColor = popOverColor;
     }
 
     func popoverPresentationControllerDidDismissPopover(_: UIPopoverPresentationController) {
-       // dispatch_async(dispatch_get_main_queue(), {
-            self.view.alpha = 1;
-     //   })
-      }
+        self.view.alpha = 1;
+    }
 
     func onImageCountChange() {
         updateTempMediaCount();
@@ -77,8 +84,9 @@ class NewEventVC: UIViewController, UIPopoverPresentationControllerDelegate, UIT
         imagesCountLabel.text = String(imagesCount);
     }
 
-    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
-        return .None;
+    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController)
+        -> UIModalPresentationStyle {
+            return .None;
     }
 
     func textFieldShouldReturn(textField: UITextField) -> Bool {

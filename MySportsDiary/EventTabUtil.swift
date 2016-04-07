@@ -18,6 +18,7 @@ let cancelText = "Cancel";
 let noAccessMessagePhotoLib = "Cannot access your photo library.";
 let noAccessMessageCamera = "Cannot access your camera device.";
 let deleteTheImageText = "Delete the image?";
+let deleteTheVideoText = "Delete the video?";
 let yes = "Yes";
 let no = "No";
 let cancel = "Cancel";

@@ -10,23 +10,23 @@ import UIKit
 
 class EventsPickerDelegateDataSource: NSObject, UIPickerViewDelegate, UIPickerViewDataSource {
 
-    private let eventNames = [
-        "Leadership", "Fear", "Loneliness", "Anxiety", "Upset",
-        "Excited", "Angry", "Happy", "Stressed", "Vulnarable", "Guilty", "Depressed"]
+    private let eventNames = ["Self-belief", "Leadership", "Honesty",
+        "Kindness", "Team work", "Respect", "Other"]
+    let parentVC: NewEventVC?;
 
+    init(parentVC: NewEventVC) {
+        self.parentVC = parentVC;
+        super.init();
+    }
     ///
     /// Data Source Methods
     ///
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
-        return 2
+        return 1
     }
     func pickerView(pickerView: UIPickerView,
         numberOfRowsInComponent component: Int) -> Int {
-            if (component == 0) {
-                return 1;
-            } else {
-                return eventNames.count;
-            }
+            return eventNames.count;
     }
 
     ///
@@ -34,17 +34,19 @@ class EventsPickerDelegateDataSource: NSObject, UIPickerViewDelegate, UIPickerVi
     ///
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int)
         -> String? {
-            if (component == 0) {
-                return "I feel";
-            }
+
             return eventNames[row];
     }
 
-    func pickerView(pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
-        if (component == 0) {
-            return pickerView.frame.width / 3;
-        } else {
-            return pickerView.frame.width * 2 / 3;
-        }
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        parentVC?.newSkillEntered(eventNames[row]);
     }
+
+//    func pickerView(pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
+//        if (component == 0) {
+//            return pickerView.frame.width / 6;
+//        } else {
+//            return pickerView.frame.width * 5 / 6;
+//        }
+//    }
 }
