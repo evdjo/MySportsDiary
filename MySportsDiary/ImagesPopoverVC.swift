@@ -50,9 +50,11 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 ///
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated);
-        picker = MediaPicker(parentVC: self, mediaType: kUTTypeImage as String)
-        loadTempImages();
-        setCurrentImage();
+        dispatch_async(dispatch_get_main_queue(), {
+            self.picker = MediaPicker(parentVC: self, mediaType: kUTTypeImage as String)
+            self.loadTempImages();
+            self.setCurrentImage();
+        });
     }
 
 ///

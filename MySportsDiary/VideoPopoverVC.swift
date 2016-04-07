@@ -30,11 +30,13 @@ class VideoPopoverVC: UIViewController {
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated);
-        mediaPicker = MediaPicker(parentVC: self, mediaType: kUTTypeMovie as String);
-        if (NSFileManager.defaultManager().fileExistsAtPath(tempMovieURL.path!)) {
-            videoToPlayURL = tempMovieURL;
-        }
-        setUpPlayer();
+        dispatch_async(dispatch_get_main_queue(), {
+            self.mediaPicker = MediaPicker(parentVC: self, mediaType: kUTTypeMovie as String);
+            if (NSFileManager.defaultManager().fileExistsAtPath(self.tempMovieURL.path!)) {
+                self.videoToPlayURL = self.tempMovieURL;
+            }
+            self.setUpPlayer();
+        });
     }
 
     func onNewVideo(videoURL: NSURL) {

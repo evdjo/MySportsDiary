@@ -104,6 +104,7 @@ internal func myCopy(srcPath: NSURL, toPath: NSURL) -> Bool {
             return true;
         }
     } catch { }
+    debugPrint("Failed to copy");
     return false;
 }
 
