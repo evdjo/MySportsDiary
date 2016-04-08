@@ -29,6 +29,17 @@ class PropertyListDataSource: DataSource {
     func removeTempImage(index: Int) { TemporaryImages.removeTempImage(index); }
     func getImagesCount() -> Int { return TemporaryImages.getImagesCount(); }
 
+    func tempMovieURL() -> NSURL {
+        return fileURL(file: "temp_video.MOV", under: .CachesDirectory);
+    }
+    func putNewMovie(newMovieURL: NSURL) {
+        let url = tempMovieURL();
+        if fileExists(url) {
+            deleteFile(file: tempMovieURL());
+        }
+        myCopy(newMovieURL, toPath: url);
+    }
+
     /// CAUTION --- deletes everything ! Used for testing purposes.
     func purgeData() {
         UserProperties.purgeData();

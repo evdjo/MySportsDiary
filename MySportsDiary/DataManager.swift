@@ -47,10 +47,11 @@ protocol DataSource {
 
     func saveTempImage(image: UIImage);
     func removeTempImage(index: Int);
-    
+
+    func tempMovieURL() -> NSURL?;
+    func putNewMovie(newMovieURL: NSURL?);
 
     /// CAUTION --- deletes everything ! Used for testing purposes
     func purgeData();
     func purgeTempMedia();
 }
-

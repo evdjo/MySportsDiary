@@ -17,7 +17,6 @@ class VideoPopoverVC: UIViewController, MediaContainer {
     var mediaCountDelegate: MediaCountDelegate?; /// when the count of video changes
     private var mediaPicker: MediaPicker?;
     private var avPlayerViewController: AVPlayerViewController?;
-    private let tempMovieURL = fileURL(file: "temp_video.MOV", under: .CachesDirectory);
     private var videoToPlayURL: NSURL? = nil;
     @IBOutlet weak var videoContainer: UIView!
     @IBOutlet weak var pickFromSourceButtons: UIStackView!
@@ -33,17 +32,14 @@ class VideoPopoverVC: UIViewController, MediaContainer {
         super.viewWillAppear(animated);
         dispatch_async(dispatch_get_main_queue(), {
             self.mediaPicker = MediaPicker(parentVC: self, mediaType: kUTTypeMovie as String);
-            if (NSFileManager.defaultManager().fileExistsAtPath(self.tempMovieURL.path!)) {
-                self.videoToPlayURL = self.tempMovieURL;
-            }
+            self.videoToPlayURL = DataManager.getManagerInstance().tempMovieURL();
             self.setUpPlayer();
         });
     }
 
     func onNewVideo(videoURL: NSURL) {
-        deleteFile(file: tempMovieURL);
-        myCopy(videoURL, toPath: tempMovieURL);
-        videoToPlayURL = tempMovieURL;
+
+        videoToPlayURL = videoURL;
         mediaCountDelegate?.onCountChange(self);
     }
 
