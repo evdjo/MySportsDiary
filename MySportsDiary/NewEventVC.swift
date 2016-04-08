@@ -56,10 +56,12 @@ class NewEventVC: UIViewController, UIPopoverPresentationControllerDelegate, UIT
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         self.view.alpha = 0.5;
         let controller = segue.destinationViewController;
-        
+
         if segue.identifier == "photoSegue" || segue.identifier == "videoSegue" {
             controller.preferredContentSize = CGSize(width: view.frame.width, height: view.frame.height);
         } else if segue.identifier == "audioSegue" {
+            controller.preferredContentSize = CGSize(width: view.frame.width, height: 60);
+
             //
         }
         controller.popoverPresentationController?.delegate = self;
