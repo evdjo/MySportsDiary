@@ -10,40 +10,21 @@ import UIKit
 import QuartzCore
 import MobileCoreServices
 
-class NewEventVC: UIViewController, UIPopoverPresentationControllerDelegate, UITextFieldDelegate, ImageCountDelegate {
+class NewEventVC: UIViewController, UIPopoverPresentationControllerDelegate, UITextViewDelegate, MediaCountDelegate {
 
-    @IBOutlet weak var eventsPicker: UIPickerView!;
-    @IBOutlet weak var descriptionTextField: UITextField!;
+    @IBOutlet weak var audioCountLabel: UILabel!
+    @IBOutlet weak var videoCountLabel: UILabel!
     @IBOutlet weak var imagesCountLabel: UILabel!;
+    @IBOutlet weak var descriptionTextArea: UITextView!
 
-    let popOverColor = UIColor(
-        colorLiteralRed: 175 / 255,
-        green: 210 / 255,
-        blue: 234 / 255,
-        alpha: 1);
-
-    var eventsPickerDelegateDataSrc: EventsPickerDelegateDataSource?;
-
-    override func viewDidLoad() {
-        super.viewDidLoad();
-        eventsPickerDelegateDataSrc = EventsPickerDelegateDataSource(parentVC: self)
-        eventsPicker.dataSource = eventsPickerDelegateDataSrc;
-        eventsPicker.delegate = eventsPickerDelegateDataSrc;
-        let numComponents = eventsPickerDelegateDataSrc!.pickerView(eventsPicker,
-            numberOfRowsInComponent: 0);
-        eventsPicker.selectRow(numComponents / 2, inComponent: 0, animated: false);
-    }
-
-    func newSkillEntered(skillName: String) {
-        descriptionTextField.text = "event...  " + skillName;
-    }
+    var skill: String = "";
+    let blue = UIColor(colorLiteralRed: 175 / 255, green: 210 / 255, blue: 234 / 255, alpha: 1);
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated);
-        self.navigationController?.navigationBarHidden = true ;
-        descriptionTextField.delegate = self;
-        updateTempMediaCount();
-        self.view.alpha = 1;
+        descriptionTextArea.delegate = self;
+        descriptionTextArea.text = "Rugby has helped demonstrate \(skill) because, ";
+        updateImagesCount();
     }
 
     override func viewWillDisappear(animated: Bool) {
@@ -61,39 +42,72 @@ class NewEventVC: UIViewController, UIPopoverPresentationControllerDelegate, UIT
             controller.preferredContentSize = CGSize(width: view.frame.width, height: view.frame.height);
         } else if segue.identifier == "audioSegue" {
             controller.preferredContentSize = CGSize(width: view.frame.width, height: 60);
-
-            //
         }
+
+        if let controller = controller as? MediaContainer {
+            controller.mediaCountDelegate = self;
+        }
+
         controller.popoverPresentationController?.delegate = self;
         controller.popoverPresentationController?.sourceRect = (sender as! UIButton).bounds;
-        controller.popoverPresentationController?.backgroundColor = popOverColor;
+        controller.popoverPresentationController?.backgroundColor = blue;
     }
 
     func popoverPresentationControllerDidDismissPopover(_: UIPopoverPresentationController) {
         self.view.alpha = 1;
     }
 
-    func onImageCountChange() {
-        updateTempMediaCount();
+    func onCountChange(sender: UIViewController) {
+        if sender is ImagesPopoverVC {
+            updateImagesCount();
+        } else if sender is VideoPopoverVC {
+            updateVideoCount();
+        } else if sender is AudioRecorderVC {
+            updateAudioCount();
+        }
+    }
+///
+/// Hide the keyboard on done pressed
+///
+    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange,
+        replacementText text: String) -> Bool {
+            if text == "\n" {
+                textView.resignFirstResponder();
+                return false;
+            }
+            return true;
     }
 
-    func updateTempMediaCount() {
+    func updateImagesCount() {
         let imagesCount = DataManager.getManagerInstance().getImagesCount();
-        imagesCountLabel.hidden = imagesCount == 0;
-        imagesCountLabel.text = String(imagesCount);
+        if imagesCount > 0 {
+            imagesCountLabel.text = String(imagesCount);
+            imagesCountLabel.hidden = false;
+        } else {
+            imagesCountLabel.hidden = true;
+        }
+    }
+
+    func updateVideoCount() {
+        let imagesCount = DataManager.getManagerInstance().getImagesCount();
+        videoCountLabel.text = String(imagesCount);
+    }
+
+    func updateAudioCount() {
+        let imagesCount = DataManager.getManagerInstance().getImagesCount();
+        audioCountLabel.text = String(imagesCount);
     }
 
     func adaptivePresentationStyleForPresentationController(controller: UIPresentationController)
         -> UIModalPresentationStyle {
             return .None;
     }
-
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        textField.resignFirstResponder();
-        return true;
-    }
 }
 
-protocol ImageCountDelegate {
-    func onImageCountChange();
+protocol MediaCountDelegate {
+    func onCountChange(sender: UIViewController);
+}
+
+protocol MediaContainer: class {
+    var mediaCountDelegate: MediaCountDelegate? { get set }
 }

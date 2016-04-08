@@ -23,7 +23,6 @@
 		1B396BFF1C96200500986749 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B396BF91C960EB000986749 /* libsqlite3.tbd */; };
 		1B510DA61CA742FD008A4F6B /* QuestionnaireUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B510DA51CA742FD008A4F6B /* QuestionnaireUITests.swift */; };
 		1B510DA81CA74D14008A4F6B /* Dummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B510DA71CA74D14008A4F6B /* Dummy.swift */; };
-		1B510DAA1CA75311008A4F6B /* EventsPickerDelegateDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B510DA91CA75311008A4F6B /* EventsPickerDelegateDataSource.swift */; };
 		1B5A3C2C1CAD031300DA118A /* DataUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5A3C2B1CAD031300DA118A /* DataUtil.swift */; };
 		1B5A3C2E1CAD034600DA118A /* AppProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5A3C2D1CAD034600DA118A /* AppProperties.swift */; };
 		1B5A3C301CAD08E000DA118A /* UserProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5A3C2F1CAD08E000DA118A /* UserProperties.swift */; };
@@ -33,6 +32,7 @@
 		1B64DFAD1CAFD6330087D353 /* Accessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B64DFAC1CAFD6330087D353 /* Accessibility.swift */; };
 		1B6FAA821CA764B20061A219 /* ImagesPopoverVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6FAA811CA764B20061A219 /* ImagesPopoverVC.swift */; };
 		1B8866431C9F9C78007F7BEB /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8866421C9F9C78007F7BEB /* Util.swift */; };
+		1B8C20651CB7E01B0005AF1A /* SkillPickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8C20641CB7E01B0005AF1A /* SkillPickerVC.swift */; };
 		1B96F1861CB1A44C003DD435 /* ImagePickerPopoverVCUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B96F1851CB1A44C003DD435 /* ImagePickerPopoverVCUITests.swift */; };
 		1B96F1881CB1A49B003DD435 /* TestUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B96F1871CB1A49B003DD435 /* TestUtil.swift */; };
 		1BB5BEDD1CB46776009A4C3E /* EventTabUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB5BEDC1CB46776009A4C3E /* EventTabUtil.swift */; };
@@ -80,7 +80,6 @@
 		1B396BFB1C960F0D00986749 /* MySportsDiary-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MySportsDiary-Bridging-Header.h"; sourceTree = "<group>"; };
 		1B510DA51CA742FD008A4F6B /* QuestionnaireUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionnaireUITests.swift; sourceTree = "<group>"; };
 		1B510DA71CA74D14008A4F6B /* Dummy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dummy.swift; sourceTree = "<group>"; };
-		1B510DA91CA75311008A4F6B /* EventsPickerDelegateDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsPickerDelegateDataSource.swift; sourceTree = "<group>"; };
 		1B5A3C2B1CAD031300DA118A /* DataUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataUtil.swift; sourceTree = "<group>"; };
 		1B5A3C2D1CAD034600DA118A /* AppProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppProperties.swift; sourceTree = "<group>"; };
 		1B5A3C2F1CAD08E000DA118A /* UserProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProperties.swift; sourceTree = "<group>"; };
@@ -90,6 +89,7 @@
 		1B64DFAC1CAFD6330087D353 /* Accessibility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Accessibility.swift; sourceTree = "<group>"; };
 		1B6FAA811CA764B20061A219 /* ImagesPopoverVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagesPopoverVC.swift; sourceTree = "<group>"; };
 		1B8866421C9F9C78007F7BEB /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		1B8C20641CB7E01B0005AF1A /* SkillPickerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkillPickerVC.swift; sourceTree = "<group>"; };
 		1B96F1851CB1A44C003DD435 /* ImagePickerPopoverVCUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePickerPopoverVCUITests.swift; sourceTree = "<group>"; };
 		1B96F1871CB1A49B003DD435 /* TestUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestUtil.swift; sourceTree = "<group>"; };
 		1BB5BEDC1CB46776009A4C3E /* EventTabUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTabUtil.swift; sourceTree = "<group>"; };
@@ -186,9 +186,10 @@
 		1B6FAA801CA762B20061A219 /* NewEventTab */ = {
 			isa = PBXGroup;
 			children = (
+				1B8C20641CB7E01B0005AF1A /* SkillPickerVC.swift */,
 				1B396B721C9251D900986749 /* NewEventVC.swift */,
-				1B510DA91CA75311008A4F6B /* EventsPickerDelegateDataSource.swift */,
 				1BB5BEDC1CB46776009A4C3E /* EventTabUtil.swift */,
+				1BB5BEE01CB58323009A4C3E /* MediaPicker.swift */,
 				1BB5BEE41CB59440009A4C3E /* Pickers */,
 			);
 			name = NewEventTab;
@@ -243,7 +244,6 @@
 			isa = PBXGroup;
 			children = (
 				1BB5BEDE1CB5355D009A4C3E /* AudioRecorderVC.swift */,
-				1BB5BEE01CB58323009A4C3E /* MediaPicker.swift */,
 				1B6FAA811CA764B20061A219 /* ImagesPopoverVC.swift */,
 				1BB5BEE21CB59427009A4C3E /* VideoPopoverVC.swift */,
 			);
@@ -406,7 +406,7 @@
 				1B5A3C341CAD0E2000DA118A /* TemporaryImages.swift in Sources */,
 				1B396B851C936B2F00986749 /* AgeGenderVC.swift in Sources */,
 				1BB5BEDD1CB46776009A4C3E /* EventTabUtil.swift in Sources */,
-				1B510DAA1CA75311008A4F6B /* EventsPickerDelegateDataSource.swift in Sources */,
+				1B8C20651CB7E01B0005AF1A /* SkillPickerVC.swift in Sources */,
 				1BB5BEE11CB58323009A4C3E /* MediaPicker.swift in Sources */,
 				1B396BF21C96007400986749 /* DataManager.swift in Sources */,
 				1B5A3C2C1CAD031300DA118A /* DataUtil.swift in Sources */,

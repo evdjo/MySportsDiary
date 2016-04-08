@@ -9,12 +9,13 @@
 import UIKit
 import AVFoundation
 
-class AudioRecorderVC: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
+class AudioRecorderVC: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate, MediaContainer {
 
     private var recording = false;
     private var playing = false;
     private let tempAudioFileURL = fileURL(file: "temp.caf", under: .CachesDirectory);
     private let persistentAudioFileURL = fileURL(file: "recording.caf", under: .CachesDirectory);
+    var mediaCountDelegate: MediaCountDelegate?; /// when the count of audio changes
 
     private var recorder: AVAudioRecorder?;
     private var player: AVAudioPlayer?;

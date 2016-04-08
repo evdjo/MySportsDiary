@@ -12,8 +12,9 @@ import AVFoundation
 import Photos
 import MobileCoreServices
 
-class VideoPopoverVC: UIViewController {
+class VideoPopoverVC: UIViewController, MediaContainer {
 
+    var mediaCountDelegate: MediaCountDelegate?; /// when the count of video changes
     private var mediaPicker: MediaPicker?;
     private var avPlayerViewController: AVPlayerViewController?;
     private let tempMovieURL = fileURL(file: "temp_video.MOV", under: .CachesDirectory);
@@ -43,6 +44,7 @@ class VideoPopoverVC: UIViewController {
         deleteFile(file: tempMovieURL);
         myCopy(videoURL, toPath: tempMovieURL);
         videoToPlayURL = tempMovieURL;
+        mediaCountDelegate?.onCountChange(self);
     }
 
     private func setUpPlayer() {
@@ -67,6 +69,7 @@ class VideoPopoverVC: UIViewController {
             self.avPlayerViewController?.removeFromParentViewController()
             deleteFile(file: self.tempMovieURL);
             self.videoToPlayURL = nil;
+            self.mediaCountDelegate?.onCountChange(self);
         });
         controller.addAction(yesAction)
         controller.addAction(UIAlertAction(title: no, style: .Cancel, handler: nil))

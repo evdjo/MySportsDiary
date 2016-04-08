@@ -12,12 +12,11 @@ import AVFoundation
 import Photos
 import MobileCoreServices
 
-class ImagesPopoverVC: UIViewController,
-UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ImagesPopoverVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, MediaContainer {
 
 /// Image stuff
     private var picker: MediaPicker?;
-    internal var imageCountDelegate: ImageCountDelegate?; /// when the count of images changes
+    var mediaCountDelegate: MediaCountDelegate?; /// when the count of images changes
     private var images: [UIImage]?; /// The images shown in the image view
     private var imageIndex = 0; /// Which image showing currently
 
@@ -93,7 +92,7 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate {
                 action in
                 self.images!.removeAtIndex(self.imageIndex);
                 DataManager.getManagerInstance().removeTempImage(self.imageIndex);
-                self.imageCountDelegate?.onImageCountChange();
+                self.mediaCountDelegate?.onCountChange(self);
                 self.imageIndex = max(0, self.imageIndex - 1);
                 self.setCurrentImage();
             });
@@ -111,7 +110,7 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate {
         images!.append(image);
         imageIndex = images!.count - 1;
         DataManager.getManagerInstance().saveTempImage(image);
-        imageCountDelegate?.onImageCountChange();
+        mediaCountDelegate?.onCountChange(self);
         setCurrentImage();
     }
 }
