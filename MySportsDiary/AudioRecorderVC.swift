@@ -13,8 +13,6 @@ class AudioRecorderVC: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerD
 
     private var recording = false;
     private var playing = false;
-    private let tempAudioFileURL = fileURL(file: "temp.caf", under: .CachesDirectory);
-    private let persistentAudioFileURL = fileURL(file: "recording.caf", under: .CachesDirectory);
     var mediaCountDelegate: MediaCountDelegate?; /// when the count of audio changes
 
     private var recorder: AVAudioRecorder?;
@@ -51,7 +49,7 @@ class AudioRecorderVC: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerD
         }
     }
 ///
-/// Creates and sets up the audio session. If a failure ;, the session is set to nil.
+/// Creates and sets up the audio session. If a failure occurs, the session is set to nil.
 ///
     private func setUpSession() {
         let session = AVAudioSession.sharedInstance();
@@ -70,7 +68,8 @@ class AudioRecorderVC: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerD
     private func setUpRecorder() {
         guard session != nil else { return }
         do {
-            try recorder = AVAudioRecorder(URL: tempAudioFileURL, settings: settings)
+            try recorder = AVAudioRecorder(URL: fileURL(file: "recording_temp.caf",
+                under: .CachesDirectory), settings: settings)
             recorder?.prepareToRecord();
             recorder?.delegate = self;
         } catch {
@@ -84,9 +83,10 @@ class AudioRecorderVC: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerD
     private func setUpPlayer() {
         guard recorder != nil else { return }
         guard session != nil else { return }
-        if fileExists(persistentAudioFileURL) {
+        let playFile = DataManager.getManagerInstance().getTempAudio();
+        if playFile.exists {
             do {
-                try player = AVAudioPlayer(contentsOfURL: persistentAudioFileURL)
+                try player = AVAudioPlayer(contentsOfURL: playFile.url)
                 player?.delegate = self;
             } catch let e {
                 print(e);
@@ -104,7 +104,8 @@ class AudioRecorderVC: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerD
         if !playing && !recording {
             player?.stop();
             player = nil;
-            deleteFile(file: persistentAudioFileURL);
+            DataManager.getManagerInstance().setTempAudio(nil);
+            mediaCountDelegate?.onCountChange(self);
             adjustButtons();
         }
     }
@@ -133,10 +134,15 @@ class AudioRecorderVC: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerD
 /// adjust the buttons -- disable the play and delete buttons
 ///
     func audioRecorderDidFinishRecording(recorder: AVAudioRecorder, successfully flag: Bool) {
+        if (flag) {
+            DataManager.getManagerInstance().setTempAudio(recorder.url);
+            setUpPlayer();
+        } else {
+            DataManager.getManagerInstance().setTempAudio(nil);
+            alertWithMessage(self, title: "Failed to record.");
+        }
+        mediaCountDelegate?.onCountChange(self);
         recording = false;
-        deleteFile(file: persistentAudioFileURL);
-        myCopy(recorder.url, toPath: persistentAudioFileURL);
-        setUpPlayer();
         adjustButtons();
     }
 
@@ -164,6 +170,7 @@ class AudioRecorderVC: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerD
 
 ///
 /// When the playing finishes, reenable the play button
+///
     func audioPlayerDidFinishPlaying(player: AVAudioPlayer, successfully flag: Bool) {
         playing = false;
         adjustButtons();
@@ -187,7 +194,9 @@ class AudioRecorderVC: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerD
         }
         playerButtonState();recordButtonState();
     }
-
+///
+/// Sets the states of the three buttons. If a button is disabled it's alpha will be changed to 0.5
+///
     private func setStates(recordState recordState: Bool, playState: Bool, deleteState: Bool) {
         recordButton.enabled = recordState ;
         recordButton.alpha = recordState ? 1 : 0.5;

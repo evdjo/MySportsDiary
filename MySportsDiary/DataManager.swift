@@ -14,44 +14,46 @@ import UIKit
 ///
 class DataManager {
 
-    ///
-    /// Singleton
-    ///
-    private static var instance: DataSource?;
+	///
+	/// Singleton
+	///
+	private static var instance: DataSource?;
 
-    internal static func getManagerInstance() -> DataSource {
-        if instance == nil { instance = constructInstance(); }
-        return instance!;
-    }
+	internal static func getManagerInstance() -> DataSource {
+		if instance == nil { instance = constructInstance(); }
+		return instance!;
+	}
 
-    private static func constructInstance() -> DataSource {
-        return PropertyListDataSource();
-    }
+	private static func constructInstance() -> DataSource {
+		return PropertyListDataSource();
+	}
 }
 protocol DataSource {
 
-    func getAge() -> Int?;
-    func getGender() -> Gender?;
-    func setAge(age: Int);
-    func setGender(gender: Gender);
+	func getAge() -> Int?;
+	func getGender() -> Gender?;
+	func setAge(age: Int);
+	func setGender(gender: Gender);
 
-    func setAnswer(questionID: Int, answer: Int);
-    func getAnswer(questionID: Int) -> Int?;
+	func setAnswer(questionID: Int, answer: Int);
+	func getAnswer(questionID: Int) -> Int?;
 
-    func getAppState() -> ApplicationState?;
-    func setAppState(appState: ApplicationState);
+	func getAppState() -> ApplicationState?;
+	func setAppState(appState: ApplicationState);
 
-    func setTempImages(images: [UIImage]);
-    func getTempImages() -> [UIImage]?;
-    func getImagesCount() -> Int;
+	func setTempImages(images: [UIImage]);
+	func getTempImages() -> [UIImage]?;
+	func getImagesCount() -> Int;
+	func saveTempImage(image: UIImage);
+	func removeTempImage(index: Int);
 
-    func saveTempImage(image: UIImage);
-    func removeTempImage(index: Int);
+	func getTempVideo() -> NSURL?;
+	func setTempVideo(videoURL: NSURL?);
 
-    func tempMovieURL() -> NSURL?;
-    func putNewMovie(newMovieURL: NSURL?);
+	func getTempAudio() -> (url: NSURL, exists: Bool);
+	func setTempAudio(audioURL: NSURL?);
 
-    /// CAUTION --- deletes everything ! Used for testing purposes
-    func purgeData();
-    func purgeTempMedia();
+	/// CAUTION --- deletes everything ! Used for testing purposes
+	func purgeData();
+	func purgeTempMedia();
 }

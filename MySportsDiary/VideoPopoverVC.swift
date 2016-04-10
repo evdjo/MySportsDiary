@@ -14,61 +14,61 @@ import MobileCoreServices
 
 class VideoPopoverVC: UIViewController, MediaContainer {
 
-    var mediaCountDelegate: MediaCountDelegate?; /// when the count of video changes
-    private var mediaPicker: MediaPicker?;
-    private var avPlayerViewController: AVPlayerViewController?;
-    private var videoToPlayURL: NSURL? = nil;
-    @IBOutlet weak var videoContainer: UIView!
-    @IBOutlet weak var pickFromSourceButtons: UIStackView!
+	var mediaCountDelegate: MediaCountDelegate?; /// when the count of video changes
+	private var mediaPicker: MediaPicker?;
+	private var avPlayerViewController: AVPlayerViewController?;
+	private var videoToPlayURL: NSURL? = nil;
+	@IBOutlet weak var videoContainer: UIView!
+	@IBOutlet weak var pickFromSourceButtons: UIStackView!
 
-    @IBAction func onUseCameraButtonPressed(sender: AnyObject) {
-        mediaPicker?.pickUsingCamera();
-    }
-    @IBAction func onPhotosLibraryButtonPressed(sender: AnyObject) {
-        mediaPicker?.pickFromLibrary();
-    }
+	@IBAction func onUseCameraButtonPressed(sender: AnyObject) {
+		mediaPicker?.pickUsingCamera();
+	}
+	@IBAction func onPhotosLibraryButtonPressed(sender: AnyObject) {
+		mediaPicker?.pickFromLibrary();
+	}
 
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated);
-        dispatch_async(dispatch_get_main_queue(), {
-            self.mediaPicker = MediaPicker(parentVC: self, mediaType: kUTTypeMovie as String);
-            self.videoToPlayURL = DataManager.getManagerInstance().tempMovieURL();
-            self.setUpPlayer();
-        });
-    }
+	override func viewWillAppear(animated: Bool) {
+		super.viewWillAppear(animated);
+		// dispatch_async(dispatch_get_main_queue(), {
+		self.mediaPicker = MediaPicker(parentVC: self, mediaType: kUTTypeMovie as String);
+		self.videoToPlayURL = DataManager.getManagerInstance().getTempVideo();
+		self.setUpPlayer();
+		// });
+	}
 
-    func onNewVideo(videoURL: NSURL) {
+	func onNewVideo(videoURL: NSURL) {
+		videoToPlayURL = videoURL;
+		DataManager.getManagerInstance().setTempVideo(videoURL);
+		mediaCountDelegate?.onCountChange(self);
+	}
 
-        videoToPlayURL = videoURL;
-        mediaCountDelegate?.onCountChange(self);
-    }
+	private func setUpPlayer() {
+		if let url = videoToPlayURL {
+			if avPlayerViewController == nil {
+				avPlayerViewController = AVPlayerViewController()
+				self.addChildViewController(avPlayerViewController!)
+				self.videoContainer.addSubview(avPlayerViewController!.view)
+				avPlayerViewController!.view.frame = self.videoContainer.frame
+			}
+			avPlayerViewController!.player = AVPlayer(URL: url)
+		}
+	}
+	@IBAction func onDeletePressed(sender: AnyObject) {
+		let controller = UIAlertController(title: deleteTheVideoText,
+			message: nil, preferredStyle: .ActionSheet)
 
-    private func setUpPlayer() {
-        if let url = videoToPlayURL {
-            if avPlayerViewController == nil {
-                avPlayerViewController = AVPlayerViewController()
-                self.addChildViewController(avPlayerViewController!)
-                self.videoContainer.addSubview(avPlayerViewController!.view)
-                avPlayerViewController!.view.frame = self.videoContainer.frame
-            }
-            avPlayerViewController!.player = AVPlayer(URL: url)
-        }
-    }
-    @IBAction func onDeletePressed(sender: AnyObject) {
-        let controller = UIAlertController(title: deleteTheVideoText,
-            message: nil, preferredStyle: .ActionSheet)
-
-        let yesAction = UIAlertAction(title: yes, style: .Destructive, handler: {
-            action in
-            self.avPlayerViewController?.player = nil
-            self.avPlayerViewController?.view.removeFromSuperview()
-            self.avPlayerViewController?.removeFromParentViewController()
-            deleteFile(file: self.tempMovieURL);
-            self.videoToPlayURL = nil;
-            self.mediaCountDelegate?.onCountChange(self);
-        });
-        controller.addAction(yesAction)
-        controller.addAction(UIAlertAction(title: no, style: .Cancel, handler: nil))
-        presentViewController(controller, animated: true, completion: nil)
-    }
+		let yesAction = UIAlertAction(title: yes, style: .Destructive, handler: {
+			action in
+			self.avPlayerViewController?.player = nil
+			self.avPlayerViewController?.view.removeFromSuperview()
+			self.avPlayerViewController?.removeFromParentViewController()
+			DataManager.getManagerInstance().setTempVideo(nil);
+			self.videoToPlayURL = nil;
+			self.mediaCountDelegate?.onCountChange(self);
+		});
+		controller.addAction(yesAction)
+		controller.addAction(UIAlertAction(title: no, style: .Cancel, handler: nil))
+		presentViewController(controller, animated: true, completion: nil)
+	}
 }

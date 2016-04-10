@@ -25,6 +25,8 @@ class NewEventVC: UIViewController, UIPopoverPresentationControllerDelegate, UIT
         descriptionTextArea.delegate = self;
         descriptionTextArea.text = "Rugby has helped demonstrate \(skill) because, ";
         updateImagesCount();
+        updateVideoCount();
+        updateAudioCount();
     }
 
     override func viewWillDisappear(animated: Bool) {
@@ -89,13 +91,23 @@ class NewEventVC: UIViewController, UIPopoverPresentationControllerDelegate, UIT
     }
 
     func updateVideoCount() {
-        let imagesCount = DataManager.getManagerInstance().getImagesCount();
-        videoCountLabel.text = String(imagesCount);
+        if (DataManager.getManagerInstance().getTempVideo() != nil) {
+            videoCountLabel.text = "1";
+            videoCountLabel.hidden = false;
+        } else {
+            videoCountLabel.text = "0";
+            videoCountLabel.hidden = true ;
+        }
     }
 
     func updateAudioCount() {
-        let imagesCount = DataManager.getManagerInstance().getImagesCount();
-        audioCountLabel.text = String(imagesCount);
+        if (DataManager.getManagerInstance().getTempAudio().exists) {
+            audioCountLabel.text = "1";
+            audioCountLabel.hidden = false;
+        } else {
+            audioCountLabel.text = "0";
+            audioCountLabel.hidden = true ;
+        }
     }
 
     func adaptivePresentationStyleForPresentationController(controller: UIPresentationController)
