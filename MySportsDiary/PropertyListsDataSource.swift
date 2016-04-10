@@ -77,12 +77,22 @@ class PropertyListDataSource: DataSource {
 	}
 
 	/// CAUTION --- deletes everything ! Used for testing purposes.
-	func purgeData() {
+	func purgeAllData() {
 		UserProperties.purgeData();
 		AppProperties.purgeData();
 		QuestionnaireAnswers.purgeData();
+		TemporaryImages.purgeData();
 	}
 
+	func purgeUserData() {
+		UserProperties.purgeData();
+	}
+	func purgeAppData() {
+		AppProperties.purgeData();
+	}
+	func purgeQuestionnaireAnswers() {
+		QuestionnaireAnswers.purgeData();
+	}
 	func purgeTempMedia() {
 		TemporaryImages.purgeData();
 	}

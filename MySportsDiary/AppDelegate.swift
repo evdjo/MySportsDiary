@@ -11,44 +11,53 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    var window: UIWindow?
+	var window: UIWindow?
 
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        clearContentsIfTestEnvironment();
-        initApp();
-        return true;
-    }
+	func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+		clearContentsIfTestEnvironment();
+		initApp();
+		return true;
+	}
 
-    private func clearContentsIfTestEnvironment() {
-        if (Process.arguments.contains("TEST_ENVIRONMENT")) {
-            DataManager.getManagerInstance().purgeData();
-            print("TEST_ENVIRONMENT -- clearing all data!");
-        }
+	private func clearContentsIfTestEnvironment() {
+		for arg in Process.arguments {
+			print(arg);
+			switch (arg) {
+			case "delete_all":
+				DataManager.getManagerInstance().purgeAllData();
+			case "delete_app":
+				DataManager.getManagerInstance().purgeAppData();
+			case "delete_userdata":
+				DataManager.getManagerInstance().purgeUserData()
+			case "delete_questionnaireanswers":
+				DataManager.getManagerInstance().purgeQuestionnaireAnswers();
+			case "delete_tempmedia":
+				DataManager.getManagerInstance().purgeTempMedia()
+			default:
+				print("Warning -- unnrecognized launch argument: \(arg)");
+			}
+		}
+	}
 
-        if (Process.arguments.contains("DELETE_TEMP_MEDIA")) {
-            DataManager.getManagerInstance().purgeTempMedia();
-            print("DELETE_TEMP_MEDIA -- clearing temp media!");
-        }
-    }
-    private func initApp() {
-        if DataManager.getManagerInstance().getAppState() == nil {
-            DataManager.getManagerInstance().setAppState(.Initial);
-        }
-    }
+	private func initApp() {
+		if DataManager.getManagerInstance().getAppState() == nil {
+			DataManager.getManagerInstance().setAppState(.Initial);
+		}
+	}
 
-    func applicationWillResignActive(application: UIApplication) {
-    }
+	func applicationWillResignActive(application: UIApplication) {
+	}
 
-    func applicationDidEnterBackground(application: UIApplication) {
-    }
+	func applicationDidEnterBackground(application: UIApplication) {
+	}
 
-    func applicationWillEnterForeground(application: UIApplication) {
-    }
+	func applicationWillEnterForeground(application: UIApplication) {
+	}
 
-    func applicationDidBecomeActive(application: UIApplication) {
-    }
+	func applicationDidBecomeActive(application: UIApplication) {
+	}
 
-    func applicationWillTerminate(application: UIApplication) {
-        clearContentsIfTestEnvironment();
-    }
+	func applicationWillTerminate(application: UIApplication) {
+		clearContentsIfTestEnvironment();
+	}
 }

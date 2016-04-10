@@ -568,7 +568,7 @@
 				INFOPLIST_FILE = MySportsDiary/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = uk.ac.aber.MySportsDiary;
+				PRODUCT_BUNDLE_IDENTIFIER = "uk.ac.aber.MySportsDiary-1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "MySportsDiary/MySportsDiary-Bridging-Header.h";
@@ -586,7 +586,7 @@
 				INFOPLIST_FILE = MySportsDiary/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = uk.ac.aber.MySportsDiary;
+				PRODUCT_BUNDLE_IDENTIFIER = "uk.ac.aber.MySportsDiary-1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "MySportsDiary/MySportsDiary-Bridging-Header.h";

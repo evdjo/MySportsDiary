@@ -53,7 +53,18 @@ protocol DataSource {
 	func getTempAudio() -> (url: NSURL, exists: Bool);
 	func setTempAudio(audioURL: NSURL?);
 
-	/// CAUTION --- deletes everything ! Used for testing purposes
-	func purgeData();
+	/// CAUTION --- deletes ALL app generated data!
+	func purgeAllData();
+
+	/// CAUTION --- deletes AGE AND GENDER ! Used for testing purposes.
+	func purgeUserData();
+
+	/// CAUTION --- deletes APP PROPERTIES ! Used for testing purposes.
+	func purgeAppData();
+
+	/// CAUTION --- deletes the QUESTIONNAIRE ANSWERS ! Used for testing purposes.
+	func purgeQuestionnaireAnswers();
+
+	/// CAUTION --- deletes the PHOTOS/VIDEO/AUDIO TEMP FILES ! Used for testing purposes.
 	func purgeTempMedia();
 }
