@@ -437,7 +437,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hfZ-fg-O6J" userLabel="deleteButton">
-                                        <rect key="frame" x="400" y="1" width="200" height="48"/>
+                                        <rect key="frame" x="400" y="0.0" width="200" height="50"/>
                                         <state key="normal" image="delete"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -554,7 +554,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Zp-ZC-dXp" userLabel="deleteButton">
-                                        <rect key="frame" x="400" y="0.0" width="200" height="48"/>
+                                        <rect key="frame" x="400" y="0.0" width="200" height="50"/>
                                         <accessibility key="accessibilityConfiguration" identifier="deleteImageButton" label="deleteImageButton"/>
                                         <state key="normal" image="delete"/>
                                         <userDefinedRuntimeAttributes>
@@ -755,7 +755,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UxI-0s-RID" userLabel="deleteTheVideoButton">
-                                        <rect key="frame" x="400" y="0.0" width="200" height="48"/>
+                                        <rect key="frame" x="400" y="0.0" width="200" height="50"/>
                                         <state key="normal" image="delete"/>
                                         <connections>
                                             <action selector="onDeletePressed:" destination="JI8-V8-0wz" eventType="touchUpInside" id="nvw-7B-buo"/>
@@ -1450,7 +1450,7 @@
         <image name="Survey-25" width="25" height="25"/>
         <image name="arrow-left" width="50" height="50"/>
         <image name="arrow-right" width="50" height="50"/>
-        <image name="delete" width="48" height="48"/>
+        <image name="delete" width="50" height="50"/>
         <image name="mic-2" width="50" height="50"/>
         <image name="movie" width="50" height="50"/>
         <image name="photo" width="50" height="50"/>
