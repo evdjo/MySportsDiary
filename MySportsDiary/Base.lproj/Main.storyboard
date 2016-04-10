@@ -46,7 +46,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="560" height="40"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <attributedString key="attributedText">
-                                            <fragment content="Rugby has helped me to demonstrate:">
+                                            <fragment content="Today, rugby has helped me to demonstrate:">
                                                 <attributes>
                                                     <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <font key="NSFont" size="20" name="HelveticaNeue"/>
@@ -248,11 +248,12 @@
                                     </mask>
                                 </variation>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="9lY-Pa-Efy">
-                                <rect key="frame" x="20" y="96" width="560" height="277"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" keyboardDismissMode="interactive" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="9lY-Pa-Efy">
+                                <rect key="frame" x="20" y="109" width="560" height="264"/>
                                 <color key="backgroundColor" red="0.84705882349999995" green="0.92549019610000005" blue="0.65490196079999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" returnKeyType="done"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="10"/>
@@ -310,6 +311,12 @@
                                     </mask>
                                 </variation>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ybj-XN-4wN">
+                                <rect key="frame" x="20" y="80" width="560" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -317,6 +324,7 @@
                             <constraint firstItem="ho3-lR-U49" firstAttribute="top" secondItem="bTr-zN-c7S" secondAttribute="top" id="1NU-bk-WFK"/>
                             <constraint firstAttribute="trailingMargin" secondItem="fWs-dw-xkf" secondAttribute="trailing" id="7X6-qz-8bp"/>
                             <constraint firstItem="ho3-lR-U49" firstAttribute="trailing" secondItem="bTr-zN-c7S" secondAttribute="trailing" id="Cjr-Uk-FpY"/>
+                            <constraint firstItem="9lY-Pa-Efy" firstAttribute="top" secondItem="Ybj-XN-4wN" secondAttribute="bottom" constant="8" id="Co4-Yf-F0M"/>
                             <constraint firstItem="pW6-Kt-tp9" firstAttribute="top" secondItem="dGx-5A-Xwu" secondAttribute="bottom" constant="-15" id="F6S-K7-wG0"/>
                             <constraint firstAttribute="trailingMargin" secondItem="9lY-Pa-Efy" secondAttribute="trailing" id="FSy-HP-LWo"/>
                             <constraint firstItem="KF0-Iy-h5L" firstAttribute="top" secondItem="XJY-ap-NON" secondAttribute="bottom" constant="-15" id="HCi-4q-kUE"/>
@@ -325,6 +333,7 @@
                             <constraint firstItem="ho3-lR-U49" firstAttribute="leading" secondItem="bTr-zN-c7S" secondAttribute="trailing" id="JwX-0R-ZaG"/>
                             <constraint firstItem="9lY-Pa-Efy" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="32" id="LpX-4x-fDo"/>
                             <constraint firstItem="jkv-TM-So7" firstAttribute="trailing" secondItem="dGx-5A-Xwu" secondAttribute="trailing" id="Mja-ci-W2J"/>
+                            <constraint firstItem="Ybj-XN-4wN" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="16" id="Nqk-WR-ujz"/>
                             <constraint firstItem="ho3-lR-U49" firstAttribute="top" secondItem="bTr-zN-c7S" secondAttribute="bottom" id="O9i-j7-sMu"/>
                             <constraint firstItem="pW6-Kt-tp9" firstAttribute="centerX" secondItem="dGx-5A-Xwu" secondAttribute="centerX" id="OAy-Zo-Kpz"/>
                             <constraint firstItem="qVM-F2-2fi" firstAttribute="top" secondItem="bTr-zN-c7S" secondAttribute="bottom" constant="-15" id="Qti-wh-MSZ"/>
@@ -334,6 +343,7 @@
                             <constraint firstItem="KF0-Iy-h5L" firstAttribute="width" secondItem="XJY-ap-NON" secondAttribute="width" id="ZU1-SO-CP3"/>
                             <constraint firstItem="KF0-Iy-h5L" firstAttribute="centerX" secondItem="XJY-ap-NON" secondAttribute="centerX" id="dd4-a4-nvz"/>
                             <constraint firstItem="qVM-F2-2fi" firstAttribute="width" secondItem="bTr-zN-c7S" secondAttribute="width" id="eal-os-cFM"/>
+                            <constraint firstItem="Ybj-XN-4wN" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" id="fz7-rU-KLC"/>
                             <constraint firstItem="bTr-zN-c7S" firstAttribute="leading" secondItem="ho3-lR-U49" secondAttribute="trailing" id="hW7-Ks-iql"/>
                             <constraint firstItem="jbs-JG-4Ux" firstAttribute="trailing" secondItem="XJY-ap-NON" secondAttribute="trailing" id="iSa-7P-5gg"/>
                             <constraint firstItem="fWs-dw-xkf" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" id="ilg-KD-Wds"/>
@@ -341,12 +351,14 @@
                             <constraint firstItem="qVM-F2-2fi" firstAttribute="centerX" secondItem="bTr-zN-c7S" secondAttribute="centerX" id="m5j-bT-qMO"/>
                             <constraint firstItem="ho3-lR-U49" firstAttribute="top" secondItem="bTr-zN-c7S" secondAttribute="bottom" id="mNg-Mw-7Vm"/>
                             <constraint firstItem="9lY-Pa-Efy" firstAttribute="bottom" secondItem="fWs-dw-xkf" secondAttribute="bottom" constant="8" id="nIp-UF-pp2"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Ybj-XN-4wN" secondAttribute="trailing" id="nKF-8p-tYd"/>
                             <constraint firstItem="ekE-3g-LTe" firstAttribute="top" secondItem="fWs-dw-xkf" secondAttribute="bottom" constant="15" id="rWn-7w-P40"/>
                             <constraint firstItem="ekE-3g-LTe" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" id="z8V-V3-9V7"/>
                             <constraint firstItem="fWs-dw-xkf" firstAttribute="top" secondItem="9lY-Pa-Efy" secondAttribute="bottom" constant="48" id="zUq-Kv-REq"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="LpX-4x-fDo"/>
                                 <exclude reference="nIp-UF-pp2"/>
                                 <exclude reference="hW7-Ks-iql"/>
                                 <exclude reference="JwX-0R-ZaG"/>
@@ -362,6 +374,7 @@
                         <outlet property="audioCountLabel" destination="jkv-TM-So7" id="cHp-b1-TB5"/>
                         <outlet property="descriptionTextArea" destination="9lY-Pa-Efy" id="rbX-wv-x5q"/>
                         <outlet property="imagesCountLabel" destination="ho3-lR-U49" id="gTn-sW-0hl"/>
+                        <outlet property="tellUsHowLabel" destination="Ybj-XN-4wN" id="Sm4-a7-NDp"/>
                         <outlet property="videoCountLabel" destination="jbs-JG-4Ux" id="lR8-tk-egD"/>
                     </connections>
                 </viewController>

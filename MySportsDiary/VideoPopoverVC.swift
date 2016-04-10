@@ -55,6 +55,8 @@ class VideoPopoverVC: UIViewController, MediaContainer {
 		}
 	}
 	@IBAction func onDeletePressed(sender: AnyObject) {
+		guard videoToPlayURL != nil else { return }
+
 		let controller = UIAlertController(title: deleteTheVideoText,
 			message: nil, preferredStyle: .ActionSheet)
 

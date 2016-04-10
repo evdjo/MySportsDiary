@@ -49,11 +49,11 @@ class ImagesPopoverVC: UIViewController, UIImagePickerControllerDelegate, UINavi
 ///
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated);
-        dispatch_async(dispatch_get_main_queue(), {
+      //  dispatch_async(dispatch_get_main_queue(), {
             self.picker = MediaPicker(parentVC: self, mediaType: kUTTypeImage as String)
             self.loadTempImages();
             self.setCurrentImage();
-        });
+      //  });
     }
 
 ///

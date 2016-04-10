@@ -5,121 +5,141 @@
 //  Created by Evdzhan Mustafa on 11/03/2016.
 //  Copyright © 2016 Evdzhan Mustafa. All rights reserved.
 //
-
+import Foundation
 import UIKit
 import QuartzCore
 import MobileCoreServices
 
 class NewEventVC: UIViewController, UIPopoverPresentationControllerDelegate, UITextViewDelegate, MediaCountDelegate {
 
-    @IBOutlet weak var audioCountLabel: UILabel!
-    @IBOutlet weak var videoCountLabel: UILabel!
-    @IBOutlet weak var imagesCountLabel: UILabel!;
-    @IBOutlet weak var descriptionTextArea: UITextView!
+	let enterText = "[enter text]";
 
-    var skill: String = "";
-    let blue = UIColor(colorLiteralRed: 175 / 255, green: 210 / 255, blue: 234 / 255, alpha: 1);
+	@IBOutlet weak var audioCountLabel: UILabel!
+	@IBOutlet weak var videoCountLabel: UILabel!
+	@IBOutlet weak var imagesCountLabel: UILabel!;
+	@IBOutlet weak var descriptionTextArea: UITextView!
+	@IBOutlet weak var tellUsHowLabel: UILabel!
 
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated);
-        descriptionTextArea.delegate = self;
-        descriptionTextArea.text = "Rugby has helped demonstrate \(skill) because, ";
-        updateImagesCount();
-        updateVideoCount();
-        updateAudioCount();
-    }
+	var skill: String = "";
+	let blue = UIColor(colorLiteralRed: 175 / 255, green: 210 / 255, blue: 234 / 255, alpha: 1);
 
-    override func viewWillDisappear(animated: Bool) {
-        super.viewWillDisappear(animated);
-        if (navigationController?.topViewController != self) {
-            self.navigationController?.navigationBarHidden = false;
-        }
-    }
+	override func viewWillAppear(animated: Bool) {
+		super.viewWillAppear(animated);
+		descriptionTextArea.delegate = self;
+		descriptionTextArea.text = "[enter text]";
+		tellUsHowLabel.text = "Tell us how rugby helped you to demonstrate " +
+			"\(skill.lowercaseString) today.";
+		updateImagesCount();
+		updateVideoCount();
+		updateAudioCount();
+	}
 
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        self.view.alpha = 0.5;
-        let controller = segue.destinationViewController;
+	override func viewWillDisappear(animated: Bool) {
+		super.viewWillDisappear(animated);
+		if (navigationController?.topViewController != self) {
+			self.navigationController?.navigationBarHidden = false;
+		}
+	}
 
-        if segue.identifier == "photoSegue" || segue.identifier == "videoSegue" {
-            controller.preferredContentSize = CGSize(width: view.frame.width, height: view.frame.height);
-        } else if segue.identifier == "audioSegue" {
-            controller.preferredContentSize = CGSize(width: view.frame.width, height: 60);
-        }
+	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+		self.view.alpha = 0.20;
+		let controller = segue.destinationViewController;
 
-        if let controller = controller as? MediaContainer {
-            controller.mediaCountDelegate = self;
-        }
+		if segue.identifier == "photoSegue" || segue.identifier == "videoSegue" {
+			controller.preferredContentSize = CGSize(width: view.frame.width, height: view.frame.height);
+		} else if segue.identifier == "audioSegue" {
+			controller.preferredContentSize = CGSize(width: view.frame.width, height: 60);
+		}
 
-        controller.popoverPresentationController?.delegate = self;
-        controller.popoverPresentationController?.sourceRect = (sender as! UIButton).bounds;
-        controller.popoverPresentationController?.backgroundColor = blue;
-    }
+		if let controller = controller as? MediaContainer {
+			controller.mediaCountDelegate = self;
+		}
 
-    func popoverPresentationControllerDidDismissPopover(_: UIPopoverPresentationController) {
-        self.view.alpha = 1;
-    }
+		controller.popoverPresentationController?.delegate = self;
+		controller.popoverPresentationController?.sourceRect = (sender as! UIButton).bounds;
+		controller.popoverPresentationController?.backgroundColor = blue;
+	}
 
-    func onCountChange(sender: UIViewController) {
-        if sender is ImagesPopoverVC {
-            updateImagesCount();
-        } else if sender is VideoPopoverVC {
-            updateVideoCount();
-        } else if sender is AudioRecorderVC {
-            updateAudioCount();
-        }
-    }
+	func popoverPresentationControllerDidDismissPopover(_: UIPopoverPresentationController) {
+		self.view.alpha = 1;
+	}
+
+	func onCountChange(sender: UIViewController) {
+		if sender is ImagesPopoverVC {
+			updateImagesCount();
+		} else if sender is VideoPopoverVC {
+			updateVideoCount();
+		} else if sender is AudioRecorderVC {
+			updateAudioCount();
+		}
+	}
 ///
 /// Hide the keyboard on done pressed
 ///
-    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange,
-        replacementText text: String) -> Bool {
-            if text == "\n" {
-                textView.resignFirstResponder();
-                return false;
-            }
-            return true;
-    }
+	func textView(textView: UITextView, shouldChangeTextInRange range: NSRange,
+		replacementText text: String) -> Bool {
+			if text == "\n" {
+				textView.resignFirstResponder();
+				return false;
+			}
+			return true;
+	}
 
-    func updateImagesCount() {
-        let imagesCount = DataManager.getManagerInstance().getImagesCount();
-        if imagesCount > 0 {
-            imagesCountLabel.text = String(imagesCount);
-            imagesCountLabel.hidden = false;
-        } else {
-            imagesCountLabel.hidden = true;
-        }
-    }
+	func textViewShouldBeginEditing(textView: UITextView) -> Bool {
 
-    func updateVideoCount() {
-        if (DataManager.getManagerInstance().getTempVideo() != nil) {
-            videoCountLabel.text = "1";
-            videoCountLabel.hidden = false;
-        } else {
-            videoCountLabel.text = "0";
-            videoCountLabel.hidden = true ;
-        }
-    }
+		if textView.text == "[enter text]" {
+			textView.text = "";
+			textView.textColor = UIColor.blackColor();
+		}
+		return true;
+	}
+	func textViewDidEndEditing(textView: UITextView) {
+		if textView.text.characters.count == 0 {
+			textView.text = "[enter text]";
+			textView.textColor = UIColor.lightGrayColor();
+		}
+	}
 
-    func updateAudioCount() {
-        if (DataManager.getManagerInstance().getTempAudio().exists) {
-            audioCountLabel.text = "1";
-            audioCountLabel.hidden = false;
-        } else {
-            audioCountLabel.text = "0";
-            audioCountLabel.hidden = true ;
-        }
-    }
+	func updateImagesCount() {
+		let imagesCount = DataManager.getManagerInstance().getImagesCount();
+		if imagesCount > 0 {
+			imagesCountLabel.text = String(imagesCount);
+			imagesCountLabel.hidden = false;
+		} else {
+			imagesCountLabel.hidden = true;
+		}
+	}
 
-    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController)
-        -> UIModalPresentationStyle {
-            return .None;
-    }
+	func updateVideoCount() {
+		if (DataManager.getManagerInstance().getTempVideo() != nil) {
+			videoCountLabel.text = "1";
+			videoCountLabel.hidden = false;
+		} else {
+			videoCountLabel.text = "0";
+			videoCountLabel.hidden = true ;
+		}
+	}
+
+	func updateAudioCount() {
+		if (DataManager.getManagerInstance().getTempAudio().exists) {
+			audioCountLabel.text = "1";
+			audioCountLabel.hidden = false;
+		} else {
+			audioCountLabel.text = "0";
+			audioCountLabel.hidden = true ;
+		}
+	}
+
+	func adaptivePresentationStyleForPresentationController(controller: UIPresentationController)
+		-> UIModalPresentationStyle {
+			return .None;
+	}
 }
 
 protocol MediaCountDelegate {
-    func onCountChange(sender: UIViewController);
+	func onCountChange(sender: UIViewController);
 }
 
 protocol MediaContainer: class {
-    var mediaCountDelegate: MediaCountDelegate? { get set }
+	var mediaCountDelegate: MediaCountDelegate? { get set }
 }
