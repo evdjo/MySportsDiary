@@ -13,6 +13,12 @@ import MobileCoreServices
 class NewEventVC: UIViewController, UIPopoverPresentationControllerDelegate, UITextViewDelegate, MediaCountDelegate {
 
 	let enterText = "[enter text]";
+	var promptText: String {
+		get {
+			return "Tell us how rugby helped you to demonstrate " +
+				"\(skill.lowercaseString) today."
+		}
+	}
 
 	@IBOutlet weak var audioCountLabel: UILabel!
 	@IBOutlet weak var videoCountLabel: UILabel!
@@ -26,9 +32,8 @@ class NewEventVC: UIViewController, UIPopoverPresentationControllerDelegate, UIT
 	override func viewWillAppear(animated: Bool) {
 		super.viewWillAppear(animated);
 		descriptionTextArea.delegate = self;
-		descriptionTextArea.text = "[enter text]";
-		tellUsHowLabel.text = "Tell us how rugby helped you to demonstrate " +
-			"\(skill.lowercaseString) today.";
+		descriptionTextArea.text = enterText;
+		tellUsHowLabel.text = promptText;
 		updateImagesCount();
 		updateVideoCount();
 		updateAudioCount();
@@ -87,7 +92,7 @@ class NewEventVC: UIViewController, UIPopoverPresentationControllerDelegate, UIT
 
 	func textViewShouldBeginEditing(textView: UITextView) -> Bool {
 
-		if textView.text == "[enter text]" {
+		if textView.text == enterText {
 			textView.text = "";
 			textView.textColor = UIColor.blackColor();
 		}
@@ -95,7 +100,7 @@ class NewEventVC: UIViewController, UIPopoverPresentationControllerDelegate, UIT
 	}
 	func textViewDidEndEditing(textView: UITextView) {
 		if textView.text.characters.count == 0 {
-			textView.text = "[enter text]";
+			textView.text = enterText;
 			textView.textColor = UIColor.lightGrayColor();
 		}
 	}

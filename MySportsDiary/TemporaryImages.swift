@@ -11,72 +11,91 @@ import UIKit
 
 class TemporaryImages {
 
-    static private let tempImagesDir = "tempImages";
-    static private var tempImagesDirURL = createSubDir(dir: tempImagesDir, under: .CachesDirectory);
+	static private let tempImagesDir = "tempImages";
+	static private var tempImagesDirURL = createSubDir(dir: tempImagesDir,
+		under: .CachesDirectory);
 
-    ///
-    /// Save image to a temp folder
-    ///
-    static func setTempImages(images: Array<UIImage>) {
-        try! fileManager.removeItemAtURL(tempImagesDirURL);
-        if (images.count < 1) { return; }
-        createSubDir(dir: tempImagesDir, under: .CachesDirectory);
-        for i in 0 ... images.count - 1 {
-            let path = tempImagesDirURL.URLByAppendingPathComponent(String(i));
-            UIImagePNGRepresentation(images[i])?.writeToURL(path, atomically: true);
-        }
-    }
+	///
+	/// Save image to a temp folder
+	///
+	static func setTempImages(images: Array<UIImage>) {
+		try! fileManager.removeItemAtURL(tempImagesDirURL);
+		if (images.count < 1) { return; }
+		createSubDir(dir: tempImagesDir, under: .CachesDirectory);
+		for i in 0 ... images.count - 1 {
+			let path = tempImagesDirURL.URLByAppendingPathComponent(String(i));
+			UIImagePNGRepresentation(images[i])?.writeToURL(path, atomically: true);
+		}
+	}
 
-    static func getTempImages() -> Array<UIImage>? {
-        do {
-            if let path = tempImagesDirURL.path {
-                let files = try fileManager.contentsOfDirectoryAtPath(path);
-                var images = Array<UIImage>();
-                for file in files {
-                    if let image = UIImage(contentsOfFile: tempImagesDirURL.URLByAppendingPathComponent(file).path!) {
-                        images.append(image);
-                    }
-                }
-                return images;
-            }
-        } catch {
-            /// todo error handling
-        }
-        return nil;
-    }
+	///
+	/// Gets list of all temp images.
+	/// returns Array of all UIImages if there are temp images saved,
+	/// else will return nil.
+	///
+	static func getTempImages() -> Array<UIImage>? {
+		do {
+			if let path = tempImagesDirURL.path {
+				let files = try fileManager.contentsOfDirectoryAtPath(path);
+				var images = Array<UIImage>();
+				for file in files {
+					if let image = UIImage(contentsOfFile: tempImagesDirURL
+							.URLByAppendingPathComponent(file).path!) {
+								images.append(image);
+					}
+				}
+				return images;
+			}
+		} catch {
+			/// todo error handling
+		}
+		return nil;
+	}
 
-    static func getImagesCount() -> Int {
-        do {
-            if let path = tempImagesDirURL.path {
-                let files = try fileManager.contentsOfDirectoryAtPath(path);
-                return files.count;
-            }
-        } catch {
-            /// todo error handling
-        }
-        return 0;
-    }
+	///
+	/// Returns count of all temp images.
+	///
+	static func getImagesCount() -> Int {
+		do {
+			if let path = tempImagesDirURL.path {
+				let files = try fileManager.contentsOfDirectoryAtPath(path);
+				return files.count;
+			}
+		} catch {
+			/// todo error handling
+		}
+		return 0;
+	}
 
-    static func saveTempImage(image: UIImage) {
-        let path = tempImagesDirURL.URLByAppendingPathComponent(timestamp());
-        UIImagePNGRepresentation(image)?.writeToURL(path, atomically: true);
-    }
+	///
+	/// Saves a temporary images. The image will later be available in the
+	/// array returned by getTempImages() function.
+	///
+	static func saveTempImage(image: UIImage) {
+		let path = tempImagesDirURL.URLByAppendingPathComponent(timestamp());
+		UIImagePNGRepresentation(image)?.writeToURL(path, atomically: true);
+	}
 
-    static func removeTempImage(index: Int) {
-        do {
-            if let path = tempImagesDirURL.path {
-                let files = try fileManager.contentsOfDirectoryAtPath(path);
-                if files.count > index {
-                    deleteFile(file: tempImagesDirURL.URLByAppendingPathComponent(files[index]))
-                }
-            }
-        } catch {
-            /// todo error handling
-        }
-    }
-
-    static func purgeData() {
-        deleteFile(file: tempImagesDirURL)
-        tempImagesDirURL = createSubDir(dir: tempImagesDir, under: .CachesDirectory)
-    }
+	///
+	/// Removes a temporary image with the specified index.
+	///
+	static func removeTempImage(index: Int) {
+		do {
+			if let path = tempImagesDirURL.path {
+				let files = try fileManager.contentsOfDirectoryAtPath(path);
+				if files.count > index {
+					deleteFile(file: tempImagesDirURL.URLByAppendingPathComponent(files[index]))
+				}
+			}
+		} catch {
+			/// todo error handling
+		}
+	}
+	///
+	/// CAUTION -- Deletes all images.
+	///
+	static func purgeImages() {
+		deleteFile(file: tempImagesDirURL)
+		tempImagesDirURL = createSubDir(dir: tempImagesDir, under: .CachesDirectory)
+	}
 }

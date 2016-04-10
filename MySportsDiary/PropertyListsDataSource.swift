@@ -29,59 +29,21 @@ class PropertyListDataSource: DataSource {
 	func removeTempImage(index: Int) { TemporaryImages.removeTempImage(index); }
 	func getImagesCount() -> Int { return TemporaryImages.getImagesCount(); }
 
-	private func tempVideoURL() -> NSURL {
-		return fileURL(file: "temp_video.MOV", under: .CachesDirectory);
-	}
+	func getTempVideo() -> NSURL? { return TemporaryVideo.getTempVideo(); }
+	func setTempVideo(videoURL: NSURL?) { TemporaryVideo.setTempVideo(videoURL); }
 
-	private func tempAudioURL() -> NSURL {
-		return fileURL(file: "audio.caf", under: .CachesDirectory);
-	}
+	func getTempAudio() -> (url: NSURL, exists: Bool) { return TemporaryAudio.getTempAudio(); }
+	func setTempAudio(audioURL: NSURL?) { TemporaryAudio.setTempAudio(audioURL); }
 
-	func getTempAudio() -> (url: NSURL, exists: Bool) {
-		let audio = tempAudioURL();
-		return (audio, fileExists(audio))
-	}
-
-	func setTempAudio(newAudio: NSURL?) {
-		let audioFile = getTempAudio();
-		if audioFile.exists {
-			deleteFile(file: audioFile.url);
-		}
-		if let newAudio = newAudio {
-			myCopy(newAudio, toPath: audioFile.url);
-		}
-	}
-
-///
-/// gets the temporary video, if it was not set before, will return nil
-///
-	func getTempVideo() -> NSURL? {
-		let video = tempVideoURL();
-		if fileExists(video) {
-			return video;
-		}
-		return nil;
-	}
-///
-/// replaces the old video with new one
-/// if videoURL is nil, will delete the video at tempFileURL()
-///
-	func setTempVideo(videoURL: NSURL?) {
-		let url = tempVideoURL();
-		if fileExists(url) {
-			deleteFile(file: tempVideoURL());
-		}
-		if let videoURL = videoURL {
-			myCopy(videoURL, toPath: url);
-		}
-	}
-
-	/// CAUTION --- deletes everything ! Used for testing purposes.
+	///
+	/// CAUTION!  Does what you think! (Deletes everything)
+	/// Used for testing purposes.
+	///
 	func purgeAllData() {
 		UserProperties.purgeData();
 		AppProperties.purgeData();
 		QuestionnaireAnswers.purgeData();
-		TemporaryImages.purgeData();
+		self.purgeTempMedia()
 	}
 
 	func purgeUserData() {
@@ -94,6 +56,8 @@ class PropertyListDataSource: DataSource {
 		QuestionnaireAnswers.purgeData();
 	}
 	func purgeTempMedia() {
-		TemporaryImages.purgeData();
+		TemporaryImages.purgeImages();
+		TemporaryAudio.purgeTempAudio();
+		TemporaryVideo.purgeTempVideo();
 	}
 }

@@ -44,20 +44,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			DataManager.getManagerInstance().setAppState(.Initial);
 		}
 	}
-
-	func applicationWillResignActive(application: UIApplication) {
-	}
-
-	func applicationDidEnterBackground(application: UIApplication) {
-	}
-
-	func applicationWillEnterForeground(application: UIApplication) {
-	}
-
-	func applicationDidBecomeActive(application: UIApplication) {
-	}
-
 	func applicationWillTerminate(application: UIApplication) {
 		clearContentsIfTestEnvironment();
 	}
+
+//	func applicationWillResignActive(application: UIApplication) {
+//	}
+//
+//	func applicationDidEnterBackground(application: UIApplication) {
+//	}
+//
+//	func applicationWillEnterForeground(application: UIApplication) {
+//	}
+//
+//	func applicationDidBecomeActive(application: UIApplication) {
+//	}
 }
