@@ -79,7 +79,7 @@ class ImagesPopoverVC: UIViewController, UIImagePickerControllerDelegate, UINavi
 ///
     func loadTempImages() {
         if images == nil {
-            images = DataManager.getManagerInstance().getTempImages();
+            images = DataManagerInstance().getTempImages();
         }
     }
 
@@ -91,7 +91,7 @@ class ImagesPopoverVC: UIViewController, UIImagePickerControllerDelegate, UINavi
             let yesAction = UIAlertAction(title: yes, style: .Destructive, handler: {
                 action in
                 self.images!.removeAtIndex(self.imageIndex);
-                DataManager.getManagerInstance().removeTempImage(self.imageIndex);
+                DataManagerInstance().removeTempImage(self.imageIndex);
                 self.mediaCountDelegate?.onCountChange(self);
                 self.imageIndex = max(0, self.imageIndex - 1);
                 self.setCurrentImage();
@@ -109,7 +109,7 @@ class ImagesPopoverVC: UIViewController, UIImagePickerControllerDelegate, UINavi
         }
         images!.append(image);
         imageIndex = images!.count - 1;
-        DataManager.getManagerInstance().saveTempImage(image);
+        DataManagerInstance().saveTempImage(image);
         mediaCountDelegate?.onCountChange(self);
         setCurrentImage();
     }

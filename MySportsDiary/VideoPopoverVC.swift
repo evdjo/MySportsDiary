@@ -32,14 +32,14 @@ class VideoPopoverVC: UIViewController, MediaContainer {
 		super.viewWillAppear(animated);
 		// dispatch_async(dispatch_get_main_queue(), {
 		self.mediaPicker = MediaPicker(parentVC: self, mediaType: kUTTypeMovie as String);
-		self.videoToPlayURL = DataManager.getManagerInstance().getTempVideo();
+		self.videoToPlayURL = DataManagerInstance().getTempVideo();
 		self.setUpPlayer();
 		// });
 	}
 
 	func onNewVideo(videoURL: NSURL) {
 		videoToPlayURL = videoURL;
-		DataManager.getManagerInstance().setTempVideo(videoURL);
+		DataManagerInstance().setTempVideo(videoURL);
 		mediaCountDelegate?.onCountChange(self);
 	}
 
@@ -65,7 +65,7 @@ class VideoPopoverVC: UIViewController, MediaContainer {
 			self.avPlayerViewController?.player = nil
 			self.avPlayerViewController?.view.removeFromSuperview()
 			self.avPlayerViewController?.removeFromParentViewController()
-			DataManager.getManagerInstance().setTempVideo(nil);
+			DataManagerInstance().setTempVideo(nil);
 			self.videoToPlayURL = nil;
 			self.mediaCountDelegate?.onCountChange(self);
 		});

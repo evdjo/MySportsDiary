@@ -24,15 +24,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			print(arg);
 			switch (arg) {
 			case "delete_all":
-				DataManager.getManagerInstance().purgeAllData();
+				DataManagerInstance().purgeAllData();
 			case "delete_app":
-				DataManager.getManagerInstance().purgeAppData();
+				DataManagerInstance().purgeAppData();
 			case "delete_userdata":
-				DataManager.getManagerInstance().purgeUserData()
+				DataManagerInstance().purgeUserData()
 			case "delete_questionnaireanswers":
-				DataManager.getManagerInstance().purgeQuestionnaireAnswers();
+				DataManagerInstance().purgeQuestionnaireAnswers();
 			case "delete_tempmedia":
-				DataManager.getManagerInstance().purgeTempMedia()
+				DataManagerInstance().purgeTempMedia()
 			default:
 				print("Warning -- unnrecognized launch argument: \(arg)");
 			}
@@ -40,8 +40,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	}
 
 	private func initApp() {
-		if DataManager.getManagerInstance().getAppState() == nil {
-			DataManager.getManagerInstance().setAppState(.Initial);
+		if DataManagerInstance().getAppState() == nil {
+			DataManagerInstance().setAppState(.Initial);
 		}
 	}
 	func applicationWillTerminate(application: UIApplication) {

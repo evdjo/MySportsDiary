@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class PropertyListDataSource: DataSource {
+class MainDataManager: DataManager {
 
 	func getAge() -> Int? { return UserProperties.getAge(); }
 	func getGender() -> Gender? { return UserProperties.getGender(); }

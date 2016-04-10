@@ -12,9 +12,9 @@ class MySportsDiaryTests: XCTestCase {
 
     override func setUp() {
 
-        DataManager.getManagerInstance().purgeData();
+        DataManagerInstance().purgeData();
 
-        DataManager.getManagerInstance().setAppState(.Initial);
+        DataManagerInstance().setAppState(.Initial);
         super.setUp()
     }
 
@@ -23,25 +23,25 @@ class MySportsDiaryTests: XCTestCase {
     }
 
     func testAppInitialStartAppStateIsInitial() {
-        let appState = DataManager.getManagerInstance().getAppState();
+        let appState = DataManagerInstance().getAppState();
         XCTAssertEqual(appState, .Initial);
     }
 
     func testAppInitialStartAppStateIsInitialChangeToDiary() {
-        var appState = DataManager.getManagerInstance().getAppState();
+        var appState = DataManagerInstance().getAppState();
         XCTAssertEqual(appState, .Initial);
 
-        DataManager.getManagerInstance().setAppState(.Diary);
-        appState = DataManager.getManagerInstance().getAppState();
+        DataManagerInstance().setAppState(.Diary);
+        appState = DataManagerInstance().getAppState();
         XCTAssertEqual(appState, .Diary);
     }
 
     func testAppInitialStartAppStateIsInitialChangeToFinal() {
-        var appState = DataManager.getManagerInstance().getAppState();
+        var appState = DataManagerInstance().getAppState();
         XCTAssertEqual(appState, .Initial);
 
-        DataManager.getManagerInstance().setAppState(.Final);
-        appState = DataManager.getManagerInstance().getAppState();
+        DataManagerInstance().setAppState(.Final);
+        appState = DataManagerInstance().getAppState();
         XCTAssertEqual(appState, .Final);
     }
 }

@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1B396B711C9251D900986749 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B396B701C9251D900986749 /* AppDelegate.swift */; };
-		1B396B731C9251D900986749 /* NewEventVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B396B721C9251D900986749 /* NewEventVC.swift */; };
+		1B396B731C9251D900986749 /* NewEntryDescriptionAndMediaVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B396B721C9251D900986749 /* NewEntryDescriptionAndMediaVC.swift */; };
 		1B396B751C9251D900986749 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B396B741C9251D900986749 /* SecondViewController.swift */; };
 		1B396B781C9251D900986749 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B396B761C9251D900986749 /* Main.storyboard */; };
 		1B396B7A1C9251D900986749 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B396B791C9251D900986749 /* Assets.xcassets */; };
@@ -28,11 +28,11 @@
 		1B5A3C301CAD08E000DA118A /* UserProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5A3C2F1CAD08E000DA118A /* UserProperties.swift */; };
 		1B5A3C321CAD0B3B00DA118A /* QuestionnaireAnswers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5A3C311CAD0B3B00DA118A /* QuestionnaireAnswers.swift */; };
 		1B5A3C341CAD0E2000DA118A /* TemporaryImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5A3C331CAD0E2000DA118A /* TemporaryImages.swift */; };
-		1B5A3C371CAD0F3200DA118A /* PropertyListsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5A3C361CAD0F3200DA118A /* PropertyListsDataSource.swift */; };
+		1B5A3C371CAD0F3200DA118A /* MainDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5A3C361CAD0F3200DA118A /* MainDataManager.swift */; };
 		1B64DFAD1CAFD6330087D353 /* Accessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B64DFAC1CAFD6330087D353 /* Accessibility.swift */; };
 		1B6FAA821CA764B20061A219 /* ImagesPopoverVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6FAA811CA764B20061A219 /* ImagesPopoverVC.swift */; };
 		1B8866431C9F9C78007F7BEB /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8866421C9F9C78007F7BEB /* Util.swift */; };
-		1B8C20651CB7E01B0005AF1A /* SkillPickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8C20641CB7E01B0005AF1A /* SkillPickerVC.swift */; };
+		1B8C20651CB7E01B0005AF1A /* NewEntrySkillChooserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8C20641CB7E01B0005AF1A /* NewEntrySkillChooserVC.swift */; };
 		1B96F1861CB1A44C003DD435 /* ImagePickerPopoverVCUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B96F1851CB1A44C003DD435 /* ImagePickerPopoverVCUITests.swift */; };
 		1B96F1881CB1A49B003DD435 /* TestUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B96F1871CB1A49B003DD435 /* TestUtil.swift */; };
 		1BB5BEDD1CB46776009A4C3E /* EventTabUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB5BEDC1CB46776009A4C3E /* EventTabUtil.swift */; };
@@ -64,7 +64,7 @@
 /* Begin PBXFileReference section */
 		1B396B6D1C9251D900986749 /* MySportsDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MySportsDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B396B701C9251D900986749 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1B396B721C9251D900986749 /* NewEventVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEventVC.swift; sourceTree = "<group>"; };
+		1B396B721C9251D900986749 /* NewEntryDescriptionAndMediaVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEntryDescriptionAndMediaVC.swift; sourceTree = "<group>"; };
 		1B396B741C9251D900986749 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		1B396B771C9251D900986749 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1B396B791C9251D900986749 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -87,11 +87,11 @@
 		1B5A3C2F1CAD08E000DA118A /* UserProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProperties.swift; sourceTree = "<group>"; };
 		1B5A3C311CAD0B3B00DA118A /* QuestionnaireAnswers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionnaireAnswers.swift; sourceTree = "<group>"; };
 		1B5A3C331CAD0E2000DA118A /* TemporaryImages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemporaryImages.swift; sourceTree = "<group>"; };
-		1B5A3C361CAD0F3200DA118A /* PropertyListsDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PropertyListsDataSource.swift; sourceTree = "<group>"; };
+		1B5A3C361CAD0F3200DA118A /* MainDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainDataManager.swift; sourceTree = "<group>"; };
 		1B64DFAC1CAFD6330087D353 /* Accessibility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Accessibility.swift; sourceTree = "<group>"; };
 		1B6FAA811CA764B20061A219 /* ImagesPopoverVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagesPopoverVC.swift; sourceTree = "<group>"; };
 		1B8866421C9F9C78007F7BEB /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
-		1B8C20641CB7E01B0005AF1A /* SkillPickerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkillPickerVC.swift; sourceTree = "<group>"; };
+		1B8C20641CB7E01B0005AF1A /* NewEntrySkillChooserVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewEntrySkillChooserVC.swift; sourceTree = "<group>"; };
 		1B96F1851CB1A44C003DD435 /* ImagePickerPopoverVCUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePickerPopoverVCUITests.swift; sourceTree = "<group>"; };
 		1B96F1871CB1A49B003DD435 /* TestUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestUtil.swift; sourceTree = "<group>"; };
 		1BB5BEDC1CB46776009A4C3E /* EventTabUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTabUtil.swift; sourceTree = "<group>"; };
@@ -189,8 +189,8 @@
 		1B6FAA801CA762B20061A219 /* NewEventTab */ = {
 			isa = PBXGroup;
 			children = (
-				1B8C20641CB7E01B0005AF1A /* SkillPickerVC.swift */,
-				1B396B721C9251D900986749 /* NewEventVC.swift */,
+				1B8C20641CB7E01B0005AF1A /* NewEntrySkillChooserVC.swift */,
+				1B396B721C9251D900986749 /* NewEntryDescriptionAndMediaVC.swift */,
 				1BB5BEDC1CB46776009A4C3E /* EventTabUtil.swift */,
 				1BB5BEE01CB58323009A4C3E /* MediaPicker.swift */,
 				1BB5BEE41CB59440009A4C3E /* Pickers */,
@@ -214,7 +214,7 @@
 				3FF2B8901CBABE9C00F54B7E /* MediaDataSources */,
 				1B5A3C351CAD0ECD00DA118A /* PropertyListDataSources */,
 				1B396BF71C960D9B00986749 /* SQLiteDataSource.swift */,
-				1B5A3C361CAD0F3200DA118A /* PropertyListsDataSource.swift */,
+				1B5A3C361CAD0F3200DA118A /* MainDataManager.swift */,
 				1B396BF11C96007400986749 /* DataManager.swift */,
 				1B5A3C2B1CAD031300DA118A /* DataUtil.swift */,
 			);
@@ -416,11 +416,11 @@
 				1B396B891C936BBD00986749 /* QuestionsVC.swift in Sources */,
 				1B396B711C9251D900986749 /* AppDelegate.swift in Sources */,
 				1B8866431C9F9C78007F7BEB /* Util.swift in Sources */,
-				1B5A3C371CAD0F3200DA118A /* PropertyListsDataSource.swift in Sources */,
+				1B5A3C371CAD0F3200DA118A /* MainDataManager.swift in Sources */,
 				1B5A3C341CAD0E2000DA118A /* TemporaryImages.swift in Sources */,
 				1B396B851C936B2F00986749 /* AgeGenderVC.swift in Sources */,
 				1BB5BEDD1CB46776009A4C3E /* EventTabUtil.swift in Sources */,
-				1B8C20651CB7E01B0005AF1A /* SkillPickerVC.swift in Sources */,
+				1B8C20651CB7E01B0005AF1A /* NewEntrySkillChooserVC.swift in Sources */,
 				3FF2B8921CBABEB200F54B7E /* TemporaryAudio.swift in Sources */,
 				1BB5BEE11CB58323009A4C3E /* MediaPicker.swift in Sources */,
 				1B396BF21C96007400986749 /* DataManager.swift in Sources */,
@@ -428,7 +428,7 @@
 				1B5A3C2E1CAD034600DA118A /* AppProperties.swift in Sources */,
 				1B5A3C301CAD08E000DA118A /* UserProperties.swift in Sources */,
 				1B396BF81C960D9B00986749 /* SQLiteDataSource.swift in Sources */,
-				1B396B731C9251D900986749 /* NewEventVC.swift in Sources */,
+				1B396B731C9251D900986749 /* NewEntryDescriptionAndMediaVC.swift in Sources */,
 				1B64DFAD1CAFD6330087D353 /* Accessibility.swift in Sources */,
 				1B6FAA821CA764B20061A219 /* ImagesPopoverVC.swift in Sources */,
 				3FF2B8941CBABEC000F54B7E /* TemporaryVideo.swift in Sources */,

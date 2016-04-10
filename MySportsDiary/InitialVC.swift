@@ -32,7 +32,7 @@ class InitialVC: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated);
 
-        let appState = DataManager.getManagerInstance().getAppState() ?? .Initial
+        let appState = DataManagerInstance().getAppState() ?? .Initial
         switch (appState) {
         case (.Diary):
             setForDiaryMode();
@@ -83,7 +83,7 @@ class InitialVC: UIViewController {
     /// See if it is the first survey or final survey...
     ///
     @IBAction func onSurveyBegin(sender: AnyObject) {
-        let appState = DataManager.getManagerInstance().getAppState() ?? .Initial;
+        let appState = DataManagerInstance().getAppState() ?? .Initial;
         if (appState == .Initial) {
             self.performSegueWithIdentifier("AgeAndGenderSegue", sender: sender);
         } else {

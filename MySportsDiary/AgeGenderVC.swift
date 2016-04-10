@@ -46,7 +46,7 @@ class AgeGenderVC: UIViewController {
 	/// Persist the age and gender
 	///
 	private func loadGender() {
-		let gender = DataManager.getManagerInstance().getGender();
+		let gender = DataManagerInstance().getGender();
 		if let gender = gender {
 			let selectedIndex: Int = gender == .BOY ? 0 : 1;
 			genderSegmentedControl.selectedSegmentIndex = selectedIndex;
@@ -54,7 +54,7 @@ class AgeGenderVC: UIViewController {
 		} else { print("gender was not set yet, not loading "); genderIsSet = false; }
 	}
 	private func loadAge() {
-		let age = DataManager.getManagerInstance().getAge();
+		let age = DataManagerInstance().getAge();
 		if let age = age {
 			ageLabel.text = String(age);
 			ageSlider.value = Float(age);
@@ -70,7 +70,7 @@ class AgeGenderVC: UIViewController {
 		// ageIsSet = true;
 	}
 	@IBAction func onAgeSliderValueChanged(sender: UISlider) {
-		DataManager.getManagerInstance().setAge(Int(ageSlider.value));
+		DataManagerInstance().setAge(Int(ageSlider.value));
 		ageIsSet = true;
 		if (genderIsSet) {
 			nextButton.enabled = true;
@@ -82,7 +82,7 @@ class AgeGenderVC: UIViewController {
 	///
 	@IBAction func onGenderSegmentChanged(sender: AnyObject) {
 		let gender: Gender = genderSegmentedControl.selectedSegmentIndex == 0 ? .BOY : .GIRL;
-		DataManager.getManagerInstance().setGender(gender);
+		DataManagerInstance().setGender(gender);
 		genderIsSet = true;
 		if (ageIsSet) {
 			nextButton.enabled = true;

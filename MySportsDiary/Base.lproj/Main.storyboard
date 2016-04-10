@@ -27,10 +27,10 @@
             </objects>
             <point key="canvasLocation" x="41" y="-1002"/>
         </scene>
-        <!--Skill PickerVC-->
+        <!--New Entry Skill ChooserVC-->
         <scene sceneID="242-26-3by">
             <objects>
-                <viewController id="4bZ-St-0LU" customClass="SkillPickerVC" customModule="MySportsDiary" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="4bZ-St-0LU" customClass="NewEntrySkillChooserVC" customModule="MySportsDiary" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1NM-JL-MCo"/>
                         <viewControllerLayoutGuide type="bottom" id="hkK-oy-fla"/>
@@ -105,7 +105,7 @@
         <!--New Entry-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController id="9pv-A4-QxB" customClass="NewEventVC" customModule="MySportsDiary" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="9pv-A4-QxB" customClass="NewEntryDescriptionAndMediaVC" customModule="MySportsDiary" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ia1-K6-d13"/>
                         <viewControllerLayoutGuide type="bottom" id="4ug-Mw-9AY"/>
@@ -113,11 +113,6 @@
                     <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <userGuides>
-                            <userLayoutGuide location="89" affinity="minY"/>
-                            <userLayoutGuide location="89" affinity="minY"/>
-                            <userLayoutGuide location="89" affinity="minY"/>
-                        </userGuides>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ekE-3g-LTe" userLabel="AddButton">
                                 <rect key="frame" x="20" y="501" width="560" height="50"/>
@@ -303,17 +298,23 @@
                                     </mask>
                                 </variation>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ybj-XN-4wN">
-                                <rect key="frame" x="20" y="80" width="560" height="18"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="xxx" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="560" translatesAutoresizingMaskIntoConstraints="NO" id="Ybj-XN-4wN">
+                                <rect key="frame" x="20" y="80" width="560" height="36"/>
                                 <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="NPs-GC-xJn"/>
                                     <constraint firstAttribute="height" constant="18" id="wp2-Gz-08b"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="wp2-Gz-08b"/>
+                                    </mask>
+                                </variation>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="9lY-Pa-Efy">
-                                <rect key="frame" x="20" y="106" width="560" height="267"/>
+                                <rect key="frame" x="20" y="124" width="560" height="249"/>
                                 <color key="backgroundColor" red="0.84705882349999995" green="0.92549019610000005" blue="0.65490196079999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -330,6 +331,7 @@
                         <constraints>
                             <constraint firstItem="pW6-Kt-tp9" firstAttribute="width" secondItem="dGx-5A-Xwu" secondAttribute="width" id="02E-nN-fRv"/>
                             <constraint firstItem="ho3-lR-U49" firstAttribute="top" secondItem="bTr-zN-c7S" secondAttribute="top" id="1NU-bk-WFK"/>
+                            <constraint firstItem="9lY-Pa-Efy" firstAttribute="top" secondItem="Ybj-XN-4wN" secondAttribute="bottom" constant="8" id="6f9-Of-y37"/>
                             <constraint firstAttribute="trailingMargin" secondItem="fWs-dw-xkf" secondAttribute="trailing" id="7X6-qz-8bp"/>
                             <constraint firstItem="ho3-lR-U49" firstAttribute="trailing" secondItem="bTr-zN-c7S" secondAttribute="trailing" id="Cjr-Uk-FpY"/>
                             <constraint firstItem="9lY-Pa-Efy" firstAttribute="top" secondItem="Ybj-XN-4wN" secondAttribute="bottom" constant="8" id="Co4-Yf-F0M"/>
@@ -349,6 +351,7 @@
                             <constraint firstItem="ho3-lR-U49" firstAttribute="top" secondItem="9lY-Pa-Efy" secondAttribute="bottom" constant="8" id="Z42-6h-2m9"/>
                             <constraint firstItem="ekE-3g-LTe" firstAttribute="trailing" secondItem="tsR-hK-woN" secondAttribute="trailingMargin" id="ZD8-5O-nwZ"/>
                             <constraint firstItem="KF0-Iy-h5L" firstAttribute="width" secondItem="XJY-ap-NON" secondAttribute="width" id="ZU1-SO-CP3"/>
+                            <constraint firstItem="9lY-Pa-Efy" firstAttribute="top" secondItem="Ybj-XN-4wN" secondAttribute="bottom" constant="8" id="dDi-2C-PbF"/>
                             <constraint firstItem="KF0-Iy-h5L" firstAttribute="centerX" secondItem="XJY-ap-NON" secondAttribute="centerX" id="dd4-a4-nvz"/>
                             <constraint firstItem="qVM-F2-2fi" firstAttribute="width" secondItem="bTr-zN-c7S" secondAttribute="width" id="eal-os-cFM"/>
                             <constraint firstItem="Ybj-XN-4wN" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" id="fz7-rU-KLC"/>
@@ -366,7 +369,9 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="Co4-Yf-F0M"/>
                                 <exclude reference="LpX-4x-fDo"/>
+                                <exclude reference="dDi-2C-PbF"/>
                                 <exclude reference="nIp-UF-pp2"/>
                                 <exclude reference="hW7-Ks-iql"/>
                                 <exclude reference="JwX-0R-ZaG"/>

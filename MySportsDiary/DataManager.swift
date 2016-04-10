@@ -12,23 +12,8 @@ import UIKit
 ///
 /// Handles all persistent data, such as user Age, Gender, Questionnaire Answers, Events
 ///
-class DataManager {
 
-	///
-	/// Singleton
-	///
-	private static var instance: DataSource?;
-
-	internal static func getManagerInstance() -> DataSource {
-		if instance == nil { instance = constructInstance(); }
-		return instance!;
-	}
-
-	private static func constructInstance() -> DataSource {
-		return PropertyListDataSource();
-	}
-}
-protocol DataSource {
+protocol DataManager {
 
 	func getAge() -> Int?;
 	func getGender() -> Gender?;
@@ -65,6 +50,15 @@ protocol DataSource {
 	/// CAUTION --- deletes the QUESTIONNAIRE ANSWERS ! Used for testing purposes.
 	func purgeQuestionnaireAnswers();
 
-	/// CAUTION --- deletes the PHOTOS/VIDEO/AUDIO TEMP FILES ! Used for testing purposes.
+	/// CAUTION --- deletes the PHOTOS/VIDEO/AUDIO TEMP FILES !
 	func purgeTempMedia();
+}
+
+private var instance: DataManager? = nil;
+
+internal func DataManagerInstance() -> DataManager {
+	if instance == nil {
+		instance = MainDataManager();
+	}
+	return instance!;
 }

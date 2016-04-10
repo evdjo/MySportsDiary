@@ -10,7 +10,7 @@ import UIKit
 import QuartzCore
 import MobileCoreServices
 
-class NewEventVC: UIViewController, UIPopoverPresentationControllerDelegate, UITextViewDelegate, MediaCountDelegate {
+class NewEntryDescriptionAndMediaVC: UIViewController, UIPopoverPresentationControllerDelegate, UITextViewDelegate, MediaCountDelegate {
 
 	let enterText = "[enter text]";
 	var promptText: String {
@@ -106,7 +106,7 @@ class NewEventVC: UIViewController, UIPopoverPresentationControllerDelegate, UIT
 	}
 
 	func updateImagesCount() {
-		let imagesCount = DataManager.getManagerInstance().getImagesCount();
+		let imagesCount = DataManagerInstance().getImagesCount();
 		if imagesCount > 0 {
 			imagesCountLabel.text = String(imagesCount);
 			imagesCountLabel.hidden = false;
@@ -116,7 +116,7 @@ class NewEventVC: UIViewController, UIPopoverPresentationControllerDelegate, UIT
 	}
 
 	func updateVideoCount() {
-		if (DataManager.getManagerInstance().getTempVideo() != nil) {
+		if (DataManagerInstance().getTempVideo() != nil) {
 			videoCountLabel.text = "1";
 			videoCountLabel.hidden = false;
 		} else {
@@ -126,7 +126,7 @@ class NewEventVC: UIViewController, UIPopoverPresentationControllerDelegate, UIT
 	}
 
 	func updateAudioCount() {
-		if (DataManager.getManagerInstance().getTempAudio().exists) {
+		if (DataManagerInstance().getTempAudio().exists) {
 			audioCountLabel.text = "1";
 			audioCountLabel.hidden = false;
 		} else {
