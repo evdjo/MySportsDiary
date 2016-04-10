@@ -38,6 +38,8 @@ protocol DataManager {
 	func getTempAudio() -> (url: NSURL, exists: Bool);
 	func setTempAudio(audioURL: NSURL?);
 
+    func addNewEntry(skill: String, description: String);
+    
 	/// CAUTION --- deletes ALL app generated data!
 	func purgeAllData();
 

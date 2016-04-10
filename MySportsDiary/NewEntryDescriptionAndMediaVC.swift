@@ -139,6 +139,10 @@ class NewEntryDescriptionAndMediaVC: UIViewController, UIPopoverPresentationCont
 		-> UIModalPresentationStyle {
 			return .None;
 	}
+	@IBAction func onAddEntryPressed(sender: AnyObject) {
+		insertEntry(NSDate().description, skill: skill,
+			description: descriptionTextArea.text, latitude: 1.11, longitude: 1.12);
+	}
 }
 
 protocol MediaCountDelegate {
