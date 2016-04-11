@@ -9,7 +9,7 @@
 import XCTest
 @testable import MySportsDiary
 
-class EntryTests: XCTestCase {
+class EntryDatabaseTests: XCTestCase {
 
 	var dm = DataManagerInstance();
 	override func setUp() {
@@ -41,14 +41,7 @@ class EntryTests: XCTestCase {
 		XCTAssertEqual(entries![1], expected);
 	}
 
-	private func allASCIICharsAsString() -> String {
-		var str = "";
-		for i in 32 ... 126 {
-			str.append(Character(UnicodeScalar(i)))
-		}
-		print(str);
-		return str;
-	}
+
 
 	func testFunnyCharactersInEntryStrings() {
 		let expected = Entry(skill: allASCIICharsAsString(),

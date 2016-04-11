@@ -8,7 +8,7 @@
 
 import XCTest
 @testable import MySportsDiary
-class MySportsDiaryTests: XCTestCase {
+class AppStatesTest: XCTestCase {
 
 	override func setUp() {
 

@@ -105,3 +105,5 @@ internal func dateString(date: NSDate) -> String {
 	fmt.dateFormat = "dd_MM_yyyy_HH_mm_ss"
 	return fmt.stringFromDate(date);
 }
+
+

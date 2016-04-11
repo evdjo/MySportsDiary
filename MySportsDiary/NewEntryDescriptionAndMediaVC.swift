@@ -142,17 +142,16 @@ class NewEntryDescriptionAndMediaVC: UIViewController, UIPopoverPresentationCont
 	@IBAction func onAddEntryPressed(sender: AnyObject) {
 		let date = dateString(NSDate());
 
-//		let newDir = DataManagerInstance().moveTempImages(toDir: date);
-//		let listOfImageURL = fileManager.list
-//		DataManagerInstance().addNewEntry(
-//			Entry(skill: skill,
-//				description: descriptionTextArea.text ?? "",
-//				date_time: date,
-//				latitude: 1.0,
-//				longitude: 1.0,
-//				photos: nil,
-//				audio: nil,
-//				video: nil))
+		// let newDir = DataManagerInstance().moveTempImages(toDir: date);
+		DataManagerInstance().addNewEntry(
+			Entry(skill: skill,
+				description: descriptionTextArea.text ?? "",
+				date_time: date,
+				latitude: 1.0,
+				longitude: 1.0,
+				photos: nil,
+				audio: nil,
+				video: nil))
 	}
 }
 
