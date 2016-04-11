@@ -13,9 +13,9 @@ import UIKit
 /// Handles all persistent data, such as user Age, Gender, Questionnaire Answers, Events
 ///
 
-private var instance: DataManager? = nil;
+private var instance: MainDataManager? = nil;
 
-internal func DataManagerInstance() -> DataManager {
+internal func DataManagerInstance() -> MainDataManager {
 	if instance == nil {
 		instance = MainDataManager();
 	}
@@ -40,6 +40,7 @@ protocol DataManager {
 	func getImagesCount() -> Int;
 	func saveTempImage(image: UIImage);
 	func removeTempImage(index: Int);
+	func moveTempImages(toDir dir: String) -> NSURL;
 
 	func getTempVideo() -> NSURL?;
 	func setTempVideo(videoURL: NSURL?);

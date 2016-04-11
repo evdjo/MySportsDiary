@@ -19,13 +19,15 @@ let ENTRIES_TABLE_CREATE = "CREATE TABLE IF NOT EXISTS ENTRIES (EVENT_ID INTEGER
 let ENTRIES_INSERT = "INSERT INTO ENTRIES (EVENT_ID, DATE_TIME, SKILL, DESCRIPTION, LOCATION_LON, LOCATION_LAT) VALUES(NULL, ?, ?, ?, ?, ?);";
 let ENTRIES_SELECT = "SELECT EVENT_ID, DATE_TIME, SKILL, DESCRIPTION, LOCATION_LON, LOCATION_LAT FROM ENTRIES ORDER BY EVENT_ID;"
 
-//let PHOTOS_TABLE_NAME = "PHOTOS";
-//let PHOTOS_TABLE_CREATE = "CREATE TABLE IF NOT EXISTS \(PHOTOS_TABLE_NAME)("
-//	+ "PHOTO_ID INTEGER PRIMARY KEY, "
-//	+ "PATH TEXT, "
-//	+ "ENTRY_ID INTEGER, "
-//	+ "FOREIGN KEY(ENTRY_ID) REFERENCES ENTRIES(EVENT_ID)"
-//	+ ");";
+let PHOTOS_TABLE_NAME = "PHOTOS";
+let PHOTOS_TABLE_CREATE = "CREATE TABLE IF NOT EXISTS \(PHOTOS_TABLE_NAME)("
+	+ "PHOTO_ID INTEGER PRIMARY KEY, "
+	+ "PATH TEXT, "
+	+ "ENTRY_ID INTEGER, "
+	+ "FOREIGN KEY(ENTRY_ID) REFERENCES ENTRIES(EVENT_ID)"
+	+ ");";
+let PHOTOS_INSERT = "INSERT INTO PHOTOS (PHOTO_ID, PATH, ENTRY_ID) VALUES(NULL, ?, ?);"
+let PHOTOS_SELECT = "SELECT PATH FROM PHOTOS WHERE ENTRY_ID = (?)  ORDER BY PHOTO_ID"
 
 internal func openEntriesDB() -> COpaquePointer? {
 	var db: COpaquePointer = nil;
@@ -47,9 +49,9 @@ internal func openEntriesDB() -> COpaquePointer? {
 	return db;
 }
 
-internal func createEntriesTable(db: COpaquePointer) -> Bool {
+internal func createTable(db: COpaquePointer, create: String) -> Bool {
 	var errMsg: UnsafeMutablePointer<Int8> = nil;
-	let result = sqlite3_exec(db, ENTRIES_TABLE_CREATE, nil, nil, &errMsg);
+	let result = sqlite3_exec(db, create, nil, nil, &errMsg);
 	if (result != SQLITE_OK) {
 		print("creating user table has failed");
 		sqlite3_close(db);
@@ -62,7 +64,8 @@ internal func insertEntry(entry: Entry) {
 
 	let db: COpaquePointer! = openEntriesDB();
 	guard db != nil else { return; }
-	guard createEntriesTable(db!) else { return; }
+	guard createTable(db!, create: ENTRIES_TABLE_CREATE) else { return }
+	guard createTable(db!, create: PHOTOS_TABLE_CREATE) else { return }
 
 	var statement: COpaquePointer = nil;
 	let status = sqlite3_prepare_v2(db, ENTRIES_INSERT, -1, &statement, nil);
@@ -76,25 +79,43 @@ internal func insertEntry(entry: Entry) {
 
 	if (sqlite3_step(statement) != SQLITE_DONE) {
 		print("Error updating table");
-		sqlite3_close(db);
-		return;
+		sqlite3_close(db);return;
 	}
 
+	let key = sqlite3_last_insert_rowid(db);
 	sqlite3_finalize(statement);
+
+	if let photos = entry.photos {
+
+		for i in 0 ... photos.count - 1 {
+			let status_2 = sqlite3_prepare_v2(db, PHOTOS_INSERT, -1, &statement, nil);
+			if (status_2 == SQLITE_OK) {
+				sqlite3_bind_text(statement, 1, photos[i], -1, SQLITE_TRANSIENT)
+				sqlite3_bind_int64(statement, 2, key)
+			}
+			if (sqlite3_step(statement) != SQLITE_DONE) {
+				print("Error updating table");
+				sqlite3_close(db);return;
+			}
+
+			sqlite3_finalize(statement);
+		}
+	}
+
 	sqlite3_close(db);
 }
 
 internal func entries() -> [Entry]? {
 	let db: COpaquePointer! = openEntriesDB();
 	guard db != nil else { return nil; }
-	guard createEntriesTable(db!) else { return nil; }
+	guard createTable(db!, create: ENTRIES_TABLE_CREATE) else { return nil }
 
 	var statement: COpaquePointer = nil;
+
 	var entriesArray = Array<Entry>();
 	if (sqlite3_prepare_v2(db, ENTRIES_SELECT, -1, &statement, nil) == SQLITE_OK) {
 		while sqlite3_step(statement) == SQLITE_ROW {
-			let id = sqlite3_column_int(statement, 0);
-			print(id);
+			let event_id = sqlite3_column_int64(statement, 0)
 			let date_time = String.fromCString(
 				UnsafePointer<CChar>(sqlite3_column_text(statement, 1))) ?? "";
 
@@ -107,12 +128,24 @@ internal func entries() -> [Entry]? {
 			let lat = sqlite3_column_double(statement, 4);
 			let lon = sqlite3_column_double(statement, 5);
 
+			var photos = Array<String>();
+			var statement2: COpaquePointer = nil;
+			if (sqlite3_prepare_v2(db, PHOTOS_SELECT, -1, &statement2, nil) == SQLITE_OK) {
+				sqlite3_bind_int64(statement2, 1, event_id)
+				while sqlite3_step(statement2) == SQLITE_ROW {
+					if let photo = String.fromCString(
+						UnsafePointer<CChar>(sqlite3_column_text(statement2, 0))) {
+							photos.append(photo);
+					}
+				}
+			}
+
 			let entry: Entry = Entry(skill: skill,
 				description: description,
 				date_time: date_time,
 				latitude: lat,
 				longitude: lon,
-				photos: nil,
+				photos: photos.count > 0 ? photos : nil,
 				audio: nil,
 				video: nil)
 

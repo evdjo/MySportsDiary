@@ -229,7 +229,6 @@
 			children = (
 				1B396B701C9251D900986749 /* AppDelegate.swift */,
 				1B396B8A1C93774C00986749 /* MasterTabBarViewController.swift */,
-				1B396B741C9251D900986749 /* EntriesViewerVC.swift */,
 			);
 			name = Main;
 			sourceTree = "<group>";
@@ -272,6 +271,7 @@
 		3F4DD4B51CBAED5E0037FE97 /* EntriesTab */ = {
 			isa = PBXGroup;
 			children = (
+				1B396B741C9251D900986749 /* EntriesViewerVC.swift */,
 			);
 			name = EntriesTab;
 			sourceTree = "<group>";

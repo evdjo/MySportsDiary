@@ -73,6 +73,31 @@ internal func createSubDir(dir subDirName: String, under: NSSearchPathDirectory)
 	}
 	return subDir;
 }
+
+///
+/// Get a NSURL to a sub directory the beneath that passsed subDirName.
+/// The NSFileManager is usedand
+///
+/// Example usage:
+///
+/// createSubDir("mySubDir", NSURL("someurl"));
+///
+///
+/// - parameters:
+///   - dir: the name of the sub directory
+///   - parent: the parent NSURL
+/// - returns: a NSURL to the directory
+internal func createSubDir(dir subDirName: String, parent: NSURL) -> NSURL {
+	let subDir = parent.URLByAppendingPathComponent(subDirName);
+	do {
+		try fileManager.createDirectoryAtURL(subDir, withIntermediateDirectories: true, attributes: nil);
+	}
+	catch {
+		fatalError("Could not create dir at the specified location");
+	}
+	return subDir;
+}
+
 ///
 /// Delete the file at the specified NSURL
 /// - parameters
@@ -117,4 +142,18 @@ internal func fileExists(fileURL: NSURL) -> Bool {
 	} else {
 		return false;
 	}
+}
+
+///
+/// Move file or dir
+///
+internal func myMove(srcPath: NSURL, toPath: NSURL) -> Bool {
+	do {
+		try fileManager.moveItemAtURL(srcPath, toURL: toPath)
+		return true;
+	} catch {
+		print(error)
+	}
+	debugPrint("Failed to move");
+	return false;
 }

@@ -28,6 +28,7 @@ class MainDataManager: DataManager {
 	func saveTempImage(image: UIImage) { TemporaryImages.saveTempImage(image); }
 	func removeTempImage(index: Int) { TemporaryImages.removeTempImage(index); }
 	func getImagesCount() -> Int { return TemporaryImages.getImagesCount(); }
+	func moveTempImages(toDir dir: String) -> NSURL { return TemporaryImages.moveTempImages(toDir: dir) }
 
 	func getTempVideo() -> NSURL? { return TemporaryVideo.getTempVideo(); }
 	func setTempVideo(videoURL: NSURL?) { TemporaryVideo.setTempVideo(videoURL); }

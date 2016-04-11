@@ -12,8 +12,12 @@ import UIKit
 class TemporaryImages {
 
 	static private let tempImagesDir = "tempImages";
-	static private var tempImagesDirURL = createSubDir(dir: tempImagesDir,
-		under: .CachesDirectory);
+	static private let tempImagesUnder: NSSearchPathDirectory = .CachesDirectory;
+	static private var tempImagesDirURL = createSubDir(dir: tempImagesDir, under: tempImagesUnder);
+
+	static private let entryImagesDir = "entryImages"
+	static private let entryImageUnder: NSSearchPathDirectory = .LibraryDirectory;
+	static private var entryImagesDirURL = createSubDir(dir: entryImagesDir, under: entryImageUnder);
 
 	///
 	/// Save image to a temp folder
@@ -97,5 +101,11 @@ class TemporaryImages {
 	static func purgeImages() {
 		deleteFile(file: tempImagesDirURL)
 		tempImagesDirURL = createSubDir(dir: tempImagesDir, under: .CachesDirectory)
+	}
+
+	static func moveTempImages(toDir dir: String) -> NSURL {
+		let destination = entryImagesDirURL.URLByAppendingPathComponent(dir);
+		myMove(tempImagesDirURL, toPath: destination)
+		return destination;
 	}
 }

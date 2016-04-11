@@ -51,9 +51,9 @@ struct Entry {
 	let date_time: String;
 	let latitude: Double;
 	let longitude: Double;
-	let photos: [String]?;
-	let audio: String?;
-	let video: String?;
+	var photos: [String]?;
+	var audio: String?;
+	var video: String?;
 }
 extension Entry: Equatable { }
 func == (lhs: Entry, rhs: Entry) -> Bool {
