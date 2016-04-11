@@ -8,28 +8,24 @@
 
 import Foundation
 
+let SQLITE_STATIC = unsafeBitCast(0, sqlite3_destructor_type.self)
+let SQLITE_TRANSIENT = unsafeBitCast(-1, sqlite3_destructor_type.self)
+
 let DB_NAME = "entries.db";
 
 let ENTRIES_TABLE_NAME = "ENTRIES";
-let ENTRIES_TABLE_CREATE = "CREATE TABLE IF NOT EXISTS \(ENTRIES_TABLE_NAME)"
-	+ "(EVENT_ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "
-	+ "DATE_TIME TEXT, "
-	+ "SKILL TEXT, "
-	+ "DESCRIPTION TEXT, "
-	+ "LOCATION_LON REAL, "
-	+ "LOCATION_LAT REAL"
-	+ ");";
-let ENTRIES_INSERT = "INSERT INTO \(ENTRIES_TABLE_NAME)"
-	+ " (DATE_TIME, SKILL, DESCRIPTION, LOCATION_LON, LOCATION_LAT)"
-	+ " VALUES(?, ?, ?, ?, ?);";
 
-let PHOTOS_TABLE_NAME = "PHOTOS";
-let PHOTOS_TABLE_CREATE = "CREATE TABLE IF NOT EXISTS \(PHOTOS_TABLE_NAME)("
-	+ "PHOTO_ID INTEGER PRIMARY KEY, "
-	+ "PATH TEXT, "
-	+ "ENTRY_ID INTEGER, "
-	+ "FOREIGN KEY(ENTRY_ID) REFERENCES ENTRIES(EVENT_ID)"
-	+ ");";
+let ENTRIES_TABLE_CREATE = "CREATE TABLE IF NOT EXISTS ENTRIES (EVENT_ID INTEGER PRIMARY KEY, DATE_TIME TEXT, SKILL TEXT, DESCRIPTION TEXT, LOCATION_LON REAL, LOCATION_LAT REAL);";
+let ENTRIES_INSERT = "INSERT INTO ENTRIES (EVENT_ID, DATE_TIME, SKILL, DESCRIPTION, LOCATION_LON, LOCATION_LAT) VALUES(NULL, ?, ?, ?, ?, ?);";
+let ENTRIES_SELECT = "SELECT EVENT_ID, DATE_TIME, SKILL, DESCRIPTION, LOCATION_LON, LOCATION_LAT FROM ENTRIES ORDER BY EVENT_ID;"
+
+//let PHOTOS_TABLE_NAME = "PHOTOS";
+//let PHOTOS_TABLE_CREATE = "CREATE TABLE IF NOT EXISTS \(PHOTOS_TABLE_NAME)("
+//	+ "PHOTO_ID INTEGER PRIMARY KEY, "
+//	+ "PATH TEXT, "
+//	+ "ENTRY_ID INTEGER, "
+//	+ "FOREIGN KEY(ENTRY_ID) REFERENCES ENTRIES(EVENT_ID)"
+//	+ ");";
 
 internal func openEntriesDB() -> COpaquePointer? {
 	var db: COpaquePointer = nil;
@@ -62,29 +58,70 @@ internal func createEntriesTable(db: COpaquePointer) -> Bool {
 	return true;
 }
 
-internal func insertEntry(date_time: String, skill: String,
-	description: String, latitude: Double, longitude: Double) {
+internal func insertEntry(entry: Entry) {
 
-		let db: COpaquePointer! = openEntriesDB();
-		guard db != nil else { return; }
-		guard createEntriesTable(db!) else { return; }
+	let db: COpaquePointer! = openEntriesDB();
+	guard db != nil else { return; }
+	guard createEntriesTable(db!) else { return; }
 
-		var statement: COpaquePointer = nil;
-		if (sqlite3_prepare_v2(db, ENTRIES_INSERT, -1, &statement, nil) == SQLITE_OK) {
-			sqlite3_bind_text(statement, 1, date_time, -1, nil);
-			sqlite3_bind_text(statement, 2, skill, -1, nil);
-			sqlite3_bind_text(statement, 3, description, -1, nil);
-			sqlite3_bind_double(statement, 4, latitude);
-			sqlite3_bind_double(statement, 5, longitude);
-		}
+	var statement: COpaquePointer = nil;
+	let status = sqlite3_prepare_v2(db, ENTRIES_INSERT, -1, &statement, nil);
+	if (status == SQLITE_OK) {
+		sqlite3_bind_text(statement, 1, entry.date_time, -1, SQLITE_TRANSIENT);
+		sqlite3_bind_text(statement, 2, entry.skill, -1, SQLITE_TRANSIENT);
+		sqlite3_bind_text(statement, 3, entry.description, -1, SQLITE_TRANSIENT);
+		sqlite3_bind_double(statement, 4, entry.latitude);
+		sqlite3_bind_double(statement, 5, entry.longitude);
+	}
 
-		if (sqlite3_step(statement) != SQLITE_DONE) {
-			print("Error updating table"); sqlite3_close(db);
-			return;
-		}
-
-		sqlite3_finalize(statement);
+	if (sqlite3_step(statement) != SQLITE_DONE) {
+		print("Error updating table");
 		sqlite3_close(db);
+		return;
+	}
+
+	sqlite3_finalize(statement);
+	sqlite3_close(db);
+}
+
+internal func entries() -> [Entry]? {
+	let db: COpaquePointer! = openEntriesDB();
+	guard db != nil else { return nil; }
+	guard createEntriesTable(db!) else { return nil; }
+
+	var statement: COpaquePointer = nil;
+	var entriesArray = Array<Entry>();
+	if (sqlite3_prepare_v2(db, ENTRIES_SELECT, -1, &statement, nil) == SQLITE_OK) {
+		while sqlite3_step(statement) == SQLITE_ROW {
+			let id = sqlite3_column_int(statement, 0);
+			print(id);
+			let date_time = String.fromCString(
+				UnsafePointer<CChar>(sqlite3_column_text(statement, 1))) ?? "";
+
+			let skill = String.fromCString(
+				UnsafePointer<CChar>(sqlite3_column_text(statement, 2))) ?? "";
+
+			let description = String.fromCString(
+				UnsafePointer<CChar>(sqlite3_column_text(statement, 3))) ?? "";
+
+			let lat = sqlite3_column_double(statement, 4);
+			let lon = sqlite3_column_double(statement, 5);
+
+			let entry: Entry = Entry(skill: skill,
+				description: description,
+				date_time: date_time,
+				latitude: lat,
+				longitude: lon,
+				photos: nil,
+				audio: nil,
+				video: nil)
+
+			entriesArray.append(entry);
+		}
+	}
+	sqlite3_finalize(statement);
+	sqlite3_close(db);
+	return entriesArray;
 }
 
 //private func saveToDB(value: Int, dbName: String, dbCreate: String, dbUpdate: String) {
@@ -120,14 +157,7 @@ internal func insertEntry(date_time: String, skill: String,
 //}
 //
 //private func loadFromDB(dbName dbName: String, dbCreate: String, dbGet: String) -> Int? {
-//	// Open the db
-//	var database: COpaquePointer = nil;
-//	var result = sqlite3_open(dataFilePath(dbName), &database);
-//	if (result != SQLITE_OK) { print("opening user DB has failed"); sqlite3_close(database); return nil; }
-//	// Create the table
-//	var errMsg: UnsafeMutablePointer<Int8> = nil;
-//	result = sqlite3_exec(database, dbCreate, nil, nil, &errMsg);
-//	if (result != SQLITE_OK) { print("creating table has failed"); sqlite3_close(database); return nil; }
+//
 //	// Fetch the value
 //	var value: Int? = nil;
 //	var statement: COpaquePointer = nil;

@@ -10,38 +10,38 @@ import XCTest
 @testable import MySportsDiary
 class MySportsDiaryTests: XCTestCase {
 
-    override func setUp() {
+	override func setUp() {
 
-        DataManagerInstance().purgeData();
+		DataManagerInstance().purgeAllData();
 
-        DataManagerInstance().setAppState(.Initial);
-        super.setUp()
-    }
+		DataManagerInstance().setAppState(.Initial);
+		super.setUp()
+	}
 
-    override func tearDown() {
-        super.tearDown()
-    }
+	override func tearDown() {
+		super.tearDown()
+	}
 
-    func testAppInitialStartAppStateIsInitial() {
-        let appState = DataManagerInstance().getAppState();
-        XCTAssertEqual(appState, .Initial);
-    }
+	func testAppInitialStartAppStateIsInitial() {
+		let appState = DataManagerInstance().getAppState();
+		XCTAssertEqual(appState, .Initial);
+	}
 
-    func testAppInitialStartAppStateIsInitialChangeToDiary() {
-        var appState = DataManagerInstance().getAppState();
-        XCTAssertEqual(appState, .Initial);
+	func testAppInitialStartAppStateIsInitialChangeToDiary() {
+		var appState = DataManagerInstance().getAppState();
+		XCTAssertEqual(appState, .Initial);
 
-        DataManagerInstance().setAppState(.Diary);
-        appState = DataManagerInstance().getAppState();
-        XCTAssertEqual(appState, .Diary);
-    }
+		DataManagerInstance().setAppState(.Diary);
+		appState = DataManagerInstance().getAppState();
+		XCTAssertEqual(appState, .Diary);
+	}
 
-    func testAppInitialStartAppStateIsInitialChangeToFinal() {
-        var appState = DataManagerInstance().getAppState();
-        XCTAssertEqual(appState, .Initial);
+	func testAppInitialStartAppStateIsInitialChangeToFinal() {
+		var appState = DataManagerInstance().getAppState();
+		XCTAssertEqual(appState, .Initial);
 
-        DataManagerInstance().setAppState(.Final);
-        appState = DataManagerInstance().getAppState();
-        XCTAssertEqual(appState, .Final);
-    }
+		DataManagerInstance().setAppState(.Final);
+		appState = DataManagerInstance().getAppState();
+		XCTAssertEqual(appState, .Final);
+	}
 }

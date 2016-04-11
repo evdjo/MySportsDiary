@@ -40,6 +40,7 @@
 		1BB5BEE11CB58323009A4C3E /* MediaPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB5BEE01CB58323009A4C3E /* MediaPicker.swift */; };
 		1BB5BEE31CB59427009A4C3E /* VideoPopoverVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB5BEE21CB59427009A4C3E /* VideoPopoverVC.swift */; };
 		2F93C0551AF2A01D77E867AD /* InitialVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F93CB82990A53BF73B2C3AC /* InitialVC.swift */; };
+		3F930E991CBB240300922185 /* EntryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F930E981CBB240300922185 /* EntryTests.swift */; };
 		3FF2B8921CBABEB200F54B7E /* TemporaryAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF2B8911CBABEB200F54B7E /* TemporaryAudio.swift */; };
 		3FF2B8941CBABEC000F54B7E /* TemporaryVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF2B8931CBABEC000F54B7E /* TemporaryVideo.swift */; };
 /* End PBXBuildFile section */
@@ -101,6 +102,7 @@
 		1BC2B9C41CA7418A00F519AF /* MySportsDiaryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MySportsDiaryUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BC2B9C81CA7418A00F519AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2F93CB82990A53BF73B2C3AC /* InitialVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialVC.swift; sourceTree = "<group>"; };
+		3F930E981CBB240300922185 /* EntryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryTests.swift; sourceTree = "<group>"; };
 		3FF2B8911CBABEB200F54B7E /* TemporaryAudio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemporaryAudio.swift; sourceTree = "<group>"; };
 		3FF2B8931CBABEC000F54B7E /* TemporaryVideo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemporaryVideo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -173,6 +175,7 @@
 				1B396B941C93AD9600986749 /* MySportsDiaryTests.swift */,
 				1B396B961C93AD9600986749 /* Info.plist */,
 				1B510DA71CA74D14008A4F6B /* Dummy.swift */,
+				3F930E981CBB240300922185 /* EntryTests.swift */,
 			);
 			path = MySportsDiaryTests;
 			sourceTree = "<group>";
@@ -451,6 +454,7 @@
 			files = (
 				1B510DA81CA74D14008A4F6B /* Dummy.swift in Sources */,
 				1B396B951C93AD9600986749 /* MySportsDiaryTests.swift in Sources */,
+				3F930E991CBB240300922185 /* EntryTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

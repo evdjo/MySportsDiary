@@ -13,6 +13,15 @@ import UIKit
 /// Handles all persistent data, such as user Age, Gender, Questionnaire Answers, Events
 ///
 
+private var instance: DataManager? = nil;
+
+internal func DataManagerInstance() -> DataManager {
+	if instance == nil {
+		instance = MainDataManager();
+	}
+	return instance!;
+}
+
 protocol DataManager {
 
 	func getAge() -> Int?;
@@ -38,8 +47,10 @@ protocol DataManager {
 	func getTempAudio() -> (url: NSURL, exists: Bool);
 	func setTempAudio(audioURL: NSURL?);
 
-    func addNewEntry(skill: String, description: String);
-    
+	func addNewEntry(entry: Entry);
+
+	func getEntries() -> [Entry]?
+
 	/// CAUTION --- deletes ALL app generated data!
 	func purgeAllData();
 
@@ -54,13 +65,4 @@ protocol DataManager {
 
 	/// CAUTION --- deletes the PHOTOS/VIDEO/AUDIO TEMP FILES !
 	func purgeTempMedia();
-}
-
-private var instance: DataManager? = nil;
-
-internal func DataManagerInstance() -> DataManager {
-	if instance == nil {
-		instance = MainDataManager();
-	}
-	return instance!;
 }

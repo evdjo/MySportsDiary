@@ -35,8 +35,12 @@ class MainDataManager: DataManager {
 	func getTempAudio() -> (url: NSURL, exists: Bool) { return TemporaryAudio.getTempAudio(); }
 	func setTempAudio(audioURL: NSURL?) { TemporaryAudio.setTempAudio(audioURL); }
 
-	func addNewEntry(skill: String, description: String) {
-		let time = timestamp();
+	func addNewEntry(entry: Entry) {
+		insertEntry(entry)
+	}
+
+	func getEntries() -> [Entry]? {
+		return entries();
 	}
 
 	///

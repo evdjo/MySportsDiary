@@ -140,8 +140,15 @@ class NewEntryDescriptionAndMediaVC: UIViewController, UIPopoverPresentationCont
 			return .None;
 	}
 	@IBAction func onAddEntryPressed(sender: AnyObject) {
-		insertEntry(NSDate().description, skill: skill,
-			description: descriptionTextArea.text, latitude: 1.11, longitude: 1.12);
+		DataManagerInstance().addNewEntry(
+			Entry(skill: skill,
+				description: descriptionTextArea.text ?? "",
+				date_time: NSDate().description,
+				latitude: 1.0,
+				longitude: 1.0,
+				photos: nil,
+				audio: nil,
+				video: nil))
 	}
 }
 
