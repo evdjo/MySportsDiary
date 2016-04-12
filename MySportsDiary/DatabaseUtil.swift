@@ -8,11 +8,15 @@
 
 import Foundation
 
-///
+////
 /// <---------- NEED THE BELOW TWO WHEN INSERTING STRINGS TO THE DB ---------->
-///
-let SQLITE_STATIC = unsafeBitCast(0, sqlite3_destructor_type.self) /// promise the string won't change, so use our copy
-let SQLITE_TRANSIENT = unsafeBitCast(-1, sqlite3_destructor_type.self) /// force the string to be copied by sqlite
+//
+
+/// promise the string won't change, so use our copy
+let SQLITE_STATIC = unsafeBitCast(0, sqlite3_destructor_type.self)
+
+/// force the string to be copied by sqlite
+let SQLITE_TRANSIENT = unsafeBitCast(-1, sqlite3_destructor_type.self)
 
 ///
 /// Open a database at the passed dbURL parameter
