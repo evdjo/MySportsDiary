@@ -140,6 +140,7 @@ class NewEntryDescriptionAndMediaVC: UIViewController, UIPopoverPresentationCont
 			return .None;
 	}
 	@IBAction func onAddEntryPressed(sender: AnyObject) {
+
 		let date = dateString(NSDate());
 
 		// let newDir = DataManagerInstance().moveTempImages(toDir: date);
@@ -153,6 +154,10 @@ class NewEntryDescriptionAndMediaVC: UIViewController, UIPopoverPresentationCont
 				photos: nil,
 				audio: nil,
 				video: nil))
+
+		// self.navigationController?.popToRootViewControllerAnimated(true);
+		self.navigationController?.popViewControllerAnimated(true);
+		//self.tabBarController?.transitionFromViewController(<#T##fromViewController: UIViewController##UIViewController#>, toViewController: <#T##UIViewController#>, duration: <#T##NSTimeInterval#>, options: <#T##UIViewAnimationOptions#>, animations: <#T##(() -> Void)?##(() -> Void)?##() -> Void#>, completion: <#T##((Bool) -> Void)?##((Bool) -> Void)?##(Bool) -> Void#>) = 2;
 	}
 }
 
