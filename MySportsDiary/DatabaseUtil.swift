@@ -60,6 +60,12 @@ internal func createTable(db: COpaquePointer, create: String) -> Bool {
 	return success;
 }
 
-internal func dbString(ptr: UnsafePointer<UInt8>) -> String {
-    return String.fromCString(UnsafePointer<CChar>(ptr)) ?? "";
+///
+/// Return string from C style String. Will return empty string (aka "") if nil is found
+///
+/// - parameters:
+///   - ptr: C style string
+/// - returns: Swift style string
+internal func dbString(ptr: UnsafePointer<UInt8>) -> String? {
+	return String.fromCString(UnsafePointer<CChar>(ptr));
 }

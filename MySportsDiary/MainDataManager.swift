@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 class MainDataManager: DataManager {
-
+	internal init() { };
 	func getAge() -> Int? { return UserProperties.getAge(); }
 	func getGender() -> Gender? { return UserProperties.getGender(); }
 
@@ -42,6 +42,14 @@ class MainDataManager: DataManager {
 
 	func getEntries() -> [Entry]? {
 		return entries();
+	}
+
+	func getEntryForID(entry_id: Int64) -> Entry? {
+		return entryForID(entry_id);
+	}
+
+	func purgeEntriesDB() {
+		deleteFile(file: DB_FILE_URL);
 	}
 
 	///

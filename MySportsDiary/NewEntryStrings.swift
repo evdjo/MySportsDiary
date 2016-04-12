@@ -5,7 +5,7 @@
 //  Created by Evdzhan Mustafa on 05/04/2016.
 //  Copyright © 2016 Evdzhan Mustafa. All rights reserved.
 //
-
+import UIKit
 import Foundation
 
 let noPhotoLibraryMessage = "The device does have photo library."
@@ -22,3 +22,6 @@ let deleteTheVideoText = "Delete the video?";
 let yes = "Yes";
 let no = "No";
 let cancel = "Cancel";
+let enterText = "[enter text]";
+
+let blue = UIColor(colorLiteralRed: 175 / 255, green: 210 / 255, blue: 234 / 255, alpha: 1);

@@ -12,13 +12,13 @@ import MobileCoreServices
 
 class NewEntryDescriptionAndMediaVC: UIViewController, UIPopoverPresentationControllerDelegate, UITextViewDelegate, MediaCountDelegate {
 
-	let enterText = "[enter text]";
-	var promptText: String {
+	private var promptText: String {
 		get {
 			return "Tell us how rugby helped you to demonstrate " +
 				"\(skill.lowercaseString) today."
 		}
 	}
+	var skill: String = "";
 
 	@IBOutlet weak var audioCountLabel: UILabel!
 	@IBOutlet weak var videoCountLabel: UILabel!
@@ -26,14 +26,14 @@ class NewEntryDescriptionAndMediaVC: UIViewController, UIPopoverPresentationCont
 	@IBOutlet weak var descriptionTextArea: UITextView!
 	@IBOutlet weak var tellUsHowLabel: UILabel!
 
-	var skill: String = "";
-	let blue = UIColor(colorLiteralRed: 175 / 255, green: 210 / 255, blue: 234 / 255, alpha: 1);
-
-	override func viewWillAppear(animated: Bool) {
-		super.viewWillAppear(animated);
+	override func viewDidLoad() {
+		super.viewDidLoad();
 		descriptionTextArea.delegate = self;
 		descriptionTextArea.text = enterText;
 		tellUsHowLabel.text = promptText;
+	}
+	override func viewWillAppear(animated: Bool) {
+		super.viewWillAppear(animated);
 		updateImagesCount();
 		updateVideoCount();
 		updateAudioCount();
@@ -144,7 +144,8 @@ class NewEntryDescriptionAndMediaVC: UIViewController, UIPopoverPresentationCont
 
 		// let newDir = DataManagerInstance().moveTempImages(toDir: date);
 		DataManagerInstance().addNewEntry(
-			Entry(skill: skill,
+			Entry(entry_id: -1,
+				skill: skill,
 				description: descriptionTextArea.text ?? "",
 				date_time: date,
 				latitude: 1.0,

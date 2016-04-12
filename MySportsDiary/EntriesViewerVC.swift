@@ -23,8 +23,14 @@ UITableViewDataSource {
 
 	override func viewWillAppear(animated: Bool) {
 		super.viewWillAppear(animated);
+		self.navigationController?.navigationBarHidden = true ;
+
 		entries = DataManagerInstance().getEntries();
 		print(entries);
+	}
+	override func viewWillDisappear(animated: Bool) {
+		super.viewWillDisappear(animated);
+		self.navigationController?.navigationBarHidden = false;
 	}
 
 	func tableView(tableView: UITableView,
@@ -43,23 +49,12 @@ UITableViewDataSource {
 			}
 			return cell;
 	}
-}
 
-struct Entry {
-	let skill: String;
-	let description: String;
-	let date_time: String;
-	let latitude: Double;
-	let longitude: Double;
-	var photos: [String]?;
-	var audio: String?;
-	var video: String?;
-}
-extension Entry: Equatable { }
-func == (lhs: Entry, rhs: Entry) -> Bool {
-	return lhs.skill == rhs.skill &&
-	lhs.description == rhs.description &&
-	lhs.date_time == rhs.date_time &&
-	lhs.latitude == rhs.latitude &&
-	lhs.longitude == rhs.longitude
+	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+		if let vc = segue.destinationViewController as? SingleEntryViewerVC,
+			let cell = sender as? UITableViewCell,
+			let index = tableView.indexPathForCell(cell) {
+				vc.entry_id = Int64(index.row + 1);
+		}
+	}
 }
