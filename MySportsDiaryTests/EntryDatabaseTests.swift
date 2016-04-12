@@ -15,12 +15,12 @@ class EntryDatabaseTests: XCTestCase {
 	override func setUp() {
 		super.setUp()
 		self.continueAfterFailure = false;
-		deleteFile(file: DB_FILE_URL);
+		DataManagerInstance().purgeEntriesDB();
 	}
 
 	override func tearDown() {
 		super.tearDown()
-		deleteFile(file: DB_FILE_URL);
+		DataManagerInstance().purgeEntriesDB();
 	}
 
 	func testTwoEntriesAddedNoMedia() {

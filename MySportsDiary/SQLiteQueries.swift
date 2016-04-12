@@ -9,14 +9,7 @@
 import Foundation
 
 ///
-/// <---------- CONFIGURE WHERE THE DB RESIDES ---------->
-///
-let DB_NAME = "entries.sqlite";
-let DB_LOCATION: NSSearchPathDirectory = .LibraryDirectory;
-let DB_FILE_URL = fileURL(file: DB_NAME, under: DB_LOCATION);
-
-///
-/// <---------- ENTRIES TABLE STATEMENTS ---------->
+///  ENTRIES TABLE STATEMENTS
 ///
 let ENTRIES_TABLE_NAME = "ENTRIES";
 let ENTRIES_TABLE_CREATE = "CREATE TABLE IF NOT EXISTS ENTRIES"
@@ -35,7 +28,7 @@ let ENTRY_WITH_ID_SELECT = "SELECT"
 	+ " FROM ENTRIES WHERE ENTRY_ID = (?);"
 
 ///
-/// <---------- PHOTOS TABLE STATEMENTS ---------->
+///  PHOTOS TABLE STATEMENTS
 ///
 let PHOTOS_TABLE_NAME = "PHOTOS";
 let PHOTOS_TABLE_CREATE = "CREATE TABLE IF NOT EXISTS PHOTOS"

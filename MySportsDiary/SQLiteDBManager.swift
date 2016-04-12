@@ -9,7 +9,7 @@
 import Foundation
 
 internal func insertEntry(entry: Entry) {
-	let db: COpaquePointer! = openDB(DB_FILE_URL);
+	let db: COpaquePointer! = openDB(DB_URL);
 	guard db != nil else { return }
 	guard createTable(db, create: ENTRIES_TABLE_CREATE) else { return }
 	guard createTable(db, create: PHOTOS_TABLE_CREATE) else { return }
@@ -60,7 +60,7 @@ internal func insertEntry(entry: Entry) {
 }
 
 internal func entries() -> [Entry]? {
-	let db: COpaquePointer! = openDB(DB_FILE_URL);
+	let db: COpaquePointer! = openDB(DB_URL);
 	guard db != nil else { return nil; }
 	guard createTable(db!, create: ENTRIES_TABLE_CREATE) else { return nil }
 	var statement: COpaquePointer = nil;
@@ -100,7 +100,7 @@ internal func entries() -> [Entry]? {
 }
 
 internal func entryForID(entry_id: Int64) -> Entry? {
-	let db: COpaquePointer! = openDB(DB_FILE_URL);
+	let db: COpaquePointer! = openDB(DB_URL);
 	guard db != nil else { return nil; }
 	guard createTable(db!, create: ENTRIES_TABLE_CREATE) else { return nil }
 	var statement: COpaquePointer = nil;

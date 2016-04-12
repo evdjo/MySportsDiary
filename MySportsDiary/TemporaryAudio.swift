@@ -10,21 +10,16 @@ import Foundation
 
 class TemporaryAudio {
 
-    ///
-    /// Defines the temporary audio URL.
-    ///
-	static private func tempAudioURL() -> NSURL {
-		return fileURL(file: "audio.caf", under: .CachesDirectory);
-	}
-
 	///
 	/// Gets a pair of :
+    ///
+    ///
 	/// -- NSURL to the temporary audio file
+    ///
 	/// -- Bool flag indicating whether the file exists
 	///
 	static func getTempAudio() -> (url: NSURL, exists: Bool) {
-		let audio = tempAudioURL();
-		return (audio, fileExists(audio))
+		return (TEMP_AUDIO_URL, fileExists(TEMP_AUDIO_URL))
 	}
 
 	///
@@ -45,6 +40,6 @@ class TemporaryAudio {
 	/// Equivalent to calling the setTempAudio and passing nil.
 	///
 	static func purgeTempAudio() {
-		self.setTempAudio(nil);
+		setTempAudio(nil);
 	}
 }

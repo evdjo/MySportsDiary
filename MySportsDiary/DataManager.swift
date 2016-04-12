@@ -39,7 +39,7 @@ protocol DataManager {
 	func getImagesCount() -> Int;
 	func saveTempImage(image: UIImage);
 	func removeTempImage(index: Int);
-	func moveTempImages(toDir dir: String) -> NSURL;
+	// func moveTempImages(toDir dir: String) -> NSURL;
 
 	func getTempVideo() -> NSURL?;
 	func setTempVideo(videoURL: NSURL?);
@@ -51,21 +51,17 @@ protocol DataManager {
 
 	func getEntries() -> [Entry]?
 	func getEntryForID(entry_id: Int64) -> Entry?;
-	/// CAUTION --- deletes ALL app generated data!
+
+	/// CAUTION --- deletes ALL DATA!
 	func purgeAllData();
-
-	/// CAUTION --- deletes AGE AND GENDER ! Used for testing purposes.
+	/// CAUTION --- deletes AGE AND GENDER !
 	func purgeUserData();
-
-	/// CAUTION --- deletes APP PROPERTIES ! Used for testing purposes.
+	/// CAUTION --- deletes APP PROPERTIES !
 	func purgeAppData();
-
-	/// CAUTION --- deletes the QUESTIONNAIRE ANSWERS ! Used for testing purposes.
+	/// CAUTION --- deletes the QUESTIONNAIRE ANSWERS !
 	func purgeQuestionnaireAnswers();
-
 	/// CAUTION --- deletes the PHOTOS/VIDEO/AUDIO TEMP FILES !
 	func purgeTempMedia();
-
 	/// CAUTION --- deletes the ENTRIES DATABASE FILE !
 	func purgeEntriesDB();
 }

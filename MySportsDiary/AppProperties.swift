@@ -8,43 +8,38 @@
 
 import Foundation
 
-///
-/// Application state
-///
-
 class AppProperties {
-    static private let AppStateKey = "AppState";
-    static private let AppPropertiesFile = "appproperties.plist";
-    static private var AppPropsURL: NSURL = fileURL(file: AppPropertiesFile, under: .LibraryDirectory)
 
-    ///
-    /// GET
-    ///
-    static func getAppState() -> ApplicationState? {
-        if let dict = NSDictionary(contentsOfURL: AppPropsURL) as? Dictionary<String, String> {
-            if let appState = dict[AppStateKey] {
-                return ApplicationState(rawValue: appState);
-            }
-        }
-        return nil; // was never set before
-    }
-    ///
-    /// SET
-    ///
-    static func setAppState(state: ApplicationState) {
-        if var dict = NSDictionary(contentsOfURL: AppPropsURL) as? Dictionary<String, String> {
-            dict.updateValue(state.rawValue, forKey: AppStateKey);
-            (dict as NSDictionary).writeToURL(AppPropsURL, atomically: true);
-        } else {
-            let dict = ([AppStateKey: state.rawValue] as NSDictionary);
-            dict.writeToURL(AppPropsURL, atomically: true); // first time setting
-        }
-    }
+	///
+	/// GET
+	///
+	static func getAppState() -> ApplicationState? {
+		if let dict = NSDictionary(contentsOfURL: APP_PROP_URL)
+		as? Dictionary<String, String> {
+			if let appState = dict[APP_STATE_KEY] {
+				return ApplicationState(rawValue: appState);
+			}
+		}
+		return nil; // was never set before
+	}
+	///
+	/// SET
+	///
+	static func setAppState(state: ApplicationState) {
+		if var dict = NSDictionary(contentsOfURL: APP_PROP_URL)
+		as? Dictionary<String, String> {
+			dict.updateValue(state.rawValue, forKey: APP_STATE_KEY);
+			(dict as NSDictionary).writeToURL(APP_PROP_URL, atomically: true);
+		} else {
+			let dict = ([APP_STATE_KEY: state.rawValue] as NSDictionary);
+			dict.writeToURL(APP_PROP_URL, atomically: true); // first time setting
+		}
+	}
 
-    ///
-    /// PURGE
-    ///
-    static func purgeData() {
-        deleteFile(file: AppPropsURL);
-    }
+	///
+	/// PURGE
+	///
+	static func purgeData() {
+		deleteFile(file: APP_PROP_URL);
+	}
 }

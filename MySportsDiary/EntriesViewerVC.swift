@@ -24,9 +24,7 @@ UITableViewDataSource {
 	override func viewWillAppear(animated: Bool) {
 		super.viewWillAppear(animated);
 		self.navigationController?.navigationBarHidden = true ;
-
 		entries = DataManagerInstance().getEntries();
-		print(entries);
 	}
 	override func viewWillDisappear(animated: Bool) {
 		super.viewWillDisappear(animated);
