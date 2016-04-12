@@ -1,5 +1,5 @@
 //
-//  DBConfig_1.swift
+//  DBConfig.swift
 //  MySportsDiary
 //
 //  Created by Evdzhan Mustafa on 12/04/2016.

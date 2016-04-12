@@ -197,11 +197,11 @@
 		1B396B931C93AD9600986749 /* MySportsDiaryTests */ = {
 			isa = PBXGroup;
 			children = (
-				3FE3D95A1CBD7F610062DFA8 /* IO */,
-				3FE3D9591CBD7F4C0062DFA8 /* Other */,
+				3FE3D94E1CBC24380062DFA8 /* TestEntry.swift */,
+				1B396B961C93AD9600986749 /* Info.plist */,
+				3FE3D9651CBDAE670062DFA8 /* DataUtilTests */,
 				3FE3D9571CBD7F190062DFA8 /* Persistence */,
 				3FE3D93E1CBBF3D90062DFA8 /* TestUtil.swift */,
-				3FE3D9581CBD7F430062DFA8 /* Model */,
 			);
 			path = MySportsDiaryTests;
 			sourceTree = "<group>";
@@ -348,30 +348,6 @@
 				3F930E981CBB240300922185 /* EntryDatabaseTests.swift */,
 			);
 			name = Persistence;
-			sourceTree = "<group>";
-		};
-		3FE3D9581CBD7F430062DFA8 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				3FE3D94E1CBC24380062DFA8 /* TestEntry.swift */,
-			);
-			name = Model;
-			sourceTree = "<group>";
-		};
-		3FE3D9591CBD7F4C0062DFA8 /* Other */ = {
-			isa = PBXGroup;
-			children = (
-				1B396B961C93AD9600986749 /* Info.plist */,
-			);
-			name = Other;
-			sourceTree = "<group>";
-		};
-		3FE3D95A1CBD7F610062DFA8 /* IO */ = {
-			isa = PBXGroup;
-			children = (
-				3FE3D9651CBDAE670062DFA8 /* DataUtilTests */,
-			);
-			name = IO;
 			sourceTree = "<group>";
 		};
 		3FE3D9651CBDAE670062DFA8 /* DataUtilTests */ = {

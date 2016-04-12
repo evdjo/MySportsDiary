@@ -1,5 +1,5 @@
 //
-//  PropertyListsDataSource.swift
+//  MainDataManager.swift
 //  MySportsDiary
 //
 //  Created by Evdzhan Mustafa on 31/03/2016.
