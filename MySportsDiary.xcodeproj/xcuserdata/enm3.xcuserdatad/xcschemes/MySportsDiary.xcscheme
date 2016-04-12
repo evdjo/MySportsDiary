@@ -93,12 +93,12 @@
       </BuildableProductRunnable>
       <CommandLineArguments>
          <CommandLineArgument
-            argument = "TEST_ENVIRONMENT"
+            argument = "delete_entries_db"
             isEnabled = "NO">
          </CommandLineArgument>
          <CommandLineArgument
-            argument = "DELETE_TEMP_MEDIA"
-            isEnabled = "NO">
+            argument = "delete_all"
+            isEnabled = "YES">
          </CommandLineArgument>
       </CommandLineArguments>
       <AdditionalOptions>

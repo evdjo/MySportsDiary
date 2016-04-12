@@ -511,18 +511,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Rfg-Li-uKH">
-                                <rect key="frame" x="20" y="64" width="560" height="487"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="Rfg-Li-uKH">
+                                <rect key="frame" x="20" y="64" width="560" height="479"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3MK-9i-NQE">
-                                        <rect key="frame" x="0.0" y="0.0" width="560" height="244"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3MK-9i-NQE">
+                                        <rect key="frame" x="0.0" y="0.0" width="560" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" text=" " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="qBO-u0-KEk">
-                                        <rect key="frame" x="0.0" y="244" width="560" height="243"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text=" " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="qBO-u0-KEk">
+                                        <rect key="frame" x="0.0" y="27" width="560" height="452"/>
+                                        <color key="backgroundColor" red="0.89785987140000001" green="0.94141292570000001" blue="0.76126772170000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
@@ -532,7 +532,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Rfg-Li-uKH" firstAttribute="top" secondItem="KaF-A7-JrC" secondAttribute="bottom" id="5yD-Pn-ZyM"/>
-                            <constraint firstItem="YzA-QX-ygk" firstAttribute="top" secondItem="Rfg-Li-uKH" secondAttribute="bottom" id="7Yp-33-bW5"/>
+                            <constraint firstItem="YzA-QX-ygk" firstAttribute="top" secondItem="Rfg-Li-uKH" secondAttribute="bottom" constant="8" id="7Yp-33-bW5"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Rfg-Li-uKH" secondAttribute="trailing" id="xdC-Sf-rzk"/>
                             <constraint firstItem="Rfg-Li-uKH" firstAttribute="leading" secondItem="em7-U5-ldr" secondAttribute="leadingMargin" id="zgf-n3-8js"/>
                         </constraints>
