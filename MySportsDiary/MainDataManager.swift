@@ -23,7 +23,6 @@ class MainDataManager: DataManager {
     func setAppState(appState: ApplicationState) { AppProperties.setAppState(appState); }
     func getAppState() -> ApplicationState? { return AppProperties.getAppState(); }
 
-    func setTempImages(images: Array<UIImage>) { return TemporaryImages.setTempImages(images); }
     func getTempImages() -> Array<UIImage>? { return TemporaryImages.getTempImages(); }
     func saveTempImage(image: UIImage) { TemporaryImages.saveTempImage(image); }
     func removeTempImage(index: Int) { TemporaryImages.removeTempImage(index); }

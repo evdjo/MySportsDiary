@@ -35,7 +35,6 @@ protocol DataManager {
 	func getAppState() -> ApplicationState?;
 	func setAppState(appState: ApplicationState);
 
-	func setTempImages(images: [UIImage]);
 	func getTempImages() -> [UIImage]?;
 	func getImagesCount() -> Int;
 	func saveTempImage(image: UIImage);
@@ -66,7 +65,7 @@ protocol DataManager {
 
 	/// CAUTION --- deletes the PHOTOS/VIDEO/AUDIO TEMP FILES !
 	func purgeTempMedia();
-    
-    /// CAUTION --- deletes the ENTRIES DATABASE FILE !
-    func purgeEntriesDB();
+
+	/// CAUTION --- deletes the ENTRIES DATABASE FILE !
+	func purgeEntriesDB();
 }

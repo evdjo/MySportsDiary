@@ -20,19 +20,6 @@ class TemporaryImages {
 	static private var entryImagesDirURL = createSubDir(dir: entryImagesDir, under: entryImageUnder);
 
 	///
-	/// Save image to a temp folder
-	///
-	static func setTempImages(images: Array<UIImage>) {
-		try! fileManager.removeItemAtURL(tempImagesDirURL);
-		if (images.count < 1) { return; }
-		createSubDir(dir: tempImagesDir, under: .CachesDirectory);
-		for i in 0 ... images.count - 1 {
-			let path = tempImagesDirURL.URLByAppendingPathComponent(String(i));
-			UIImagePNGRepresentation(images[i])?.writeToURL(path, atomically: true);
-		}
-	}
-
-	///
 	/// Gets list of all temp images.
 	/// returns Array of all UIImages if there are temp images saved,
 	/// else will return nil.
