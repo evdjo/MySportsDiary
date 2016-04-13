@@ -66,7 +66,7 @@ UITableViewDataSource {
 				if let entries = entries where entries.count > row {
 					let entry = entries[indexPath.row]
 					let date = stringDate(entry.date_time);
-					cell.detailTextLabel?.text = screcenDateString(date);
+					cell.detailTextLabel?.text = screenDateString(date);
 					cell.textLabel?.text = entry.skill
 				}
 				return cell;
@@ -81,7 +81,7 @@ UITableViewDataSource {
 		if let vc = segue.destinationViewController as? SingleEntryViewerVC,
 			let cell = sender as? UITableViewCell,
 			let index = tableView.indexPathForCell(cell) {
-				vc.entry_id = Int64(index.row);
+				vc.entry_id = Int64(index.row + 1);
 		}
 	}
 }
