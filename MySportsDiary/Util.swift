@@ -55,8 +55,30 @@ internal func stringOptionalEqual(lhs: String?, rhs: String?) -> Bool {
 	}
 }
 
-internal func dateString(date: NSDate) -> String {
+internal var screenFormatter: NSDateFormatter {
+	let fmt = NSDateFormatter();
+	fmt.dateFormat = "dd/MM/yyyy HH:mm:ss"
+	return fmt
+}
+
+/// to be used when shown on screen
+internal func screenDateString(date: NSDate) -> String {
+	return screenFormatter.stringFromDate(date);
+}
+
+/// DB formatter
+internal var formatter: NSDateFormatter {
 	let fmt = NSDateFormatter();
 	fmt.dateFormat = "dd-MM-yyyy-HH-mm-ss.SSS"
-	return fmt.stringFromDate(date);
+	return fmt
+}
+
+/// to be used when put to DB
+internal func dateString(date: NSDate) -> String {
+	return formatter.stringFromDate(date);
+}
+
+// to be used when read from DB
+internal func stringDate(string: String) -> NSDate {
+	return formatter.dateFromString(string)!;
 }

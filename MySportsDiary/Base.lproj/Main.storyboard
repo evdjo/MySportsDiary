@@ -10,7 +10,7 @@
         <scene sceneID="nLj-ld-mIp">
             <objects>
                 <navigationController id="fFR-Mt-FWC" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="New Entry" image="first" id="eTn-o5-Exq"/>
+                    <tabBarItem key="tabBarItem" title="New Entry" image="add" id="eTn-o5-Exq"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="UcL-hb-dQQ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -384,7 +384,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="New Entry" image="second" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="New Entry" image="add" id="acW-dT-cKf"/>
                     <navigationItem key="navigationItem" id="RMu-6b-IyS"/>
                     <connections>
                         <outlet property="audioCountLabel" destination="jkv-TM-So7" id="cHp-b1-TB5"/>
@@ -517,7 +517,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3MK-9i-NQE">
                                         <rect key="frame" x="0.0" y="0.0" width="560" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text=" " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="qBO-u0-KEk">
@@ -879,31 +879,56 @@
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="eventCellIdentifier" textLabel="8qF-Nr-H98" detailTextLabel="wMS-3X-2It" style="IBUITableViewCellStyleSubtitle" id="tmD-8l-cTH">
+                                    <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="gray" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="eventCellHeader" textLabel="8qF-Nr-H98" style="IBUITableViewCellStyleDefault" id="tmD-8l-cTH">
                                         <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tmD-8l-cTH" id="RHG-Fs-NXo">
-                                            <rect key="frame" x="0.0" y="0.0" width="567" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8qF-Nr-H98">
-                                                    <rect key="frame" x="15" y="5" width="32" height="20"/>
+                                                    <rect key="frame" x="15" y="0.0" width="570" height="43"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wMS-3X-2It">
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.59215686274509804" green="0.84313725490196079" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="eventCellContent" textLabel="Xcx-OV-B4O" detailTextLabel="80f-sT-7bZ" style="IBUITableViewCellStyleSubtitle" id="h44-mM-Uwi">
+                                        <rect key="frame" x="0.0" y="136" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="h44-mM-Uwi" id="heo-dO-dvr">
+                                            <rect key="frame" x="0.0" y="0.0" width="567" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Xcx-OV-B4O">
+                                                    <rect key="frame" x="15" y="5" width="32" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="80f-sT-7bZ">
                                                     <rect key="frame" x="15" y="25" width="41" height="14"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="iNo-Df-Ugc" kind="show" id="zxE-ML-x20"/>
+                                            <segue destination="iNo-Df-Ugc" kind="show" id="e6V-5r-Fao"/>
+                                            <segue destination="iNo-Df-Ugc" kind="show" trigger="accessoryAction" id="peG-07-amg"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -942,8 +967,8 @@
                     </tabBar>
                     <connections>
                         <segue destination="XZz-6R-0bs" kind="relationship" relationship="viewControllers" id="ycc-Nq-uEn"/>
-                        <segue destination="fFR-Mt-FWC" kind="relationship" relationship="viewControllers" id="CyE-ws-hoX"/>
                         <segue destination="cLT-0y-iCz" kind="relationship" relationship="viewControllers" id="35D-I7-6sP"/>
+                        <segue destination="fFR-Mt-FWC" kind="relationship" relationship="viewControllers" id="CyE-ws-hoX"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -1013,7 +1038,7 @@
         <scene sceneID="Uje-Gp-RRb">
             <objects>
                 <navigationController id="XZz-6R-0bs" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Questionnaire" image="Survey-25" id="cX9-GF-L2i"/>
+                    <tabBarItem key="tabBarItem" title="Questionnaire" image="questionnaire" id="cX9-GF-L2i"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="bqh-K5-O6w">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1526,7 +1551,7 @@
         <scene sceneID="rQw-Kf-MLZ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cLT-0y-iCz" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="View Entries" image="second" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="View Entries" image="list" id="cPa-gy-q4n"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Qkw-6e-y92">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1544,21 +1569,23 @@
     </scenes>
     <resources>
         <image name="Survey-25" width="25" height="25"/>
+        <image name="add" width="25" height="25"/>
         <image name="arrow-left" width="50" height="50"/>
         <image name="arrow-right" width="50" height="50"/>
         <image name="delete" width="50" height="50"/>
-        <image name="first" width="30" height="30"/>
+        <image name="list" width="25" height="25"/>
         <image name="mic-2" width="50" height="50"/>
         <image name="movie" width="50" height="50"/>
         <image name="photo" width="50" height="50"/>
         <image name="photo-cam" width="50" height="50"/>
         <image name="photos" width="50" height="50"/>
         <image name="play" width="50" height="50"/>
+        <image name="questionnaire" width="25" height="25"/>
         <image name="record-voice" width="50" height="50"/>
-        <image name="second" width="30" height="30"/>
         <image name="video-cam" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="eUc-fk-lPY"/>
+        <segue reference="peG-07-amg"/>
     </inferredMetricsTieBreakers>
 </document>
