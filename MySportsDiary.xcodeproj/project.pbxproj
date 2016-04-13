@@ -226,7 +226,6 @@
 				1B396B721C9251D900986749 /* EntrySecondScreen.swift */,
 				3FD3E0F51CBDE1E400A07F53 /* DescriptionTextDelegate.swift */,
 				3FD3E0F71CBDE41F00A07F53 /* MediaPopoverDelegate.swift */,
-				1BB5BEE41CB59440009A4C3E /* Pickers */,
 			);
 			name = NewEntryTab;
 			sourceTree = "<group>";
@@ -338,6 +337,7 @@
 		3FE3D9531CBD65380062DFA8 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				1BB5BEE41CB59440009A4C3E /* Pickers */,
 				1B396B701C9251D900986749 /* AppDelegate.swift */,
 				1B8866441C9F9D28007F7BEB /* QuestionnaireTab */,
 				1B6FAA801CA762B20061A219 /* NewEntryTab */,

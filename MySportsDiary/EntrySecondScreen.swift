@@ -10,12 +10,27 @@ import UIKit
 import QuartzCore
 import MobileCoreServices
 
-class EntrySecondScreen: UIViewController, MediaCountDelegate {
+class EntrySecondScreen: UIViewController, MediaCountDelegate,
+AudioRecorderDelegate, ImagesPopoverDelegate, VideoPopoverDelegate {
 	@IBOutlet weak var audioCountLabel: UILabel!
 	@IBOutlet weak var videoCountLabel: UILabel!
 	@IBOutlet weak var imagesCountLabel: UILabel!;
 	@IBOutlet weak var descriptionTextArea: UITextView!
 	@IBOutlet weak var tellUsHowLabel: UILabel!
+
+	func newImage(image: UIImage) -> Void { DataManagerInstance().saveTempImage(image); }
+	func images() -> [UIImage]? { return DataManagerInstance().getTempImages(); }
+	func removeImage(index: Int) -> Void { DataManagerInstance().removeTempImage(index); }
+
+	var video: NSURL? {
+		set { DataManagerInstance().setTempVideo(newValue); }
+		get { return DataManagerInstance().getTempVideo(); }
+	}
+
+	var audio: NSURL? {
+		set { DataManagerInstance().setTempAudio(newValue); }
+		get { return DataManagerInstance().getTempAudio(); }
+	}
 
 	var promptText: String!;
 	var skill: String = "";
@@ -45,6 +60,17 @@ class EntrySecondScreen: UIViewController, MediaCountDelegate {
 		var size = CGSize(width: view.frame.width, height: view.frame.height);
 		if segue.identifier! == "audioSegue" { size.height = 60; }
 		dest.preferredContentSize = size;
+
+		switch (segue.identifier!) {
+		case "audioSegue":
+			(dest as! AudioRecorderVC).delegate = self;
+		case "videoSegue":
+			(dest as! VideoPopoverVC).delegate = self;
+		case "photoSegue":
+			(dest as! ImagesPopoverVC).delegate = self;
+		default: break
+			// no op;
+		}
 
 		if let vc = dest as? MediaContainer { vc.mediaCountDelegate = self; }
 		if popoverDelegate == nil {
@@ -86,7 +112,7 @@ class EntrySecondScreen: UIViewController, MediaCountDelegate {
 	}
 
 	func updateAudioCount() {
-		if (DataManagerInstance().getTempAudio().exists) {
+		if (DataManagerInstance().getTempAudio() != nil) {
 			audioCountLabel.text = "1";
 			audioCountLabel.hidden = false;
 		} else {
@@ -98,8 +124,8 @@ class EntrySecondScreen: UIViewController, MediaCountDelegate {
 	@IBAction func onAddEntryPressed(sender: AnyObject) {
 		let date = dateString(NSDate());
 		DataManagerInstance().addNewEntry(
-			Entry(entry_id: -1,
-				skill: skill, description: descriptionTextArea.text ?? "",
+			Entry(entry_id: -1, skill: skill,
+				description: descriptionTextArea.text ?? "",
 				date_time: date, latitude: 1.0, longitude: 1.0,
 				photos: nil, audio: nil, video: nil))
 		self.tabBarController?.selectedIndex = 1;

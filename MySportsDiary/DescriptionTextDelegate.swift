@@ -12,13 +12,12 @@ class DescriptionTextDelegate: NSObject, UITextViewDelegate {
 	///
 	/// Hide the keyboard on done pressed
 	///
-	func textView(textView: UITextView, shouldChangeTextInRange range: NSRange,
-		replacementText text: String) -> Bool {
-			if text == "\n" {
-				textView.resignFirstResponder();
-				return false;
-			}
-			return true;
+	func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+		if text == "\n" {
+			textView.resignFirstResponder();
+			return false;
+		}
+		return true;
 	}
 
 	func textViewShouldBeginEditing(textView: UITextView) -> Bool {

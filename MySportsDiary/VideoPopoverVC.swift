@@ -12,9 +12,14 @@ import AVFoundation
 import Photos
 import MobileCoreServices
 
+protocol VideoPopoverDelegate {
+	var video: NSURL? { get set }
+}
+
 class VideoPopoverVC: UIViewController, MediaContainer {
 
 	var mediaCountDelegate: MediaCountDelegate?; /// when the count of video changes
+	var delegate: VideoPopoverDelegate?;
 	private var mediaPicker: MediaPicker?;
 	private var avPlayerViewController: AVPlayerViewController?;
 	private var videoToPlayURL: NSURL? = nil;
@@ -32,14 +37,14 @@ class VideoPopoverVC: UIViewController, MediaContainer {
 		super.viewWillAppear(animated);
 		// dispatch_async(dispatch_get_main_queue(), {
 		self.mediaPicker = MediaPicker(parentVC: self, mediaType: kUTTypeMovie as String);
-		self.videoToPlayURL = DataManagerInstance().getTempVideo();
+		self.videoToPlayURL = delegate?.video;
 		self.setUpPlayer();
 		// });
 	}
 
 	func onNewVideo(videoURL: NSURL) {
 		videoToPlayURL = videoURL;
-		DataManagerInstance().setTempVideo(videoURL);
+		delegate?.video = videoURL;
 		mediaCountDelegate?.onCountChange(self);
 	}
 
@@ -65,7 +70,7 @@ class VideoPopoverVC: UIViewController, MediaContainer {
 			self.avPlayerViewController?.player = nil
 			self.avPlayerViewController?.view.removeFromSuperview()
 			self.avPlayerViewController?.removeFromParentViewController()
-			DataManagerInstance().setTempVideo(nil);
+			self.delegate?.video = nil;
 			self.videoToPlayURL = nil;
 			self.mediaCountDelegate?.onCountChange(self);
 		});

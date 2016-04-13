@@ -32,7 +32,7 @@ class MainDataManager: DataManager {
 	func getTempVideo() -> NSURL? { return TemporaryVideo.getTempVideo(); }
 	func setTempVideo(videoURL: NSURL?) { TemporaryVideo.setTempVideo(videoURL); }
 
-	func getTempAudio() -> (url: NSURL, exists: Bool) { return TemporaryAudio.getTempAudio(); }
+	func getTempAudio() -> NSURL? { return TemporaryAudio.getTempAudio(); }
 	func setTempAudio(audioURL: NSURL?) { TemporaryAudio.setTempAudio(audioURL); }
 
 	func addNewEntry(entry: Entry) {

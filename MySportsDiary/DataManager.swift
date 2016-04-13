@@ -44,7 +44,7 @@ protocol DataManager {
 	func getTempVideo() -> NSURL?;
 	func setTempVideo(videoURL: NSURL?);
 
-	func getTempAudio() -> (url: NSURL, exists: Bool);
+	func getTempAudio() -> NSURL?;
 	func setTempAudio(audioURL: NSURL?);
 
 	func addNewEntry(entry: Entry);

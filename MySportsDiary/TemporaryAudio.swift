@@ -12,26 +12,25 @@ class TemporaryAudio {
 
 	///
 	/// Gets a pair of :
-    ///
-    ///
+	///
+	///
 	/// -- NSURL to the temporary audio file
-    ///
+	///
 	/// -- Bool flag indicating whether the file exists
 	///
-	static func getTempAudio() -> (url: NSURL, exists: Bool) {
-		return (TEMP_AUDIO_URL, fileExists(TEMP_AUDIO_URL))
+	static func getTempAudio() -> NSURL? {
+		return fileExists(TEMP_AUDIO_URL) ? TEMP_AUDIO_URL : nil;
 	}
 
 	///
 	/// Sets the temporary audio file. If nil is passed, the file is deleted.
 	///
 	static func setTempAudio(newAudio: NSURL?) {
-		let audioFile = getTempAudio();
-		if audioFile.exists {
-			deleteFile(file: audioFile.url);
+		if fileExists(TEMP_AUDIO_URL) {
+			deleteFile(file: TEMP_AUDIO_URL);
 		}
 		if let newAudio = newAudio {
-			myCopy(newAudio, toPath: audioFile.url);
+			myCopy(newAudio, toPath: TEMP_AUDIO_URL);
 		}
 	}
 

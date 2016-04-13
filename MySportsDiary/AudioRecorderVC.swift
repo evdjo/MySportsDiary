@@ -9,12 +9,17 @@
 import UIKit
 import AVFoundation
 
+protocol AudioRecorderDelegate {
+	var audio: NSURL? { get set }
+}
+
 class AudioRecorderVC: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate, MediaContainer {
 
-	private var recording = false;
-	private var playing = false;
+    // Delegates
 	var mediaCountDelegate: MediaCountDelegate?; /// when the count of audio changes
+	var delegate: AudioRecorderDelegate?;
 
+    // Internal stuff
 	private var recorder: AVAudioRecorder?;
 	private var player: AVAudioPlayer?;
 	private var session: AVAudioSession?;
@@ -22,7 +27,10 @@ class AudioRecorderVC: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerD
 		AVFormatIDKey: Int(kAudioFormatAppleIMA4), AVSampleRateKey: 44100.0,
 		AVNumberOfChannelsKey: 2, AVEncoderBitRateKey: 12800, AVLinearPCMBitDepthKey: 16,
 		AVEncoderAudioQualityKey: AVAudioQuality.Low.rawValue]
+    private var recording = false;
+    private var playing = false;
 
+    // UI stuff
 	@IBOutlet weak var playLabel: UILabel!
 	@IBOutlet weak var recordingLabel: UILabel!
 	@IBOutlet weak var playButton: UIButton!
@@ -37,7 +45,7 @@ class AudioRecorderVC: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerD
 		adjustButtons();
 	}
 ///
-/// Cancel any playback/recording if any
+/// Cancel any playback/recording
 ///
 	override func viewWillDisappear(animated: Bool) {
 		super.viewWillDisappear(animated);
@@ -68,8 +76,9 @@ class AudioRecorderVC: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerD
 	private func setUpRecorder() {
 		guard session != nil else { return }
 		do {
-			try recorder = AVAudioRecorder(URL: fileURL(file: "recording_temp.caf",
-				under: .CachesDirectory), settings: settings)
+			let temp = NSURL(fileURLWithPath: NSTemporaryDirectory())
+				.URLByAppendingPathComponent("temp_recording.caf")
+			try recorder = AVAudioRecorder(URL: temp, settings: settings)
 			recorder?.prepareToRecord();
 			recorder?.delegate = self;
 		} catch {
@@ -83,10 +92,9 @@ class AudioRecorderVC: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerD
 	private func setUpPlayer() {
 		guard recorder != nil else { return }
 		guard session != nil else { return }
-		let playFile = DataManagerInstance().getTempAudio();
-		if playFile.exists {
+		if let playFile = delegate?.audio {
 			do {
-				try player = AVAudioPlayer(contentsOfURL: playFile.url)
+				try player = AVAudioPlayer(contentsOfURL: playFile)
 				player?.delegate = self;
 			} catch let e {
 				print(e);
@@ -104,7 +112,7 @@ class AudioRecorderVC: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerD
 		if !playing && !recording {
 			player?.stop();
 			player = nil;
-			DataManagerInstance().setTempAudio(nil);
+			delegate?.audio = nil;
 			mediaCountDelegate?.onCountChange(self);
 			adjustButtons();
 		}
@@ -135,10 +143,10 @@ class AudioRecorderVC: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerD
 ///
 	func audioRecorderDidFinishRecording(recorder: AVAudioRecorder, successfully flag: Bool) {
 		if (flag) {
-			DataManagerInstance().setTempAudio(recorder.url);
+			delegate?.audio = recorder.url;
 			setUpPlayer();
 		} else {
-			DataManagerInstance().setTempAudio(nil);
+			delegate?.audio = nil;
 			alertWithMessage(self, title: "Failed to record.");
 		}
 		mediaCountDelegate?.onCountChange(self);
