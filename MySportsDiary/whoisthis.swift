@@ -1,5 +1,5 @@
 //
-//  EntryFirstScreen.swift
+//  wtf.swift
 //  MySportsDiary
 //
 //  Created by Evdzhan Mustafa on 08/04/2016.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EntryFirstScreenTest: UIViewController, UIPickerViewDelegate,
+class EntryFirstScreen: UIViewController, UIPickerViewDelegate,
 UIPickerViewDataSource {
 
 	@IBOutlet weak var skillPickerView: UIPickerView!
