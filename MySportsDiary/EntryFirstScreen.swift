@@ -1,5 +1,5 @@
 //
-//  wtf.swift
+//  EntryFirstScreen
 //  MySportsDiary
 //
 //  Created by Evdzhan Mustafa on 08/04/2016.
