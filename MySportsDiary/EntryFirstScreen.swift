@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EntryFirstScreen: UIViewController, UIPickerViewDelegate,
+class EntryFirstScreenTest: UIViewController, UIPickerViewDelegate,
 UIPickerViewDataSource {
 
 	@IBOutlet weak var skillPickerView: UIPickerView!
