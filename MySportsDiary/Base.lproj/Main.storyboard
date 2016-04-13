@@ -27,10 +27,10 @@
             </objects>
             <point key="canvasLocation" x="-455" y="-1750"/>
         </scene>
-        <!--New Entry Skill ChooserVC-->
+        <!--Entry First Screen-->
         <scene sceneID="242-26-3by">
             <objects>
-                <viewController id="4bZ-St-0LU" customClass="NewEntrySkillChooserVC" customModule="MySportsDiary" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="4bZ-St-0LU" customClass="EntryFirstScreen" customModule="MySportsDiary" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1NM-JL-MCo"/>
                         <viewControllerLayoutGuide type="bottom" id="hkK-oy-fla"/>
@@ -105,7 +105,7 @@
         <!--New Entry-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController id="9pv-A4-QxB" customClass="NewEntryDescriptionAndMediaVC" customModule="MySportsDiary" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="9pv-A4-QxB" customClass="EntrySecondScreen" customModule="MySportsDiary" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ia1-K6-d13"/>
                         <viewControllerLayoutGuide type="bottom" id="4ug-Mw-9AY"/>
@@ -396,7 +396,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1001" y="-1745"/>
+            <point key="canvasLocation" x="954" y="-1750"/>
         </scene>
         <!--Audio RecorderVC-->
         <scene sceneID="Kft-Te-bC4">
