@@ -12,17 +12,13 @@ import AVFoundation
 import Photos
 import MobileCoreServices
 
-protocol ImagesPopoverDelegate {
-	func newImage(image: UIImage);
-	func images() -> [UIImage]?;
-	func removeImage(index: Int);
-}
+
 
 class ImagesPopoverVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, MediaContainer {
 
 	// Delegate stuff
 	var mediaCountDelegate: MediaCountDelegate?; /// when the count of images changes
-	var delegate: ImagesPopoverDelegate?;
+	var delegate: MediaDelegate?;
 
 	/// Image stuff
 	private var picker: MediaPicker?;

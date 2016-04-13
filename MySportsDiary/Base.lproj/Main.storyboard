@@ -499,53 +499,6 @@
             </objects>
             <point key="canvasLocation" x="1788" y="-976"/>
         </scene>
-        <!--Single Entry ViewerVC-->
-        <scene sceneID="v2r-ms-dS5">
-            <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="iNo-Df-Ugc" customClass="SingleEntryViewerVC" customModule="MySportsDiary" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="KaF-A7-JrC"/>
-                        <viewControllerLayoutGuide type="bottom" id="YzA-QX-ygk"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="em7-U5-ldr">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="Rfg-Li-uKH">
-                                <rect key="frame" x="20" y="64" width="560" height="479"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3MK-9i-NQE">
-                                        <rect key="frame" x="0.0" y="0.0" width="560" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text=" " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="qBO-u0-KEk">
-                                        <rect key="frame" x="0.0" y="27" width="560" height="452"/>
-                                        <color key="backgroundColor" red="0.89785987140000001" green="0.94141292570000001" blue="0.76126772170000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
-                                </subviews>
-                            </stackView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="Rfg-Li-uKH" firstAttribute="top" secondItem="KaF-A7-JrC" secondAttribute="bottom" id="5yD-Pn-ZyM"/>
-                            <constraint firstItem="YzA-QX-ygk" firstAttribute="top" secondItem="Rfg-Li-uKH" secondAttribute="bottom" constant="8" id="7Yp-33-bW5"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Rfg-Li-uKH" secondAttribute="trailing" id="xdC-Sf-rzk"/>
-                            <constraint firstItem="Rfg-Li-uKH" firstAttribute="leading" secondItem="em7-U5-ldr" secondAttribute="leadingMargin" id="zgf-n3-8js"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="descriptionTextView" destination="qBO-u0-KEk" id="tK2-NY-RVd"/>
-                        <outlet property="skillLabel" destination="3MK-9i-NQE" id="Ynm-9U-JAX"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cxH-Pg-QyA" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1514" y="-337"/>
-        </scene>
         <!--Images PopoverVC-->
         <scene sceneID="XhY-w5-B2m">
             <objects>
@@ -927,8 +880,8 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="iNo-Df-Ugc" kind="show" id="e6V-5r-Fao"/>
-                                            <segue destination="iNo-Df-Ugc" kind="show" trigger="accessoryAction" id="peG-07-amg"/>
+                                            <segue destination="9pv-A4-QxB" kind="show" id="5al-5o-j8Y"/>
+                                            <segue destination="9pv-A4-QxB" kind="show" trigger="accessoryAction" id="cbJ-Oc-8J6"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -953,7 +906,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="801" y="-336"/>
+            <point key="canvasLocation" x="925" y="-958"/>
         </scene>
         <!--Master Tab Bar View Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -1586,6 +1539,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="eUc-fk-lPY"/>
-        <segue reference="peG-07-amg"/>
+        <segue reference="cbJ-Oc-8J6"/>
     </inferredMetricsTieBreakers>
 </document>

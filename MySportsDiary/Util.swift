@@ -69,7 +69,7 @@ internal func screenDateString(date: NSDate) -> String {
 /// DB formatter
 internal var formatter: NSDateFormatter {
 	let fmt = NSDateFormatter();
-	fmt.dateFormat = "dd-MM-yyyy-HH-mm-ss.SSS"
+	fmt.dateFormat = "dd-MM-yyyy-HH-mm-ss-SSSS"
 	return fmt
 }
 

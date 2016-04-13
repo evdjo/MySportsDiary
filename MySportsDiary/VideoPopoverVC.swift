@@ -19,7 +19,7 @@ protocol VideoPopoverDelegate {
 class VideoPopoverVC: UIViewController, MediaContainer {
 
 	var mediaCountDelegate: MediaCountDelegate?; /// when the count of video changes
-	var delegate: VideoPopoverDelegate?;
+	var delegate: MediaDelegate?;
 	private var mediaPicker: MediaPicker?;
 	private var avPlayerViewController: AVPlayerViewController?;
 	private var videoToPlayURL: NSURL? = nil;

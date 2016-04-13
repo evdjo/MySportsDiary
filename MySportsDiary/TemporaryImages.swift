@@ -55,8 +55,8 @@ class TemporaryImages {
 	/// Saves a temporary images. The image will later be available in the
 	/// array returned by getTempImages() function.
 	///
-	static func saveTempImage(image: UIImage) {
-		let path = TEMP_IMAGES_URL.URLByAppendingPathComponent(timestamp());
+	static func saveTempImage(image: UIImage, toPath: NSURL = TEMP_IMAGES_URL) {
+		let path = toPath.URLByAppendingPathComponent(timestamp());
 		UIImagePNGRepresentation(image)?.writeToURL(path, atomically: true);
 	}
 

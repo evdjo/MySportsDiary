@@ -42,6 +42,8 @@
 		3F930E991CBB240300922185 /* EntryDatabaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F930E981CBB240300922185 /* EntryDatabaseTests.swift */; };
 		3FD3E0F61CBDE1E400A07F53 /* DescriptionTextDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD3E0F51CBDE1E400A07F53 /* DescriptionTextDelegate.swift */; };
 		3FD3E0F81CBDE41F00A07F53 /* MediaPopoverDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD3E0F71CBDE41F00A07F53 /* MediaPopoverDelegate.swift */; };
+		3FD3E0FA1CBE1DA900A07F53 /* MediaDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD3E0F91CBE1DA900A07F53 /* MediaDelegate.swift */; };
+		3FD3E0FC1CBE1E7D00A07F53 /* NewEntryMediaDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD3E0FB1CBE1E7D00A07F53 /* NewEntryMediaDelegate.swift */; };
 		3FE3D93F1CBBF3D90062DFA8 /* TestUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE3D93E1CBBF3D90062DFA8 /* TestUtil.swift */; };
 		3FE3D9421CBBF5220062DFA8 /* DatabaseUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE3D9411CBBF5220062DFA8 /* DatabaseUtil.swift */; };
 		3FE3D9471CBC055A0062DFA8 /* SQLiteQueries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE3D9461CBC055A0062DFA8 /* SQLiteQueries.swift */; };
@@ -119,6 +121,8 @@
 		3F930E981CBB240300922185 /* EntryDatabaseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryDatabaseTests.swift; sourceTree = "<group>"; };
 		3FD3E0F51CBDE1E400A07F53 /* DescriptionTextDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescriptionTextDelegate.swift; sourceTree = "<group>"; };
 		3FD3E0F71CBDE41F00A07F53 /* MediaPopoverDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaPopoverDelegate.swift; sourceTree = "<group>"; };
+		3FD3E0F91CBE1DA900A07F53 /* MediaDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaDelegate.swift; sourceTree = "<group>"; };
+		3FD3E0FB1CBE1E7D00A07F53 /* NewEntryMediaDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewEntryMediaDelegate.swift; sourceTree = "<group>"; };
 		3FE3D93E1CBBF3D90062DFA8 /* TestUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestUtil.swift; sourceTree = "<group>"; };
 		3FE3D9411CBBF5220062DFA8 /* DatabaseUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseUtil.swift; sourceTree = "<group>"; };
 		3FE3D9461CBC055A0062DFA8 /* SQLiteQueries.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLiteQueries.swift; sourceTree = "<group>"; };
@@ -226,6 +230,7 @@
 				1B396B721C9251D900986749 /* EntrySecondScreen.swift */,
 				3FD3E0F51CBDE1E400A07F53 /* DescriptionTextDelegate.swift */,
 				3FD3E0F71CBDE41F00A07F53 /* MediaPopoverDelegate.swift */,
+				3FD3E0FB1CBE1E7D00A07F53 /* NewEntryMediaDelegate.swift */,
 			);
 			name = NewEntryTab;
 			sourceTree = "<group>";
@@ -275,6 +280,7 @@
 				1BB5BEDE1CB5355D009A4C3E /* AudioRecorderVC.swift */,
 				1B6FAA811CA764B20061A219 /* ImagesPopoverVC.swift */,
 				1BB5BEE21CB59427009A4C3E /* VideoPopoverVC.swift */,
+				3FD3E0F91CBE1DA900A07F53 /* MediaDelegate.swift */,
 			);
 			name = Pickers;
 			sourceTree = "<group>";
@@ -542,8 +548,10 @@
 				3FE3D9561CBD69420062DFA8 /* DataConfig.swift in Sources */,
 				1B64DFAD1CAFD6330087D353 /* Accessibility.swift in Sources */,
 				3FE3D94C1CBC20940062DFA8 /* UIUtil.swift in Sources */,
+				3FD3E0FC1CBE1E7D00A07F53 /* NewEntryMediaDelegate.swift in Sources */,
 				1B6FAA821CA764B20061A219 /* ImagesPopoverVC.swift in Sources */,
 				3FF2B8941CBABEC000F54B7E /* TemporaryVideo.swift in Sources */,
+				3FD3E0FA1CBE1DA900A07F53 /* MediaDelegate.swift in Sources */,
 				1BB5BEE31CB59427009A4C3E /* VideoPopoverVC.swift in Sources */,
 				2F93C0551AF2A01D77E867AD /* InitialVC.swift in Sources */,
 			);

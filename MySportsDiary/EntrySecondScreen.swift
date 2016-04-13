@@ -10,30 +10,18 @@ import UIKit
 import QuartzCore
 import MobileCoreServices
 
-class EntrySecondScreen: UIViewController, MediaCountDelegate,
-AudioRecorderDelegate, ImagesPopoverDelegate, VideoPopoverDelegate {
+class EntrySecondScreen: UIViewController, MediaCountDelegate {
+
 	@IBOutlet weak var audioCountLabel: UILabel!
 	@IBOutlet weak var videoCountLabel: UILabel!
 	@IBOutlet weak var imagesCountLabel: UILabel!;
 	@IBOutlet weak var descriptionTextArea: UITextView!
 	@IBOutlet weak var tellUsHowLabel: UILabel!
 
-	func newImage(image: UIImage) -> Void { DataManagerInstance().saveTempImage(image); }
-	func images() -> [UIImage]? { return DataManagerInstance().getTempImages(); }
-	func removeImage(index: Int) -> Void { DataManagerInstance().removeTempImage(index); }
-
-	var video: NSURL? {
-		set { DataManagerInstance().setTempVideo(newValue); }
-		get { return DataManagerInstance().getTempVideo(); }
-	}
-
-	var audio: NSURL? {
-		set { DataManagerInstance().setTempAudio(newValue); }
-		get { return DataManagerInstance().getTempAudio(); }
-	}
-
 	var promptText: String!;
 	var skill: String = "";
+
+	 var mediaDelegate: MediaDelegate?;
 	private var textDelegate: DescriptionTextDelegate?;
 	private var popoverDelegate: MediaPopoverDelegate?;
 
@@ -63,11 +51,11 @@ AudioRecorderDelegate, ImagesPopoverDelegate, VideoPopoverDelegate {
 
 		switch (segue.identifier!) {
 		case "audioSegue":
-			(dest as! AudioRecorderVC).delegate = self;
+			(dest as! AudioRecorderVC).delegate = mediaDelegate;
 		case "videoSegue":
-			(dest as! VideoPopoverVC).delegate = self;
+			(dest as! VideoPopoverVC).delegate = mediaDelegate;
 		case "photoSegue":
-			(dest as! ImagesPopoverVC).delegate = self;
+			(dest as! ImagesPopoverVC).delegate = mediaDelegate;
 		default: break
 			// no op;
 		}
@@ -123,6 +111,12 @@ AudioRecorderDelegate, ImagesPopoverDelegate, VideoPopoverDelegate {
 
 	@IBAction func onAddEntryPressed(sender: AnyObject) {
 		let date = dateString(NSDate());
+		let dir = fileURLUnderParent(file: date, parent: ENTRIES_DIR_URL);
+		myMove(TEMP_DIR_URL, toPath: dir);
+
+		createSubDir(dir: "temp_media", under: TEMP_DIR_LOCATION)
+		createSubDirUnderParent(dir: "images", parent: TEMP_DIR_URL)
+
 		DataManagerInstance().addNewEntry(
 			Entry(entry_id: -1, skill: skill,
 				description: descriptionTextArea.text ?? "",

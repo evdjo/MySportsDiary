@@ -22,6 +22,12 @@ let DB_LOCATION: NSSearchPathDirectory = .LibraryDirectory;
 let DB_URL = fileURLUnderParent(file: DB_NAME, parent: MASTER_DIR_URL);
 
 ////
+/// ENTRIES DIRECTORY
+//
+let ENTRIES_DIR_NAME = "entries";
+let ENTRIES_DIR_URL = createSubDirUnderParent(dir: ENTRIES_DIR_NAME, parent: MASTER_DIR_URL);
+
+////
 /// AGE AND GENDER FILE
 //
 let USER_PROP_NAME = "userinfo.plist";
@@ -50,6 +56,6 @@ let APP_STATE_KEY = "APP_STATE";
 //
 let TEMP_DIR_LOCATION: NSSearchPathDirectory = .CachesDirectory
 let TEMP_DIR_URL = createSubDir(dir: "temp_media", under: TEMP_DIR_LOCATION);
-let TEMP_IMAGES_URL = createSubDirUnderParent(dir: "temp_images", parent: TEMP_DIR_URL);
-let TEMP_AUDIO_URL = fileURLUnderParent(file: "temp_audio.caf", parent: TEMP_DIR_URL);
-let TEMP_VIDEO_URL = fileURLUnderParent(file: "temp_video.MOV", parent: TEMP_DIR_URL);
+let TEMP_IMAGES_URL = createSubDirUnderParent(dir: "images", parent: TEMP_DIR_URL);
+let TEMP_AUDIO_URL = fileURLUnderParent(file: "audio.caf", parent: TEMP_DIR_URL);
+let TEMP_VIDEO_URL = fileURLUnderParent(file: "video.MOV", parent: TEMP_DIR_URL);

@@ -12,6 +12,7 @@ class EntryFirstScreen: UIViewController, UIPickerViewDelegate, UIPickerViewData
 
 	@IBOutlet weak var skillPickerView: UIPickerView!
 
+	var newEntryMediaDelegate: NewEntryMediaDelegate?;
 	let skills =
 		["Self-belief", "Leadership", "Honesty", "Fairness", "Trustworthiness",
 			"Problem solving", "Kindness", "Team work", "Respect", "Other"]
@@ -31,6 +32,11 @@ class EntryFirstScreen: UIViewController, UIPickerViewDelegate, UIPickerViewData
 
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 		if let vc = segue.destinationViewController as? EntrySecondScreen {
+			if newEntryMediaDelegate == nil {
+				newEntryMediaDelegate = NewEntryMediaDelegate();
+			}
+			vc.mediaDelegate = newEntryMediaDelegate;
+
 			let skill = skills[skillPickerView.selectedRowInComponent(0)]
 			vc.skill = skill
 			vc.promptText = "Tell us how rugby helped you to demonstrate " +

@@ -17,7 +17,7 @@ class AudioRecorderVC: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerD
 
     // Delegates
 	var mediaCountDelegate: MediaCountDelegate?; /// when the count of audio changes
-	var delegate: AudioRecorderDelegate?;
+	var delegate: MediaDelegate?;
 
     // Internal stuff
 	private var recorder: AVAudioRecorder?;
