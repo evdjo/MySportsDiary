@@ -19,7 +19,7 @@ UITabBarControllerDelegate {
 	func tabBarController(tabBarController: UITabBarController,
 		didSelectViewController viewController: UIViewController) {
 			if let vc = viewController as? UINavigationController {
-				vc.popViewControllerAnimated(false);
+				vc.popToRootViewControllerAnimated(false);
 			}
 	}
 }

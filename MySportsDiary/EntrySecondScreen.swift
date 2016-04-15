@@ -17,11 +17,13 @@ class EntrySecondScreen: UIViewController, MediaCountDelegate {
 	@IBOutlet weak var imagesCountLabel: UILabel!;
 	@IBOutlet weak var descriptionTextArea: UITextView!
 	@IBOutlet weak var tellUsHowLabel: UILabel!
+	@IBOutlet weak var doneButton: UIButton!
 
-	var promptText: String!;
+	var topLabelText: String?;
 	var skill: String = "";
+	var entryDescription: String?;
 
-	 var mediaDelegate: MediaDelegate?;
+	var mediaDelegate: MediaDelegate?;
 	private var textDelegate: DescriptionTextDelegate?;
 	private var popoverDelegate: MediaPopoverDelegate?;
 
@@ -29,12 +31,24 @@ class EntrySecondScreen: UIViewController, MediaCountDelegate {
 		super.viewDidLoad();
 		textDelegate = DescriptionTextDelegate();
 		descriptionTextArea.delegate = textDelegate;
-		descriptionTextArea.text = enterText;
-		tellUsHowLabel.text = promptText;
+		if let entryDescription = entryDescription {
+			descriptionTextArea.text = entryDescription;
+		} else {
+			descriptionTextArea.text = enterText;
+		}
+		tellUsHowLabel.text = topLabelText;
 	}
 	override func viewWillAppear(animated: Bool) {
 		super.viewWillAppear(animated);
 		navigationController?.navigationBarHidden = false;
+
+		if mediaDelegate is NewEntryMediaDelegate {
+			doneButton.setTitle("Add entry", forState: .Normal)
+		} else {
+			doneButton.setTitle("Done editing", forState: .Normal)
+			doneButton.backgroundColor = UIColor.darkGrayColor()
+		}
+
 		updateImagesCount();
 		updateVideoCount();
 		updateAudioCount();
@@ -80,49 +94,55 @@ class EntrySecondScreen: UIViewController, MediaCountDelegate {
 	}
 
 	func updateImagesCount() {
-		let imagesCount = DataManagerInstance().getImagesCount();
-		if imagesCount > 0 {
-			imagesCountLabel.text = String(imagesCount);
-			imagesCountLabel.hidden = false;
-		} else {
-			imagesCountLabel.hidden = true;
-		}
+//		let imagesCount = DataManagerInstance().getImagesCount();
+//		if imagesCount > 0 {
+//			imagesCountLabel.text = String(imagesCount);
+//			imagesCountLabel.hidden = false;
+//		} else {
+//			imagesCountLabel.hidden = true;
+//		}
 	}
 
 	func updateVideoCount() {
-		if (DataManagerInstance().getTempVideo() != nil) {
-			videoCountLabel.text = "1";
-			videoCountLabel.hidden = false;
-		} else {
-			videoCountLabel.text = "0";
-			videoCountLabel.hidden = true ;
-		}
+//		if (DataManagerInstance().getTempVideo() != nil) {
+//			videoCountLabel.text = "1";
+//			videoCountLabel.hidden = false;
+//		} else {
+//			videoCountLabel.text = "0";
+//			videoCountLabel.hidden = true ;
+//		}
 	}
 
 	func updateAudioCount() {
-		if (DataManagerInstance().getTempAudio() != nil) {
-			audioCountLabel.text = "1";
-			audioCountLabel.hidden = false;
-		} else {
-			audioCountLabel.text = "0";
-			audioCountLabel.hidden = true ;
-		}
+//		if (DataManagerInstance().getTempAudio() != nil) {
+//			audioCountLabel.text = "1";
+//			audioCountLabel.hidden = false;
+//		} else {
+//			audioCountLabel.text = "0";
+//			audioCountLabel.hidden = true ;
+//		}
 	}
 
 	@IBAction func onAddEntryPressed(sender: AnyObject) {
-		let date = dateString(NSDate());
-		let dir = fileURLUnderParent(file: date, parent: ENTRIES_DIR_URL);
-		myMove(TEMP_DIR_URL, toPath: dir);
 
-		createSubDir(dir: "temp_media", under: TEMP_DIR_LOCATION)
-		createSubDirUnderParent(dir: "images", parent: TEMP_DIR_URL)
+		if let del = mediaDelegate as? NewEntryMediaDelegate {
+			let date = dateString(NSDate());
+			let dir = fileURLUnderParent(file: date, parent: ENTRIES_DIR_URL);
+			del.copyOver(destination: dir);
+			DataManagerInstance().addNewEntry(
+				Entry(entry_id: -1,
+					skill: skill,
+					description: descriptionTextArea.text ?? "",
+					date_time: date,
+					latitude: 1.0,
+					longitude: 1.0,
+					photos: nil, audio: nil, video: nil))
 
-		DataManagerInstance().addNewEntry(
-			Entry(entry_id: -1, skill: skill,
-				description: descriptionTextArea.text ?? "",
-				date_time: date, latitude: 1.0, longitude: 1.0,
-				photos: nil, audio: nil, video: nil))
-		self.tabBarController?.selectedIndex = 1;
+			self.tabBarController?.selectedIndex = 1;
+		} else {
+			self.navigationController?.popToRootViewControllerAnimated(false)
+			// dismissViewControllerAnimated(false, completion: nil)
+		}
 	}
 }
 

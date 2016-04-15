@@ -35,17 +35,16 @@ protocol DataManager {
 	func getAppState() -> ApplicationState?;
 	func setAppState(appState: ApplicationState);
 
-	func getTempImages() -> [UIImage]?;
-	func getImagesCount() -> Int;
-	func saveTempImage(image: UIImage);
-	func removeTempImage(index: Int);
-	// func moveTempImages(toDir dir: String) -> NSURL;
+	func getImages(imagesURL: NSURL) -> [UIImage]?;
+	func getImagesCount(imagesURL: NSURL) -> Int;
+	func saveImage(imagesURL: NSURL, image: UIImage);
+	func removeImage(imagesURL: NSURL, index: Int);
 
-	func getTempVideo() -> NSURL?;
-	func setTempVideo(videoURL: NSURL?);
+	func getVideo(oldVideo oldVideo: NSURL) -> NSURL?;
+	func setVideo(oldVideo oldVideo: NSURL, newVideo: NSURL?);
 
-	func getTempAudio() -> NSURL?;
-	func setTempAudio(audioURL: NSURL?);
+	func getAudio(oldAudio oldAudio: NSURL) -> NSURL?;
+	func setAudio(oldAudio oldAudio: NSURL, newAudio: NSURL?);
 
 	func addNewEntry(entry: Entry);
 
@@ -61,7 +60,7 @@ protocol DataManager {
 	/// CAUTION --- deletes the QUESTIONNAIRE ANSWERS !
 	func purgeQuestionnaireAnswers();
 	/// CAUTION --- deletes the PHOTOS/VIDEO/AUDIO TEMP FILES !
-	func purgeTempMedia();
+	func purgeTempMedia(parentDir: NSURL);
 	/// CAUTION --- deletes the ENTRIES DATABASE FILE !
-	func purgeEntriesDB();
+	func purgeDB();
 }

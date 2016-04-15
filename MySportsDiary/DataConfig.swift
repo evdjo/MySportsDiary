@@ -51,11 +51,4 @@ let APP_PROP_LOCATION: NSSearchPathDirectory = .LibraryDirectory
 let APP_PROP_URL = fileURLUnderParent(file: APP_PROP_NAME, parent: MASTER_DIR_URL);
 let APP_STATE_KEY = "APP_STATE";
 
-////
-///  TEMP MEDIA
-//
-let TEMP_DIR_LOCATION: NSSearchPathDirectory = .CachesDirectory
-let TEMP_DIR_URL = createSubDir(dir: "temp_media", under: TEMP_DIR_LOCATION);
-let TEMP_IMAGES_URL = createSubDirUnderParent(dir: "images", parent: TEMP_DIR_URL);
-let TEMP_AUDIO_URL = fileURLUnderParent(file: "audio.caf", parent: TEMP_DIR_URL);
-let TEMP_VIDEO_URL = fileURLUnderParent(file: "video.MOV", parent: TEMP_DIR_URL);
+

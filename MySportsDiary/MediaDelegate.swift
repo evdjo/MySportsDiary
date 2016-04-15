@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-protocol MediaDelegate {
+protocol MediaDelegate: class {
 	func newImage(image: UIImage);
 	func images() -> [UIImage]?;
 	func removeImage(index: Int);

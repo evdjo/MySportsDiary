@@ -24,19 +24,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			print(arg);
 			switch (arg) {
 			case "delete_all":
-				DataManagerInstance().purgeAllData();
+				DataManagerInstance().purgeAllData()
 			case "delete_app":
-				DataManagerInstance().purgeAppData();
+				DataManagerInstance().purgeAppData()
 			case "delete_userdata":
 				DataManagerInstance().purgeUserData()
 			case "delete_questionnaireanswers":
-				DataManagerInstance().purgeQuestionnaireAnswers();
-			case "delete_tempmedia":
-				DataManagerInstance().purgeTempMedia()
-            case "delete_entries_db":
-                DataManagerInstance().purgeEntriesDB();
+				DataManagerInstance().purgeQuestionnaireAnswers()
+			//case "delete_tempmedia":
+			//	DataManagerInstance().purgeTempMedia(TEMP_DIR_URL)
+			case "delete_entries_db":
+				DataManagerInstance().purgeDB()
 			default:
-				print("Warning -- unnrecognized launch argument: \(arg)");
+				print("Warning -- unnrecognized launch argument: \(arg)")
 			}
 		}
 	}

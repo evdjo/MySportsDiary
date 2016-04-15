@@ -39,7 +39,7 @@ class EntryFirstScreen: UIViewController, UIPickerViewDelegate, UIPickerViewData
 
 			let skill = skills[skillPickerView.selectedRowInComponent(0)]
 			vc.skill = skill
-			vc.promptText = "Tell us how rugby helped you to demonstrate " +
+            vc.topLabelText = "Tell us how rugby helped you to demonstrate " +
 				"\(skill.lowercaseString) today.";
 		}
 	}
