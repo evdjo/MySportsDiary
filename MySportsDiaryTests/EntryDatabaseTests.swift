@@ -15,18 +15,18 @@ class EntryDatabaseTests: XCTestCase {
 	override func setUp() {
 		super.setUp()
 		self.continueAfterFailure = false;
-		DataManagerInstance().purgeEntriesDB();
+		DataManagerInstance().purgeDB();
 	}
 
 	override func tearDown() {
 		super.tearDown()
-		DataManagerInstance().purgeEntriesDB();
+		DataManagerInstance().purgeDB();
 	}
 
 	func testTwoEntriesAddedNoMedia() {
 		let expected = Entry(entry_id: 2, skill: "Honesty",
 			description: "I hit my manager today. I am being honest by saying it here...? WHAT!?",
-			date_time: "4:20", latitude: 4.0, longitude: 5.0, photos: nil, audio: nil, video: nil);
+			date_time: "4:20", latitude: 4.0, longitude: 5.0);
 		dm.addNewEntry(expected)
 		dm.addNewEntry(expected)
 		let entries = dm.getEntries();
@@ -40,7 +40,7 @@ class EntryDatabaseTests: XCTestCase {
 		let expected = Entry(entry_id: 2, skill: allASCIICharsAsString(),
 			description: allASCIICharsAsString(),
 			date_time: "NORMAL_STRING",
-			latitude: 1.0, longitude: 1.0, photos: nil, audio: nil, video: nil);
+			latitude: 1.0, longitude: 1.0);
 		dm.addNewEntry(expected)
 		dm.addNewEntry(expected)
 		let entries = dm.getEntries();
@@ -57,12 +57,10 @@ class EntryDatabaseTests: XCTestCase {
 
 	func testTwoEntriesAddedWithMediaFunnyCharatersInStringValues() {
 		let expected1 = Entry(entry_id: 0, skill: allASCIICharsAsString(), description: NORMAL_STRING,
-			date_time: dateString(NSDate()), latitude: DOUBLES[0], longitude: DOUBLES[1],
-			photos: PHOTOS[0], audio: nil, video: nil);
+			date_time: dateString(NSDate()), latitude: DOUBLES[0], longitude: DOUBLES[1]);
 
 		let expected2 = Entry(entry_id: 0, skill: allASCIICharsAsString(), description: NORMAL_STRING,
-			date_time: dateString(NSDate()), latitude: DOUBLES[2], longitude: DOUBLES[3],
-			photos: PHOTOS[1], audio: nil, video: nil);
+			date_time: dateString(NSDate()), latitude: DOUBLES[2], longitude: DOUBLES[3]);
 
 		dm.addNewEntry(expected1)
 		dm.addNewEntry(expected2)
@@ -75,12 +73,10 @@ class EntryDatabaseTests: XCTestCase {
 
 	func testTwoEntriesAddedWithPhotosOnly() {
 		let expected1 = Entry(entry_id: 0, skill: allASCIICharsAsString(), description: NORMAL_STRING,
-			date_time: dateString(NSDate()), latitude: DOUBLES[0], longitude: DOUBLES[1],
-			photos: PHOTOS[0], audio: nil, video: nil);
+			date_time: dateString(NSDate()), latitude: DOUBLES[0], longitude: DOUBLES[1]);
 
 		let expected2 = Entry(entry_id: 0, skill: allASCIICharsAsString(), description: NORMAL_STRING,
-			date_time: dateString(NSDate()), latitude: DOUBLES[2], longitude: DOUBLES[3],
-			photos: PHOTOS[1], audio: nil, video: nil);
+			date_time: dateString(NSDate()), latitude: DOUBLES[2], longitude: DOUBLES[3]);
 
 		dm.addNewEntry(expected1)
 		dm.addNewEntry(expected2)
@@ -94,12 +90,10 @@ class EntryDatabaseTests: XCTestCase {
 	func testTwoEntriesAddedWithAudioOnly() {
 
 		let expected1 = Entry(entry_id: 0, skill: allASCIICharsAsString(), description: NORMAL_STRING,
-			date_time: dateString(NSDate()), latitude: DOUBLES[0], longitude: DOUBLES[1],
-			photos: nil, audio: AUDIO[0], video: nil);
+			date_time: dateString(NSDate()), latitude: DOUBLES[0], longitude: DOUBLES[1]);
 
 		let expected2 = Entry(entry_id: 0, skill: allASCIICharsAsString(), description: NORMAL_STRING,
-			date_time: dateString(NSDate()), latitude: DOUBLES[2], longitude: DOUBLES[3],
-			photos: nil, audio: AUDIO[1], video: nil);
+			date_time: dateString(NSDate()), latitude: DOUBLES[2], longitude: DOUBLES[3]);
 
 		dm.addNewEntry(expected1)
 		dm.addNewEntry(expected2)
@@ -118,12 +112,10 @@ class EntryDatabaseTests: XCTestCase {
 	func testTwoEntriesAddedWithVideoOnly() {
 
 		let expected1 = Entry(entry_id: 0, skill: allASCIICharsAsString(), description: NORMAL_STRING,
-			date_time: dateString(NSDate()), latitude: DOUBLES[0], longitude: DOUBLES[1],
-			photos: nil, audio: nil, video: VIDEO[0]);
+			date_time: dateString(NSDate()), latitude: DOUBLES[0], longitude: DOUBLES[1]);
 
 		let expected2 = Entry(entry_id: 0, skill: allASCIICharsAsString(), description: NORMAL_STRING,
-			date_time: dateString(NSDate()), latitude: DOUBLES[2], longitude: DOUBLES[3],
-			photos: nil, audio: nil, video: VIDEO[1]);
+			date_time: dateString(NSDate()), latitude: DOUBLES[2], longitude: DOUBLES[3]);
 
 		dm.addNewEntry(expected1)
 		dm.addNewEntry(expected2)
@@ -137,12 +129,10 @@ class EntryDatabaseTests: XCTestCase {
 	func testTwoEntriesAddedWithPhotosAndAudio() {
 
 		let expected1 = Entry(entry_id: 0, skill: allASCIICharsAsString(), description: NORMAL_STRING,
-			date_time: dateString(NSDate()), latitude: DOUBLES[0], longitude: DOUBLES[1],
-			photos: PHOTOS[0], audio: AUDIO[0], video: nil);
+			date_time: dateString(NSDate()), latitude: DOUBLES[0], longitude: DOUBLES[1]);
 
 		let expected2 = Entry(entry_id: 0, skill: allASCIICharsAsString(), description: NORMAL_STRING,
-			date_time: dateString(NSDate()), latitude: DOUBLES[2], longitude: DOUBLES[3],
-			photos: PHOTOS[1], audio: AUDIO[1], video: nil);
+			date_time: dateString(NSDate()), latitude: DOUBLES[2], longitude: DOUBLES[3]);
 
 		dm.addNewEntry(expected1)
 		dm.addNewEntry(expected2)
@@ -156,12 +146,10 @@ class EntryDatabaseTests: XCTestCase {
 	func testTwoEntriesAddedWithPhotosAndVideo() {
 
 		let expected1 = Entry(entry_id: 0, skill: allASCIICharsAsString(), description: NORMAL_STRING,
-			date_time: dateString(NSDate()), latitude: DOUBLES[0], longitude: DOUBLES[1],
-			photos: PHOTOS[0], audio: nil, video: VIDEO[0]);
+			date_time: dateString(NSDate()), latitude: DOUBLES[0], longitude: DOUBLES[1]);
 
 		let expected2 = Entry(entry_id: 0, skill: allASCIICharsAsString(), description: NORMAL_STRING,
-			date_time: dateString(NSDate()), latitude: DOUBLES[2], longitude: DOUBLES[3],
-			photos: PHOTOS[1], audio: nil, video: VIDEO[1]);
+			date_time: dateString(NSDate()), latitude: DOUBLES[2], longitude: DOUBLES[3]);
 
 		dm.addNewEntry(expected1)
 		dm.addNewEntry(expected2)
@@ -175,12 +163,10 @@ class EntryDatabaseTests: XCTestCase {
 	func testTwoEntriesAddedWithVideoAndAudio() {
 
 		let expected1 = Entry(entry_id: 0, skill: allASCIICharsAsString(), description: NORMAL_STRING,
-			date_time: dateString(NSDate()), latitude: DOUBLES[0], longitude: DOUBLES[1],
-			photos: nil, audio: AUDIO[0], video: VIDEO[0]);
+			date_time: dateString(NSDate()), latitude: DOUBLES[0], longitude: DOUBLES[1]);
 
 		let expected2 = Entry(entry_id: 0, skill: allASCIICharsAsString(), description: NORMAL_STRING,
-			date_time: dateString(NSDate()), latitude: DOUBLES[2], longitude: DOUBLES[3],
-			photos: nil, audio: AUDIO[1], video: VIDEO[1]);
+			date_time: dateString(NSDate()), latitude: DOUBLES[2], longitude: DOUBLES[3]);
 
 		dm.addNewEntry(expected1)
 		dm.addNewEntry(expected2)
@@ -193,12 +179,10 @@ class EntryDatabaseTests: XCTestCase {
 
 	func testTwoEntriesAddedWithAllMediaTypes() {
 		let expected1 = Entry(entry_id: 0, skill: allASCIICharsAsString(), description: NORMAL_STRING,
-			date_time: dateString(NSDate()), latitude: DOUBLES[0], longitude: DOUBLES[1],
-			photos: PHOTOS[0], audio: AUDIO[0], video: VIDEO[0]);
+			date_time: dateString(NSDate()), latitude: DOUBLES[0], longitude: DOUBLES[1]);
 
 		let expected2 = Entry(entry_id: 0, skill: allASCIICharsAsString(), description: NORMAL_STRING,
-			date_time: dateString(NSDate()), latitude: DOUBLES[2], longitude: DOUBLES[3],
-			photos: PHOTOS[1], audio: AUDIO[1], video: VIDEO[1]);
+			date_time: dateString(NSDate()), latitude: DOUBLES[2], longitude: DOUBLES[3]);
 
 		dm.addNewEntry(expected1)
 		dm.addNewEntry(expected2)

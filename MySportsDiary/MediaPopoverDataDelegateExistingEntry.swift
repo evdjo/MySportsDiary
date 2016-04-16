@@ -17,35 +17,41 @@ class MediaPopoverDataDelegateExistingEntry: MediaPopoverDataDelegate {
 
 	func newImage(image: UIImage) -> Void {
 		let entryTime = entry.date_time;
-		let dir = ENTRIES_DIR_URL.URLByAppendingPathComponent(entryTime).URLByAppendingPathComponent("images");
+		let dir = ENTRIES_DIR_URL.URLByAppendingPathComponent(entryTime)
+			.URLByAppendingPathComponent(IMAGES);
 		DataManagerInstance().saveImage(dir, image: image)
 	}
 	func images() -> [UIImage]? {
 		let entryTime = entry.date_time;
-		let dir = ENTRIES_DIR_URL.URLByAppendingPathComponent(entryTime).URLByAppendingPathComponent("images");
+		let dir = ENTRIES_DIR_URL.URLByAppendingPathComponent(entryTime)
+			.URLByAppendingPathComponent(IMAGES);
 		return DataManagerInstance().getImages(dir)
 	}
 	func removeImage(index: Int) -> Void {
 		let entryTime = entry.date_time;
-		let dir = ENTRIES_DIR_URL.URLByAppendingPathComponent(entryTime).URLByAppendingPathComponent("images");
+		let dir = ENTRIES_DIR_URL.URLByAppendingPathComponent(entryTime)
+			.URLByAppendingPathComponent(IMAGES);
 		return DataManagerInstance().removeImage(dir, index: index);
 	}
 
 	func getImagesCount() -> Int {
 		let entryTime = entry.date_time;
-		let dir = ENTRIES_DIR_URL.URLByAppendingPathComponent(entryTime).URLByAppendingPathComponent("images");
+		let dir = ENTRIES_DIR_URL.URLByAppendingPathComponent(entryTime)
+			.URLByAppendingPathComponent(IMAGES);
 		return DataManagerInstance().getImagesCount(dir);
 	}
 
 	var video: NSURL? {
 		set {
 			let entryTime = entry.date_time;
-			let dir = ENTRIES_DIR_URL.URLByAppendingPathComponent(entryTime).URLByAppendingPathComponent("video.MOV");
+			let dir = ENTRIES_DIR_URL.URLByAppendingPathComponent(entryTime)
+				.URLByAppendingPathComponent(VIDEO);
 			DataManagerInstance().setVideo(oldVideo: dir, newVideo: newValue)
 		}
 		get {
 			let entryTime = entry.date_time;
-			let dir = ENTRIES_DIR_URL.URLByAppendingPathComponent(entryTime).URLByAppendingPathComponent("video.MOV");
+			let dir = ENTRIES_DIR_URL.URLByAppendingPathComponent(entryTime)
+				.URLByAppendingPathComponent(VIDEO);
 			return DataManagerInstance().getVideo(oldVideo: dir)
 		}
 	}
@@ -53,12 +59,14 @@ class MediaPopoverDataDelegateExistingEntry: MediaPopoverDataDelegate {
 	var audio: NSURL? {
 		set {
 			let entryTime = entry.date_time;
-			let dir = ENTRIES_DIR_URL.URLByAppendingPathComponent(entryTime).URLByAppendingPathComponent("audio.caf");
+			let dir = ENTRIES_DIR_URL.URLByAppendingPathComponent(entryTime)
+				.URLByAppendingPathComponent(AUDIO);
 			DataManagerInstance().setAudio(oldAudio: dir, newAudio: newValue)
 		}
 		get {
 			let entryTime = entry.date_time;
-			let dir = ENTRIES_DIR_URL.URLByAppendingPathComponent(entryTime).URLByAppendingPathComponent("audio.caf");
+			let dir = ENTRIES_DIR_URL.URLByAppendingPathComponent(entryTime)
+				.URLByAppendingPathComponent(AUDIO);
 			return DataManagerInstance().getAudio(oldAudio: dir)
 		}
 	}

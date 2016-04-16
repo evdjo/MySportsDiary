@@ -31,8 +31,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 				DataManagerInstance().purgeUserData()
 			case "delete_questionnaireanswers":
 				DataManagerInstance().purgeQuestionnaireAnswers()
-			//case "delete_tempmedia":
-			//	DataManagerInstance().purgeTempMedia(TEMP_DIR_URL)
+				// case "delete_tempmedia":
+				// DataManagerInstance().purgeTempMedia(TEMP_DIR_URL)
 			case "delete_entries_db":
 				DataManagerInstance().purgeDB()
 			default:

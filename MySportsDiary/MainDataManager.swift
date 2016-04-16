@@ -38,7 +38,7 @@ class MainDataManager: DataManager {
 		purgeUserData();
 		purgeAppData();
 		purgeQuestionnaireAnswers();
-		// purgeTempMedia(TEMP_DIR_URL)
+		purgeTempMedia(TEMP_DIR_URL)
 		purgeDB();
 	}
 
@@ -46,15 +46,12 @@ class MainDataManager: DataManager {
 	func purgeAppData() { AppProperties.purgeData(); }
 	func purgeQuestionnaireAnswers() { Questionnaire.purgeData(); }
 	func purgeDB() {
-		fatalError("Not implemented yet.");
-		// SQLiteDBManager.purgeDB();
+		SQLiteDBManager.purgeDB();
 	}
 
 	func purgeTempMedia(parentDir: NSURL) {
-		fatalError("Not implemented yet.");
-
-//		ImagesIO.purgeImages(parentDir);
-//		AudioIO.purgeAudio(oldAudio: parentDir);
-//		VideoIO.purgeVideo(oldVideo: parentDir);
+		ImagesIO.purgeImages(parentDir);
+		AudioIO.purgeAudio(oldAudio: parentDir);
+		VideoIO.purgeVideo(oldVideo: parentDir);
 	}
 }
