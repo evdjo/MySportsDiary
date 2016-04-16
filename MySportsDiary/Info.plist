@@ -27,9 +27,11 @@
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>
-	<array>
-		<string>armv7</string>
-	</array>
+	<array/>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We need GPS permission to determine where you add your entries. Allow ?</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Stalk you maybe?</string>
 	<key>UIStatusBarTintParameters</key>
 	<dict>
 		<key>UINavigationBar</key>

@@ -41,6 +41,8 @@
 		2F93C0551AF2A01D77E867AD /* InitialVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F93CB82990A53BF73B2C3AC /* InitialVC.swift */; };
 		3F86B04D1CC2642400DEA036 /* MediaPopoverDataDelegateExistingEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F86B04C1CC2642400DEA036 /* MediaPopoverDataDelegateExistingEntry.swift */; };
 		3F86B0561CC299F800DEA036 /* MediaPopover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F86B0551CC299F800DEA036 /* MediaPopover.swift */; };
+		3F86B07A1CC2F31700DEA036 /* GPSLocationGetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F86B0791CC2F31700DEA036 /* GPSLocationGetter.swift */; };
+		3F86B07C1CC2F91900DEA036 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F86B07B1CC2F91900DEA036 /* MapKit.framework */; };
 		3F930E991CBB240300922185 /* EntryDatabaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F930E981CBB240300922185 /* EntryDatabaseTests.swift */; };
 		3FD3E0F61CBDE1E400A07F53 /* DescriptionTextDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD3E0F51CBDE1E400A07F53 /* DescriptionTextDelegate.swift */; };
 		3FD3E0FA1CBE1DA900A07F53 /* MediaPopoverDataDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD3E0F91CBE1DA900A07F53 /* MediaPopoverDataDelegate.swift */; };
@@ -120,6 +122,8 @@
 		2F93CB82990A53BF73B2C3AC /* InitialVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialVC.swift; sourceTree = "<group>"; };
 		3F86B04C1CC2642400DEA036 /* MediaPopoverDataDelegateExistingEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaPopoverDataDelegateExistingEntry.swift; sourceTree = "<group>"; };
 		3F86B0551CC299F800DEA036 /* MediaPopover.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaPopover.swift; sourceTree = "<group>"; };
+		3F86B0791CC2F31700DEA036 /* GPSLocationGetter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPSLocationGetter.swift; sourceTree = "<group>"; };
+		3F86B07B1CC2F91900DEA036 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		3F930E981CBB240300922185 /* EntryDatabaseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryDatabaseTests.swift; sourceTree = "<group>"; };
 		3FD3E0F51CBDE1E400A07F53 /* DescriptionTextDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescriptionTextDelegate.swift; sourceTree = "<group>"; };
 		3FD3E0F91CBE1DA900A07F53 /* MediaPopoverDataDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaPopoverDataDelegate.swift; sourceTree = "<group>"; };
@@ -146,6 +150,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F86B07C1CC2F91900DEA036 /* MapKit.framework in Frameworks */,
 				1B396BFF1C96200500986749 /* libsqlite3.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -171,6 +176,7 @@
 		1B396B641C9251D900986749 = {
 			isa = PBXGroup;
 			children = (
+				3F86B07B1CC2F91900DEA036 /* MapKit.framework */,
 				1B396BF91C960EB000986749 /* libsqlite3.tbd */,
 				1B396B6F1C9251D900986749 /* MySportsDiary */,
 				1B396B761C9251D900986749 /* Main.storyboard */,
@@ -233,6 +239,7 @@
 				1B396B741C9251D900986749 /* AllEntriesViewerVC.swift */,
 				1B396B721C9251D900986749 /* SingleEntryViewerVC.swift */,
 				3F86B0541CC2744800DEA036 /* Pickers */,
+				3F86B0791CC2F31700DEA036 /* GPSLocationGetter.swift */,
 			);
 			name = Entry;
 			sourceTree = "<group>";
@@ -446,6 +453,11 @@
 					1B396B6C1C9251D900986749 = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = THUMBBZ8LL;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					1B396B911C93AD9600986749 = {
 						CreatedOnToolsVersion = 7.2;
@@ -543,6 +555,7 @@
 				3FD3E0FC1CBE1E7D00A07F53 /* MediaPopoverDataDelegateNewEntry.swift in Sources */,
 				1B6FAA821CA764B20061A219 /* MediaPopoverImagesVC.swift in Sources */,
 				3FF2B8941CBABEC000F54B7E /* VideoIO.swift in Sources */,
+				3F86B07A1CC2F31700DEA036 /* GPSLocationGetter.swift in Sources */,
 				3FD3E0FA1CBE1DA900A07F53 /* MediaPopoverDataDelegate.swift in Sources */,
 				1BB5BEE31CB59427009A4C3E /* MediaPopoverVideoVC.swift in Sources */,
 				2F93C0551AF2A01D77E867AD /* InitialVC.swift in Sources */,

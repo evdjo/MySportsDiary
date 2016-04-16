@@ -12,7 +12,7 @@ import MobileCoreServices
 
 class SingleEntryViewerVC: UIViewController, UIPopoverPresentationControllerDelegate {
 
-	// UI elements
+// UI elements
 	@IBOutlet weak var audioCountLabel: UILabel!
 	@IBOutlet weak var videoCountLabel: UILabel!
 	@IBOutlet weak var imagesCountLabel: UILabel!;
@@ -34,6 +34,9 @@ class SingleEntryViewerVC: UIViewController, UIPopoverPresentationControllerDele
 
 /// Delegate for the text view
 	private var textDelegate: DescriptionTextDelegate?;
+
+/// GPS Location getter
+	private var locationGetter: GPSLocationGetter?;
 
 /// just set the text delegate on load
 	override func viewDidLoad() {
@@ -69,6 +72,7 @@ class SingleEntryViewerVC: UIViewController, UIPopoverPresentationControllerDele
 			doneButton.backgroundColor = colorRGB(red: 151, green: 215, blue: 255, alpha: 1);
 			descriptionTextArea.textColor = UIColor.blackColor();
 			self.mediaDelegate = MediaPopoverDataDelegateNewEntry();
+			locationGetter = GPSLocationGetter(parentVC: self)
 
 		case .Existing:
 			guard entry != nil else { print("entry found to be nil"); return }
@@ -111,6 +115,9 @@ class SingleEntryViewerVC: UIViewController, UIPopoverPresentationControllerDele
 		if let entry = entry, let entryType = entryType where entryType == .Existing {
 			DataManagerInstance().updateEntryWithID(id: entry.entry_id, newDescr: descriptionTextArea.text)
 		}
+        
+        locationGetter?.stop();
+        
 	}
 /// Set the presentaion view controller
 /// If this is the audio popover, set its height to 60
@@ -155,13 +162,17 @@ class SingleEntryViewerVC: UIViewController, UIPopoverPresentationControllerDele
 		let date = dateString(NSDate());
 		let dir = fileURLUnderParent(file: date, parent: ENTRIES_DIR_URL);
 		del.move(destination: dir);
+		let loc = locationGetter?.getLocation();
+		let lat = loc?.coordinate.latitude ?? 0.0;
+		let lon = loc?.coordinate.longitude ?? 0.0;
+
 		DataManagerInstance().addNewEntry(
 			Entry(entry_id: -1,
 				skill: skill,
 				description: descriptionTextArea.text ?? "",
 				date_time: date,
-				latitude: 1.0,
-				longitude: 1.0)
+				latitude: lat,
+				longitude: lon)
 		)
 
 		self.tabBarController?.selectedIndex = 1;

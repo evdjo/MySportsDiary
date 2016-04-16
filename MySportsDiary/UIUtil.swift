@@ -27,6 +27,16 @@ internal func alertWithMessage(sender: UIViewController, title: String) {
 }
 
 ///
+/// Alert with the passed message, with single OK button to dismiss the alert.
+///
+internal func alertWithMessage(sender: UIViewController, title: String, message: String) {
+	let alertController = UIAlertController(title: title, message: message, preferredStyle: .Alert);
+	let dismissAction = UIAlertAction(title: "OK", style: .Cancel, handler: nil);
+	alertController.addAction(dismissAction);
+	sender.presentViewController(alertController, animated: true, completion: nil);
+}
+
+///
 /// Alert with two actions, pass the handlers for each action and the titles for each.
 ///
 internal func binaryChoiceMessage(sender: UIViewController, title: String,
