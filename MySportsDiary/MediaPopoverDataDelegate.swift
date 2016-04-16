@@ -1,5 +1,5 @@
 //
-//  MediaDelegate.swift
+//  MediaPopoverDataDelegate.swift
 //  MySportsDiary
 //
 //  Created by Evdzhan Mustafa on 13/04/2016.
@@ -9,10 +9,18 @@
 import Foundation
 import UIKit
 
-protocol MediaDelegate: class {
+///
+/// Persists the media saved/required by the popovers
+//
+protocol MediaPopoverDataDelegate: class {
+
 	func newImage(image: UIImage);
 	func images() -> [UIImage]?;
 	func removeImage(index: Int);
+
 	var video: NSURL? { get set }
+
 	var audio: NSURL? { get set }
 }
+
+

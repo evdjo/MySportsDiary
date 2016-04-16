@@ -12,31 +12,27 @@ import AVFoundation
 import Photos
 import MobileCoreServices
 
-protocol VideoPopoverDelegate {
-	var video: NSURL? { get set }
-}
+class MediaPopoverVideoVC: UIViewController, MediaPopover {
 
-class VideoPopoverVC: UIViewController, MediaContainer {
+	// Delegate stuff
+	var delegate: MediaPopoverDataDelegate?;
 
-	var mediaCountDelegate: MediaCountDelegate?; /// when the count of video changes
-	var delegate: MediaDelegate?;
-	private var mediaPicker: MediaPicker?;
+	private lazy var mediaPicker: MediaPicker = MediaPicker(parentVC: self, mediaType: kUTTypeMovie as String);
 	private var avPlayerViewController: AVPlayerViewController?;
 	private var videoToPlayURL: NSURL? = nil;
 	@IBOutlet weak var videoContainer: UIView!
 	@IBOutlet weak var pickFromSourceButtons: UIStackView!
 
 	@IBAction func onUseCameraButtonPressed(sender: AnyObject) {
-		mediaPicker?.pickUsingCamera();
+		mediaPicker.pickUsingCamera();
 	}
 	@IBAction func onPhotosLibraryButtonPressed(sender: AnyObject) {
-		mediaPicker?.pickFromLibrary();
+		mediaPicker.pickFromLibrary();
 	}
 
 	override func viewWillAppear(animated: Bool) {
 		super.viewWillAppear(animated);
 		// dispatch_async(dispatch_get_main_queue(), {
-		self.mediaPicker = MediaPicker(parentVC: self, mediaType: kUTTypeMovie as String);
 		self.videoToPlayURL = delegate?.video;
 		self.setUpPlayer();
 		// });
@@ -45,7 +41,6 @@ class VideoPopoverVC: UIViewController, MediaContainer {
 	func onNewVideo(videoURL: NSURL) {
 		videoToPlayURL = videoURL;
 		delegate?.video = videoURL;
-		mediaCountDelegate?.onCountChange(self);
 	}
 
 	private func setUpPlayer() {
@@ -72,7 +67,6 @@ class VideoPopoverVC: UIViewController, MediaContainer {
 			self.avPlayerViewController?.removeFromParentViewController()
 			self.delegate?.video = nil;
 			self.videoToPlayURL = nil;
-			self.mediaCountDelegate?.onCountChange(self);
 		});
 		controller.addAction(yesAction)
 		controller.addAction(UIAlertAction(title: no, style: .Cancel, handler: nil))

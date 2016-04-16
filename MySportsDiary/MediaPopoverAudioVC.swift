@@ -9,17 +9,12 @@
 import UIKit
 import AVFoundation
 
-protocol AudioRecorderDelegate {
-	var audio: NSURL? { get set }
-}
+class MediaPopoverAudioVC: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate, MediaPopover {
 
-class AudioRecorderVC: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate, MediaContainer {
+// Delegate stuff
+	var delegate: MediaPopoverDataDelegate?;
 
-    // Delegates
-	var mediaCountDelegate: MediaCountDelegate?; /// when the count of audio changes
-	var delegate: MediaDelegate?;
-
-    // Internal stuff
+// Internal stuff
 	private var recorder: AVAudioRecorder?;
 	private var player: AVAudioPlayer?;
 	private var session: AVAudioSession?;
@@ -27,10 +22,10 @@ class AudioRecorderVC: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerD
 		AVFormatIDKey: Int(kAudioFormatAppleIMA4), AVSampleRateKey: 44100.0,
 		AVNumberOfChannelsKey: 2, AVEncoderBitRateKey: 12800, AVLinearPCMBitDepthKey: 16,
 		AVEncoderAudioQualityKey: AVAudioQuality.Low.rawValue]
-    private var recording = false;
-    private var playing = false;
+	private var recording = false;
+	private var playing = false;
 
-    // UI stuff
+// UI stuff
 	@IBOutlet weak var playLabel: UILabel!
 	@IBOutlet weak var recordingLabel: UILabel!
 	@IBOutlet weak var playButton: UIButton!
@@ -113,7 +108,6 @@ class AudioRecorderVC: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerD
 			player?.stop();
 			player = nil;
 			delegate?.audio = nil;
-			mediaCountDelegate?.onCountChange(self);
 			adjustButtons();
 		}
 	}
@@ -149,7 +143,6 @@ class AudioRecorderVC: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerD
 			delegate?.audio = nil;
 			alertWithMessage(self, title: "Failed to record.");
 		}
-		mediaCountDelegate?.onCountChange(self);
 		recording = false;
 		adjustButtons();
 	}

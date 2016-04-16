@@ -64,3 +64,14 @@ internal func goToSettings() {
 			NSURL(string: UIApplicationOpenSettingsURLString)!);
 	})
 }
+
+///
+/// UIColor from 0 to 255 values
+///
+internal func colorRGB(red red: Int, green: Int, blue: Int, alpha: Float) -> UIColor {
+	return UIColor(
+		colorLiteralRed: Float(red) / 255,
+		green: Float(green) / 255,
+		blue: Float(blue) / 255,
+		alpha: alpha)
+}

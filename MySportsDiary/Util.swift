@@ -35,6 +35,11 @@ enum mediaType {
 	case video
 }
 
+enum EntryType {
+	case New
+	case Existing
+}
+
 ///
 /// Timestamp since epoch
 ///

@@ -25,12 +25,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nIq-Gp-hGE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-455" y="-1750"/>
+            <point key="canvasLocation" x="-231" y="-1134"/>
         </scene>
-        <!--Entry First Screen-->
+        <!--New Entry InitialVC-->
         <scene sceneID="242-26-3by">
             <objects>
-                <viewController id="4bZ-St-0LU" customClass="EntryFirstScreen" customModule="MySportsDiary" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="4bZ-St-0LU" customClass="NewEntryInitialVC" customModule="MySportsDiary" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1NM-JL-MCo"/>
                         <viewControllerLayoutGuide type="bottom" id="hkK-oy-fla"/>
@@ -40,7 +40,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="Hab-rs-kLH">
-                                <rect key="frame" x="20" y="96" width="560" height="455"/>
+                                <rect key="frame" x="20" y="96" width="560" height="447"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iir-Mu-EW1">
                                         <rect key="frame" x="0.0" y="0.0" width="560" height="40"/>
@@ -57,12 +57,12 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RMk-kP-xtM" userLabel="SkillPicker">
-                                        <rect key="frame" x="0.0" y="40" width="560" height="364"/>
+                                        <rect key="frame" x="0.0" y="40" width="560" height="357"/>
                                         <accessibility key="accessibilityConfiguration" identifier="SkillPicker" label="SkillPicker"/>
                                     </pickerView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9iu-Ne-MxW">
-                                        <rect key="frame" x="0.0" y="404" width="560" height="51"/>
-                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <rect key="frame" x="0.0" y="397" width="560" height="50"/>
+                                        <color key="backgroundColor" red="0.59215686270000001" green="0.84313725490000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="Next">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -73,7 +73,7 @@
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <segue destination="9pv-A4-QxB" kind="show" id="qYh-b0-saP"/>
+                                            <segue destination="9pv-A4-QxB" kind="show" id="yaZ-H1-Lc3"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -85,7 +85,7 @@
                             <constraint firstItem="Hab-rs-kLH" firstAttribute="top" secondItem="1NM-JL-MCo" secondAttribute="bottom" constant="32" id="GdI-GS-I3v"/>
                             <constraint firstAttribute="bottomMargin" secondItem="Hab-rs-kLH" secondAttribute="bottom" id="O0V-Om-fyj"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Hab-rs-kLH" secondAttribute="trailing" id="Wal-i5-3hX"/>
-                            <constraint firstItem="hkK-oy-fla" firstAttribute="top" secondItem="Hab-rs-kLH" secondAttribute="bottom" id="l5v-bC-RHj"/>
+                            <constraint firstItem="hkK-oy-fla" firstAttribute="top" secondItem="Hab-rs-kLH" secondAttribute="bottom" constant="8" id="l5v-bC-RHj"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -100,12 +100,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CYv-U9-B7z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="458" y="-1757"/>
+            <point key="canvasLocation" x="-10" y="-1102"/>
         </scene>
-        <!--New Entry-->
+        <!--SingleEntryViewerVC-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController id="9pv-A4-QxB" customClass="EntrySecondScreen" customModule="MySportsDiary" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="9pv-A4-QxB" userLabel="SingleEntryViewerVC" customClass="SingleEntryViewerVC" customModule="MySportsDiary" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ia1-K6-d13"/>
                         <viewControllerLayoutGuide type="bottom" id="4ug-Mw-9AY"/>
@@ -115,8 +115,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ekE-3g-LTe" userLabel="AddButton">
-                                <rect key="frame" x="20" y="501" width="560" height="50"/>
-                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="20" y="493" width="560" height="50"/>
+                                <color key="backgroundColor" red="0.59215686270000001" green="0.84313725490000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <accessibility key="accessibilityConfiguration" identifier="AddButton" label="AddButton"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="94C-Jr-PYr"/>
@@ -135,7 +135,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="add voice" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pW6-Kt-tp9" userLabel="AddVoiceLabel">
-                                <rect key="frame" x="20" y="471" width="180" height="15"/>
+                                <rect key="frame" x="20" y="463" width="180" height="15"/>
                                 <accessibility key="accessibilityConfiguration" identifier="AddVoiceLabel" label="AddVoiceLabel"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="15" id="dW3-qO-pEb"/>
@@ -145,7 +145,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="add photo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qVM-F2-2fi" userLabel="AddPhotoLabel">
-                                <rect key="frame" x="210" y="471" width="180" height="15"/>
+                                <rect key="frame" x="210" y="463" width="180" height="15"/>
                                 <accessibility key="accessibilityConfiguration" identifier="AddPhotoLabel" label="AddPhotoLabel"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="15" id="Lih-H6-JRC"/>
@@ -155,7 +155,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="add video" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KF0-Iy-h5L" userLabel="AddVideoLabel">
-                                <rect key="frame" x="400" y="471" width="180" height="15"/>
+                                <rect key="frame" x="400" y="463" width="180" height="15"/>
                                 <accessibility key="accessibilityConfiguration" identifier="AddVideoLabel" label="AddVideoLabel"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="15" id="Udq-JZ-j1m"/>
@@ -165,7 +165,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="fWs-dw-xkf">
-                                <rect key="frame" x="20" y="421" width="560" height="65"/>
+                                <rect key="frame" x="20" y="413" width="560" height="65"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dGx-5A-Xwu" userLabel="AddVoiceButton">
                                         <rect key="frame" x="0.0" y="0.0" width="180" height="65"/>
@@ -226,8 +226,8 @@
                                     <constraint firstAttribute="height" constant="65" id="Ifd-s4-KMa"/>
                                 </constraints>
                             </stackView>
-                            <label hidden="YES" opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ho3-lR-U49" userLabel="ImagesCountLabel">
-                                <rect key="frame" x="375" y="421" width="15" height="15"/>
+                            <label hidden="YES" opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ho3-lR-U49" userLabel="imagesCountLabel">
+                                <rect key="frame" x="375" y="413" width="15" height="15"/>
                                 <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="Jw2-tB-mKP"/>
@@ -252,7 +252,7 @@
                                 </variation>
                             </label>
                             <label hidden="YES" opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jbs-JG-4Ux" userLabel="videoCountLabel">
-                                <rect key="frame" x="565" y="421" width="15" height="15"/>
+                                <rect key="frame" x="565" y="413" width="15" height="15"/>
                                 <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="15" id="CkC-ja-KGe"/>
@@ -277,7 +277,7 @@
                                 </variation>
                             </label>
                             <label hidden="YES" opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jkv-TM-So7" userLabel="voiceCountLabel">
-                                <rect key="frame" x="185" y="421" width="15" height="15"/>
+                                <rect key="frame" x="185" y="413" width="15" height="15"/>
                                 <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="15" id="FF2-3W-IZX"/>
@@ -301,7 +301,7 @@
                                     </mask>
                                 </variation>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="xxx" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="560" translatesAutoresizingMaskIntoConstraints="NO" id="Ybj-XN-4wN">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="560" translatesAutoresizingMaskIntoConstraints="NO" id="Ybj-XN-4wN" userLabel="topLabel">
                                 <rect key="frame" x="20" y="80" width="560" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="NPs-GC-xJn"/>
@@ -317,7 +317,7 @@
                                 </variation>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="9lY-Pa-Efy">
-                                <rect key="frame" x="20" y="124" width="560" height="249"/>
+                                <rect key="frame" x="20" y="124" width="560" height="241"/>
                                 <color key="backgroundColor" red="0.84705882349999995" green="0.92549019610000005" blue="0.65490196079999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -342,7 +342,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="9lY-Pa-Efy" secondAttribute="trailing" id="FSy-HP-LWo"/>
                             <constraint firstItem="KF0-Iy-h5L" firstAttribute="top" secondItem="XJY-ap-NON" secondAttribute="bottom" constant="-15" id="HCi-4q-kUE"/>
                             <constraint firstItem="9lY-Pa-Efy" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" id="Hzo-U7-Re8"/>
-                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="ekE-3g-LTe" secondAttribute="bottom" id="JIz-1f-fJV"/>
+                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="ekE-3g-LTe" secondAttribute="bottom" constant="8" id="JIz-1f-fJV"/>
                             <constraint firstItem="ho3-lR-U49" firstAttribute="leading" secondItem="bTr-zN-c7S" secondAttribute="trailing" id="JwX-0R-ZaG"/>
                             <constraint firstItem="9lY-Pa-Efy" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="32" id="LpX-4x-fDo"/>
                             <constraint firstItem="jkv-TM-So7" firstAttribute="trailing" secondItem="dGx-5A-Xwu" secondAttribute="trailing" id="Mja-ci-W2J"/>
@@ -391,18 +391,18 @@
                         <outlet property="descriptionTextArea" destination="9lY-Pa-Efy" id="rbX-wv-x5q"/>
                         <outlet property="doneButton" destination="ekE-3g-LTe" id="DYQ-PA-Sdz"/>
                         <outlet property="imagesCountLabel" destination="ho3-lR-U49" id="gTn-sW-0hl"/>
-                        <outlet property="tellUsHowLabel" destination="Ybj-XN-4wN" id="Sm4-a7-NDp"/>
+                        <outlet property="topLabel" destination="Ybj-XN-4wN" id="FxX-3L-dsD"/>
                         <outlet property="videoCountLabel" destination="jbs-JG-4Ux" id="lR8-tk-egD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1297" y="-862"/>
+            <point key="canvasLocation" x="779" y="-656"/>
         </scene>
-        <!--Audio RecorderVC-->
+        <!--Media Popover AudioVC-->
         <scene sceneID="Kft-Te-bC4">
             <objects>
-                <viewController id="0nW-Z6-nqW" customClass="AudioRecorderVC" customModule="MySportsDiary" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="0nW-Z6-nqW" customClass="MediaPopoverAudioVC" customModule="MySportsDiary" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="EeR-3v-Rhq"/>
                         <viewControllerLayoutGuide type="bottom" id="mYg-Ec-uqG"/>
@@ -498,12 +498,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jp0-kZ-Gnw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2064" y="-306"/>
+            <point key="canvasLocation" x="1456" y="123"/>
         </scene>
-        <!--Images PopoverVC-->
+        <!--Media Popover ImagesVC-->
         <scene sceneID="XhY-w5-B2m">
             <objects>
-                <viewController id="Gey-6I-YOX" customClass="ImagesPopoverVC" customModule="MySportsDiary" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Gey-6I-YOX" customClass="MediaPopoverImagesVC" customModule="MySportsDiary" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="kRF-Ez-EwY"/>
                         <viewControllerLayoutGuide type="bottom" id="jUU-yB-yha"/>
@@ -699,12 +699,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bfe-kU-T8V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2064" y="-1840"/>
+            <point key="canvasLocation" x="1456" y="-1300"/>
         </scene>
-        <!--Video PopoverVC-->
+        <!--Media Popover VideoVC-->
         <scene sceneID="yCO-G6-XP3">
             <objects>
-                <viewController id="JI8-V8-0wz" customClass="VideoPopoverVC" customModule="MySportsDiary" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="JI8-V8-0wz" customClass="MediaPopoverVideoVC" customModule="MySportsDiary" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="n7V-7Q-NuD"/>
                         <viewControllerLayoutGuide type="bottom" id="bbh-Wu-nV2"/>
@@ -815,12 +815,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CeR-sA-UbN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2064" y="-1008"/>
+            <point key="canvasLocation" x="1456" y="-656"/>
         </scene>
-        <!--Entries ViewerVC-->
+        <!--All Entries ViewerVC-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
-                <viewController id="8rJ-Kc-sve" customClass="EntriesViewerVC" customModule="MySportsDiary" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="8rJ-Kc-sve" customClass="AllEntriesViewerVC" customModule="MySportsDiary" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="L7p-HK-0SC"/>
                         <viewControllerLayoutGuide type="bottom" id="Djb-ko-YwX"/>
@@ -841,10 +841,10 @@
                             </label>
                             <tableView clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="LOv-pc-pq6">
                                 <rect key="frame" x="0.0" y="114" width="600" height="437"/>
-                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="eventCellContent" textLabel="Xcx-OV-B4O" detailTextLabel="80f-sT-7bZ" style="IBUITableViewCellStyleSubtitle" id="h44-mM-Uwi">
-                                        <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clearsContextBeforeDrawing="NO" multipleTouchEnabled="YES" contentMode="center" tableViewCell="h44-mM-Uwi" id="heo-dO-dvr">
                                             <rect key="frame" x="0.0" y="0.0" width="567" height="43"/>
@@ -867,26 +867,39 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="9pv-A4-QxB" kind="show" id="bl4-5h-bjh"/>
+                                            <segue destination="9pv-A4-QxB" kind="show" id="LJD-S7-dqK"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="newEntryCellIdentifier" textLabel="Kkm-7W-25S" style="IBUITableViewCellStyleDefault" id="OdK-Av-4Rg">
-                                        <rect key="frame" x="0.0" y="136" width="600" height="44"/>
+                                    <tableViewCell opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="newEntryCellIdentifier" id="OdK-Av-4Rg">
+                                        <rect key="frame" x="0.0" y="72" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clearsContextBeforeDrawing="NO" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OdK-Av-4Rg" id="9Uo-PE-3J7">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clearsContextBeforeDrawing="NO" multipleTouchEnabled="YES" contentMode="left" text="Add another entry" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Kkm-7W-25S">
-                                                    <rect key="frame" x="15" y="0.0" width="570" height="43"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add" translatesAutoresizingMaskIntoConstraints="NO" id="xm7-di-i2i">
+                                                    <rect key="frame" x="288" y="8" width="25" height="27"/>
+                                                </imageView>
                                             </subviews>
+                                            <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstItem="xm7-di-i2i" firstAttribute="centerX" secondItem="9Uo-PE-3J7" secondAttribute="centerX" id="0gB-mH-24M"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="xm7-di-i2i" secondAttribute="trailing" id="5Nx-xM-T07"/>
+                                                <constraint firstItem="xm7-di-i2i" firstAttribute="leading" secondItem="9Uo-PE-3J7" secondAttribute="leadingMargin" id="LlU-KT-o7w"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="xm7-di-i2i" secondAttribute="bottom" id="OND-4T-rQo"/>
+                                                <constraint firstItem="xm7-di-i2i" firstAttribute="centerX" secondItem="9Uo-PE-3J7" secondAttribute="centerX" id="bgO-OW-xyg"/>
+                                                <constraint firstItem="xm7-di-i2i" firstAttribute="top" secondItem="9Uo-PE-3J7" secondAttribute="topMargin" id="keg-rN-z0f"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="xm7-di-i2i" secondAttribute="trailing" id="ozN-Ht-FLL"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="0gB-mH-24M"/>
+                                                    <exclude reference="5Nx-xM-T07"/>
+                                                    <exclude reference="LlU-KT-o7w"/>
+                                                    <exclude reference="ozN-Ht-FLL"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.59215686270000001" green="0.84313725490000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                 <integer key="value" value="15"/>
@@ -927,7 +940,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="579" y="-313"/>
+            <point key="canvasLocation" x="54" y="-357"/>
         </scene>
         <!--Master Tab Bar View Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -947,7 +960,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-792" y="-342"/>
+            <point key="canvasLocation" x="-920" y="-390"/>
         </scene>
         <!--Questionnaire-->
         <scene sceneID="Adx-SM-VtV">
@@ -963,7 +976,7 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eGO-aR-N2l">
                                 <rect key="frame" x="28" y="329" width="544" height="30"/>
-                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.59215686270000001" green="0.84313725490000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Begin">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -1096,7 +1109,7 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0h6-XI-Xtb">
                                 <rect key="frame" x="28" y="513" width="544" height="30"/>
-                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.59215686270000001" green="0.84313725490000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Next">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -1266,7 +1279,7 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="II1-0a-9Up">
                                 <rect key="frame" x="28" y="513" width="544" height="30"/>
-                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.59215686270000001" green="0.84313725490000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Next">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -1387,7 +1400,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wEi-FR-lqE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="150" y="1416"/>
+            <point key="canvasLocation" x="136" y="1404"/>
         </scene>
         <!--QuestionsVC-->
         <scene sceneID="eKP-j6-cYf">
@@ -1448,7 +1461,7 @@
                             </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uah-A9-tQG">
                                 <rect key="frame" x="28" y="513" width="544" height="30"/>
-                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.59215686270000001" green="0.84313725490000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Finish">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -1538,7 +1551,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nnx-AK-UX4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-133" y="-93"/>
+            <point key="canvasLocation" x="-189" y="-357"/>
         </scene>
     </scenes>
     <resources>
@@ -1559,7 +1572,7 @@
         <image name="video-cam" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="bl4-5h-bjh"/>
+        <segue reference="LJD-S7-dqK"/>
         <segue reference="eUc-fk-lPY"/>
     </inferredMetricsTieBreakers>
 </document>

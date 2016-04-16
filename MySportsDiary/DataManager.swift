@@ -50,6 +50,7 @@ protocol DataManager {
 
 	func getEntries() -> [Entry]?
 	func getEntryForID(entry_id: Int64) -> Entry?;
+	func updateEntryWithID(id id: Int64, newDescr: String);
 
 	/// CAUTION --- deletes ALL DATA!
 	func purgeAllData();

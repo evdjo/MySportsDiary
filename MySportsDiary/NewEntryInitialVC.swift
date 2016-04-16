@@ -1,5 +1,5 @@
 //
-//  EntryFirstScreen
+//  NewEntryInitialVC.swift
 //  MySportsDiary
 //
 //  Created by Evdzhan Mustafa on 08/04/2016.
@@ -8,21 +8,19 @@
 
 import UIKit
 
-class EntryFirstScreen: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class NewEntryInitialVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
 	@IBOutlet weak var skillPickerView: UIPickerView!
-
-	var newEntryMediaDelegate: NewEntryMediaDelegate?;
-	let skills =
-		["Self-belief", "Leadership", "Honesty", "Fairness", "Trustworthiness",
-			"Problem solving", "Kindness", "Team work", "Respect", "Other"]
+	private lazy var skills = ["Self-belief", "Leadership", "Honesty",
+		"Fairness", "Trustworthiness",
+		"Problem solving", "Kindness",
+		"Team work", "Respect", "Other"]
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		skillPickerView.dataSource = self;
 		skillPickerView.delegate = self;
-		skillPickerView.selectRow(skills.count / 2, inComponent: 0,
-			animated: false);
+		skillPickerView.selectRow(skills.count / 2, inComponent: 0, animated: false);
 	}
 
 	override func viewWillAppear(animated: Bool) {
@@ -31,28 +29,20 @@ class EntryFirstScreen: UIViewController, UIPickerViewDelegate, UIPickerViewData
 	}
 
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-		if let vc = segue.destinationViewController as? EntrySecondScreen {
-			if newEntryMediaDelegate == nil {
-				newEntryMediaDelegate = NewEntryMediaDelegate();
-			}
-			vc.mediaDelegate = newEntryMediaDelegate;
-
-			let skill = skills[skillPickerView.selectedRowInComponent(0)]
-			vc.skill = skill
-            vc.topLabelText = "Tell us how rugby helped you to demonstrate " +
-				"\(skill.lowercaseString) today.";
-		}
+		let vc = segue.destinationViewController as! SingleEntryViewerVC;
+		vc.entryType = .New;
+		vc.skill = skills[skillPickerView.selectedRowInComponent(0)]
 	}
 
 	///
-	/// Delegate Methods
-	///
+	/// skillPickerView delegate methods
+	//
 	func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
 		return skills[row];
 	}
 	///
-	/// Data Source Methods
-	///
+	/// skillPickerView data source methods
+	//
 	func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
 		return 1
 	}

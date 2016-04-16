@@ -12,15 +12,11 @@ import AVFoundation
 import Photos
 import MobileCoreServices
 
+class MediaPopoverImagesVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, MediaPopover {
 
-
-class ImagesPopoverVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, MediaContainer {
-
-	// Delegate stuff
-	var mediaCountDelegate: MediaCountDelegate?; /// when the count of images changes
-	var delegate: MediaDelegate?;
-
-	/// Image stuff
+// Delegate stuff
+	var delegate: MediaPopoverDataDelegate?;
+// Image stuff
 	private var picker: MediaPicker?;
 	private var images: [UIImage]?; /// The images shown in the image view
 	private var imageIndex = 0; /// Which image showing currently
@@ -29,21 +25,45 @@ class ImagesPopoverVC: UIViewController, UIImagePickerControllerDelegate, UINavi
 	@IBOutlet weak var navigationViews: UIView!
 	@IBOutlet weak var currentlyShownImage: UIImageView!
 	@IBOutlet weak var noImageLabel: UILabel!
-	@IBAction func onCameraButtonPressed(sender: AnyObject) { picker?.pickUsingCamera(); }
-	@IBAction func onPhotosLibraryButtonPressed(sender: AnyObject) { picker?.pickFromLibrary(); }
+
+	@IBAction func onCameraButtonPressed(sender: AnyObject) {
+		picker?.pickUsingCamera();
+	}
+	@IBAction func onPhotosLibraryButtonPressed(sender: AnyObject) {
+		picker?.pickFromLibrary();
+	}
+	@IBAction func onDeleteButtonPressed(sender: AnyObject) {
+		if let images = self.images where images.count > imageIndex {
+			let controller = UIAlertController(title: deleteTheImageText,
+				message: nil, preferredStyle: .ActionSheet)
+
+			let yesAction = UIAlertAction(title: yes, style: .Destructive, handler: {
+				action in
+				self.images!.removeAtIndex(self.imageIndex);
+				self.delegate?.removeImage(self.imageIndex);
+				self.imageIndex = max(0, self.imageIndex - 1);
+				self.setCurrentImage();
+			});
+			controller.addAction(yesAction)
+			controller.addAction(UIAlertAction(title: no, style: .Cancel, handler: nil))
+			presentViewController(controller, animated: true, completion: nil)
+		}
+	}
+
 	@IBAction func onPreviousButtonPressed(sender: AnyObject) {
 		if let images = images where images.count > 1 {
 			imageIndex = imageIndex - 1 < 0 ? images.count - 1: imageIndex - 1;
 			imageIndexLabel.text = "\(imageIndex + 1) / \(images.count) "
 			setCurrentImage();
-	} }
+		}
+	}
 	@IBAction func onNextButtonPressed(sender: AnyObject) {
 		if let images = images where images.count > 1 {
 			imageIndex = imageIndex + 1 < images.count ? imageIndex + 1: 0;
 			imageIndexLabel.text = "\(imageIndex + 1) / \(images.count) "
 			setCurrentImage();
-	} }
-	@IBAction func onDeleteButtonPressed(sender: AnyObject) { onDelete(); }
+		}
+	}
 
 ///
 /// Load any temp images, and show the first
@@ -83,25 +103,6 @@ class ImagesPopoverVC: UIViewController, UIImagePickerControllerDelegate, UINavi
 		images = delegate?.images();
 	}
 
-	func onDelete() {
-		if let images = self.images where images.count > imageIndex {
-			let controller = UIAlertController(title: deleteTheImageText,
-				message: nil, preferredStyle: .ActionSheet)
-
-			let yesAction = UIAlertAction(title: yes, style: .Destructive, handler: {
-				action in
-				self.images!.removeAtIndex(self.imageIndex);
-				self.delegate?.removeImage(self.imageIndex);
-				self.mediaCountDelegate?.onCountChange(self);
-				self.imageIndex = max(0, self.imageIndex - 1);
-				self.setCurrentImage();
-			});
-			controller.addAction(yesAction)
-			controller.addAction(UIAlertAction(title: no, style: .Cancel, handler: nil))
-			presentViewController(controller, animated: true, completion: nil)
-		}
-	}
-
 	func onNewImage(image: UIImage) {
 		if nil == images {
 			images = Array<UIImage>();
@@ -110,7 +111,6 @@ class ImagesPopoverVC: UIViewController, UIImagePickerControllerDelegate, UINavi
 		images!.append(image);
 		imageIndex = images!.count - 1;
 		delegate?.newImage(image);
-		mediaCountDelegate?.onCountChange(self);
 		setCurrentImage();
 	}
 }

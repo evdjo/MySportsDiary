@@ -32,12 +32,13 @@ class MainDataManager: DataManager {
 	func addNewEntry(entry: Entry) { SQLiteDBManager.insertEntry(entry) }
 	func getEntries() -> [Entry]? { return SQLiteDBManager.entries() }
 	func getEntryForID(entry_id: Int64) -> Entry? { return SQLiteDBManager.entryForID(entry_id) }
+	func updateEntryWithID(id id: Int64, newDescr: String) { SQLiteDBManager.updateEntryWithID(id: id, newDescr: newDescr) }
 
 	func purgeAllData() {
 		purgeUserData();
 		purgeAppData();
 		purgeQuestionnaireAnswers();
-		//purgeTempMedia(TEMP_DIR_URL)
+		// purgeTempMedia(TEMP_DIR_URL)
 		purgeDB();
 	}
 
