@@ -9,8 +9,24 @@
 import Foundation
 import UIKit
 
-class MainDataManager: DataManager {
-	internal init() { };
+///
+///
+/// Handles all persistent data, such as user Age, Gender, Questionnaire Answers, Events
+///
+/// To ensure that only the DataMangerInstance method can manipulate the data,
+/// moved the singleton implementation here.
+///
+private var instance: DataManager? = nil;
+
+internal func DataManagerInstance() -> DataManager {
+	if instance == nil {
+		instance = MainDataManager();
+	}
+	return instance!;
+}
+
+private class MainDataManager: DataManager {
+	private init() { };
 	func getAge() -> Int? { return UserProperties.getAge(); }
 	func getGender() -> Gender? { return UserProperties.getGender(); }
 	func setAge(age: Int) { UserProperties.setAge(age); }
@@ -45,9 +61,7 @@ class MainDataManager: DataManager {
 	func purgeUserData() { UserProperties.purgeData(); }
 	func purgeAppData() { AppProperties.purgeData(); }
 	func purgeQuestionnaireAnswers() { Questionnaire.purgeData(); }
-	func purgeDB() {
-		SQLiteDBManager.purgeDB();
-	}
+	func purgeDB() { SQLiteDBManager.purgeDB(); }
 
 	func purgeTempMedia(parentDir: NSURL) {
 		ImagesIO.purgeImages(parentDir);

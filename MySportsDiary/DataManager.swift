@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  DataManager.swift
 //  MySportsDiary
 //
 //  Created by Evdzhan Mustafa on 13/03/2016.
@@ -8,19 +8,6 @@
 
 import Foundation
 import UIKit
-
-///
-/// Handles all persistent data, such as user Age, Gender, Questionnaire Answers, Events
-///
-
-private var instance: DataManager? = nil;
-
-internal func DataManagerInstance() -> DataManager {
-	if instance == nil {
-		instance = MainDataManager();
-	}
-	return instance!;
-}
 
 protocol DataManager {
 
