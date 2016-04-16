@@ -226,9 +226,9 @@
                                     <constraint firstAttribute="height" constant="65" id="Ifd-s4-KMa"/>
                                 </constraints>
                             </stackView>
-                            <label hidden="YES" opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ho3-lR-U49" userLabel="imagesCountLabel">
+                            <label opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ho3-lR-U49" userLabel="imagesCountLabel">
                                 <rect key="frame" x="375" y="413" width="15" height="15"/>
-                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.59215686270000001" green="0.84313725490000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="Jw2-tB-mKP"/>
                                     <constraint firstAttribute="height" constant="15" id="Rvf-D4-D0E"/>
@@ -251,9 +251,9 @@
                                     </mask>
                                 </variation>
                             </label>
-                            <label hidden="YES" opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jbs-JG-4Ux" userLabel="videoCountLabel">
+                            <label opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jbs-JG-4Ux" userLabel="videoCountLabel">
                                 <rect key="frame" x="565" y="413" width="15" height="15"/>
-                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.59215686270000001" green="0.84313725490000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="15" id="CkC-ja-KGe"/>
                                     <constraint firstAttribute="width" constant="30" id="SS5-BE-ZZ6"/>
@@ -276,9 +276,9 @@
                                     </mask>
                                 </variation>
                             </label>
-                            <label hidden="YES" opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jkv-TM-So7" userLabel="voiceCountLabel">
+                            <label opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jkv-TM-So7" userLabel="voiceCountLabel">
                                 <rect key="frame" x="185" y="413" width="15" height="15"/>
-                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.59215686270000001" green="0.84313725490000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="15" id="FF2-3W-IZX"/>
                                     <constraint firstAttribute="height" constant="30" id="Hco-KO-z8f"/>
@@ -830,7 +830,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Entries" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="osP-jg-r3l">
-                                <rect key="frame" x="0.0" y="64" width="600" height="50"/>
+                                <rect key="frame" x="0.0" y="80" width="600" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="t63-cq-EtI"/>
@@ -840,7 +840,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="LOv-pc-pq6">
-                                <rect key="frame" x="0.0" y="114" width="600" height="437"/>
+                                <rect key="frame" x="0.0" y="138" width="600" height="405"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="eventCellContent" textLabel="Xcx-OV-B4O" detailTextLabel="80f-sT-7bZ" style="IBUITableViewCellStyleSubtitle" id="h44-mM-Uwi">
@@ -919,12 +919,12 @@
                             <constraint firstItem="osP-jg-r3l" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" id="Co4-w4-PNU"/>
                             <constraint firstItem="osP-jg-r3l" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" id="Gma-bn-bGb"/>
                             <constraint firstItem="LOv-pc-pq6" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" id="btb-fj-xj9"/>
-                            <constraint firstItem="LOv-pc-pq6" firstAttribute="top" secondItem="osP-jg-r3l" secondAttribute="bottom" id="d42-7a-2K9"/>
+                            <constraint firstItem="LOv-pc-pq6" firstAttribute="top" secondItem="osP-jg-r3l" secondAttribute="bottom" constant="8" id="d42-7a-2K9"/>
                             <constraint firstAttribute="trailingMargin" secondItem="osP-jg-r3l" secondAttribute="trailing" id="fcN-3S-RDe"/>
-                            <constraint firstItem="Djb-ko-YwX" firstAttribute="top" secondItem="LOv-pc-pq6" secondAttribute="bottom" id="gLe-ZH-41x"/>
+                            <constraint firstItem="Djb-ko-YwX" firstAttribute="top" secondItem="LOv-pc-pq6" secondAttribute="bottom" constant="8" id="gLe-ZH-41x"/>
                             <constraint firstAttribute="trailing" secondItem="osP-jg-r3l" secondAttribute="trailing" id="kpR-Co-9DY"/>
                             <constraint firstAttribute="trailing" secondItem="LOv-pc-pq6" secondAttribute="trailing" id="o2K-qv-IqD"/>
-                            <constraint firstItem="osP-jg-r3l" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" id="pFF-0b-ahk"/>
+                            <constraint firstItem="osP-jg-r3l" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" constant="16" id="pFF-0b-ahk"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -1200,7 +1200,7 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FcI-tA-V46">
                                 <rect key="frame" x="28" y="562" width="544" height="30"/>
-                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.59215686270000001" green="0.84313725490000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Next">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -1573,6 +1573,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="LJD-S7-dqK"/>
-        <segue reference="eUc-fk-lPY"/>
+        <segue reference="zFt-bB-jtg"/>
     </inferredMetricsTieBreakers>
 </document>

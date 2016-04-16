@@ -14,7 +14,7 @@ class MediaPopoverDataDelegateExistingEntry: MediaPopoverDataDelegate {
 	init(entry: Entry) {
 		self.entry = entry;
 	}
-    
+
 	func newImage(image: UIImage) -> Void {
 		let entryTime = entry.date_time;
 		let dir = ENTRIES_DIR_URL.URLByAppendingPathComponent(entryTime).URLByAppendingPathComponent("images");
@@ -29,6 +29,12 @@ class MediaPopoverDataDelegateExistingEntry: MediaPopoverDataDelegate {
 		let entryTime = entry.date_time;
 		let dir = ENTRIES_DIR_URL.URLByAppendingPathComponent(entryTime).URLByAppendingPathComponent("images");
 		return DataManagerInstance().removeImage(dir, index: index);
+	}
+
+	func getImagesCount() -> Int {
+		let entryTime = entry.date_time;
+		let dir = ENTRIES_DIR_URL.URLByAppendingPathComponent(entryTime).URLByAppendingPathComponent("images");
+		return DataManagerInstance().getImagesCount(dir);
 	}
 
 	var video: NSURL? {

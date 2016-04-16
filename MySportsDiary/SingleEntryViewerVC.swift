@@ -55,6 +55,21 @@ class SingleEntryViewerVC: UIViewController, UIPopoverPresentationControllerDele
 			doneButton.backgroundColor = colorRGB(red: 151, green: 215, blue: 255, alpha: 1);
 			self.mediaDelegate = MediaPopoverDataDelegateExistingEntry(entry: entry!);
 		}
+
+		updateAudioCountLabel();
+		updateImagesCountLabel();
+		updateVideoCountLabel();
+	}
+
+	func updateAudioCountLabel() {
+		audioCountLabel.text = mediaDelegate.audio == nil ? "0" : "1";
+	}
+
+	func updateImagesCountLabel() {
+		imagesCountLabel.text = String(mediaDelegate.getImagesCount());
+	}
+	func updateVideoCountLabel() {
+		videoCountLabel.text = mediaDelegate.video == nil ? "0" : "1";
 	}
 
 	override func viewWillDisappear(animated: Bool) {
@@ -76,8 +91,6 @@ class SingleEntryViewerVC: UIViewController, UIPopoverPresentationControllerDele
 		dest.popoverPresentationController?.sourceRect = (sender as! UIButton).bounds;
 		dest.popoverPresentationController?.backgroundColor = blue;
 		self.view.alpha = 0.20;
-	}
-	private func setDelegate(dest: UIViewController) {
 	}
 
 	@IBAction func onAddEntryPressed(sender: AnyObject) {
@@ -109,9 +122,11 @@ class SingleEntryViewerVC: UIViewController, UIPopoverPresentationControllerDele
 		self.tabBarController?.selectedIndex = 1;
 	}
 
-	func popoverPresentationControllerDidDismissPopover(controller:
-			UIPopoverPresentationController) {
-				self.view.alpha = 1.0;
+	func popoverPresentationControllerDidDismissPopover(controller: UIPopoverPresentationController) {
+		self.view.alpha = 1.0;
+		updateAudioCountLabel();
+		updateImagesCountLabel();
+		updateVideoCountLabel();
 	}
 	func adaptivePresentationStyleForPresentationController(
 		_: UIPresentationController) -> UIModalPresentationStyle {

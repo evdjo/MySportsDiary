@@ -13,6 +13,7 @@ class MediaPopoverDataDelegateNewEntry: MediaPopoverDataDelegate {
 	func newImage(image: UIImage) -> Void { DataManagerInstance().saveImage(MediaPopoverDataDelegateNewEntry.TEMP_IMAGES_URL, image: image) }
 	func images() -> [UIImage]? { return DataManagerInstance().getImages(MediaPopoverDataDelegateNewEntry.TEMP_IMAGES_URL) }
 	func removeImage(index: Int) -> Void { DataManagerInstance().removeImage(MediaPopoverDataDelegateNewEntry.TEMP_IMAGES_URL, index: index) }
+	func getImagesCount() -> Int { return DataManagerInstance().getImagesCount(MediaPopoverDataDelegateNewEntry.TEMP_IMAGES_URL); }
 
 	var video: NSURL? {
 		set { DataManagerInstance().setVideo(oldVideo: MediaPopoverDataDelegateNewEntry.TEMP_VIDEO_URL, newVideo: newValue) }

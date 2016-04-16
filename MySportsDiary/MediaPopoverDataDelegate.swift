@@ -17,10 +17,9 @@ protocol MediaPopoverDataDelegate: class {
 	func newImage(image: UIImage);
 	func images() -> [UIImage]?;
 	func removeImage(index: Int);
-
+    func getImagesCount() -> Int;
+    
 	var video: NSURL? { get set }
 
 	var audio: NSURL? { get set }
 }
-
-
