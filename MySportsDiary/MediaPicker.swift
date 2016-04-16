@@ -36,6 +36,7 @@ class MediaPicker: NSObject, UIImagePickerControllerDelegate, UINavigationContro
 		picker.delegate = self;
 		picker.allowsEditing = false;
 		picker.videoMaximumDuration = NSTimeInterval(30.0);
+		picker.videoQuality = .TypeLow;
 	}
 
 ///

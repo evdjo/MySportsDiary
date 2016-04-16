@@ -56,7 +56,7 @@ class ImagesIO {
 	/// array returned by getTempImages() function.
 	///
 	static func saveImage(parentDir: NSURL, image: UIImage) {
-		let path = parentDir.URLByAppendingPathComponent(timestamp());
+		let path = parentDir.URLByAppendingPathComponent("\(timestamp()).png");
 		UIImagePNGRepresentation(image)?.writeToURL(path, atomically: true);
 	}
 

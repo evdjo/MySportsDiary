@@ -50,7 +50,9 @@ class SingleEntryViewerVC: UIViewController, UIPopoverPresentationControllerDele
 			guard entry != nil else { print("entry found to be nil"); return }
 			topLabel.text = entry!.skill;
 			descriptionTextArea.text = entry!.description;
-			descriptionTextArea.textColor = UIColor.blackColor();
+			if entry!.description == enterText {
+				descriptionTextArea.textColor = UIColor.lightGrayColor();
+			}
 			doneButton.setTitle("Done editing", forState: .Normal);
 			doneButton.backgroundColor = colorRGB(red: 151, green: 215, blue: 255, alpha: 1);
 			self.mediaDelegate = MediaPopoverDataDelegateExistingEntry(entry: entry!);

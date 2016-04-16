@@ -104,13 +104,14 @@ class MediaPopoverImagesVC: UIViewController, UIImagePickerControllerDelegate, U
 	}
 
 	func onNewImage(image: UIImage) {
+		let resizedImage = aspectFitResizeImageTo(wantedWidth: 480, image: image)
 		if nil == images {
 			images = Array<UIImage>();
 			imageIndex = 0 ;
 		}
-		images!.append(image);
+		images!.append(resizedImage);
 		imageIndex = images!.count - 1;
-		delegate?.newImage(image);
+		delegate?.newImage(resizedImage);
 		setCurrentImage();
 	}
 }

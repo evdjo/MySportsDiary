@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import UIKit
 ///
 /// Gender
 ///
@@ -86,6 +86,18 @@ internal func dateString(date: NSDate) -> String {
 // to be used when read from DB
 internal func stringDate(string: String) -> NSDate {
 	return formatter.dateFromString(string)!;
+}
+
+internal func aspectFitResizeImageTo(wantedWidth wantedWidth: CGFloat, image: UIImage) -> UIImage {
+
+	let ratioScale = wantedWidth / image.size.width
+	let newHeight = image.size.height * ratioScale
+	UIGraphicsBeginImageContext(CGSizeMake(wantedWidth, newHeight))
+	image.drawInRect(CGRectMake(0, 0, wantedWidth, newHeight))
+	let resizedImage = UIGraphicsGetImageFromCurrentImageContext()
+	UIGraphicsEndImageContext()
+
+	return resizedImage
 }
 
 /// LOST AND FOUND

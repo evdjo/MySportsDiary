@@ -21,7 +21,7 @@ class MediaPopoverAudioVC: UIViewController, AVAudioRecorderDelegate, AVAudioPla
 	private let settings: [String: AnyObject] = [
 		AVFormatIDKey: Int(kAudioFormatAppleIMA4), AVSampleRateKey: 44100.0,
 		AVNumberOfChannelsKey: 2, AVEncoderBitRateKey: 12800, AVLinearPCMBitDepthKey: 16,
-		AVEncoderAudioQualityKey: AVAudioQuality.Low.rawValue]
+		AVEncoderAudioQualityKey: AVAudioQuality.Min.rawValue]
 	private var recording = false;
 	private var playing = false;
 

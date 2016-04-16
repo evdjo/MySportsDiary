@@ -39,11 +39,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="Hab-rs-kLH">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Hab-rs-kLH">
                                 <rect key="frame" x="20" y="96" width="560" height="447"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iir-Mu-EW1">
-                                        <rect key="frame" x="0.0" y="0.0" width="560" height="40"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="560" height="38"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <attributedString key="attributedText">
                                             <fragment content="Today, rugby has helped me to demonstrate:">
@@ -57,11 +57,11 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RMk-kP-xtM" userLabel="SkillPicker">
-                                        <rect key="frame" x="0.0" y="40" width="560" height="357"/>
+                                        <rect key="frame" x="0.0" y="46" width="560" height="337"/>
                                         <accessibility key="accessibilityConfiguration" identifier="SkillPicker" label="SkillPicker"/>
                                     </pickerView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9iu-Ne-MxW">
-                                        <rect key="frame" x="0.0" y="397" width="560" height="50"/>
+                                        <rect key="frame" x="0.0" y="391" width="560" height="56"/>
                                         <color key="backgroundColor" red="0.59215686270000001" green="0.84313725490000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="Next">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -1572,7 +1572,7 @@
         <image name="video-cam" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="LJD-S7-dqK"/>
+        <segue reference="yaZ-H1-Lc3"/>
         <segue reference="zFt-bB-jtg"/>
     </inferredMetricsTieBreakers>
 </document>
