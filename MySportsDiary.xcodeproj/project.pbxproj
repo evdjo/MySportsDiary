@@ -43,8 +43,8 @@
 		3F86B0561CC299F800DEA036 /* MediaPopover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F86B0551CC299F800DEA036 /* MediaPopover.swift */; };
 		3F86B07A1CC2F31700DEA036 /* GPSLocationGetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F86B0791CC2F31700DEA036 /* GPSLocationGetter.swift */; };
 		3F86B07C1CC2F91900DEA036 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F86B07B1CC2F91900DEA036 /* MapKit.framework */; };
-		3F86B0A41CC3EE4D00DEA036 /* CustomSliderOut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F86B0A31CC3EE4D00DEA036 /* CustomSliderOut.swift */; };
 		3F930E991CBB240300922185 /* EntryDatabaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F930E981CBB240300922185 /* EntryDatabaseTests.swift */; };
+		3F9455AF1CC3FCD300C73860 /* CustomSliderOut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9455AE1CC3FCD300C73860 /* CustomSliderOut.swift */; };
 		3FD3E0F61CBDE1E400A07F53 /* DescriptionTextDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD3E0F51CBDE1E400A07F53 /* DescriptionTextDelegate.swift */; };
 		3FD3E0FA1CBE1DA900A07F53 /* MediaPopoverDataDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD3E0F91CBE1DA900A07F53 /* MediaPopoverDataDelegate.swift */; };
 		3FD3E0FC1CBE1E7D00A07F53 /* MediaPopoverDataDelegateNewEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD3E0FB1CBE1E7D00A07F53 /* MediaPopoverDataDelegateNewEntry.swift */; };
@@ -125,8 +125,8 @@
 		3F86B0551CC299F800DEA036 /* MediaPopover.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaPopover.swift; sourceTree = "<group>"; };
 		3F86B0791CC2F31700DEA036 /* GPSLocationGetter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPSLocationGetter.swift; sourceTree = "<group>"; };
 		3F86B07B1CC2F91900DEA036 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		3F86B0A31CC3EE4D00DEA036 /* CustomSliderOut.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSliderOut.swift; sourceTree = "<group>"; };
 		3F930E981CBB240300922185 /* EntryDatabaseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryDatabaseTests.swift; sourceTree = "<group>"; };
+		3F9455AE1CC3FCD300C73860 /* CustomSliderOut.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSliderOut.swift; sourceTree = "<group>"; };
 		3FD3E0F51CBDE1E400A07F53 /* DescriptionTextDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescriptionTextDelegate.swift; sourceTree = "<group>"; };
 		3FD3E0F91CBE1DA900A07F53 /* MediaPopoverDataDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaPopoverDataDelegate.swift; sourceTree = "<group>"; };
 		3FD3E0FB1CBE1E7D00A07F53 /* MediaPopoverDataDelegateNewEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaPopoverDataDelegateNewEntry.swift; sourceTree = "<group>"; };
@@ -349,8 +349,8 @@
 				3FE3D94B1CBC20940062DFA8 /* UIUtil.swift */,
 				1B8866421C9F9C78007F7BEB /* Util.swift */,
 				1B64DFAC1CAFD6330087D353 /* Accessibility.swift */,
+				3F9455AE1CC3FCD300C73860 /* CustomSliderOut.swift */,
 				3FE3D9491CBC1D0A0062DFA8 /* Entry.swift */,
-				3F86B0A31CC3EE4D00DEA036 /* CustomSliderOut.swift */,
 			);
 			name = Util;
 			sourceTree = "<group>";
@@ -529,7 +529,7 @@
 				3FE3D94A1CBC1D0A0062DFA8 /* Entry.swift in Sources */,
 				3FD3E0F61CBDE1E400A07F53 /* DescriptionTextDelegate.swift in Sources */,
 				3F86B0561CC299F800DEA036 /* MediaPopover.swift in Sources */,
-				3F86B0A41CC3EE4D00DEA036 /* CustomSliderOut.swift in Sources */,
+				3F9455AF1CC3FCD300C73860 /* CustomSliderOut.swift in Sources */,
 				1B396B751C9251D900986749 /* AllEntriesViewerVC.swift in Sources */,
 				1BB5BEDF1CB5355D009A4C3E /* MediaPopoverAudioVC.swift in Sources */,
 				1B396B8B1C93774C00986749 /* MasterTabBarViewController.swift in Sources */,

@@ -55,7 +55,6 @@ class InitialVC: UIViewController {
 	private func setForDiaryMode() {
 		self.tabBarController?.tabBar.items![1].enabled = true;
 		self.tabBarController?.tabBar.items![2].enabled = true;
-		self.tabBarController?.selectedIndex = 1;
 		mainLabel.text = DIARY_TEXT;
 		beginButton.hidden = true;
 		sendButton.hidden = false;

@@ -67,7 +67,7 @@ class AgeGenderVC: UIViewController {
 	///
 	@IBAction func onAgeSliderMoved(sender: UISlider) {
 		ageLabel.text = String(Int(ageSlider.value));
-		// ageIsSet = true;
+		ageIsSet = true;
 	}
 	@IBAction func onAgeSliderValueChanged(sender: UISlider) {
 		DataManagerInstance().setAge(Int(ageSlider.value));

@@ -15,6 +15,13 @@ UITabBarControllerDelegate {
 		super.viewDidLoad()
 		self.delegate = self;
 	}
+	override func viewDidAppear(animated: Bool) {
+
+		let appState = DataManagerInstance().getAppState() ?? .Initial
+		if appState == .Diary {
+			self.selectedIndex = 1;
+		}
+	}
 
 	func tabBarController(tabBarController: UITabBarController,
 		didSelectViewController viewController: UIViewController) {
