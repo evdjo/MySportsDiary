@@ -692,6 +692,7 @@
                     <size key="freeformSize" width="600" height="600"/>
                     <connections>
                         <outlet property="currentlyShownImage" destination="1qs-Jf-UWP" id="ygn-iD-wUt"/>
+                        <outlet property="deleteImageButton" destination="3Zp-ZC-dXp" id="K0N-fk-6o5"/>
                         <outlet property="imageIndexLabel" destination="t5T-vd-NuV" id="WPV-pX-Rsd"/>
                         <outlet property="navigationViews" destination="ull-YM-qSk" id="nfX-RP-DWO"/>
                         <outlet property="noImageLabel" destination="EfA-gD-1oP" id="Vvn-Ek-E5a"/>
@@ -809,6 +810,7 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="deleteVideoButton" destination="UxI-0s-RID" id="RU9-Th-3Tq"/>
                         <outlet property="pickFromSourceButtons" destination="NQt-Yc-5s8" id="hIB-WM-IrN"/>
                         <outlet property="videoContainer" destination="S2S-2r-qiz" id="Io7-jE-PhA"/>
                     </connections>

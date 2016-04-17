@@ -21,6 +21,7 @@ class MediaPopoverImagesVC: UIViewController, UIImagePickerControllerDelegate, U
 	private var images: [UIImage]?; /// The images shown in the image view
 	private var imageIndex = 0; /// Which image showing currently
 
+	@IBOutlet weak var deleteImageButton: UIButton!
 	@IBOutlet weak var imageIndexLabel: UILabel!
 	@IBOutlet weak var navigationViews: UIView!
 	@IBOutlet weak var currentlyShownImage: UIImageView!
@@ -88,11 +89,15 @@ class MediaPopoverImagesVC: UIViewController, UIImagePickerControllerDelegate, U
 			navigationViews.hidden = false;
 			imageIndexLabel.hidden = false;
 			imageIndexLabel.text = "\(imageIndex + 1) / \(images.count) "
+			deleteImageButton.enabled = true;
+			deleteImageButton.alpha = 1.0;
 		} else {
 			currentlyShownImage.image = nil;
 			noImageLabel.hidden = false;
 			navigationViews.hidden = true;
 			imageIndexLabel.hidden = true;
+			deleteImageButton.enabled = false;
+			deleteImageButton.alpha = 0.5;
 		}
 	}
 ///

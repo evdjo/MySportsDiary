@@ -22,6 +22,7 @@ class MediaPopoverVideoVC: UIViewController, MediaPopover {
 	private var videoToPlayURL: NSURL? = nil;
 	@IBOutlet weak var videoContainer: UIView!
 	@IBOutlet weak var pickFromSourceButtons: UIStackView!
+	@IBOutlet weak var deleteVideoButton: UIButton!
 
 	@IBAction func onUseCameraButtonPressed(sender: AnyObject) {
 		mediaPicker.pickUsingCamera();
@@ -34,24 +35,32 @@ class MediaPopoverVideoVC: UIViewController, MediaPopover {
 		super.viewWillAppear(animated);
 		// dispatch_async(dispatch_get_main_queue(), {
 		self.videoToPlayURL = delegate?.video;
-		self.setUpPlayer();
+		self.setUp();
 		// });
 	}
 
 	func onNewVideo(videoURL: NSURL) {
 		videoToPlayURL = videoURL;
 		delegate?.video = videoURL;
+		setUp();
 	}
 
-	private func setUpPlayer() {
+	private func setUp() {
 		if let url = videoToPlayURL {
 			if avPlayerViewController == nil {
-				avPlayerViewController = AVPlayerViewController()
-				self.addChildViewController(avPlayerViewController!)
-				self.videoContainer.addSubview(avPlayerViewController!.view)
-				avPlayerViewController!.view.frame = self.videoContainer.frame
+				self.avPlayerViewController = AVPlayerViewController()
 			}
-			avPlayerViewController!.player = AVPlayer(URL: url)
+			self.addChildViewController(avPlayerViewController!)
+			self.videoContainer.addSubview(avPlayerViewController!.view)
+			self.avPlayerViewController!.view.frame = self.videoContainer.frame
+			self.avPlayerViewController!.player = AVPlayer(URL: url)
+			self.videoContainer.setNeedsDisplay();
+			self.avPlayerViewController!.view.setNeedsDisplay();
+			self.deleteVideoButton.enabled = true;
+			self.deleteVideoButton.alpha = 1.0;
+		} else {
+			self.deleteVideoButton.enabled = false;
+			self.deleteVideoButton.alpha = 0.5;
 		}
 	}
 	@IBAction func onDeletePressed(sender: AnyObject) {
@@ -67,6 +76,7 @@ class MediaPopoverVideoVC: UIViewController, MediaPopover {
 			self.avPlayerViewController?.removeFromParentViewController()
 			self.delegate?.video = nil;
 			self.videoToPlayURL = nil;
+			self.setUp();
 		});
 		controller.addAction(yesAction)
 		controller.addAction(UIAlertAction(title: no, style: .Cancel, handler: nil))
