@@ -18,7 +18,10 @@ class InitialVC: UIViewController {
 
 	@IBOutlet weak var mainLabel: UILabel!;
 	@IBOutlet weak var beginButton: UIButton!;
+	@IBOutlet weak var sendButton: UIButton!
 
+	@IBAction func onSendPressed(sender: AnyObject) {
+	}
 	override func viewDidLoad() {
 		super.viewDidLoad();
 		mainLabel.accessibilityIdentifier = Accessibility.MainLabel;
@@ -55,6 +58,7 @@ class InitialVC: UIViewController {
 		self.tabBarController?.selectedIndex = 1;
 		mainLabel.text = DIARY_TEXT;
 		beginButton.hidden = true;
+		sendButton.hidden = false;
 	}
 
 	///
@@ -66,6 +70,7 @@ class InitialVC: UIViewController {
 		self.tabBarController?.tabBar.items?[2].enabled = false;
 		mainLabel.text = INITAL_TEXT;
 		beginButton.hidden = false;
+		sendButton.hidden = true;
 	}
 
 	///
@@ -76,7 +81,8 @@ class InitialVC: UIViewController {
 		self.tabBarController?.tabBar.items?[1].enabled = false;
 		self.tabBarController?.tabBar.items?[2].enabled = false;
 		mainLabel.text = FINAL_TEXT;
-		beginButton.hidden = false;
+		beginButton.hidden = true;
+		sendButton.hidden = false;
 	}
 
 	///

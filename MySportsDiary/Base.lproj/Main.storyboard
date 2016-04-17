@@ -995,15 +995,26 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qzt-oX-rkZ">
+                                <rect key="frame" x="0.0" y="513" width="600" height="30"/>
+                                <color key="backgroundColor" red="0.59215686270000001" green="0.84313725490000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="SEND"/>
+                                <connections>
+                                    <action selector="onSendPressed:" destination="SN9-zF-AZY" eventType="touchUpInside" id="P7f-ng-pBf"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="eGO-aR-N2l" firstAttribute="top" secondItem="YmQ-Lb-w3J" secondAttribute="bottom" constant="265" id="6n3-Bm-9oR"/>
                             <constraint firstItem="eGO-aR-N2l" firstAttribute="leading" secondItem="b4z-xb-da7" secondAttribute="leadingMargin" constant="8" id="B1n-f1-990"/>
+                            <constraint firstItem="qzt-oX-rkZ" firstAttribute="leading" secondItem="b4z-xb-da7" secondAttribute="leading" id="DVd-a1-et4"/>
                             <constraint firstAttribute="trailingMargin" secondItem="sZv-E5-9HB" secondAttribute="trailing" id="Dnw-nF-OIc"/>
                             <constraint firstItem="sZv-E5-9HB" firstAttribute="leading" secondItem="b4z-xb-da7" secondAttribute="leadingMargin" id="Md9-4M-Eod"/>
                             <constraint firstItem="sZv-E5-9HB" firstAttribute="top" secondItem="YmQ-Lb-w3J" secondAttribute="bottom" constant="130" id="Pwa-1i-rlu"/>
                             <constraint firstAttribute="trailingMargin" secondItem="eGO-aR-N2l" secondAttribute="trailing" constant="8" id="VNT-FB-wod"/>
+                            <constraint firstAttribute="trailing" secondItem="qzt-oX-rkZ" secondAttribute="trailing" id="WgV-s1-yHS"/>
+                            <constraint firstItem="Obc-kJ-r5S" firstAttribute="top" secondItem="qzt-oX-rkZ" secondAttribute="bottom" constant="8" id="aSW-0P-dIg"/>
                             <constraint firstItem="eGO-aR-N2l" firstAttribute="centerX" secondItem="b4z-xb-da7" secondAttribute="centerX" id="dMC-Pc-uLb"/>
                             <constraint firstItem="sZv-E5-9HB" firstAttribute="centerX" secondItem="b4z-xb-da7" secondAttribute="centerX" id="sci-0z-Yk5"/>
                         </constraints>
@@ -1013,6 +1024,7 @@
                     <connections>
                         <outlet property="beginButton" destination="eGO-aR-N2l" id="9AT-e4-sSj"/>
                         <outlet property="mainLabel" destination="sZv-E5-9HB" id="zB9-mt-shB"/>
+                        <outlet property="sendButton" destination="qzt-oX-rkZ" id="H8L-p7-jkR"/>
                         <segue destination="KBN-8C-xNN" kind="show" identifier="AgeAndGenderSegue" id="EQZ-N2-YRl"/>
                         <segue destination="pbZ-6v-qqf" kind="show" identifier="QuestionnaireSegue" id="eUc-fk-lPY"/>
                     </connections>
@@ -1350,17 +1362,10 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1.5" minValue="0.0" maxValue="3" translatesAutoresizingMaskIntoConstraints="NO" id="gmI-os-Y9J">
-                                <rect key="frame" x="18" y="332" width="564" height="31"/>
-                                <connections>
-                                    <action selector="onSliderMoved:" destination="pbZ-6v-qqf" eventType="valueChanged" id="EFa-2L-VDD"/>
-                                </connections>
-                            </slider>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="Ywx-Jk-MmP" secondAttribute="trailing" constant="8" id="0Ci-1N-EVd"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="gmI-os-Y9J" secondAttribute="trailing" id="1du-js-J7p"/>
                             <constraint firstAttribute="trailingMargin" secondItem="K86-bc-vPG" secondAttribute="trailing" constant="8" id="3rf-zZ-xq3"/>
                             <constraint firstItem="9uc-DB-nY0" firstAttribute="leading" secondItem="CFz-Ps-dlT" secondAttribute="leadingMargin" id="5Dm-92-8r6"/>
                             <constraint firstItem="K86-bc-vPG" firstAttribute="leading" secondItem="CFz-Ps-dlT" secondAttribute="leadingMargin" constant="8" id="AFv-A8-x9O"/>
@@ -1369,12 +1374,10 @@
                             <constraint firstItem="Gtp-vC-73r" firstAttribute="top" secondItem="w7K-eN-w2N" secondAttribute="bottom" constant="8" id="R20-tO-cCr"/>
                             <constraint firstItem="Gtp-vC-73r" firstAttribute="centerX" secondItem="CFz-Ps-dlT" secondAttribute="centerX" id="Weo-Xt-Iwa"/>
                             <constraint firstItem="Ywx-Jk-MmP" firstAttribute="top" secondItem="9uc-DB-nY0" secondAttribute="bottom" constant="8" id="Xd3-Ll-f9k"/>
-                            <constraint firstItem="gmI-os-Y9J" firstAttribute="top" secondItem="K86-bc-vPG" secondAttribute="bottom" constant="25" id="XvT-7Y-qNE"/>
                             <constraint firstAttribute="trailingMargin" secondItem="cYI-2o-Mgh" secondAttribute="trailing" constant="8" id="cNd-Be-XFU"/>
                             <constraint firstItem="8Yt-Rg-Zjf" firstAttribute="leading" secondItem="CFz-Ps-dlT" secondAttribute="leadingMargin" id="eeZ-23-BUG"/>
                             <constraint firstAttribute="trailingMargin" secondItem="II1-0a-9Up" secondAttribute="trailing" constant="8" id="ek4-Qa-G5y"/>
                             <constraint firstItem="cYI-2o-Mgh" firstAttribute="leading" secondItem="CFz-Ps-dlT" secondAttribute="leadingMargin" constant="8" id="fDy-3B-ci4"/>
-                            <constraint firstItem="gmI-os-Y9J" firstAttribute="leading" secondItem="CFz-Ps-dlT" secondAttribute="leadingMargin" id="j9z-rq-24m"/>
                             <constraint firstItem="Gtp-vC-73r" firstAttribute="leading" secondItem="CFz-Ps-dlT" secondAttribute="leadingMargin" id="mfX-nO-tFO"/>
                             <constraint firstAttribute="trailingMargin" secondItem="8Yt-Rg-Zjf" secondAttribute="trailing" id="nCE-An-fe5"/>
                             <constraint firstItem="II1-0a-9Up" firstAttribute="top" secondItem="AEq-4L-DRe" secondAttribute="bottom" constant="8" id="sgP-R5-KvH"/>
@@ -1392,7 +1395,6 @@
                     </view>
                     <connections>
                         <outlet property="nextOrFinishButton" destination="II1-0a-9Up" id="j02-M4-YvP"/>
-                        <outlet property="questionSlider" destination="gmI-os-Y9J" id="bAP-rP-vmL"/>
                         <outletCollection property="answersSegControl" destination="cYI-2o-Mgh" collectionClass="NSMutableArray" id="sz8-IF-NeW"/>
                         <outletCollection property="answersSegControl" destination="Ywx-Jk-MmP" collectionClass="NSMutableArray" id="Jfd-6b-cpo"/>
                         <outletCollection property="answersSegControl" destination="K86-bc-vPG" collectionClass="NSMutableArray" id="zYk-af-9rv"/>
@@ -1572,7 +1574,7 @@
         <image name="video-cam" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="yaZ-H1-Lc3"/>
-        <segue reference="zFt-bB-jtg"/>
+        <segue reference="eUc-fk-lPY"/>
+        <segue reference="LJD-S7-dqK"/>
     </inferredMetricsTieBreakers>
 </document>
