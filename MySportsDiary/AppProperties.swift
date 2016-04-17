@@ -37,6 +37,30 @@ class AppProperties {
 	}
 
 	///
+	/// GET
+	///
+	static func getDiaryStart() -> String? {
+		if let dict = NSDictionary(contentsOfURL: APP_PROP_URL)
+		as? Dictionary<String, String> {
+			if let dateString = dict[APP_DIARY_START] {
+				return dateString;
+			}
+		}
+		return nil; // was never set before
+	}
+
+	static func setDiaryStart(dateString: String) {
+		if var dict = NSDictionary(contentsOfURL: APP_PROP_URL)
+		as? Dictionary<String, String> {
+			dict.updateValue(dateString, forKey: APP_DIARY_START);
+			(dict as NSDictionary).writeToURL(APP_PROP_URL, atomically: true);
+		} else {
+			let dict = ([APP_DIARY_START: dateString] as NSDictionary);
+			dict.writeToURL(APP_PROP_URL, atomically: true); // first time setting
+		}
+	}
+
+	///
 	/// PURGE
 	///
 	static func purgeData() {

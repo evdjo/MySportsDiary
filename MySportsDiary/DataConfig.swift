@@ -50,6 +50,7 @@ let APP_PROP_NAME = "appproperties.plist";
 let APP_PROP_LOCATION: NSSearchPathDirectory = .LibraryDirectory
 let APP_PROP_URL = fileURLUnderParent(file: APP_PROP_NAME, parent: MASTER_DIR_URL);
 let APP_STATE_KEY = "APP_STATE";
+let APP_DIARY_START = "APP_DIARY_START";
 
 ///
 /// MEDIA FILE/FOLDER NAMES

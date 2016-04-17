@@ -88,7 +88,11 @@ class QuestionsVC: UIViewController {
 			handler: { action in
 				// then save answers
 				DataManagerInstance().setAppState(.Diary);
-
+				let dateNow = NSDate();
+				let dateAfter8Weeks = NSCalendar.currentCalendar()
+					.dateByAddingUnit(.Minute, value: 1, toDate: dateNow, options: [])!;
+                
+				DataManagerInstance().setDiaryStart(dateString(dateAfter8Weeks));
 				// enable second and third tabs, disable first, switch to second
 				// self.tabBarController!.tabBar.items![0].enabled = false;
 				self.tabBarController!.tabBar.items![1].enabled = true;

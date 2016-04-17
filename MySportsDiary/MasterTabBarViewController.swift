@@ -17,6 +17,21 @@ UITabBarControllerDelegate {
 	}
 	override func viewDidAppear(animated: Bool) {
 
+		if let endDateString = DataManagerInstance().getDiaryStart() {
+			let endDate = stringDate(endDateString);
+			let nowDate = NSDate();
+
+			switch endDate.compare(nowDate) {
+			case .OrderedAscending, .OrderedSame:
+				DataManagerInstance().setAppState(.Final);
+				self.selectedIndex = 0;
+
+			case .OrderedDescending:
+				self.selectedIndex = 1;
+			}
+			return;
+		}
+
 		let appState = DataManagerInstance().getAppState() ?? .Initial
 		if appState == .Diary {
 			self.selectedIndex = 1;

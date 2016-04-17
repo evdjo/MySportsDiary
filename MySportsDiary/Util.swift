@@ -60,6 +60,7 @@ internal func stringOptionalEqual(lhs: String?, rhs: String?) -> Bool {
 	}
 }
 
+/// to display on screen formatter
 internal var screenFormatter: NSDateFormatter {
 	let fmt = NSDateFormatter();
 	fmt.dateFormat = "dd/MM/yyyy HH:mm:ss"

@@ -11,10 +11,21 @@ import UIKit
 class InitialVC: UIViewController {
 
 	let INITAL_TEXT = "Click the bellow button to answer the initial questionnaire.";
-	let DIARY_TEXT = "Thanks for having answered the initial questionnaire." +
-		" You will answer the questionnaire again at the end." +
-		" Now you can add new entries in the diary.";
+
+	let DIARY_TEXT = "You've answered the questionnaire." +
+		" You will answer the questionnaire again, at the end." +
+		" You can now proceed to add new entries in the diary.\(InitialVC.dateToDisplay)";
 	let FINAL_TEXT = "Now you must answer the final questionnaire. Click below to begin.";
+
+	static private var dateToDisplay: String {
+		get {
+			if let dateString = DataManagerInstance().getDiaryStart() {
+				let date = stringDate(dateString);
+				return "\n\nYou will answer the diary again on \(screenDateString(date))"
+			}
+			return "";
+		}
+	}
 
 	@IBOutlet weak var mainLabel: UILabel!;
 	@IBOutlet weak var beginButton: UIButton!;
@@ -80,7 +91,7 @@ class InitialVC: UIViewController {
 		self.tabBarController?.tabBar.items?[1].enabled = false;
 		self.tabBarController?.tabBar.items?[2].enabled = false;
 		mainLabel.text = FINAL_TEXT;
-		beginButton.hidden = true;
+		beginButton.hidden = false;
 		sendButton.hidden = false;
 	}
 

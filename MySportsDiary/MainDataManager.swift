@@ -35,6 +35,8 @@ private class MainDataManager: DataManager {
 	func getAnswer(questionID: Int) -> Int? { return Questionnaire.getAnswer(questionID); }
 	func setAppState(appState: ApplicationState) { AppProperties.setAppState(appState); }
 	func getAppState() -> ApplicationState? { return AppProperties.getAppState(); }
+	func setDiaryStart(dateString: String) { AppProperties.setDiaryStart(dateString); }
+	func getDiaryStart() -> String? { return AppProperties.getDiaryStart(); }
 
 	func getImages(imagesURL: NSURL) -> Array<UIImage>? { return ImagesIO.getImages(imagesURL) }
 	func saveImage(imagesURL: NSURL, image: UIImage) { ImagesIO.saveImage(imagesURL, image: image) }

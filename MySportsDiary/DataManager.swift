@@ -21,6 +21,8 @@ protocol DataManager {
 
 	func getAppState() -> ApplicationState?;
 	func setAppState(appState: ApplicationState);
+	func setDiaryStart(dateString: String);
+	func getDiaryStart() -> String?;
 
 	func getImages(imagesURL: NSURL) -> [UIImage]?;
 	func getImagesCount(imagesURL: NSURL) -> Int;
