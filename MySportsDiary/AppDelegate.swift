@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	}
 
 	private func clearContentsIfTestEnvironment() {
+		DataManagerInstance().purgeAllData();
 		for arg in Process.arguments {
 			print(arg);
 			switch (arg) {
