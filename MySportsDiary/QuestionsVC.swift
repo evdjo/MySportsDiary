@@ -55,9 +55,9 @@ class QuestionsVC: UIViewController {
 		questionLabels[2].text = questions[startIndex + 2];
 		switch page {
 		case 0, 1:
-			bottomButton.setTitle("Next", forState: .Normal);
+			bottomButton.setTitle("NEXT", forState: .Normal);
 		default:
-			bottomButton.setTitle("Finish", forState: .Normal);
+			bottomButton.setTitle("FINISH", forState: .Normal);
 		}
 		pageLabel.text = "\(page + 1) / 3";
 	}

@@ -13,37 +13,37 @@ import MobileCoreServices
 class SingleEntryViewerVC: UIViewController, UIPopoverPresentationControllerDelegate {
 
 // UI elements
-	@IBOutlet weak var audioCountLabel: UILabel!
-	@IBOutlet weak var videoCountLabel: UILabel!
-	@IBOutlet weak var imagesCountLabel: UILabel!;
-	@IBOutlet weak var descriptionTextArea: UITextView!
-	@IBOutlet weak var topLabel: UILabel!
-	@IBOutlet weak var doneButton: UIButton!
+    @IBOutlet weak var audioCountLabel: UILabel!
+    @IBOutlet weak var videoCountLabel: UILabel!
+    @IBOutlet weak var imagesCountLabel: UILabel!;
+    @IBOutlet weak var descriptionTextArea: UITextView!
+    @IBOutlet weak var topLabel: UILabel!
+    @IBOutlet weak var doneButton: UIButton!
 
 ///The entry if this is an existing entry
-	internal var entry: Entry?;
+    internal var entry: Entry?;
 
 /// Is this a new entry or an existing one ?
-	internal var entryType: EntryType?;
+    internal var entryType: EntryType?;
 
 /// The skill chosen, if this is a new entry
-	internal var skill: String = "";
+    internal var skill: String = "";
 
 /// The delegate delegate that is responsible for where the media is saved/loaded from
-	internal var mediaDelegate: MediaPopoverDataDelegate!;
+    internal var mediaDelegate: MediaPopoverDataDelegate!;
 
 /// Delegate for the text view
-	private var textDelegate: DescriptionTextDelegate?;
+    private var textDelegate: DescriptionTextDelegate?;
 
 /// GPS Location getter
-	private var locationGetter: GPSLocationGetter?;
+    private var locationGetter: GPSLocationGetter?;
 
 /// just set the text delegate on load
-	override func viewDidLoad() {
-		super.viewDidLoad();
-		textDelegate = DescriptionTextDelegate();
-		descriptionTextArea.delegate = textDelegate;
-	}
+    override func viewDidLoad() {
+        super.viewDidLoad();
+        textDelegate = DescriptionTextDelegate();
+        descriptionTextArea.delegate = textDelegate;
+    }
 
 ///
 /// Hide the navigation bar.
@@ -57,99 +57,101 @@ class SingleEntryViewerVC: UIViewController, UIPopoverPresentationControllerDele
 ///
 /// Set the appropriate delegate for the data to use by the media pickers.
 ///
-	override func viewWillAppear(animated: Bool) {
-		super.viewWillAppear(animated);
-		navigationController?.navigationBarHidden = false;
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated);
+        navigationController?.navigationBarHidden = false;
 
-		guard entryType != nil else { print("entry type not set"); return }
+        guard entryType != nil else { print("entry type not set"); return }
 
-		switch (entryType!) {
-		case .New:
-			topLabel.text = "Tell us why rugby has helped you demonstrate \(skill.lowercaseString) today:";
-			descriptionTextArea.text = enterText;
-			descriptionTextArea.textColor = UIColor.lightGrayColor();
-			doneButton.setTitle("Add entry", forState: .Normal);
-			doneButton.backgroundColor = colorRGB(red: 151, green: 215, blue: 255, alpha: 1);
-			descriptionTextArea.textColor = UIColor.blackColor();
-			self.mediaDelegate = MediaPopoverDataDelegateNewEntry();
-			locationGetter = GPSLocationGetter(parentVC: self)
+        switch (entryType!) {
+        case .New:
+            topLabel.text = "Tell us why rugby has helped you demonstrate \(skill.lowercaseString) today:";
+            descriptionTextArea.text = enterText;
+            descriptionTextArea.textColor = UIColor.lightGrayColor();
+            doneButton.setTitle("SAVE", forState: .Normal);
+            doneButton.backgroundColor = colorRGB(red: 151, green: 215, blue: 255, alpha: 1);
+            descriptionTextArea.textColor = UIColor.blackColor();
+            self.mediaDelegate = MediaPopoverDataDelegateNewEntry();
+            locationGetter = GPSLocationGetter(parentVC: self)
 
-		case .Existing:
-			guard entry != nil else { print("entry found to be nil"); return }
-			topLabel.text = entry!.skill;
-			descriptionTextArea.text = entry!.description;
-			if entry!.description == enterText {
-				descriptionTextArea.textColor = UIColor.lightGrayColor();
-			}
-			doneButton.setTitle("Done editing", forState: .Normal);
-			doneButton.backgroundColor = colorRGB(red: 151, green: 151, blue: 255, alpha: 1);
-			self.mediaDelegate = MediaPopoverDataDelegateExistingEntry(entry: entry!);
-		}
+        case .Existing:
+            guard entry != nil else { print("entry found to be nil"); return }
+            topLabel.text = entry!.skill;
+            descriptionTextArea.text = entry!.description;
+            if entry!.description == enterText {
+                descriptionTextArea.textColor = UIColor.lightGrayColor();
+            }
+            doneButton.setTitle("Done editing", forState: .Normal);
+            doneButton.backgroundColor = colorRGB(red: 151, green: 151, blue: 255, alpha: 1);
+            self.mediaDelegate = MediaPopoverDataDelegateExistingEntry(entry: entry!);
+            audioCountLabel.text = "change voice";
+            imagesCountLabel.text = "change photo";
+            videoCountLabel.text = "change video";
+        }
 
-		updateAudioCountLabel();
-		updateImagesCountLabel();
-		updateVideoCountLabel();
-	}
+        updateAudioCountLabel();
+        updateImagesCountLabel();
+        updateVideoCountLabel();
+    }
 
 /// Update the small label indicating the count of audio files.
 /// Currently, since only 1 audio is allowed, the possible values are 0 or 1
-	func updateAudioCountLabel() {
-		audioCountLabel.text = mediaDelegate.audio == nil ? "0" : "1";
-	}
+    func updateAudioCountLabel() {
+        audioCountLabel.text = mediaDelegate.audio == nil ? "0" : "1";
+    }
 
 /// Update the small label indicating the count of video files.
 /// Currently, since only 1 video is allowed, the possible values are 0 or 1
-	func updateImagesCountLabel() {
-		imagesCountLabel.text = String(mediaDelegate.getImagesCount());
-	}
+    func updateImagesCountLabel() {
+        imagesCountLabel.text = String(mediaDelegate.getImagesCount());
+    }
 
 ///
 /// Update the small label indicating the count of images.
 ///
-	func updateVideoCountLabel() {
-		videoCountLabel.text = mediaDelegate.video == nil ? "0" : "1";
-	}
+    func updateVideoCountLabel() {
+        videoCountLabel.text = mediaDelegate.video == nil ? "0" : "1";
+    }
 /// Save the description text field if this is existing entry.
-	override func viewWillDisappear(animated: Bool) {
-		super.viewWillDisappear(animated);
-		if let entry = entry, let entryType = entryType where entryType == .Existing {
-			DataManagerInstance().updateEntryWithID(id: entry.entry_id, newDescr: descriptionTextArea.text)
-		}
-        
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated);
+        if let entry = entry, let entryType = entryType where entryType == .Existing {
+            DataManagerInstance().updateEntryWithID(id: entry.entry_id, newDescr: descriptionTextArea.text)
+        }
+
         locationGetter?.stop();
-        
-	}
+    }
 /// Set the presentaion view controller
 /// If this is the audio popover, set its height to 60
 /// Set the delegate of the media popover to be the mediaDelegate,
 /// which resides in this class as property
 ///
-	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-		let dest = segue.destinationViewController;
-		if var mediaVC = dest as? MediaPopover {
-			mediaVC.delegate = self.mediaDelegate;
-		}
-		var size = CGSize(width: view.frame.width, height: view.frame.height);
-		if segue.identifier! == "audioSegue" { size.height = 60; }
-		dest.preferredContentSize = size;
-		dest.popoverPresentationController?.delegate = self;
-		dest.popoverPresentationController?.sourceRect = (sender as! UIButton).bounds;
-		dest.popoverPresentationController?.backgroundColor = blue;
-		self.view.alpha = 0.20;
-	}
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let dest = segue.destinationViewController;
+        if var mediaVC = dest as? MediaPopover {
+            mediaVC.delegate = self.mediaDelegate;
+        }
+        var size = CGSize(width: view.frame.width, height: view.frame.height);
+        if segue.identifier! == "audioSegue" { size.height = 60; }
+        dest.preferredContentSize = size;
+        dest.popoverPresentationController?.delegate = self;
+        dest.popoverPresentationController?.sourceRect = (sender as! UIButton).bounds;
+        dest.popoverPresentationController?.backgroundColor = blue;
+        self.view.alpha = 0.20;
+    }
 /// When we either add a new entry or save existing one.
-	@IBAction func onAddEntryPressed(sender: AnyObject) {
-		switch (entryType!) {
-		case .New:
-			addNewEntry();
-		case .Existing:
-			onExistingSave();
-		}
-	}
+    @IBAction func onAddEntryPressed(sender: AnyObject) {
+        switch (entryType!) {
+        case .New:
+            addNewEntry();
+        case .Existing:
+            onExistingSave();
+        }
+    }
 /// Just popback to the entries view controller
-	private func onExistingSave() {
-		self.navigationController?.popToRootViewControllerAnimated(false);
-	}
+    private func onExistingSave() {
+        self.navigationController?.popToRootViewControllerAnimated(false);
+    }
 ///
 /// When this is a new entry, save all the details added so far,
 /// add a new entry in the database, and move the temp media folder,
@@ -157,39 +159,39 @@ class SingleEntryViewerVC: UIViewController, UIPopoverPresentationControllerDele
 /// That is the folder in Library/Caches/temp_media
 /// goes to Library/entries/[datetimestamp here]
 ///
-	private func addNewEntry() {
-		let del = mediaDelegate as! MediaPopoverDataDelegateNewEntry
-		let date = dateString(NSDate());
-		let dir = fileURLUnderParent(file: date, parent: ENTRIES_DIR_URL);
-		del.move(destination: dir);
-		let loc = locationGetter?.getLocation();
-		let lat = loc?.coordinate.latitude ?? 0.0;
-		let lon = loc?.coordinate.longitude ?? 0.0;
+    private func addNewEntry() {
+        let del = mediaDelegate as! MediaPopoverDataDelegateNewEntry
+        let date = dateString(NSDate());
+        let dir = fileURLUnderParent(file: date, parent: ENTRIES_DIR_URL);
+        del.move(destination: dir);
+        let loc = locationGetter?.getLocation();
+        let lat = loc?.coordinate.latitude ?? 0.0;
+        let lon = loc?.coordinate.longitude ?? 0.0;
 
-		DataManagerInstance().addNewEntry(
-			Entry(entry_id: -1,
-				skill: skill,
-				description: descriptionTextArea.text ?? "",
-				date_time: date,
-				latitude: lat,
-				longitude: lon)
-		)
+        DataManagerInstance().addNewEntry(
+            Entry(entry_id: -1,
+                skill: skill,
+                description: descriptionTextArea.text ?? "",
+                date_time: date,
+                latitude: lat,
+                longitude: lon)
+        )
 
-		self.tabBarController?.selectedIndex = 1;
-	}
+        self.tabBarController?.selectedIndex = 2;
+    }
 ///
 /// Change the alpha back to 1.0
 /// Update the count on the small labels.
 ///
-	func popoverPresentationControllerDidDismissPopover(controller: UIPopoverPresentationController) {
-		self.view.alpha = 1.0;
-		updateAudioCountLabel();
-		updateImagesCountLabel();
-		updateVideoCountLabel();
-	}
+    func popoverPresentationControllerDidDismissPopover(controller: UIPopoverPresentationController) {
+        self.view.alpha = 1.0;
+        updateAudioCountLabel();
+        updateImagesCountLabel();
+        updateVideoCountLabel();
+    }
 /// To back the popovers work.
-	func adaptivePresentationStyleForPresentationController(
-		_: UIPresentationController) -> UIModalPresentationStyle {
-			return .None;
-	}
+    func adaptivePresentationStyleForPresentationController(
+        _: UIPresentationController) -> UIModalPresentationStyle {
+            return .None;
+    }
 }

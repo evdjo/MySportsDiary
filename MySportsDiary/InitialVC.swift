@@ -68,7 +68,6 @@ class InitialVC: UIViewController {
 		self.tabBarController?.tabBar.items![2].enabled = true;
 		mainLabel.text = DIARY_TEXT;
 		beginButton.hidden = true;
-		sendButton.hidden = false;
 	}
 
 	///
@@ -80,7 +79,6 @@ class InitialVC: UIViewController {
 		self.tabBarController?.tabBar.items?[2].enabled = false;
 		mainLabel.text = INITAL_TEXT;
 		beginButton.hidden = false;
-		sendButton.hidden = true;
 	}
 
 	///
@@ -92,7 +90,6 @@ class InitialVC: UIViewController {
 		self.tabBarController?.tabBar.items?[2].enabled = false;
 		mainLabel.text = FINAL_TEXT;
 		beginButton.hidden = false;
-		sendButton.hidden = false;
 	}
 
 	///
