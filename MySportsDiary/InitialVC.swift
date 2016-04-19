@@ -10,7 +10,7 @@ import UIKit
 
 class InitialVC: UIViewController {
 
-	let INITAL_TEXT = "Click the bellow button to answer the initial questionnaire.";
+	let INITAL_TEXT = "Welcome to MyRugbyDiary.\n\n Please answer an initial questionnaire. Then you can add diary entries to express how Rugby influences your daily life.";
 
 	let DIARY_TEXT = "You've answered the questionnaire." +
 		" You will answer the questionnaire again, at the end." +

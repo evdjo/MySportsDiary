@@ -8,12 +8,12 @@
 
 import UIKit
 
-class AgeGenderVC: UIViewController {
+class AgeGenderVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
 	@IBOutlet weak var genderSegmentedControl: UISegmentedControl!
-	@IBOutlet weak var ageSlider: UISlider!
-	@IBOutlet weak var ageLabel: UILabel!
 	@IBOutlet weak var nextButton: UIButton!
+
+	@IBOutlet weak var agePickerView: UIPickerView!
 
 	private var ageIsSet = false;
 	private var genderIsSet = false;
@@ -21,7 +21,8 @@ class AgeGenderVC: UIViewController {
 	override func viewDidLoad() {
 		/// set the accesibility identifiers -- used in testing
 		genderSegmentedControl.accessibilityIdentifier = Accessibility.GenderSegmentedControl
-		ageSlider.accessibilityIdentifier = Accessibility.AgeSlider;
+		agePickerView.delegate = self;
+		agePickerView.dataSource = self;
 	}
 
 	///
@@ -56,26 +57,35 @@ class AgeGenderVC: UIViewController {
 	private func loadAge() {
 		let age = DataManagerInstance().getAge();
 		if let age = age {
-			ageLabel.text = String(age);
-			ageSlider.value = Float(age);
+			agePickerView.selectRow(age, inComponent: 0, animated: false);
 			ageIsSet = true;
 		} else { print("age was not set yet, not loading ");ageIsSet = false; }
 	}
 
-	///
-	/// Age slider
-	///
-	@IBAction func onAgeSliderMoved(sender: UISlider) {
-		ageLabel.text = String(Int(ageSlider.value));
-		ageIsSet = true;
+	func pickerView(pickerView: UIPickerView, didSelectRow row: Int,
+		inComponent component: Int) {
+			DataManagerInstance().setAge(row + 1);
+			ageIsSet = true;
+			if (genderIsSet) {
+				nextButton.enabled = true;
+				nextButton.alpha = 1.0;
+			}
 	}
-	@IBAction func onAgeSliderValueChanged(sender: UISlider) {
-		DataManagerInstance().setAge(Int(ageSlider.value));
-		ageIsSet = true;
-		if (genderIsSet) {
-			nextButton.enabled = true;
-			nextButton.alpha = 1.0;
+
+	func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+		return 1;
+	}
+
+	func pickerView(pickerView: UIPickerView,
+		numberOfRowsInComponent component: Int) -> Int {
+			return 99;
+	}
+
+	func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+		if (row == 0) {
+			return " ";
 		}
+		return String(row);
 	}
 	///
 	/// Gender segment control

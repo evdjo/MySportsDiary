@@ -85,3 +85,5 @@ internal func colorRGB(red red: Int, green: Int, blue: Int, alpha: Float) -> UIC
 		blue: Float(blue) / 255,
 		alpha: alpha)
 }
+
+internal var appBlueColor = colorRGB(red: 151, green: 215, blue: 255, alpha: 1.0);

@@ -12,7 +12,8 @@ class QuestionsVC: UIViewController {
 
 	let questions = [
 		"I do well at any sports I play",
-		"I am happy to be me.", "I get angry often",
+		"I am happy to be me",
+		"I get angry often",
 		"I hit people if they start the fight",
 		"I accept responsibility for my behaviour if I make a mistake",
 		"I do very well in my school work",
@@ -27,23 +28,27 @@ class QuestionsVC: UIViewController {
 	private var page: Int = 0;
 	@IBOutlet weak var pageLabel: UILabel!
 	@IBOutlet weak var bottomButton: UIButton!
+
 	@IBOutlet var questionLabels: [UILabel]!
 	@IBOutlet var theview: [CustomSliderOut]!
 	@IBOutlet var sliders: [UISlider]!
 
-	@IBOutlet weak var disagree: UILabel!
-	@IBOutlet weak var agree: UILabel!
+	@IBOutlet var sliderValueLabel: [UILabel]!
+
+	@IBOutlet var disagree: [UILabel]!
+	@IBOutlet var agree: [UILabel]!
+
 	@IBAction func onSliderMoved(sender: UISlider) {
 		if let index = sliders.indexOf(sender) {
-			let scale = Float(theview[index].scaleMultiplier) - 1;
-			let val = Int(sender.value / 100 * scale)
-			theview[index].selectedValue = val
-			if (index == 0) {
 
-				agree.hidden = val > 95;
-				disagree.hidden = val < 5;
-			}
-			print(agree.alpha);
+			// scale to the max of the selected value
+			let scale = sender.value / sender.maximumValue * CustomSliderOut.maxValue
+
+			theview[index].scale = scale
+
+			agree[index].alpha = CGFloat(sender.value / 10);
+			disagree[index].alpha = 1 - CGFloat(sender.value / 10);
+			sliderValueLabel[index].text = String(Int(sender.value));
 		}
 	}
 ///
@@ -51,12 +56,15 @@ class QuestionsVC: UIViewController {
 ///
 	override func viewDidLoad() {
 		super.viewDidLoad();
+		bottomButton.enabled = false;
+
 		theview.forEach({ slider in
 			slider.color = UIColor.cyanColor();
 		})
 	}
 
 	override func viewWillAppear(animated: Bool) {
+		bottomButton.enabled = true;
 		super.viewWillAppear(animated);
 		let startIndex = page * 3;
 		questionLabels[0].text = questions[startIndex];
@@ -64,9 +72,9 @@ class QuestionsVC: UIViewController {
 		questionLabels[2].text = questions[startIndex + 2];
 		switch page {
 		case 0, 1:
-			bottomButton.setTitle("NEXT", forState: .Normal);
+			bottomButton.setTitle("Next", forState: .Normal);
 		default:
-			bottomButton.setTitle("FINISH", forState: .Normal);
+			bottomButton.setTitle("Finish", forState: .Normal);
 		}
 		pageLabel.text = "\(page + 1) / 3";
 	}

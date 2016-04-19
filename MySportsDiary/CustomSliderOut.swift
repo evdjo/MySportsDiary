@@ -10,14 +10,16 @@ import UIKit
 
 class CustomSliderOut: UIView {
 
-	var color: UIColor? ;
-	let scaleMultiplier = 100;
-	var selectedValue = 50 {
+	var color: UIColor = appBlueColor;
+	static let minValue: Float = 0.0;
+	static let maxValue: Float = 1.0;
+
+	var scale: Float = 0.5 {
 		didSet {
-			if (0 <= selectedValue && selectedValue < scaleMultiplier) {
+			if (CustomSliderOut.minValue <= scale && scale <= CustomSliderOut.maxValue) {
 				self.layer.setNeedsDisplay();
 			} else {
-				print("bad input\(selectedValue)");
+				print("bad input \(scale)");
 			}
 		}
 	}
@@ -27,12 +29,9 @@ class CustomSliderOut: UIView {
 		let height = self.layer.frame.height;
 		let width = self.layer.frame.width;
 
-		// get the scaleed value
-		let scale = CGFloat(selectedValue) / CGFloat(scaleMultiplier);
-
 		// scale the width & height
-		let scaledWidth = scale * width;
-		let scaledHeight = height - scale * height;
+		let scaledWidth = CGFloat(scale) * width;
+		let scaledHeight = height - (CGFloat(scale) * height);
 		let path = UIBezierPath();
 
 		// print(scaledWidth);
@@ -45,8 +44,8 @@ class CustomSliderOut: UIView {
 		path.addLineToPoint(CGPointMake(0, height));
 		path.closePath();
 
-		// default to black
-		(color ?? UIColor.blackColor()).setFill();
+		// default to appBlueColor
+		(appBlueColor).setFill();
 
 		path.fill();
 		let layer = CAShapeLayer();
