@@ -51,7 +51,8 @@ class GPSLocationGetter: NSObject, CLLocationManagerDelegate {
 
 	func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
 		let errorType = error.code == CLError.Denied.rawValue ? "Access Denied" : "Error \(error.code)" ;
-		alertWithMessage(parentVC, title: "Failed to get the location.", message: errorType);
+		print(errorType);
+		// alertWithMessage(parentVC, title: "Failed to get the location.", message: errorType);
 	}
 
 	func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {

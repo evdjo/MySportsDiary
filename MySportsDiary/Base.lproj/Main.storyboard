@@ -1220,19 +1220,35 @@
                                                     <action selector="onSliderMoved:" destination="pbZ-6v-qqf" eventType="valueChanged" id="ibF-gf-Urf"/>
                                                 </connections>
                                             </slider>
+                                            <label opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Agree" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fIa-7H-rVb">
+                                                <rect key="frame" x="0.0" y="54" width="46" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Disagree" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hM9-bh-eLN">
+                                                <rect key="frame" x="513" y="54" width="57" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="kmE-ai-3GM" firstAttribute="centerY" secondItem="d3H-gy-zL2" secondAttribute="centerY" id="4AB-Te-7cB"/>
                                             <constraint firstItem="nWi-hk-ZcU" firstAttribute="top" secondItem="kmE-ai-3GM" secondAttribute="bottom" constant="-25" id="4IP-bi-Vuk"/>
                                             <constraint firstAttribute="trailing" secondItem="kmE-ai-3GM" secondAttribute="trailing" id="7BT-U4-Qj3"/>
+                                            <constraint firstItem="fIa-7H-rVb" firstAttribute="leading" secondItem="kmE-ai-3GM" secondAttribute="leading" id="8Rs-bN-NqO"/>
                                             <constraint firstItem="kmE-ai-3GM" firstAttribute="top" secondItem="rbz-ES-RRq" secondAttribute="bottom" constant="8" id="B9i-e2-fp6"/>
                                             <constraint firstItem="kmE-ai-3GM" firstAttribute="leading" secondItem="d3H-gy-zL2" secondAttribute="leading" id="Buz-c9-4Jh"/>
                                             <constraint firstItem="rbz-ES-RRq" firstAttribute="centerX" secondItem="kmE-ai-3GM" secondAttribute="centerX" id="CaT-9h-lmP"/>
                                             <constraint firstAttribute="trailing" secondItem="nWi-hk-ZcU" secondAttribute="trailing" id="IQz-km-2NM"/>
+                                            <constraint firstItem="fIa-7H-rVb" firstAttribute="top" secondItem="kmE-ai-3GM" secondAttribute="top" id="SQT-1Q-We4"/>
                                             <constraint firstItem="nWi-hk-ZcU" firstAttribute="leading" secondItem="d3H-gy-zL2" secondAttribute="leading" id="ZjV-lA-9BN"/>
                                             <constraint firstAttribute="trailing" secondItem="rbz-ES-RRq" secondAttribute="trailing" id="fVt-nE-bC0"/>
                                             <constraint firstItem="nWi-hk-ZcU" firstAttribute="centerX" secondItem="kmE-ai-3GM" secondAttribute="centerX" id="hRZ-1k-JQE"/>
+                                            <constraint firstItem="hM9-bh-eLN" firstAttribute="top" secondItem="kmE-ai-3GM" secondAttribute="top" id="lKX-fS-myz"/>
+                                            <constraint firstItem="hM9-bh-eLN" firstAttribute="trailing" secondItem="kmE-ai-3GM" secondAttribute="trailing" id="p35-nJ-6Hn"/>
                                             <constraint firstItem="rbz-ES-RRq" firstAttribute="leading" secondItem="d3H-gy-zL2" secondAttribute="leading" id="wyU-1z-du6"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
@@ -1385,7 +1401,9 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="agree" destination="fIa-7H-rVb" id="WSB-Yl-x5j"/>
                         <outlet property="bottomButton" destination="II1-0a-9Up" id="Ka3-sS-b1A"/>
+                        <outlet property="disagree" destination="hM9-bh-eLN" id="YFH-B4-OBq"/>
                         <outlet property="pageLabel" destination="AEq-4L-DRe" id="4fK-LB-Xsn"/>
                         <outletCollection property="theview" destination="kmE-ai-3GM" collectionClass="NSMutableArray" id="CTe-3X-W0d"/>
                         <outletCollection property="theview" destination="hCj-8p-f4N" collectionClass="NSMutableArray" id="gOg-bI-3xI"/>

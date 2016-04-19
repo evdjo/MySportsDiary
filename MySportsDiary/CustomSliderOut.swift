@@ -35,8 +35,8 @@ class CustomSliderOut: UIView {
 		let scaledHeight = height - scale * height;
 		let path = UIBezierPath();
 
-		print(scaledWidth);
-		print(scaledHeight);
+		// print(scaledWidth);
+		// print(scaledHeight);
 
 		// draw our triangle
 		path.moveToPoint(CGPointMake(0, height));

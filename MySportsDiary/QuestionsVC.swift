@@ -31,15 +31,24 @@ class QuestionsVC: UIViewController {
 	@IBOutlet var theview: [CustomSliderOut]!
 	@IBOutlet var sliders: [UISlider]!
 
+	@IBOutlet weak var disagree: UILabel!
+	@IBOutlet weak var agree: UILabel!
 	@IBAction func onSliderMoved(sender: UISlider) {
 		if let index = sliders.indexOf(sender) {
 			let scale = Float(theview[index].scaleMultiplier) - 1;
-			theview[index].selectedValue = Int(sender.value / 100 * scale)
+			let val = Int(sender.value / 100 * scale)
+			theview[index].selectedValue = val
+			if (index == 0) {
+
+				agree.hidden = val > 95;
+				disagree.hidden = val < 5;
+			}
+			print(agree.alpha);
 		}
 	}
-	///
-	/// App lifecycle methods
-	///
+///
+/// App lifecycle methods
+///
 	override func viewDidLoad() {
 		super.viewDidLoad();
 		theview.forEach({ slider in
@@ -91,7 +100,7 @@ class QuestionsVC: UIViewController {
 				let dateNow = NSDate();
 				let dateAfter8Weeks = NSCalendar.currentCalendar()
 					.dateByAddingUnit(.Minute, value: 10, toDate: dateNow, options: [])!;
-                
+
 				DataManagerInstance().setDiaryStart(dateString(dateAfter8Weeks));
 				// enable second and third tabs, disable first, switch to second
 				// self.tabBarController!.tabBar.items![0].enabled = false;

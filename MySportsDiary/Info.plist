@@ -25,7 +25,7 @@
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>Stalk you maybe?</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>We need GPS permission to determine where you add your entries. Allow ?</string>
+	<string>We need GPS permission to determine where you add your entries.</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
