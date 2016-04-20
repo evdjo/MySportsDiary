@@ -9,7 +9,6 @@
 import UIKit
 
 class QuestionsVC: UIViewController {
-
 	let questions = [
 		"I do well at any sports I play",
 		"I am happy to be me",
@@ -40,7 +39,6 @@ class QuestionsVC: UIViewController {
 
 	@IBAction func onSliderMoved(sender: UISlider) {
 		if let index = sliders.indexOf(sender) {
-
 			// scale to the max of the selected value
 			let scale = sender.value / sender.maximumValue * CustomSliderOut.maxValue
 
@@ -80,6 +78,9 @@ class QuestionsVC: UIViewController {
 	}
 
 	@IBAction func onBottomButtonPressed(sender: AnyObject) {
+		DataManagerInstance().setAnswer(page * 3 + 0, answer: Int(sliders[0].value));
+		DataManagerInstance().setAnswer(page * 3 + 1, answer: Int(sliders[1].value));
+		DataManagerInstance().setAnswer(page * 3 + 2, answer: Int(sliders[2].value));
 		if page < 2 {
 			let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Questionnaire");
 			(vc as! QuestionsVC).page = self.page + 1;

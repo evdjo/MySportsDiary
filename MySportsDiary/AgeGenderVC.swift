@@ -52,23 +52,36 @@ class AgeGenderVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
 			let selectedIndex: Int = gender == .BOY ? 0 : 1;
 			genderSegmentedControl.selectedSegmentIndex = selectedIndex;
 			genderIsSet = true ;
-		} else { print("gender was not set yet, not loading "); genderIsSet = false; }
+		} else {
+			genderIsSet = false;
+		}
 	}
 	private func loadAge() {
 		let age = DataManagerInstance().getAge();
 		if let age = age {
 			agePickerView.selectRow(age, inComponent: 0, animated: false);
 			ageIsSet = true;
-		} else { print("age was not set yet, not loading ");ageIsSet = false; }
+		} else {
+			ageIsSet = false;
+		}
 	}
 
+	///
+	/// Age picker
+	//
 	func pickerView(pickerView: UIPickerView, didSelectRow row: Int,
 		inComponent component: Int) {
-			DataManagerInstance().setAge(row + 1);
-			ageIsSet = true;
-			if (genderIsSet) {
-				nextButton.enabled = true;
-				nextButton.alpha = 1.0;
+			if (row == 0) {
+				ageIsSet = false;
+				nextButton.enabled = false;
+				nextButton.alpha = 0.5;
+			} else {
+				DataManagerInstance().setAge(row);
+				ageIsSet = true;
+				if (genderIsSet) {
+					nextButton.enabled = true;
+					nextButton.alpha = 1.0;
+				}
 			}
 	}
 
@@ -78,7 +91,7 @@ class AgeGenderVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
 
 	func pickerView(pickerView: UIPickerView,
 		numberOfRowsInComponent component: Int) -> Int {
-			return 99;
+			return 150;
 	}
 
 	func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {

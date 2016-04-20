@@ -9,12 +9,13 @@
 import UIKit
 
 class InitialVC: UIViewController {
+	let INITAL_TEXT = "Hello. You will see a few requests for information appear on the next two screens. Please respond in order to access your diary.";
 
-	let INITAL_TEXT = "Welcome to MyRugbyDiary.\n\n Please answer an initial questionnaire. Then you can add diary entries to express how Rugby influences your daily life.";
+	let DIARY_TEXT = "Hello. Leave text, audio, or video messages to explain"
+		+ " how you think rugby helped change you today.\n\n"
+		+ " You can also add photos to help us see where you have"
+		+ " been using your skills off the pitch.\(InitialVC.dateToDisplay)";
 
-	let DIARY_TEXT = "You've answered the questionnaire." +
-		" You will answer the questionnaire again, at the end." +
-		" You can now proceed to add new entries in the diary.\(InitialVC.dateToDisplay)";
 	let FINAL_TEXT = "Now you must answer the final questionnaire. Click below to begin.";
 
 	static private var dateToDisplay: String {
@@ -66,6 +67,7 @@ class InitialVC: UIViewController {
 	private func setForDiaryMode() {
 		self.tabBarController?.tabBar.items![1].enabled = true;
 		self.tabBarController?.tabBar.items![2].enabled = true;
+		self.tabBarController?.selectedIndex = 1;
 		mainLabel.text = DIARY_TEXT;
 		beginButton.hidden = true;
 	}

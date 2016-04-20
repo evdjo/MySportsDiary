@@ -10,7 +10,6 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
 	var window: UIWindow?
 
 	func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
@@ -20,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	}
 
 	private func clearContentsIfTestEnvironment() {
-		DataManagerInstance().purgeAllData();
+		// DataManagerInstance().purgeAllData();
 		for arg in Process.arguments {
 			print(arg);
 			switch (arg) {

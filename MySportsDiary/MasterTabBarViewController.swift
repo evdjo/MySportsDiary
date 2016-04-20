@@ -10,13 +10,11 @@ import UIKit
 
 class MasterTabBarViewController: UITabBarController,
 UITabBarControllerDelegate {
-
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		self.delegate = self;
 	}
 	override func viewDidAppear(animated: Bool) {
-
 		if let endDateString = DataManagerInstance().getDiaryStart() {
 			let endDate = stringDate(endDateString);
 			let nowDate = NSDate();
@@ -36,6 +34,13 @@ UITabBarControllerDelegate {
 		if appState == .Diary {
 			self.selectedIndex = 1;
 		}
+	}
+	func tabBarController(tabBarController: UITabBarController, shouldSelectViewController viewController: UIViewController) -> Bool {
+		let targetIndex = self.viewControllers?.indexOf(viewController);
+		if targetIndex == self.selectedIndex {
+			return false;
+		}
+		return true;
 	}
 
 	func tabBarController(tabBarController: UITabBarController,
