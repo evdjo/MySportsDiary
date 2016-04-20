@@ -9,100 +9,106 @@
 import UIKit
 
 class InitialVC: UIViewController {
-	let INITAL_TEXT = "Hello. You will see a few requests for information appear on the next two screens. Please respond in order to access your diary.";
+    let INITAL_TEXT = "Hello. You will see a few requests for information appear on the next two screens. Please respond in order to access your diary.";
 
-	let DIARY_TEXT = "Hello. Leave text, audio, or video messages to explain"
-		+ " how you think rugby helped change you today.\n\n"
-		+ " You can also add photos to help us see where you have"
-		+ " been using your skills off the pitch.\(InitialVC.dateToDisplay)";
+    let DIARY_TEXT = "Hello. Leave text, audio, or video messages to explain"
+        + " how you think rugby helped change you today.\n\n"
+        + " You can also add photos to help us see where you have"
+        + " been using your skills off the pitch.\(InitialVC.dateToDisplay)";
 
-	let FINAL_TEXT = "Now you must answer the final questionnaire. Click below to begin.";
+    let FINAL_TEXT = "Now you must answer the final questionnaire. Click below to begin.";
 
-	static private var dateToDisplay: String {
-		get {
-			if let dateString = DataManagerInstance().getDiaryStart() {
-				let date = stringDate(dateString);
-				return "\n\nYou will answer the diary again on \(screenDateString(date))"
-			}
-			return "";
-		}
-	}
+    static private var dateToDisplay: String {
+        get {
+            if let dateString = DataManagerInstance().getDiaryStart() {
+                let date = stringDate(dateString);
+                return "\n\nYou will answer the diary again on \(screenDateString(date))"
+            }
+            return "";
+        }
+    }
+    @IBOutlet weak var newEntryButton: UIButton!
 
-	@IBOutlet weak var mainLabel: UILabel!;
-	@IBOutlet weak var beginButton: UIButton!;
-	@IBOutlet weak var sendButton: UIButton!
+    @IBAction func onNewEntryPressed(sender: AnyObject) {
+        self.tabBarController?.selectedIndex = 1;
+    }
+    @IBOutlet weak var mainLabel: UILabel!;
+    @IBOutlet weak var beginButton: UIButton!;
+    @IBOutlet weak var sendButton: UIButton!
 
-	@IBAction func onSendPressed(sender: AnyObject) {
-	}
-	override func viewDidLoad() {
-		super.viewDidLoad();
-		mainLabel.accessibilityIdentifier = Accessibility.MainLabel;
-		beginButton.accessibilityIdentifier = Accessibility.BeginButton;
-	}
+    @IBAction func onSendPressed(sender: AnyObject) {
+    }
+    override func viewDidLoad() {
+        super.viewDidLoad();
+        mainLabel.accessibilityIdentifier = Accessibility.MainLabel;
+        beginButton.accessibilityIdentifier = Accessibility.BeginButton;
+    }
 
-	///
-	/// Hide back button. If enable the second and third
-	/// tab bars if we are in Diary mode, else only the first tab bar is enabled.
-	///
-	override func viewWillAppear(animated: Bool) {
-		super.viewWillAppear(animated);
+    ///
+    /// Hide back button. If enable the second and third
+    /// tab bars if we are in Diary mode, else only the first tab bar is enabled.
+    ///
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated);
 
-		let appState = DataManagerInstance().getAppState() ?? .Initial
-		switch (appState) {
-		case (.Diary):
-			setForDiaryMode();
-		case (.Initial):
-			setForInitialMode();
-		case (.Final):
-			setForFinalMode();
-		}
-		// hide the bar above, since there is no back screen to move to,
-		// and the back button is not there
-		self.navigationController?.setNavigationBarHidden(true, animated: true);
-	}
-	///
-	/// Enable the second and third tabs
-	/// Hide the begin button in the first tab
-	///
-	private func setForDiaryMode() {
-		self.tabBarController?.tabBar.items![1].enabled = true;
-		self.tabBarController?.tabBar.items![2].enabled = true;
-		self.tabBarController?.selectedIndex = 1;
-		mainLabel.text = DIARY_TEXT;
-		beginButton.hidden = true;
-	}
+        let appState = DataManagerInstance().getAppState() ?? .Initial
+        switch (appState) {
+        case (.Diary):
+            setForDiaryMode();
+        case (.Initial):
+            setForInitialMode();
+        case (.Final):
+            setForFinalMode();
+        }
+        // hide the bar above, since there is no back screen to move to,
+        // and the back button is not there
+        self.navigationController?.setNavigationBarHidden(true, animated: true);
+    }
+    ///
+    /// Enable the second and third tabs
+    /// Hide the begin button in the first tab
+    ///
+    private func setForDiaryMode() {
+        self.tabBarController?.tabBar.items![1].enabled = true;
+        self.tabBarController?.tabBar.items![2].enabled = true;
+//		self.tabBarController?.selectedIndex = 1;
+        newEntryButton.hidden = false;
+        newEntryButton.enabled = true;
+        mainLabel.text = DIARY_TEXT;
+        beginButton.hidden = true;
+    }
 
-	///
-	/// Hide the second and third tabs
-	/// Make the begin button visible
-	///
-	private func setForInitialMode() {
-		self.tabBarController?.tabBar.items?[1].enabled = false;
-		self.tabBarController?.tabBar.items?[2].enabled = false;
-		mainLabel.text = INITAL_TEXT;
-		beginButton.hidden = false;
-	}
+    ///
+    /// Hide the second and third tabs
+    /// Make the begin button visible
+    ///
+    private func setForInitialMode() {
+        self.tabBarController?.tabBar.items?[1].enabled = false;
+        self.tabBarController?.tabBar.items?[2].enabled = false;
+        mainLabel.text = INITAL_TEXT;
+        beginButton.hidden = false;
+    }
 
-	///
-	/// Disable the second and third tabs again
-	/// Show the begin button
-	///
-	private func setForFinalMode() {
-		self.tabBarController?.tabBar.items?[1].enabled = false;
-		self.tabBarController?.tabBar.items?[2].enabled = false;
-		mainLabel.text = FINAL_TEXT;
-		beginButton.hidden = false;
-	}
+    ///
+    /// Disable the second and third tabs again
+    /// Show the begin button
+    ///
+    private func setForFinalMode() {
+        self.tabBarController?.tabBar.items?[1].enabled = false;
+        self.tabBarController?.tabBar.items?[2].enabled = false;
+        mainLabel.text = FINAL_TEXT;
+        beginButton.hidden = false;
+    }
 
-	///
-	/// See if it is the first survey or final survey...
-	///
-	@IBAction func onSurveyBegin(sender: AnyObject) {
-		let appState = DataManagerInstance().getAppState() ?? .Initial;
-		if (appState == .Initial) {
-			self.performSegueWithIdentifier("AgeAndGenderSegue", sender: sender);
-		} else {
-			self.performSegueWithIdentifier("QuestionnaireSegue", sender: sender);
-		}
-	}
+    ///
+    /// See if it is the first survey or final survey...
+    ///
+    @IBAction func onSurveyBegin(sender: AnyObject) {
+        let appState = DataManagerInstance().getAppState() ?? .Initial;
+        if (appState == .Initial) {
+            self.performSegueWithIdentifier("AgeAndGenderSegue", sender: sender);
+        } else {
+            self.performSegueWithIdentifier("QuestionnaireSegue", sender: sender);
+        }
+    }
 }
