@@ -96,12 +96,15 @@ class SingleEntryViewerVC: UIViewController, UIPopoverPresentationControllerDele
 /// Currently, since only 1 audio is allowed, the possible values are 0 or 1
 	func updateAudioCountLabel() {
 		audioCountLabel.text = mediaDelegate.audio == nil ? "0" : "1";
+		audioCountLabel.hidden = mediaDelegate.audio == nil;
 	}
 
 /// Update the small label indicating the count of video files.
 /// Currently, since only 1 video is allowed, the possible values are 0 or 1
 	func updateImagesCountLabel() {
-		imagesCountLabel.text = String(mediaDelegate.getImagesCount());
+		let imagesCount = mediaDelegate.getImagesCount()
+		imagesCountLabel.text = String(imagesCount);
+		imagesCountLabel.hidden = 0 == imagesCount;
 	}
 
 ///
@@ -109,6 +112,7 @@ class SingleEntryViewerVC: UIViewController, UIPopoverPresentationControllerDele
 ///
 	func updateVideoCountLabel() {
 		videoCountLabel.text = mediaDelegate.video == nil ? "0" : "1";
+		videoCountLabel.hidden = mediaDelegate.video == nil;
 	}
 /// Save the description text field if this is existing entry.
 	override func viewWillDisappear(animated: Bool) {
