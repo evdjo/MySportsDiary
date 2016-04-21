@@ -21,7 +21,6 @@
 		1B396BF81C960D9B00986749 /* EntriesDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B396BF71C960D9B00986749 /* EntriesDB.swift */; };
 		1B396BFA1C960EB000986749 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B396BF91C960EB000986749 /* libsqlite3.tbd */; };
 		1B396BFF1C96200500986749 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B396BF91C960EB000986749 /* libsqlite3.tbd */; };
-		1B510DA61CA742FD008A4F6B /* QuestionnaireUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B510DA51CA742FD008A4F6B /* QuestionnaireUITests.swift */; };
 		1B5A3C2C1CAD031300DA118A /* DataUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5A3C2B1CAD031300DA118A /* DataUtil.swift */; };
 		1B5A3C2E1CAD034600DA118A /* AppProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5A3C2D1CAD034600DA118A /* AppProperties.swift */; };
 		1B5A3C301CAD08E000DA118A /* UserProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5A3C2F1CAD08E000DA118A /* UserProperties.swift */; };
@@ -45,6 +44,8 @@
 		3F86B07C1CC2F91900DEA036 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F86B07B1CC2F91900DEA036 /* MapKit.framework */; };
 		3F930E991CBB240300922185 /* EntryDatabaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F930E981CBB240300922185 /* EntryDatabaseTests.swift */; };
 		3F9455AF1CC3FCD300C73860 /* CustomSliderOut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9455AE1CC3FCD300C73860 /* CustomSliderOut.swift */; };
+		3FAFCB381CC935C00048E48D /* InitialViewUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAFCB371CC935C00048E48D /* InitialViewUITest.swift */; };
+		3FAFCB3A1CC938380048E48D /* AgeGenderViewUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAFCB391CC938380048E48D /* AgeGenderViewUITest.swift */; };
 		3FD3E0F61CBDE1E400A07F53 /* DescriptionTextDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD3E0F51CBDE1E400A07F53 /* DescriptionTextDelegate.swift */; };
 		3FD3E0FA1CBE1DA900A07F53 /* MediaPopoverDataDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD3E0F91CBE1DA900A07F53 /* MediaPopoverDataDelegate.swift */; };
 		3FD3E0FC1CBE1E7D00A07F53 /* MediaPopoverDataDelegateNewEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD3E0FB1CBE1E7D00A07F53 /* MediaPopoverDataDelegateNewEntry.swift */; };
@@ -101,7 +102,6 @@
 		1B396BF71C960D9B00986749 /* EntriesDB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntriesDB.swift; sourceTree = "<group>"; };
 		1B396BF91C960EB000986749 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		1B396BFB1C960F0D00986749 /* MySportsDiary-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MySportsDiary-Bridging-Header.h"; sourceTree = "<group>"; };
-		1B510DA51CA742FD008A4F6B /* QuestionnaireUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionnaireUITests.swift; sourceTree = "<group>"; };
 		1B5A3C2B1CAD031300DA118A /* DataUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataUtil.swift; sourceTree = "<group>"; };
 		1B5A3C2D1CAD034600DA118A /* AppProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppProperties.swift; sourceTree = "<group>"; };
 		1B5A3C2F1CAD08E000DA118A /* UserProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProperties.swift; sourceTree = "<group>"; };
@@ -127,6 +127,8 @@
 		3F86B07B1CC2F91900DEA036 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		3F930E981CBB240300922185 /* EntryDatabaseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryDatabaseTests.swift; sourceTree = "<group>"; };
 		3F9455AE1CC3FCD300C73860 /* CustomSliderOut.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSliderOut.swift; sourceTree = "<group>"; };
+		3FAFCB371CC935C00048E48D /* InitialViewUITest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialViewUITest.swift; sourceTree = "<group>"; };
+		3FAFCB391CC938380048E48D /* AgeGenderViewUITest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgeGenderViewUITest.swift; sourceTree = "<group>"; };
 		3FD3E0F51CBDE1E400A07F53 /* DescriptionTextDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescriptionTextDelegate.swift; sourceTree = "<group>"; };
 		3FD3E0F91CBE1DA900A07F53 /* MediaPopoverDataDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaPopoverDataDelegate.swift; sourceTree = "<group>"; };
 		3FD3E0FB1CBE1E7D00A07F53 /* MediaPopoverDataDelegateNewEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaPopoverDataDelegateNewEntry.swift; sourceTree = "<group>"; };
@@ -291,9 +293,10 @@
 			isa = PBXGroup;
 			children = (
 				1BC2B9C81CA7418A00F519AF /* Info.plist */,
-				1B510DA51CA742FD008A4F6B /* QuestionnaireUITests.swift */,
 				1B96F1851CB1A44C003DD435 /* ImagePickerPopoverVCUITests.swift */,
 				1B96F1871CB1A49B003DD435 /* TestUtil.swift */,
+				3FAFCB371CC935C00048E48D /* InitialViewUITest.swift */,
+				3FAFCB391CC938380048E48D /* AgeGenderViewUITest.swift */,
 			);
 			path = MySportsDiaryUITests;
 			sourceTree = "<group>";
@@ -588,8 +591,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B96F1861CB1A44C003DD435 /* ImagePickerPopoverVCUITests.swift in Sources */,
-				1B510DA61CA742FD008A4F6B /* QuestionnaireUITests.swift in Sources */,
+				3FAFCB381CC935C00048E48D /* InitialViewUITest.swift in Sources */,
 				1B96F1881CB1A49B003DD435 /* TestUtil.swift in Sources */,
+				3FAFCB3A1CC938380048E48D /* AgeGenderViewUITest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

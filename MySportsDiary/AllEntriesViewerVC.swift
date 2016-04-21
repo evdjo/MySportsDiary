@@ -61,7 +61,7 @@ class AllEntriesViewerVC: UIViewController, UITableViewDelegate, UITableViewData
 			cell.detailTextLabel?.text = screenDateString(date);
 			cell.textLabel?.text = entry.skill
 			if (entryIndex == entries!.count - 1) {
-				cell.backgroundColor = appBlueColor;
+				cell.backgroundColor = appBlueColor
 
 				let time = dispatch_time(dispatch_time_t(DISPATCH_TIME_NOW), 1 * Int64(NSEC_PER_SEC))
 				dispatch_after(time, dispatch_get_main_queue()) {
@@ -90,6 +90,13 @@ class AllEntriesViewerVC: UIViewController, UITableViewDelegate, UITableViewData
 			let entry = entries[row];
 			vc.entryType = .Existing;
 			vc.entry = entry;
+		}
+
+		sender.backgroundColor = UIColor.purpleColor();
+
+		let delay_time = dispatch_time(dispatch_time_t(DISPATCH_TIME_NOW), 2 * Int64(NSEC_PER_SEC))
+		dispatch_after(delay_time, dispatch_get_main_queue()) {
+			sender.backgroundColor = UIColor.whiteColor();
 		}
 	}
 }
