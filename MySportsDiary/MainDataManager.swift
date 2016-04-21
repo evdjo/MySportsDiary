@@ -58,6 +58,7 @@ private class MainDataManager: DataManager {
 		purgeQuestionnaireAnswers();
 		purgeTempMedia();
 		purgeEntries();
+		DataConfig.resetDirs();
 	}
 
 	func purgeUserData() { UserProperties.purgeData(); }
@@ -66,8 +67,8 @@ private class MainDataManager: DataManager {
 	func purgeEntries() { EntriesDB.purgeEntries(); }
 
 	func purgeTempMedia() {
-		ImagesIO.purgeImages(TEMP_DIR_URL);
-		AudioIO.purgeAudio(oldAudio: TEMP_DIR_URL);
-		VideoIO.purgeVideo(oldVideo: TEMP_DIR_URL);
+		ImagesIO.purgeImages(DataConfig.TEMP_DIR_URL);
+		AudioIO.purgeAudio(oldAudio: DataConfig.TEMP_DIR_URL);
+		VideoIO.purgeVideo(oldVideo: DataConfig.TEMP_DIR_URL);
 	}
 }

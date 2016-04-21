@@ -10,7 +10,7 @@ import Foundation
 
 class EntriesDB {
 	static func insertEntry(entry: Entry) {
-		let db: COpaquePointer! = openDB(DB_URL);
+		let db: COpaquePointer! = openDB(DataConfig.DB_URL);
 		guard db != nil else { return }
 		guard createTable(db, create: ENTRIES_TABLE_CREATE) else { return }
 		var statement: COpaquePointer = nil;
@@ -34,7 +34,7 @@ class EntriesDB {
 	}
 
 	static func entries() -> [Entry]? {
-		let db: COpaquePointer! = openDB(DB_URL);
+		let db: COpaquePointer! = openDB(DataConfig.DB_URL);
 		guard db != nil else { return nil; }
 		guard createTable(db!, create: ENTRIES_TABLE_CREATE) else { return nil }
 		var statement: COpaquePointer = nil;
@@ -65,7 +65,7 @@ class EntriesDB {
 	}
 
 	static func entryForID(entry_id: Int64) -> Entry? {
-		let db: COpaquePointer! = openDB(DB_URL);
+		let db: COpaquePointer! = openDB(DataConfig.DB_URL);
 		guard db != nil else { return nil; }
 		guard createTable(db!, create: ENTRIES_TABLE_CREATE) else { return nil }
 		var statement: COpaquePointer = nil;
@@ -94,7 +94,7 @@ class EntriesDB {
 	}
 
 	static func updateEntryWithID(id id: Int64, newDescr: String) {
-		let db: COpaquePointer! = openDB(DB_URL);
+		let db: COpaquePointer! = openDB(DataConfig.DB_URL);
 		guard db != nil else { return }
 		guard createTable(db, create: ENTRIES_TABLE_CREATE) else { return }
 		var statement: COpaquePointer = nil;
@@ -115,7 +115,7 @@ class EntriesDB {
 	}
 
 	static func purgeEntries() {
-		deleteFile(file: DB_URL);
-		deleteFile(file: ENTRIES_DIR_URL);
+		deleteFile(file: DataConfig.DB_URL);
+		deleteFile(file: DataConfig.ENTRIES_DIR_URL);
 	}
 }

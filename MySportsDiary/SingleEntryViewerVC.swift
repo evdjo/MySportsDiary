@@ -120,6 +120,7 @@ class SingleEntryViewerVC: UIViewController, UIPopoverPresentationControllerDele
 		if let entry = entry, let entryType = entryType where entryType == .Existing {
 			DataManagerInstance().updateEntryWithID(id: entry.entry_id, newDescr: descriptionTextArea.text)
 		}
+		self.navigationController?.popToRootViewControllerAnimated(false);
 
 		locationGetter?.stop();
 	}
@@ -164,7 +165,7 @@ class SingleEntryViewerVC: UIViewController, UIPopoverPresentationControllerDele
 	private func addNewEntry() {
 		let del = mediaDelegate as! MediaPopoverDataDelegateNewEntry
 		let date = dateString(NSDate());
-		let dir = fileURLUnderParent(file: date, parent: ENTRIES_DIR_URL);
+		let dir = fileURLUnderParent(file: date, parent: DataConfig.ENTRIES_DIR_URL);
 		del.move(destination: dir);
 		let loc = locationGetter?.getLocation();
 		let lat = loc?.coordinate.latitude ?? 0.0;

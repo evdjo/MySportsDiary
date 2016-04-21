@@ -10,7 +10,6 @@ import UIKit
 import AVFoundation
 
 class MediaPopoverAudioVC: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate, MediaPopover {
-
 // Delegate stuff
 	var delegate: MediaPopoverDataDelegate?;
 
@@ -223,11 +222,11 @@ class MediaPopoverAudioVC: UIViewController, AVAudioRecorderDelegate, AVAudioPla
 		if !recording {
 			recordButton.setImage(UIImage(named: "mic-2"), forState: .Normal);
 			recordButton.backgroundColor = nil;
-			recordingLabel.text = "start recording";
+			recordingLabel.text = "record";
 		} else {
 			recordButton.setImage(UIImage(named: "stop"), forState: .Normal);
 			recordButton.backgroundColor = UIColor.redColor();
-			recordingLabel.text = "recording...";
+			recordingLabel.text = "stop";
 		}
 	}
 }

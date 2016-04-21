@@ -14,16 +14,16 @@ class Questionnaire {
 	/// Questionnaire temp answers
 	///
 	static func setAnswer(questionID: Int, answer: Int) {
-		if var dict = NSDictionary(contentsOfURL: ANSWERS_URL) as? Dictionary<String, Int> {
+		if var dict = NSDictionary(contentsOfURL: DataConfig.ANSWERS_URL) as? Dictionary<String, Int> {
 			dict.updateValue(answer, forKey: String(questionID));
-			(dict as NSDictionary).writeToURL(ANSWERS_URL, atomically: true);
+			(dict as NSDictionary).writeToURL(DataConfig.ANSWERS_URL, atomically: true);
 		} else {
-			([String(questionID): answer] as NSDictionary).writeToURL(ANSWERS_URL, atomically: true);
+			([String(questionID): answer] as NSDictionary).writeToURL(DataConfig.ANSWERS_URL, atomically: true);
 		}
 	}
 
 	static func getAnswer(questionID: Int) -> Int? {
-		if var dict = NSDictionary(contentsOfURL: ANSWERS_URL) as? Dictionary<String, Int> {
+		if var dict = NSDictionary(contentsOfURL: DataConfig.ANSWERS_URL) as? Dictionary<String, Int> {
 			return dict[String(questionID)];
 		} else {
 			return nil;
@@ -34,6 +34,6 @@ class Questionnaire {
 	/// PURGE
 	///
 	static func purgeData() {
-		deleteFile(file: ANSWERS_URL)
+		deleteFile(file: DataConfig.ANSWERS_URL)
 	}
 }

@@ -9,14 +9,13 @@
 import Foundation
 
 class AppProperties {
-
 	///
 	/// GET
 	///
 	static func getAppState() -> ApplicationState? {
-		if let dict = NSDictionary(contentsOfURL: APP_PROP_URL)
+		if let dict = NSDictionary(contentsOfURL: DataConfig.APP_PROP_URL)
 		as? Dictionary<String, String> {
-			if let appState = dict[APP_STATE_KEY] {
+			if let appState = dict[DataConfig.APP_STATE_KEY] {
 				return ApplicationState(rawValue: appState);
 			}
 		}
@@ -26,13 +25,13 @@ class AppProperties {
 	/// SET
 	///
 	static func setAppState(state: ApplicationState) {
-		if var dict = NSDictionary(contentsOfURL: APP_PROP_URL)
+		if var dict = NSDictionary(contentsOfURL: DataConfig.APP_PROP_URL)
 		as? Dictionary<String, String> {
-			dict.updateValue(state.rawValue, forKey: APP_STATE_KEY);
-			(dict as NSDictionary).writeToURL(APP_PROP_URL, atomically: true);
+			dict.updateValue(state.rawValue, forKey: DataConfig.APP_STATE_KEY);
+			(dict as NSDictionary).writeToURL(DataConfig.APP_PROP_URL, atomically: true);
 		} else {
-			let dict = ([APP_STATE_KEY: state.rawValue] as NSDictionary);
-			dict.writeToURL(APP_PROP_URL, atomically: true); // first time setting
+			let dict = ([DataConfig.APP_STATE_KEY: state.rawValue] as NSDictionary);
+			dict.writeToURL(DataConfig.APP_PROP_URL, atomically: true); // first time setting
 		}
 	}
 
@@ -40,9 +39,9 @@ class AppProperties {
 	/// GET
 	///
 	static func getDiaryStart() -> String? {
-		if let dict = NSDictionary(contentsOfURL: APP_PROP_URL)
+		if let dict = NSDictionary(contentsOfURL: DataConfig.APP_PROP_URL)
 		as? Dictionary<String, String> {
-			if let dateString = dict[APP_DIARY_START] {
+			if let dateString = dict[DataConfig.APP_DIARY_START] {
 				return dateString;
 			}
 		}
@@ -50,13 +49,13 @@ class AppProperties {
 	}
 
 	static func setDiaryStart(dateString: String) {
-		if var dict = NSDictionary(contentsOfURL: APP_PROP_URL)
+		if var dict = NSDictionary(contentsOfURL: DataConfig.APP_PROP_URL)
 		as? Dictionary<String, String> {
-			dict.updateValue(dateString, forKey: APP_DIARY_START);
-			(dict as NSDictionary).writeToURL(APP_PROP_URL, atomically: true);
+			dict.updateValue(dateString, forKey: DataConfig.APP_DIARY_START);
+			(dict as NSDictionary).writeToURL(DataConfig.APP_PROP_URL, atomically: true);
 		} else {
-			let dict = ([APP_DIARY_START: dateString] as NSDictionary);
-			dict.writeToURL(APP_PROP_URL, atomically: true); // first time setting
+			let dict = ([DataConfig.APP_DIARY_START: dateString] as NSDictionary);
+			dict.writeToURL(DataConfig.APP_PROP_URL, atomically: true); // first time setting
 		}
 	}
 
@@ -64,6 +63,6 @@ class AppProperties {
 	/// PURGE
 	///
 	static func purgeData() {
-		deleteFile(file: APP_PROP_URL);
+		deleteFile(file: DataConfig.APP_PROP_URL);
 	}
 }

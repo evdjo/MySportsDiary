@@ -34,7 +34,7 @@ internal func fileURL(file file: String, under: NSSearchPathDirectory) -> NSURL 
 ///
 /// - parameters:
 ///   - file: the file name e.g. myFile.txt
-///   - under: the directory to create under e.g. myDir
+///   - under: the directory beneath which file is e.g. myDir
 /// - returns: a NSURL to the file
 internal func fileURLUnderParent(file file: String, parent: NSURL) -> NSURL {
 	return parent.URLByAppendingPathComponent(file)

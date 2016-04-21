@@ -9,7 +9,6 @@
 import UIKit
 
 class NewEntryInitialVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
-
 /// The picker with the skill list to choose from
 	@IBOutlet weak var skillPickerView: UIPickerView!
 
@@ -17,8 +16,8 @@ class NewEntryInitialVC: UIViewController, UIPickerViewDelegate, UIPickerViewDat
 	private lazy var skills = ["Self-belief", "Leadership", "Honesty",
 		"Fairness", "Trustworthiness",
 		"Problem solving", "Kindness",
-		"Team work", "Respect", "Other"]
-    
+		"Team work", "Respect"]
+
 /// Set the delegates, and select the middle element in the picker
 	override func viewDidLoad() {
 		super.viewDidLoad()

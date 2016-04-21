@@ -864,11 +864,11 @@
                                 <rect key="frame" x="0.0" y="138" width="600" height="405"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" selectionStyle="default" accessoryType="detailButton" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="eventCellContent" textLabel="Xcx-OV-B4O" detailTextLabel="80f-sT-7bZ" style="IBUITableViewCellStyleSubtitle" id="h44-mM-Uwi">
+                                    <tableViewCell opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="eventCellContent" textLabel="Xcx-OV-B4O" detailTextLabel="80f-sT-7bZ" style="IBUITableViewCellStyleSubtitle" id="h44-mM-Uwi">
                                         <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clearsContextBeforeDrawing="NO" multipleTouchEnabled="YES" contentMode="center" tableViewCell="h44-mM-Uwi" id="heo-dO-dvr">
-                                            <rect key="frame" x="0.0" y="0.0" width="553" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clearsContextBeforeDrawing="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Xcx-OV-B4O">
@@ -890,43 +890,6 @@
                                         <connections>
                                             <segue destination="9pv-A4-QxB" kind="show" id="LJD-S7-dqK"/>
                                         </connections>
-                                    </tableViewCell>
-                                    <tableViewCell opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="newEntryCellIdentifier" id="OdK-Av-4Rg">
-                                        <rect key="frame" x="0.0" y="72" width="600" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clearsContextBeforeDrawing="NO" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OdK-Av-4Rg" id="9Uo-PE-3J7">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add" translatesAutoresizingMaskIntoConstraints="NO" id="xm7-di-i2i">
-                                                    <rect key="frame" x="288" y="8" width="25" height="27"/>
-                                                </imageView>
-                                            </subviews>
-                                            <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
-                                            <constraints>
-                                                <constraint firstItem="xm7-di-i2i" firstAttribute="centerX" secondItem="9Uo-PE-3J7" secondAttribute="centerX" id="0gB-mH-24M"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="xm7-di-i2i" secondAttribute="trailing" id="5Nx-xM-T07"/>
-                                                <constraint firstItem="xm7-di-i2i" firstAttribute="leading" secondItem="9Uo-PE-3J7" secondAttribute="leadingMargin" id="LlU-KT-o7w"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="xm7-di-i2i" secondAttribute="bottom" id="OND-4T-rQo"/>
-                                                <constraint firstItem="xm7-di-i2i" firstAttribute="centerX" secondItem="9Uo-PE-3J7" secondAttribute="centerX" id="bgO-OW-xyg"/>
-                                                <constraint firstItem="xm7-di-i2i" firstAttribute="top" secondItem="9Uo-PE-3J7" secondAttribute="topMargin" id="keg-rN-z0f"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="xm7-di-i2i" secondAttribute="trailing" id="ozN-Ht-FLL"/>
-                                            </constraints>
-                                            <variation key="default">
-                                                <mask key="constraints">
-                                                    <exclude reference="0gB-mH-24M"/>
-                                                    <exclude reference="5Nx-xM-T07"/>
-                                                    <exclude reference="LlU-KT-o7w"/>
-                                                    <exclude reference="ozN-Ht-FLL"/>
-                                                </mask>
-                                            </variation>
-                                        </tableViewCellContentView>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="15"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                        </userDefinedRuntimeAttributes>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -1045,6 +1008,25 @@
                                     <action selector="onNewEntryPressed:" destination="SN9-zF-AZY" eventType="touchUpInside" id="xPz-ZN-MNX"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rz0-NY-nT3">
+                                <rect key="frame" x="20" y="64" width="560" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="S1m-Yq-VOp"/>
+                                    <constraint firstAttribute="width" constant="35" id="iHn-R2-tdC"/>
+                                    <constraint firstAttribute="height" constant="60" id="n5e-DB-BGW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="."/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="S1m-Yq-VOp"/>
+                                        <exclude reference="iHn-R2-tdC"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="reset:" destination="SN9-zF-AZY" eventType="touchUpInside" id="49M-rg-cm6"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -1054,9 +1036,12 @@
                             <constraint firstAttribute="trailingMargin" secondItem="sZv-E5-9HB" secondAttribute="trailing" id="Dnw-nF-OIc"/>
                             <constraint firstItem="sZv-E5-9HB" firstAttribute="leading" secondItem="b4z-xb-da7" secondAttribute="leadingMargin" id="Md9-4M-Eod"/>
                             <constraint firstItem="sZv-E5-9HB" firstAttribute="top" secondItem="YmQ-Lb-w3J" secondAttribute="bottom" constant="130" id="Pwa-1i-rlu"/>
+                            <constraint firstItem="rz0-NY-nT3" firstAttribute="leading" secondItem="b4z-xb-da7" secondAttribute="leadingMargin" id="R1c-6i-1Tm"/>
                             <constraint firstAttribute="trailingMargin" secondItem="eGO-aR-N2l" secondAttribute="trailing" constant="8" id="VNT-FB-wod"/>
                             <constraint firstItem="9EC-0B-12V" firstAttribute="leading" secondItem="b4z-xb-da7" secondAttribute="leadingMargin" constant="8" id="Wcg-9P-JYx"/>
+                            <constraint firstItem="rz0-NY-nT3" firstAttribute="top" secondItem="YmQ-Lb-w3J" secondAttribute="bottom" id="cnA-47-g1f"/>
                             <constraint firstItem="eGO-aR-N2l" firstAttribute="centerX" secondItem="b4z-xb-da7" secondAttribute="centerX" id="dMC-Pc-uLb"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="rz0-NY-nT3" secondAttribute="trailing" id="psa-hk-IEd"/>
                             <constraint firstAttribute="trailingMargin" secondItem="9EC-0B-12V" secondAttribute="trailing" constant="8" id="pyz-ab-wp0"/>
                             <constraint firstItem="sZv-E5-9HB" firstAttribute="centerX" secondItem="b4z-xb-da7" secondAttribute="centerX" id="sci-0z-Yk5"/>
                             <constraint firstItem="Obc-kJ-r5S" firstAttribute="top" secondItem="eGO-aR-N2l" secondAttribute="bottom" constant="8" id="te9-cW-aOE"/>

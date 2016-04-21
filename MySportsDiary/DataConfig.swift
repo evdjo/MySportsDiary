@@ -8,63 +8,71 @@
 
 import Foundation
 
+class DataConfig {
+	static func resetDirs() {
+		MASTER_DIR_URL = createSubDir(dir: "DiaryData", under: MASTER_DIR_LOCATION);
+		ENTRIES_DIR_URL = createSubDirUnderParent(dir: ENTRIES_DIR_NAME, parent: MASTER_DIR_URL);
+		TEMP_DIR_URL = createSubDir(dir: TEMP_MEDIA, under: TEMP_DIR_LOCATION);
+		TEMP_IMAGES_URL = createSubDirUnderParent(dir: IMAGES, parent: TEMP_DIR_URL);
+	}
 ////
 /// Master folder
 //
-let MASTER_DIR_LOCATION: NSSearchPathDirectory = .LibraryDirectory
-let MASTER_DIR_URL = createSubDir(dir: "DiaryData", under: MASTER_DIR_LOCATION);
+	static let MASTER_DIR_LOCATION: NSSearchPathDirectory = .LibraryDirectory
+	static var MASTER_DIR_URL = createSubDir(dir: "DiaryData", under: MASTER_DIR_LOCATION);
 
 ////
 /// THE ENTRIES DB FILE
 //
-let DB_NAME = "entries.sqlite";
-let DB_LOCATION: NSSearchPathDirectory = .LibraryDirectory;
-let DB_URL = fileURLUnderParent(file: DB_NAME, parent: MASTER_DIR_URL);
+	static let DB_NAME = "entries.sqlite";
+	static let DB_LOCATION: NSSearchPathDirectory = .LibraryDirectory;
+	static let DB_URL = fileURLUnderParent(file: DB_NAME, parent: MASTER_DIR_URL);
 
 ////
 /// ENTRIES DIRECTORY
 //
-let ENTRIES_DIR_NAME = "entries";
-let ENTRIES_DIR_URL = createSubDirUnderParent(dir: ENTRIES_DIR_NAME, parent: MASTER_DIR_URL);
+	static let ENTRIES_DIR_NAME = "entries";
+	static var ENTRIES_DIR_URL = createSubDirUnderParent(dir: ENTRIES_DIR_NAME, parent: MASTER_DIR_URL);
 
 ////
 /// AGE AND GENDER FILE
 //
-let USER_PROP_NAME = "userinfo.plist";
-let USER_PROP_LOCATION: NSSearchPathDirectory = .LibraryDirectory
-let USER_PROP_URL = fileURLUnderParent(file: USER_PROP_NAME, parent: MASTER_DIR_URL);
-let USER_AGE_KEY = "AGE";
-let USER_GENDER_KEY = "GENDER";
+	static let USER_PROP_NAME = "userinfo.plist";
+	static let USER_PROP_LOCATION: NSSearchPathDirectory = .LibraryDirectory
+	static let USER_PROP_URL = fileURLUnderParent(file: USER_PROP_NAME, parent: MASTER_DIR_URL);
+	static let USER_AGE_KEY = "AGE";
+	static let USER_GENDER_KEY = "GENDER";
 
 ////
 /// QUESTIONNAIRE ANSWERS
 //
-let ANSWERS_NAME = "answerstemp.plist";
-let ANSWERS_LOCATION: NSSearchPathDirectory = .LibraryDirectory
-let ANSWERS_URL = fileURLUnderParent(file: ANSWERS_NAME, parent: MASTER_DIR_URL);
+	static let ANSWERS_NAME = "answerstemp.plist";
+	static let ANSWERS_LOCATION: NSSearchPathDirectory = .LibraryDirectory
+	static let ANSWERS_URL = fileURLUnderParent(file: ANSWERS_NAME, parent: MASTER_DIR_URL);
 
 ////
 /// APPLICATION STATE
 //
-let APP_PROP_NAME = "appproperties.plist";
-let APP_PROP_LOCATION: NSSearchPathDirectory = .LibraryDirectory
-let APP_PROP_URL = fileURLUnderParent(file: APP_PROP_NAME, parent: MASTER_DIR_URL);
-let APP_STATE_KEY = "APP_STATE";
-let APP_DIARY_START = "APP_DIARY_START";
+	static let APP_PROP_NAME = "appproperties.plist";
+	static let APP_PROP_LOCATION: NSSearchPathDirectory = .LibraryDirectory
+	static let APP_PROP_URL = fileURLUnderParent(file: APP_PROP_NAME, parent: MASTER_DIR_URL);
+	static let APP_STATE_KEY = "APP_STATE";
+	static let APP_DIARY_START = "APP_DIARY_START";
 
 ///
 /// MEDIA FILE/FOLDER NAMES
 //
-let IMAGES = "images";
-let AUDIO = "audio.caf";
-let VIDEO = "video.MOV";
-let TEMP_MEDIA = "temp_media";
+	static let IMAGES = "images";
+	static let AUDIO = "audio.caf";
+	static let VIDEO = "video.MOV";
+	static let TEMP_MEDIA = "temp_media";
 
 ////
 /// TEMP MEDIA DIRS
 //
-let TEMP_DIR_LOCATION: NSSearchPathDirectory = .CachesDirectory
-let TEMP_DIR_URL = createSubDir(dir: TEMP_MEDIA, under: TEMP_DIR_LOCATION);
-let TEMP_IMAGES_URL = createSubDirUnderParent(dir: IMAGES, parent: TEMP_DIR_URL);
-let TEMP_AUDIO_URL = fileURLUnderParent(file: AUDIO, parent: TEMP_DIR_URL);
-let TEMP_VIDEO_URL = fileURLUnderParent(file: VIDEO, parent: TEMP_DIR_URL);
+	static let TEMP_DIR_LOCATION: NSSearchPathDirectory = .CachesDirectory
+	static var TEMP_DIR_URL = createSubDir(dir: TEMP_MEDIA, under: TEMP_DIR_LOCATION);
+	static var TEMP_IMAGES_URL = createSubDirUnderParent(dir: IMAGES, parent: TEMP_DIR_URL);
+	static var TEMP_AUDIO_URL = fileURLUnderParent(file: AUDIO, parent: TEMP_DIR_URL);
+	static var TEMP_VIDEO_URL = fileURLUnderParent(file: VIDEO, parent: TEMP_DIR_URL);
+}

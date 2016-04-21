@@ -29,11 +29,6 @@ UITabBarControllerDelegate {
 			}
 			return;
 		}
-
-		let appState = DataManagerInstance().getAppState() ?? .Initial
-		if appState == .Diary {
-			self.selectedIndex = 1;
-		}
 	}
 	func tabBarController(tabBarController: UITabBarController, shouldSelectViewController viewController: UIViewController) -> Bool {
 		let targetIndex = self.viewControllers?.indexOf(viewController);

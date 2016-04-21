@@ -9,23 +9,22 @@
 import Foundation
 
 class UserProperties {
-
 	///
 	/// GET
 	///
 	static func getAge() -> Int? {
-		return getUserProperty(USER_AGE_KEY);
+		return getUserProperty(DataConfig.USER_AGE_KEY);
 	}
 
 	static func getGender() -> Gender? {
-		if let gender = getUserProperty(USER_GENDER_KEY) {
+		if let gender = getUserProperty(DataConfig.USER_GENDER_KEY) {
 			return Gender(rawValue: gender);
 		}
 		return nil;
 	}
 
 	static private func getUserProperty(key: String) -> Int? {
-		if var dict = NSDictionary(contentsOfURL: USER_PROP_URL)
+		if var dict = NSDictionary(contentsOfURL: DataConfig.USER_PROP_URL)
 		as? Dictionary<String, Int> {
 			return dict[key];
 		}
@@ -36,22 +35,22 @@ class UserProperties {
 	/// SET
 	///
 	static func setAge(age: Int) {
-		if var dict = NSDictionary(contentsOfURL: USER_PROP_URL)
+		if var dict = NSDictionary(contentsOfURL: DataConfig.USER_PROP_URL)
 		as? Dictionary<String, Int> {
-			dict[USER_AGE_KEY] = age;
-			(dict as NSDictionary).writeToURL(USER_PROP_URL, atomically: true)
+			dict[DataConfig.USER_AGE_KEY] = age;
+			(dict as NSDictionary).writeToURL(DataConfig.USER_PROP_URL, atomically: true)
 		} else {
-			([USER_AGE_KEY: age] as NSDictionary).writeToURL(USER_PROP_URL, atomically: true);
+			([DataConfig.USER_AGE_KEY: age] as NSDictionary).writeToURL(DataConfig.USER_PROP_URL, atomically: true);
 		}
 	}
 
 	static func setGender(gender: Gender) {
-		if var dict = NSDictionary(contentsOfURL: USER_PROP_URL)
+		if var dict = NSDictionary(contentsOfURL: DataConfig.USER_PROP_URL)
 		as? Dictionary<String, Int> {
-			dict[USER_GENDER_KEY] = gender.rawValue;
-			(dict as NSDictionary).writeToURL(USER_PROP_URL, atomically: true)
+			dict[DataConfig.USER_GENDER_KEY] = gender.rawValue;
+			(dict as NSDictionary).writeToURL(DataConfig.USER_PROP_URL, atomically: true)
 		} else {
-			([USER_GENDER_KEY: gender.rawValue] as NSDictionary).writeToURL(USER_PROP_URL, atomically: true);
+			([DataConfig.USER_GENDER_KEY: gender.rawValue] as NSDictionary).writeToURL(DataConfig.USER_PROP_URL, atomically: true);
 		}
 	}
 
@@ -59,6 +58,6 @@ class UserProperties {
 	/// PURGE
 	///
 	static func purgeData() {
-		deleteFile(file: USER_PROP_URL);
+		deleteFile(file: DataConfig.USER_PROP_URL);
 	}
 }

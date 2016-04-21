@@ -55,8 +55,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //	func applicationDidEnterBackground(application: UIApplication) {
 //	}
 //
-//	func applicationWillEnterForeground(application: UIApplication) {
-//	}
+	func applicationWillEnterForeground(application: UIApplication) {
+	}
 //
 //	func applicationDidBecomeActive(application: UIApplication) {
 //	}
