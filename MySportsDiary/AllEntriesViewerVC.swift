@@ -91,12 +91,5 @@ class AllEntriesViewerVC: UIViewController, UITableViewDelegate, UITableViewData
 			vc.entryType = .Existing;
 			vc.entry = entry;
 		}
-
-		sender.backgroundColor = UIColor.purpleColor();
-
-		let delay_time = dispatch_time(dispatch_time_t(DISPATCH_TIME_NOW), 2 * Int64(NSEC_PER_SEC))
-		dispatch_after(delay_time, dispatch_get_main_queue()) {
-			sender.backgroundColor = UIColor.whiteColor();
-		}
 	}
 }
