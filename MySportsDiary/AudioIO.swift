@@ -30,7 +30,7 @@ class AudioIO {
 	}
 
 	///
-	/// Deletes the oldAudio .
+	/// Deletes the oldAudio.
 	///
 	static func purgeAudio(oldAudio oldAudio: NSURL) {
 		setAudio(oldAudio: oldAudio, newAudio: nil);

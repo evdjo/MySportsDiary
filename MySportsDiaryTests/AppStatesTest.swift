@@ -9,17 +9,15 @@
 import XCTest
 @testable import MySportsDiary
 class AppStatesTest: XCTestCase {
-
 	override func setUp() {
-
-		DataManagerInstance().purgeAllData();
-
-		DataManagerInstance().setAppState(.Initial);
 		super.setUp()
+		DataManagerInstance().purgeAllData();
+		DataManagerInstance().setAppState(.Initial);
 	}
 
 	override func tearDown() {
 		super.tearDown()
+		DataManagerInstance().purgeAllData();
 	}
 
 	func testAppInitialStartAppStateIsInitial() {

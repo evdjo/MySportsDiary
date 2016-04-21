@@ -65,11 +65,12 @@ func deleteInDir(parentURL: NSURL) {
 	if let files = try? NSFileManager.defaultManager()
 		.contentsOfDirectoryAtPath(parentPATH) {
 			for file in files {
+                if file == 
 				let isDir = fileIsDir(parentURL.URLByAppendingPathComponent(file));
 				if (isDir && (file == "Caches" || file == "Preferences")) { /// don't delete default folders, but delete their contets
 					deleteInDir(parentURL.URLByAppendingPathComponent(file));
 				} else {
-					try! manager.removeItemAtURL(parentURL.URLByAppendingPathComponent(file))
+					do { try manager.removeItemAtURL(parentURL.URLByAppendingPathComponent(file)) } catch { print(error) }
 				}
 			}
 	}

@@ -18,7 +18,7 @@
 		1B396B8B1C93774C00986749 /* MasterTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B396B8A1C93774C00986749 /* MasterTabBarViewController.swift */; };
 		1B396B951C93AD9600986749 /* AppStatesTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B396B941C93AD9600986749 /* AppStatesTest.swift */; };
 		1B396BF21C96007400986749 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B396BF11C96007400986749 /* DataManager.swift */; };
-		1B396BF81C960D9B00986749 /* SQLiteDBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B396BF71C960D9B00986749 /* SQLiteDBManager.swift */; };
+		1B396BF81C960D9B00986749 /* EntriesDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B396BF71C960D9B00986749 /* EntriesDB.swift */; };
 		1B396BFA1C960EB000986749 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B396BF91C960EB000986749 /* libsqlite3.tbd */; };
 		1B396BFF1C96200500986749 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B396BF91C960EB000986749 /* libsqlite3.tbd */; };
 		1B510DA61CA742FD008A4F6B /* QuestionnaireUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B510DA51CA742FD008A4F6B /* QuestionnaireUITests.swift */; };
@@ -98,7 +98,7 @@
 		1B396B941C93AD9600986749 /* AppStatesTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStatesTest.swift; sourceTree = "<group>"; };
 		1B396B961C93AD9600986749 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1B396BF11C96007400986749 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
-		1B396BF71C960D9B00986749 /* SQLiteDBManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLiteDBManager.swift; sourceTree = "<group>"; };
+		1B396BF71C960D9B00986749 /* EntriesDB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntriesDB.swift; sourceTree = "<group>"; };
 		1B396BF91C960EB000986749 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		1B396BFB1C960F0D00986749 /* MySportsDiary-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MySportsDiary-Bridging-Header.h"; sourceTree = "<group>"; };
 		1B510DA51CA742FD008A4F6B /* QuestionnaireUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionnaireUITests.swift; sourceTree = "<group>"; };
@@ -324,7 +324,7 @@
 		3FE3D9431CBBF52A0062DFA8 /* Entries */ = {
 			isa = PBXGroup;
 			children = (
-				1B396BF71C960D9B00986749 /* SQLiteDBManager.swift */,
+				1B396BF71C960D9B00986749 /* EntriesDB.swift */,
 				3FE3D9411CBBF5220062DFA8 /* DatabaseUtil.swift */,
 				3FE3D9461CBC055A0062DFA8 /* SQLiteQueries.swift */,
 			);
@@ -551,7 +551,7 @@
 				1B5A3C2C1CAD031300DA118A /* DataUtil.swift in Sources */,
 				1B5A3C2E1CAD034600DA118A /* AppProperties.swift in Sources */,
 				1B5A3C301CAD08E000DA118A /* UserProperties.swift in Sources */,
-				1B396BF81C960D9B00986749 /* SQLiteDBManager.swift in Sources */,
+				1B396BF81C960D9B00986749 /* EntriesDB.swift in Sources */,
 				1B396B731C9251D900986749 /* SingleEntryViewerVC.swift in Sources */,
 				3FE3D9561CBD69420062DFA8 /* DataConfig.swift in Sources */,
 				1B64DFAD1CAFD6330087D353 /* Accessibility.swift in Sources */,
@@ -720,9 +720,9 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = MySportsDiary/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "uk.ac.aber.MySportsDiary-2";
+				PRODUCT_BUNDLE_IDENTIFIER = uk.ac.aber.MyRugbyDiary;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "MySportsDiary/MySportsDiary-Bridging-Header.h";
@@ -738,9 +738,9 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = MySportsDiary/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "uk.ac.aber.MySportsDiary-2";
+				PRODUCT_BUNDLE_IDENTIFIER = uk.ac.aber.MyRugbyDiary;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "MySportsDiary/MySportsDiary-Bridging-Header.h";

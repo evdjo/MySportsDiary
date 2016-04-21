@@ -8,7 +8,7 @@
 
 import Foundation
 
-class SQLiteDBManager {
+class EntriesDB {
 	static func insertEntry(entry: Entry) {
 		let db: COpaquePointer! = openDB(DB_URL);
 		guard db != nil else { return }
@@ -114,5 +114,8 @@ class SQLiteDBManager {
 		sqlite3_close(db);
 	}
 
-	static func purgeDB() { deleteFile(file: DB_URL) }
+	static func purgeEntries() {
+		deleteFile(file: DB_URL);
+		deleteFile(file: ENTRIES_DIR_URL);
+	}
 }

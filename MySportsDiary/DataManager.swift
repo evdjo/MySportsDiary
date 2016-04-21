@@ -50,7 +50,7 @@ protocol DataManager {
 	/// CAUTION --- deletes the QUESTIONNAIRE ANSWERS !
 	func purgeQuestionnaireAnswers();
 	/// CAUTION --- deletes the PHOTOS/VIDEO/AUDIO TEMP FILES !
-	func purgeTempMedia(parentDir: NSURL);
-	/// CAUTION --- deletes the ENTRIES DATABASE FILE !
-	func purgeDB();
+	func purgeTempMedia();
+	/// CAUTION --- deletes the ENTRIES DATABASE FILE & THE ENTRIES DATA!
+	func purgeEntries();
 }

@@ -21,7 +21,6 @@ import MobileCoreServices
 ///
 ///
 class MediaPicker: NSObject, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-
 	private let picker: UIImagePickerController;
 	private let parentVC: UIViewController;
 	private let mediaType: String;
@@ -43,8 +42,10 @@ class MediaPicker: NSObject, UIImagePickerControllerDelegate, UINavigationContro
 /// Present image picker view controller -- either from camera or photo library
 ///
 	private func presentImagePickerFor(sourceType: UIImagePickerControllerSourceType) {
-		picker.sourceType = sourceType;
-		parentVC.presentViewController(picker, animated: true, completion: nil);
+		dispatch_async(dispatch_get_main_queue(), {
+			self.picker.sourceType = sourceType;
+			self.parentVC.presentViewController(self.picker, animated: true, completion: nil);
+		});
 	}
 
 ///

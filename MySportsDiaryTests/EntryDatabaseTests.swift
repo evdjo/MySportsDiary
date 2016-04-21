@@ -10,17 +10,16 @@ import XCTest
 @testable import MySportsDiary
 
 class EntryDatabaseTests: XCTestCase {
-
 	var dm = DataManagerInstance();
 	override func setUp() {
 		super.setUp()
 		self.continueAfterFailure = false;
-		DataManagerInstance().purgeDB();
+		DataManagerInstance().purgeEntries();
 	}
 
 	override func tearDown() {
 		super.tearDown()
-		DataManagerInstance().purgeDB();
+		DataManagerInstance().purgeEntries();
 	}
 
 	func testTwoEntriesAddedNoMedia() {
@@ -88,7 +87,6 @@ class EntryDatabaseTests: XCTestCase {
 	}
 
 	func testTwoEntriesAddedWithAudioOnly() {
-
 		let expected1 = Entry(entry_id: 0, skill: allASCIICharsAsString(), description: NORMAL_STRING,
 			date_time: dateString(NSDate()), latitude: DOUBLES[0], longitude: DOUBLES[1]);
 
@@ -110,7 +108,6 @@ class EntryDatabaseTests: XCTestCase {
 	}
 
 	func testTwoEntriesAddedWithVideoOnly() {
-
 		let expected1 = Entry(entry_id: 0, skill: allASCIICharsAsString(), description: NORMAL_STRING,
 			date_time: dateString(NSDate()), latitude: DOUBLES[0], longitude: DOUBLES[1]);
 
@@ -127,7 +124,6 @@ class EntryDatabaseTests: XCTestCase {
 	}
 
 	func testTwoEntriesAddedWithPhotosAndAudio() {
-
 		let expected1 = Entry(entry_id: 0, skill: allASCIICharsAsString(), description: NORMAL_STRING,
 			date_time: dateString(NSDate()), latitude: DOUBLES[0], longitude: DOUBLES[1]);
 
@@ -144,7 +140,6 @@ class EntryDatabaseTests: XCTestCase {
 	}
 
 	func testTwoEntriesAddedWithPhotosAndVideo() {
-
 		let expected1 = Entry(entry_id: 0, skill: allASCIICharsAsString(), description: NORMAL_STRING,
 			date_time: dateString(NSDate()), latitude: DOUBLES[0], longitude: DOUBLES[1]);
 
@@ -161,7 +156,6 @@ class EntryDatabaseTests: XCTestCase {
 	}
 
 	func testTwoEntriesAddedWithVideoAndAudio() {
-
 		let expected1 = Entry(entry_id: 0, skill: allASCIICharsAsString(), description: NORMAL_STRING,
 			date_time: dateString(NSDate()), latitude: DOUBLES[0], longitude: DOUBLES[1]);
 

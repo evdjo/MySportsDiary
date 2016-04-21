@@ -38,36 +38,36 @@ private class MainDataManager: DataManager {
 	func setDiaryStart(dateString: String) { AppProperties.setDiaryStart(dateString); }
 	func getDiaryStart() -> String? { return AppProperties.getDiaryStart(); }
 
-	func getImages(imagesURL: NSURL) -> Array<UIImage>? { return ImagesIO.getImages(imagesURL) }
-	func saveImage(imagesURL: NSURL, image: UIImage) { ImagesIO.saveImage(imagesURL, image: image) }
-	func removeImage(imagesURL: NSURL, index: Int) { ImagesIO.removeImage(imagesURL, index: index) }
-	func getImagesCount(imagesURL: NSURL) -> Int { return ImagesIO.getImagesCount(imagesURL) }
-	func getVideo(oldVideo videoURL: NSURL) -> NSURL? { return VideoIO.getVideo(oldVideo: videoURL) }
-	func setVideo(oldVideo videoURL: NSURL, newVideo newVideoURL: NSURL?) { VideoIO.setVideo(oldVideo: videoURL, newVideo: newVideoURL) }
-	func getAudio(oldAudio audioURL: NSURL) -> NSURL? { return AudioIO.getAudio(oldAudio: audioURL) }
-	func setAudio(oldAudio audioURL: NSURL, newAudio newAudioURL: NSURL?) { AudioIO.setAudio(oldAudio: audioURL, newAudio: newAudioURL) }
+	func getImages(imagesURL: NSURL) -> Array<UIImage>? { return ImagesIO.getImages(imagesURL); }
+	func saveImage(imagesURL: NSURL, image: UIImage) { ImagesIO.saveImage(imagesURL, image: image); }
+	func removeImage(imagesURL: NSURL, index: Int) { ImagesIO.removeImage(imagesURL, index: index); }
+	func getImagesCount(imagesURL: NSURL) -> Int { return ImagesIO.getImagesCount(imagesURL); }
+	func getVideo(oldVideo videoURL: NSURL) -> NSURL? { return VideoIO.getVideo(oldVideo: videoURL); }
+	func setVideo(oldVideo videoURL: NSURL, newVideo newVideoURL: NSURL?) { VideoIO.setVideo(oldVideo: videoURL, newVideo: newVideoURL); }
+	func getAudio(oldAudio audioURL: NSURL) -> NSURL? { return AudioIO.getAudio(oldAudio: audioURL); }
+	func setAudio(oldAudio audioURL: NSURL, newAudio newAudioURL: NSURL?) { AudioIO.setAudio(oldAudio: audioURL, newAudio: newAudioURL); }
 
-	func addNewEntry(entry: Entry) { SQLiteDBManager.insertEntry(entry) }
-	func getEntries() -> [Entry]? { return SQLiteDBManager.entries() }
-	func getEntryForID(entry_id: Int64) -> Entry? { return SQLiteDBManager.entryForID(entry_id) }
-	func updateEntryWithID(id id: Int64, newDescr: String) { SQLiteDBManager.updateEntryWithID(id: id, newDescr: newDescr) }
+	func addNewEntry(entry: Entry) { EntriesDB.insertEntry(entry); }
+	func getEntries() -> [Entry]? { return EntriesDB.entries(); }
+	func getEntryForID(entry_id: Int64) -> Entry? { return EntriesDB.entryForID(entry_id); }
+	func updateEntryWithID(id id: Int64, newDescr: String) { EntriesDB.updateEntryWithID(id: id, newDescr: newDescr); }
 
 	func purgeAllData() {
 		purgeUserData();
 		purgeAppData();
 		purgeQuestionnaireAnswers();
-		purgeTempMedia(TEMP_DIR_URL)
-		purgeDB();
+		purgeTempMedia();
+		purgeEntries();
 	}
 
 	func purgeUserData() { UserProperties.purgeData(); }
 	func purgeAppData() { AppProperties.purgeData(); }
 	func purgeQuestionnaireAnswers() { Questionnaire.purgeData(); }
-	func purgeDB() { SQLiteDBManager.purgeDB(); }
+	func purgeEntries() { EntriesDB.purgeEntries(); }
 
-	func purgeTempMedia(parentDir: NSURL) {
-		ImagesIO.purgeImages(parentDir);
-		AudioIO.purgeAudio(oldAudio: parentDir);
-		VideoIO.purgeVideo(oldVideo: parentDir);
+	func purgeTempMedia() {
+		ImagesIO.purgeImages(TEMP_DIR_URL);
+		AudioIO.purgeAudio(oldAudio: TEMP_DIR_URL);
+		VideoIO.purgeVideo(oldVideo: TEMP_DIR_URL);
 	}
 }
