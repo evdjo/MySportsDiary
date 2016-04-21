@@ -42,7 +42,6 @@ internal func alertWithMessage(sender: UIViewController, title: String, message:
 internal func binaryChoiceMessage(sender: UIViewController, title: String,
 	choice0: String, handler0: ((UIAlertAction) -> Void)?,
 	choice1: String, handler1: ((UIAlertAction) -> Void)?) {
-
 		let alertController = UIAlertController(title: title, message: nil, preferredStyle: .Alert);
 		let action0 = UIAlertAction(title: choice0, style: .Default, handler: handler0);
 		let action1 = UIAlertAction(title: choice1, style: .Default, handler: handler1);
@@ -85,5 +84,8 @@ internal func colorRGB(red red: Int, green: Int, blue: Int, alpha: Float) -> UIC
 		blue: Float(blue) / 255,
 		alpha: alpha)
 }
-
+///
+/// The blue color used across the app
+///
 internal var appBlueColor = colorRGB(red: 151, green: 215, blue: 255, alpha: 1.0);
+

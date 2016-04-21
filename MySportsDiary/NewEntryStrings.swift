@@ -24,4 +24,3 @@ let no = "No";
 let cancel = "Cancel";
 let enterText = "[enter text]";
 
-let blue = UIColor(colorLiteralRed: 175 / 255, green: 210 / 255, blue: 234 / 255, alpha: 1);

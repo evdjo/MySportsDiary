@@ -19,8 +19,6 @@ class AgeGenderVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
 	private var genderIsSet = false;
 
 	override func viewDidLoad() {
-		/// set the accesibility identifiers -- used in testing
-		genderSegmentedControl.accessibilityIdentifier = Accessibility.GenderSegmentedControl
 		agePickerView.delegate = self;
 		agePickerView.dataSource = self;
 	}

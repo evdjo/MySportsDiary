@@ -47,19 +47,6 @@ internal func timestamp() -> String {
 	return "\(NSDate().timeIntervalSince1970 * 1000)";
 }
 
-internal func stringOptionalEqual(lhs: String?, rhs: String?) -> Bool {
-	guard (lhs.dynamicType == rhs.dynamicType) else {
-		return false;
-	}
-	if lhs == nil && rhs == nil { return true }
-
-	if nil != lhs && nil != rhs {
-		return lhs == rhs;
-	} else {
-		return false;
-	}
-}
-
 /// to display on screen formatter
 internal var screenFormatter: NSDateFormatter {
 	let fmt = NSDateFormatter();
@@ -90,7 +77,6 @@ internal func stringDate(string: String) -> NSDate {
 }
 
 internal func aspectFitResizeImageTo(wantedWidth wantedWidth: CGFloat, image: UIImage) -> UIImage {
-
 	let ratioScale = wantedWidth / image.size.width
 	let newHeight = image.size.height * ratioScale
 	UIGraphicsBeginImageContext(CGSizeMake(wantedWidth, newHeight))

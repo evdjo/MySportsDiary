@@ -139,7 +139,7 @@ class SingleEntryViewerVC: UIViewController, UIPopoverPresentationControllerDele
 		dest.preferredContentSize = size;
 		dest.popoverPresentationController?.delegate = self;
 		dest.popoverPresentationController?.sourceRect = (sender as! UIButton).bounds;
-		dest.popoverPresentationController?.backgroundColor = blue;
+		dest.popoverPresentationController?.backgroundColor = appBlueColor;
 		self.view.alpha = 0.20;
 	}
 /// When we either add a new entry or save existing one.
