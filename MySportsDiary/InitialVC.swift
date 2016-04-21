@@ -13,20 +13,32 @@ class InitialVC: UIViewController {
 		DataManagerInstance().purgeAllData();
 	}
 
-	let INITAL_TEXT = "Hello. You will see a few requests for information appear on the next two screens. Please respond in order to access your diary.";
+	let WELCOME_STRING = NSLocalizedString("WELCOME_STRING",
+		comment: "Welcome the user, by telling him that he has to answer few questions");
+	// "Hello. You will see a few requests for information appear
+	// on the next two screens. Please respond in order to access your diary.";
 
-	let DIARY_TEXT = "Hello. Leave text, audio, or video messages to explain"
-		+ " how you think rugby helped change you today.\n\n"
-		+ " You can also add photos to help us see where you have"
-		+ " been using your skills off the pitch.";
+	let DIARY_TEXT = NSLocalizedString("DIARY_TEXT",
+		comment: "Tell the user that he has unlocked the diary,"
+			+ " and he can add entries to it.");
+//        "Hello. Leave text, audio, or video messages to explain"
+//		+ " how you think rugby helped change you today.\n\n"
+//		+ " You can also add photos to help us see where you have"
+//		+ " been using your skills off the pitch.";
 
-	let FINAL_TEXT = "Now you must answer the final questionnaire. Click below to begin.";
+	let FINAL_TEXT = NSLocalizedString("FINAL_TEXT",
+		comment: "Tell the user he has to answer the questionnaire again");
+	// "Now you must answer the final questionnaire. Click below to begin.";
 
-	static private var dateToDisplay: String {
+	let DIARY_DATE_TEXT = NSLocalizedString("DIARY_DATE_TEXT",
+		comment: "String to tell the user that he will answer the questionnaire again at the end");
+	// "You will answer the questionnaire again on"
+
+	private var dateToDisplay: String {
 		get {
 			if let dateString = DataManagerInstance().getDiaryStart() {
 				let date = stringDate(dateString);
-				return "\n\nYou will answer the questionnaire again on \(screenDateString(date))"
+				return "\n\n \(DIARY_DATE_TEXT) \n \(screenDateString(date))"
 			}
 			return "";
 		}
@@ -69,7 +81,7 @@ class InitialVC: UIViewController {
 //		self.tabBarController?.selectedIndex = 1;
 		newEntryButton.hidden = false;
 		newEntryButton.enabled = true;
-		mainLabel.text = DIARY_TEXT + InitialVC.dateToDisplay;
+		mainLabel.text = DIARY_TEXT + dateToDisplay;
 		beginButton.hidden = true;
 	}
 
@@ -82,7 +94,7 @@ class InitialVC: UIViewController {
 		self.tabBarController?.tabBar.items?[2].enabled = false;
 		newEntryButton.hidden = true;
 		newEntryButton.enabled = false;
-		mainLabel.text = INITAL_TEXT;
+		mainLabel.text = WELCOME_STRING;
 		beginButton.hidden = false;
 	}
 
