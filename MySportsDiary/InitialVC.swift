@@ -38,10 +38,7 @@ class InitialVC: UIViewController {
 	}
 	@IBOutlet weak var mainLabel: UILabel!;
 	@IBOutlet weak var beginButton: UIButton!;
-	@IBOutlet weak var sendButton: UIButton!
 
-	@IBAction func onSendPressed(sender: AnyObject) {
-	}
 	override func viewDidLoad() {
 		super.viewDidLoad();
 		mainLabel.accessibilityIdentifier = Accessibility.MainLabel;
