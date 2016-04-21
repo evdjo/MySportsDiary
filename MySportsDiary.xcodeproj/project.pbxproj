@@ -201,7 +201,6 @@
 			isa = PBXGroup;
 			children = (
 				3FAD4D401CC972A200156615 /* ViewControllers */,
-				3FE3D94D1CBC20F40062DFA8 /* Util */,
 				1B8866471C9F9D87007F7BEB /* Other */,
 				1B8866451C9F9D42007F7BEB /* Model */,
 			);
@@ -325,6 +324,7 @@
 				1B8866461C9F9D69007F7BEB /* MasterTabController */,
 				1B6FAA801CA762B20061A219 /* Entry */,
 				1B8866441C9F9D28007F7BEB /* QuestionnaireTab */,
+				3FE3D94D1CBC20F40062DFA8 /* Util */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";

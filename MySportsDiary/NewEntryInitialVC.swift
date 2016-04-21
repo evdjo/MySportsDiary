@@ -14,15 +14,15 @@ class NewEntryInitialVC: UIViewController, UIPickerViewDelegate, UIPickerViewDat
 
 /// The data source comes from this array.
 	private lazy var skills = [
-		NSLocalizedString("Self-belief", comment: "Self-belief"),
-		NSLocalizedString("Leadership", comment: "Leadership"),
-		NSLocalizedString("Honesty", comment: "Honesty"),
-		NSLocalizedString("Fairness", comment: "Fairness"),
-		NSLocalizedString("Trustworthiness", comment: "Trustworthiness"),
-		NSLocalizedString("Problem solving", comment: "Problem solving"),
-		NSLocalizedString("Kindness", comment: "Kindness"),
-		NSLocalizedString("Team work", comment: "Team work"),
-		NSLocalizedString("Respect", comment: "Respect")
+		NSLocalizedString("SELF_BELIEF", comment: "Self-belief"),
+		NSLocalizedString("LEADERSHIP", comment: "Leadership"),
+		NSLocalizedString("HONESTY", comment: "Honesty"),
+		NSLocalizedString("FAIRNESS", comment: "Fairness"),
+		NSLocalizedString("TRUSTWORTHINESS", comment: "Trustworthiness"),
+		NSLocalizedString("PROBLEM_SOLVING", comment: "Problem solving"),
+		NSLocalizedString("KINDNESS", comment: "Kindness"),
+		NSLocalizedString("TEAM_WORK", comment: "Team work"),
+		NSLocalizedString("RESPECT", comment: "Respect")
 	]
 
 /// Set the delegates, and select the middle element in the picker

@@ -9,6 +9,9 @@
 import Foundation
 
 class EntriesDB {
+	///
+	/// Insert a entry to the entries data base.
+	///
 	static func insertEntry(entry: Entry) {
 		let db: COpaquePointer! = openDB(DataConfig.DB_URL);
 		guard db != nil else { return }
@@ -33,6 +36,10 @@ class EntriesDB {
 		sqlite3_close(db);
 	}
 
+	///
+	/// Get all entries from the entries database.
+	/// Will return nil if there are no entries added.
+	///
 	static func entries() -> [Entry]? {
 		let db: COpaquePointer! = openDB(DataConfig.DB_URL);
 		guard db != nil else { return nil; }
@@ -64,6 +71,10 @@ class EntriesDB {
 		return entriesArray.count > 0 ? entriesArray : nil;
 	}
 
+	///
+	/// Returns the entry with the passed entry_id if it is in the db,
+	/// else nil
+	///
 	static func entryForID(entry_id: Int64) -> Entry? {
 		let db: COpaquePointer! = openDB(DataConfig.DB_URL);
 		guard db != nil else { return nil; }
@@ -93,6 +104,9 @@ class EntriesDB {
 		return entry;
 	}
 
+	///
+	/// Updates the description of the entry with the passed id.
+	///
 	static func updateEntryWithID(id id: Int64, newDescr: String) {
 		let db: COpaquePointer! = openDB(DataConfig.DB_URL);
 		guard db != nil else { return }
@@ -114,6 +128,10 @@ class EntriesDB {
 		sqlite3_close(db);
 	}
 
+	///
+	/// Deletes all entrties, by delete the entries database
+	/// and the entries folder.
+	///
 	static func purgeEntries() {
 		deleteFile(file: DataConfig.DB_URL);
 		deleteFile(file: DataConfig.ENTRIES_DIR_URL);
