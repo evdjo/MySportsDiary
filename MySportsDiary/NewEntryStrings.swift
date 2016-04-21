@@ -22,5 +22,5 @@ let deleteTheVideoText = "Delete the video?";
 let yes = "Yes";
 let no = "No";
 let cancel = "Cancel";
-let enterText = "[enter text]";
+
 

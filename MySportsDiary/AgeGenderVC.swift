@@ -9,7 +9,6 @@
 import UIKit
 
 class AgeGenderVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
-
 	@IBOutlet weak var genderSegmentedControl: UISegmentedControl!
 	@IBOutlet weak var nextButton: UIButton!
 
@@ -92,17 +91,20 @@ class AgeGenderVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
 			return 150;
 	}
 
-	func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-		if (row == 0) {
-			return " ";
-		}
-		return String(row);
+	func pickerView(pickerView: UIPickerView, titleForRow row: Int,
+		forComponent component: Int) -> String? {
+			if (row == 0) {
+				return " ";
+			}
+			return String(row);
 	}
 	///
 	/// Gender segment control
 	///
 	@IBAction func onGenderSegmentChanged(sender: AnyObject) {
-		let gender: Gender = genderSegmentedControl.selectedSegmentIndex == 0 ? .BOY : .GIRL;
+		let gender: Gender =
+			genderSegmentedControl.selectedSegmentIndex == 0 ? .BOY : .GIRL;
+
 		DataManagerInstance().setGender(gender);
 		genderIsSet = true;
 		if (ageIsSet) {

@@ -10,15 +10,15 @@ import UIKit
 
 class QuestionsVC: UIViewController {
 	let questions = [
-		"I do well at any sports I play",
-		"I am happy to be me",
-		"I get angry often",
-		"I hit people if they start the fight",
-		"I accept responsibility for my behaviour if I make a mistake",
-		"I do very well in my school work",
-		"I use my imagination to solve problems",
-		"I want to help to make my community a better place to live",
-		"I feel important in my community",
+		NSLocalizedString("QUESTION_1", comment: "The first question"), // "I do well at any sports I play",
+		NSLocalizedString("QUESTION_2", comment: "The second question"), // "I am happy to be me",
+		NSLocalizedString("QUESTION_3", comment: "The third question"), // "I get angry often",
+		NSLocalizedString("QUESTION_4", comment: "The fourth question"), // "I hit people if they start the fight",
+		NSLocalizedString("QUESTION_5", comment: "The fifth question"), // "I accept responsibility for my behaviour if I make a mistake",
+		NSLocalizedString("QUESTION_6", comment: "The sixth question"), // "I do very well in my school work",
+		NSLocalizedString("QUESTION_7", comment: "The seventh question"), // "I use my imagination to solve problems",
+		NSLocalizedString("QUESTION_8", comment: "The eighth question"), // "I want to help to make my community a better place to live",
+		NSLocalizedString("QUESTION_9", comment: "The ninth question") // "I feel important in my community",
 	]
 
 	///
@@ -82,7 +82,8 @@ class QuestionsVC: UIViewController {
 		DataManagerInstance().setAnswer(page * 3 + 1, answer: Int(sliders[1].value));
 		DataManagerInstance().setAnswer(page * 3 + 2, answer: Int(sliders[2].value));
 		if page < 2 {
-			let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Questionnaire");
+			let vc = UIStoryboard(name: "Main", bundle: nil)
+				.instantiateViewControllerWithIdentifier("Questionnaire");
 			(vc as! QuestionsVC).page = self.page + 1;
 			self.navigationController?.pushViewController(vc, animated: true);
 		} else {
@@ -96,8 +97,9 @@ class QuestionsVC: UIViewController {
 //
 	private func initialQuestionnaireFinished() {
 		// confirm
-		let controller = UIAlertController(title: "Are you sure?",
-			message: "Once finished, you cannot change your answers.",
+		let controller = UIAlertController(
+			title: NSLocalizedString("ARE_YOU_SURE", comment: "Ask the user if he is sure"), // "Are you sure?"
+			message: NSLocalizedString("ARE_YOU_SURE_MESSAGE", comment: "The message below the prompt of ARE_YOU_SURE"),
 			preferredStyle: .Alert)
 
 		let yesAction = UIAlertAction(
@@ -120,7 +122,7 @@ class QuestionsVC: UIViewController {
 		});
 
 		let noAction = UIAlertAction(
-			title: "No",
+			title: NSLocalizedString("NO", comment: "The litral negative answer -- NO "),
 			style: .Cancel,
 			handler: nil);
 

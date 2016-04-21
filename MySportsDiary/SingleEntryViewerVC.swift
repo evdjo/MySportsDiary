@@ -11,6 +11,29 @@ import QuartzCore
 import MobileCoreServices
 
 class SingleEntryViewerVC: UIViewController, UIPopoverPresentationControllerDelegate {
+	private lazy var NEW_ENTRY_TEXT_1 = NSLocalizedString("NEW_ENTRY_TEXT_1",
+		comment: "The text to prompt the user describe the skill he is recording."
+			+ " This text appears before the skill. For example, if we have "
+			+ " this string equal to \"Today I showed\", and NEW_ENTRY_TEXT_2 "
+			+ " equal to \"because of rugby.\", then we get the sentence: "
+			+ " Today I showed SKILL because of rugby. One of the strings"
+			+ " can be ommited if it makes logical sentences in the target language.")
+
+	private lazy var NEW_ENTRY_TEXT_2 = NSLocalizedString("NEW_ENTRY_TEXT_2",
+		comment: "See NEW_ENTRY_TEXT_1 ")
+
+	internal static var ENTER_TEXT = NSLocalizedString("ENTER_TEXT",
+		comment: "Text description to appear in the entry description text area.")
+
+	private lazy var ADD_PHOTO = NSLocalizedString("ADD_PHOTO",
+		comment: "Short text promting addition of a photo");
+
+	private lazy var ADD_VOICE = NSLocalizedString("ADD_VOICE",
+		comment: "Short text promting addition of a voice");
+
+	private lazy var ADD_VIDEO = NSLocalizedString("ADD_VIDEO",
+		comment: "Short text promting addition of a video");
+
 // UI elements
 	@IBOutlet weak var audioCountLabel: UILabel!
 	@IBOutlet weak var videoCountLabel: UILabel!
@@ -64,9 +87,9 @@ class SingleEntryViewerVC: UIViewController, UIPopoverPresentationControllerDele
 
 		switch (entryType!) {
 		case .New:
-			topLabel.text = "Tell us why rugby has helped you demonstrate \(skill.lowercaseString) today:";
-			descriptionTextArea.text = enterText;
-			descriptionTextArea.textColor = UIColor.lightGrayColor();
+			topLabel.text = "\(NEW_ENTRY_TEXT_1)  \(skill.lowercaseString) \(NEW_ENTRY_TEXT_2)";
+			// "Tell us why rugby has helped you demonstrate \(skill.lowercaseString) today:";
+			descriptionTextArea.text = SingleEntryViewerVC.ENTER_TEXT;
 			doneButton.setTitle("Done", forState: .Normal);
 			doneButton.backgroundColor = colorRGB(red: 151, green: 215, blue: 255, alpha: 1);
 			self.mediaDelegate = MediaPopoverDataDelegateNewEntry();
@@ -76,7 +99,7 @@ class SingleEntryViewerVC: UIViewController, UIPopoverPresentationControllerDele
 			guard entry != nil else { print("entry found to be nil"); return }
 			topLabel.text = entry!.skill;
 			descriptionTextArea.text = entry!.description;
-			if entry!.description == enterText {
+			if entry!.description == SingleEntryViewerVC.ENTER_TEXT {
 				descriptionTextArea.textColor = UIColor.lightGrayColor();
 			}
 			doneButton.setTitle("Done editing", forState: .Normal);
@@ -118,7 +141,8 @@ class SingleEntryViewerVC: UIViewController, UIPopoverPresentationControllerDele
 	override func viewWillDisappear(animated: Bool) {
 		super.viewWillDisappear(animated);
 		if let entry = entry, let entryType = entryType where entryType == .Existing {
-			DataManagerInstance().updateEntryWithID(id: entry.entry_id, newDescr: descriptionTextArea.text)
+			DataManagerInstance().updateEntryWithID(id: entry.entry_id,
+				newDescr: descriptionTextArea.text)
 		}
 		self.navigationController?.popToRootViewControllerAnimated(false);
 
@@ -138,12 +162,14 @@ class SingleEntryViewerVC: UIViewController, UIPopoverPresentationControllerDele
 		if segue.identifier! == "audioSegue" { size.height = 60; }
 		dest.preferredContentSize = size;
 		dest.popoverPresentationController?.delegate = self;
-		dest.popoverPresentationController?.sourceRect = (sender as! UIButton).bounds;
+		if let button = sender as? UIButton {
+			dest.popoverPresentationController?.sourceRect = button.bounds;
+		}
 		dest.popoverPresentationController?.backgroundColor = appBlueColor;
 		self.view.alpha = 0.20;
 	}
 /// When we either add a new entry or save existing one.
-	@IBAction func onAddEntryPressed(sender: AnyObject) {
+	@IBAction func onAddEntryPressed(_: AnyObject) {
 		switch (entryType!) {
 		case .New:
 			addNewEntry();
@@ -186,18 +212,17 @@ class SingleEntryViewerVC: UIViewController, UIPopoverPresentationControllerDele
 /// Change the alpha back to 1.0
 /// Update the count on the small labels.
 ///
-	func popoverPresentationControllerDidDismissPopover(controller: UIPopoverPresentationController) {
+	func popoverPresentationControllerDidDismissPopover(_: UIPopoverPresentationController) {
 		self.view.alpha = 1.0;
 		updateAudioCountLabel();
 		updateImagesCountLabel();
 		updateVideoCountLabel();
 	}
 /// To back the popovers work.
-	func adaptivePresentationStyleForPresentationController(
-		_: UIPresentationController) -> UIModalPresentationStyle {
-			return .None;
+	func adaptivePresentationStyleForPresentationController(_: UIPresentationController) -> UIModalPresentationStyle {
+		return .None;
 	}
-	@IBAction func onBackgroundTap(sender: UITapGestureRecognizer) {
+	@IBAction func onBackgroundTap(_: UITapGestureRecognizer) {
 		descriptionTextArea.resignFirstResponder();
 	}
 }

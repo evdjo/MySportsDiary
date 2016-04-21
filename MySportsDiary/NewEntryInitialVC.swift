@@ -13,10 +13,17 @@ class NewEntryInitialVC: UIViewController, UIPickerViewDelegate, UIPickerViewDat
 	@IBOutlet weak var skillPickerView: UIPickerView!
 
 /// The data source comes from this array.
-	private lazy var skills = ["Self-belief", "Leadership", "Honesty",
-		"Fairness", "Trustworthiness",
-		"Problem solving", "Kindness",
-		"Team work", "Respect"]
+	private lazy var skills = [
+		NSLocalizedString("Self-belief", comment: "Self-belief"),
+		NSLocalizedString("Leadership", comment: "Leadership"),
+		NSLocalizedString("Honesty", comment: "Honesty"),
+		NSLocalizedString("Fairness", comment: "Fairness"),
+		NSLocalizedString("Trustworthiness", comment: "Trustworthiness"),
+		NSLocalizedString("Problem solving", comment: "Problem solving"),
+		NSLocalizedString("Kindness", comment: "Kindness"),
+		NSLocalizedString("Team work", comment: "Team work"),
+		NSLocalizedString("Respect", comment: "Respect")
+	]
 
 /// Set the delegates, and select the middle element in the picker
 	override func viewDidLoad() {
