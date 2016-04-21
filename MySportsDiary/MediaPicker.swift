@@ -53,7 +53,7 @@ class MediaPicker: NSObject, UIImagePickerControllerDelegate, UINavigationContro
 ///
 	func pickUsingCamera() {
 		guard imagePickerMediaAvailable(.Camera) else {
-			alertWithMessage(parentVC, title: noCameraMessage);
+			alertWithMessage(parentVC, title: NO_CAMERA);
 			return;
 		}
 		let authorisationStatus = AVCaptureDevice.authorizationStatusForMediaType(AVMediaTypeVideo);
@@ -62,10 +62,10 @@ class MediaPicker: NSObject, UIImagePickerControllerDelegate, UINavigationContro
 		case .NotDetermined: AVCaptureDevice.requestAccessForMediaType(AVMediaTypeVideo,
 			completionHandler: { (granted) in
 				if granted { self.presentImagePickerFor(.Camera) } })
-		case .Denied: binaryChoiceMessage(parentVC, title: deniedMessageCamera,
-			choice0: takeMeThereText, handler0: { (_) in goToSettings(); }, choice1: cancelText,
+		case .Denied: binaryChoiceMessage(parentVC, title: CAMERA_PERMISSION_DENIED,
+			choice0: GO_TO_SETTINGS, handler0: { (_) in goToSettings(); }, choice1: CANCEL,
 			handler1: nil);
-		case .Restricted: alertWithMessage(parentVC, title: noAccessMessageCamera);
+		case .Restricted: alertWithMessage(parentVC, title: NO_CAMERA_ACCESS);
 		}
 	}
 
@@ -74,7 +74,7 @@ class MediaPicker: NSObject, UIImagePickerControllerDelegate, UINavigationContro
 ///
 	func pickFromLibrary() {
 		guard imagePickerMediaAvailable(.PhotoLibrary) else {
-			alertWithMessage(parentVC, title: noPhotoLibraryMessage);
+			alertWithMessage(parentVC, title: NO_LIBRARY);
 			return;
 		}
 		let authorisationStatus = PHPhotoLibrary.authorizationStatus();
@@ -83,10 +83,10 @@ class MediaPicker: NSObject, UIImagePickerControllerDelegate, UINavigationContro
 		case .NotDetermined: PHPhotoLibrary.requestAuthorization({ (newAuthStatus) in
 			if newAuthStatus == .Authorized { self.presentImagePickerFor(.PhotoLibrary); }
 			});
-		case .Denied: binaryChoiceMessage(parentVC, title: deniedMessagePhotoLib,
-			choice0: takeMeThereText, handler0: { (_) in goToSettings(); }, choice1: cancelText,
+		case .Denied: binaryChoiceMessage(parentVC, title: LIBRARY_PERMISSION_DENIED,
+			choice0: GO_TO_SETTINGS, handler0: { (_) in goToSettings(); }, choice1: CANCEL,
 			handler1: nil);
-		case .Restricted: alertWithMessage(parentVC, title: noAccessMessagePhotoLib);
+		case .Restricted: alertWithMessage(parentVC, title: NO_LIBRARY_ACCESS);
 		}
 	}
 

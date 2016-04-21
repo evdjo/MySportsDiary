@@ -140,7 +140,7 @@ class MediaPopoverAudioVC: UIViewController, AVAudioRecorderDelegate, AVAudioPla
 			setUpPlayer();
 		} else {
 			delegate?.audio = nil;
-			alertWithMessage(self, title: "Failed to record.");
+			alertWithMessage(self, title: FAILED_TO_RECORD);
 		}
 		recording = false;
 		adjustButtons();
@@ -210,23 +210,22 @@ class MediaPopoverAudioVC: UIViewController, AVAudioRecorderDelegate, AVAudioPla
 		if !playing {
 			playButton.setImage(UIImage(named: "play"), forState: .Normal);
 			playButton.backgroundColor = nil;
-			playLabel.text = "play";
+			playLabel.text = PLAY;
 		} else {
 			playButton.setImage(UIImage(named: "stop"), forState: .Normal);
 			playButton.backgroundColor = UIColor.redColor();
-			playLabel.text = "stop";
-		}
+			playLabel.text = STOP; }
 	}
 
 	func recordButtonState() {
 		if !recording {
 			recordButton.setImage(UIImage(named: "mic-2"), forState: .Normal);
 			recordButton.backgroundColor = nil;
-			recordingLabel.text = "record";
+			recordingLabel.text = RECORD;
 		} else {
 			recordButton.setImage(UIImage(named: "stop"), forState: .Normal);
 			recordButton.backgroundColor = UIColor.redColor();
-			recordingLabel.text = "stop";
+			recordingLabel.text = STOP;
 		}
 	}
 }

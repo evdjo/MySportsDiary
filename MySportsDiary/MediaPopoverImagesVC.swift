@@ -35,10 +35,10 @@ class MediaPopoverImagesVC: UIViewController, UIImagePickerControllerDelegate, U
 	}
 	@IBAction func onDeleteButtonPressed(sender: AnyObject) {
 		if let images = self.images where images.count > imageIndex {
-			let controller = UIAlertController(title: deleteTheImageText,
+			let controller = UIAlertController(title: DELETE_THE_PHOTO,
 				message: nil, preferredStyle: .ActionSheet)
 
-			let yesAction = UIAlertAction(title: yes, style: .Destructive, handler: {
+			let yesAction = UIAlertAction(title: YES, style: .Destructive, handler: {
 				action in
 				self.images!.removeAtIndex(self.imageIndex);
 				self.delegate?.removeImage(self.imageIndex);
@@ -46,7 +46,7 @@ class MediaPopoverImagesVC: UIViewController, UIImagePickerControllerDelegate, U
 				self.setCurrentImage();
 			});
 			controller.addAction(yesAction)
-			controller.addAction(UIAlertAction(title: no, style: .Cancel, handler: nil))
+			controller.addAction(UIAlertAction(title: NO, style: .Cancel, handler: nil))
 			presentViewController(controller, animated: true, completion: nil)
 		}
 	}

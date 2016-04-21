@@ -26,7 +26,7 @@ class DescriptionTextDelegate: NSObject, UITextViewDelegate {
 	/// and change the input color to black.
 	///
 	func textViewShouldBeginEditing(textView: UITextView) -> Bool {
-		if textView.text == SingleEntryViewerVC.ENTER_TEXT {
+		if textView.text == ENTER_TEXT {
 			textView.text = "";
 			textView.textColor = UIColor.blackColor();
 		}
@@ -38,7 +38,7 @@ class DescriptionTextDelegate: NSObject, UITextViewDelegate {
 	///
 	func textViewDidEndEditing(textView: UITextView) {
 		if textView.text.characters.count == 0 {
-			textView.text = SingleEntryViewerVC.ENTER_TEXT;
+			textView.text = ENTER_TEXT;
 			textView.textColor = UIColor.lightGrayColor();
 		}
 	}

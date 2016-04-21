@@ -9,21 +9,9 @@
 import UIKit
 
 class QuestionsVC: UIViewController {
-	let questions = [
-		NSLocalizedString("QUESTION_1", comment: "The first question"), // "I do well at any sports I play",
-		NSLocalizedString("QUESTION_2", comment: "The second question"), // "I am happy to be me",
-		NSLocalizedString("QUESTION_3", comment: "The third question"), // "I get angry often",
-		NSLocalizedString("QUESTION_4", comment: "The fourth question"), // "I hit people if they start the fight",
-		NSLocalizedString("QUESTION_5", comment: "The fifth question"), // "I accept responsibility for my behaviour if I make a mistake",
-		NSLocalizedString("QUESTION_6", comment: "The sixth question"), // "I do very well in my school work",
-		NSLocalizedString("QUESTION_7", comment: "The seventh question"), // "I use my imagination to solve problems",
-		NSLocalizedString("QUESTION_8", comment: "The eighth question"), // "I want to help to make my community a better place to live",
-		NSLocalizedString("QUESTION_9", comment: "The ninth question") // "I feel important in my community",
-	]
-
 	///
 	/// Variables and outlets
-	///
+	//
 	private var page: Int = 0;
 	@IBOutlet weak var pageLabel: UILabel!
 	@IBOutlet weak var bottomButton: UIButton!
@@ -51,14 +39,10 @@ class QuestionsVC: UIViewController {
 	}
 ///
 /// App lifecycle methods
-///
+//
 	override func viewDidLoad() {
 		super.viewDidLoad();
 		bottomButton.enabled = false;
-
-		theview.forEach({ slider in
-			slider.color = UIColor.cyanColor();
-		})
 	}
 
 	override func viewWillAppear(animated: Bool) {
@@ -70,9 +54,9 @@ class QuestionsVC: UIViewController {
 		questionLabels[2].text = questions[startIndex + 2];
 		switch page {
 		case 0, 1:
-			bottomButton.setTitle("Next", forState: .Normal);
+			bottomButton.setTitle(NEXT, forState: .Normal);
 		default:
-			bottomButton.setTitle("Finish", forState: .Normal);
+			bottomButton.setTitle(FINISH, forState: .Normal);
 		}
 		pageLabel.text = "\(page + 1) / 3";
 	}
@@ -98,12 +82,12 @@ class QuestionsVC: UIViewController {
 	private func initialQuestionnaireFinished() {
 		// confirm
 		let controller = UIAlertController(
-			title: NSLocalizedString("ARE_YOU_SURE", comment: "Ask the user if he is sure"), // "Are you sure?"
-			message: NSLocalizedString("ARE_YOU_SURE_MESSAGE", comment: "The message below the prompt of ARE_YOU_SURE"),
+			title: ARE_YOU_SURE,
+			message: FINISH_QUESTIONNAIRE_CONFIRM,
 			preferredStyle: .Alert)
 
 		let yesAction = UIAlertAction(
-			title: "Yes",
+			title: YES,
 			style: .Default,
 			handler: { action in
 				// then save answers
@@ -122,7 +106,7 @@ class QuestionsVC: UIViewController {
 		});
 
 		let noAction = UIAlertAction(
-			title: NSLocalizedString("NO", comment: "The litral negative answer -- NO "),
+			title: NO,
 			style: .Cancel,
 			handler: nil);
 

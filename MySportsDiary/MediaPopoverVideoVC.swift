@@ -13,7 +13,6 @@ import Photos
 import MobileCoreServices
 
 class MediaPopoverVideoVC: UIViewController, MediaPopover {
-
 	// Delegate stuff
 	var delegate: MediaPopoverDataDelegate?;
 
@@ -66,10 +65,10 @@ class MediaPopoverVideoVC: UIViewController, MediaPopover {
 	@IBAction func onDeletePressed(sender: AnyObject) {
 		guard videoToPlayURL != nil else { return }
 
-		let controller = UIAlertController(title: deleteTheVideoText,
+		let controller = UIAlertController(title: DELETE_THE_VIDEO,
 			message: nil, preferredStyle: .ActionSheet)
 
-		let yesAction = UIAlertAction(title: yes, style: .Destructive, handler: {
+		let yesAction = UIAlertAction(title: YES, style: .Destructive, handler: {
 			action in
 			self.avPlayerViewController?.player = nil
 			self.avPlayerViewController?.view.removeFromSuperview()
@@ -79,7 +78,7 @@ class MediaPopoverVideoVC: UIViewController, MediaPopover {
 			self.setUp();
 		});
 		controller.addAction(yesAction)
-		controller.addAction(UIAlertAction(title: no, style: .Cancel, handler: nil))
+		controller.addAction(UIAlertAction(title: NO, style: .Cancel, handler: nil))
 		presentViewController(controller, animated: true, completion: nil)
 	}
 }

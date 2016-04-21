@@ -21,7 +21,7 @@ import MobileCoreServices
 ///
 internal func alertWithMessage(sender: UIViewController, title: String) {
 	let alertController = UIAlertController(title: title, message: nil, preferredStyle: .Alert);
-	let dismissAction = UIAlertAction(title: "OK", style: .Cancel, handler: nil);
+	let dismissAction = UIAlertAction(title: OK, style: .Cancel, handler: nil);
 	alertController.addAction(dismissAction);
 	sender.presentViewController(alertController, animated: true, completion: nil);
 }
@@ -31,7 +31,7 @@ internal func alertWithMessage(sender: UIViewController, title: String) {
 ///
 internal func alertWithMessage(sender: UIViewController, title: String, message: String) {
 	let alertController = UIAlertController(title: title, message: message, preferredStyle: .Alert);
-	let dismissAction = UIAlertAction(title: "OK", style: .Cancel, handler: nil);
+	let dismissAction = UIAlertAction(title: OK, style: .Cancel, handler: nil);
 	alertController.addAction(dismissAction);
 	sender.presentViewController(alertController, animated: true, completion: nil);
 }
