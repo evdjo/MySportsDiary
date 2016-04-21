@@ -11,7 +11,7 @@ import Foundation
 let NO_LIBRARY = NSLocalizedString("NO_LIBRARY",
 	comment: "Text explaining that the device does not have a library.");
 
-//"The device does have camera."
+// "The device does have camera."
 let NO_CAMERA = NSLocalizedString("NO_CAMERA",
 	comment: "Text explaining that the device does not have a camera");
 
@@ -31,7 +31,7 @@ let GO_TO_SETTINGS = NSLocalizedString("GO_TO_SETTINGS",
 let NO_LIBRARY_ACCESS = NSLocalizedString("NO_LIBRARY_ACCESS",
 	comment: "Text explaining that there is  no access to the user's library");
 
-// "Cannot access your camera device."
+// "Cannot access your camera."
 let NO_CAMERA_ACCESS = NSLocalizedString("NO_CAMERA_ACCESS",
 	comment: "Text explaining that the camera cannot be accessed on this device");
 
@@ -120,21 +120,19 @@ var FINISH_QUESTIONNAIRE_CONFIRM = NSLocalizedString("FINISH_QUESTIONNAIRE_CONFI
 	comment: "The message below the prompt of ARE_YOU_SURE");
 
 let questions = [
-	NSLocalizedString("QUESTION_1", comment: "The first question"), // "I do well at any sports I play",
-	NSLocalizedString("QUESTION_2", comment: "The second question"), // "I am happy to be me",
-	NSLocalizedString("QUESTION_3", comment: "The third question"), // "I get angry often",
-	NSLocalizedString("QUESTION_4", comment: "The fourth question"), // "I hit people if they start the fight",
-	NSLocalizedString("QUESTION_5", comment: "The fifth question"), // "I accept responsibility for my behaviour if I make a mistake",
-	NSLocalizedString("QUESTION_6", comment: "The sixth question"), // "I do very well in my school work",
-	NSLocalizedString("QUESTION_7", comment: "The seventh question"), // "I use my imagination to solve problems",
-	NSLocalizedString("QUESTION_8", comment: "The eighth question"), // "I want to help to make my community a better place to live",
-	NSLocalizedString("QUESTION_9", comment: "The ninth question") // "I feel important in my community",
+	NSLocalizedString("QUESTION_1", comment: "I do well at any sports I play"),
+	NSLocalizedString("QUESTION_2", comment: "I am happy to be me"),
+	NSLocalizedString("QUESTION_3", comment: "I get angry often"),
+	NSLocalizedString("QUESTION_4", comment: "I hit people if they start the fight"),
+	NSLocalizedString("QUESTION_5", comment: "I accept responsibility for my behaviour if I make a mistake"),
+	NSLocalizedString("QUESTION_6", comment: "I do very well in my school work"),
+	NSLocalizedString("QUESTION_7", comment: "I use my imagination to solve problems"),
+	NSLocalizedString("QUESTION_8", comment: "I want to help to make my community a better place to live"),
+	NSLocalizedString("QUESTION_9", comment: "I feel important in my community"),
 ]
 
 let WELCOME_STRING = NSLocalizedString("WELCOME_STRING",
 	comment: "Welcome the user, by telling him that he has to answer few questions");
-// "Hello. You will see a few requests for information appear
-// on the next two screens. Please respond in order to access your diary.";
 
 let DIARY_TEXT = NSLocalizedString("DIARY_TEXT",
 	comment: "Tell the user that he has unlocked the diary,"
@@ -146,7 +144,7 @@ let DIARY_TEXT = NSLocalizedString("DIARY_TEXT",
 
 let FINAL_TEXT = NSLocalizedString("FINAL_TEXT",
 	comment: "Tell the user he has to answer the questionnaire again");
-// "Now you must answer the final questionnaire. Click below to begin.";
+// "Now you must answer the final questionnaire.";
 
 let DIARY_DATE_TEXT = NSLocalizedString("DIARY_DATE_TEXT",
 	comment: "String to tell the user that he will answer the questionnaire again at the end");

@@ -58,7 +58,6 @@
                                     </label>
                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RMk-kP-xtM" userLabel="SkillPicker">
                                         <rect key="frame" x="0.0" y="46" width="560" height="343"/>
-                                        <accessibility key="accessibilityConfiguration" identifier="SkillPicker" label="SkillPicker"/>
                                     </pickerView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9iu-Ne-MxW">
                                         <rect key="frame" x="0.0" y="397" width="560" height="50"/>
@@ -122,7 +121,6 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="add voice" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pW6-Kt-tp9" userLabel="AddVoiceLabel">
                                 <rect key="frame" x="20" y="463" width="180" height="15"/>
-                                <accessibility key="accessibilityConfiguration" identifier="AddVoiceLabel" label="AddVoiceLabel"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="15" id="dW3-qO-pEb"/>
                                 </constraints>
@@ -132,7 +130,6 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="add photo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qVM-F2-2fi" userLabel="AddPhotoLabel">
                                 <rect key="frame" x="210" y="463" width="180" height="15"/>
-                                <accessibility key="accessibilityConfiguration" identifier="AddPhotoLabel" label="AddPhotoLabel"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="15" id="Lih-H6-JRC"/>
                                 </constraints>
@@ -142,7 +139,6 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="add video" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KF0-Iy-h5L" userLabel="AddVideoLabel">
                                 <rect key="frame" x="400" y="463" width="180" height="15"/>
-                                <accessibility key="accessibilityConfiguration" identifier="AddVideoLabel" label="AddVideoLabel"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="15" id="Udq-JZ-j1m"/>
                                 </constraints>
@@ -155,7 +151,6 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dGx-5A-Xwu" userLabel="AddVoiceButton">
                                         <rect key="frame" x="0.0" y="0.0" width="180" height="65"/>
-                                        <accessibility key="accessibilityConfiguration" identifier="AddVoiceButton" label="AddVoiceButton"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="65" id="2bL-Ji-mWf"/>
                                         </constraints>
@@ -173,7 +168,6 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bTr-zN-c7S" userLabel="AddPhotoButton">
                                         <rect key="frame" x="190" y="0.0" width="180" height="65"/>
-                                        <accessibility key="accessibilityConfiguration" identifier="AddPhotoButton" label="AddPhotoButton"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="65" id="UW8-eK-YOP"/>
                                         </constraints>
@@ -191,7 +185,6 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XJY-ap-NON" userLabel="AddVideoButton">
                                         <rect key="frame" x="380" y="0.0" width="180" height="65"/>
-                                        <accessibility key="accessibilityConfiguration" identifier="AddVideoButton" label="AddVideoButton"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="65" id="ZBl-45-Ne3"/>
                                         </constraints>
@@ -315,10 +308,9 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ekE-3g-LTe" userLabel="AddButton">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ekE-3g-LTe">
                                 <rect key="frame" x="20" y="493" width="560" height="50"/>
                                 <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
-                                <accessibility key="accessibilityConfiguration" identifier="AddButton" label="AddButton"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="94C-Jr-PYr"/>
@@ -565,7 +557,6 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1It-mS-yA0" userLabel="cameraButton">
                                         <rect key="frame" x="0.0" y="0.0" width="200" height="50"/>
-                                        <accessibility key="accessibilityConfiguration" identifier="cameraButton" label="cameraButton"/>
                                         <state key="normal" image="photo-cam"/>
                                         <connections>
                                             <action selector="onCameraButtonPressed:" destination="Gey-6I-YOX" eventType="touchUpInside" id="Ap7-6O-pao"/>
@@ -573,7 +564,6 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2jH-Ml-lKy" userLabel="photosVideosButton">
                                         <rect key="frame" x="200" y="0.0" width="200" height="50"/>
-                                        <accessibility key="accessibilityConfiguration" identifier="photosVideosButton" label="photosVideosButton"/>
                                         <state key="normal" image="photos"/>
                                         <connections>
                                             <action selector="onPhotosLibraryButtonPressed:" destination="Gey-6I-YOX" eventType="touchUpInside" id="JU0-vs-dUN"/>
@@ -581,7 +571,6 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Zp-ZC-dXp" userLabel="deleteButton">
                                         <rect key="frame" x="400" y="0.0" width="200" height="50"/>
-                                        <accessibility key="accessibilityConfiguration" identifier="deleteImageButton" label="deleteImageButton"/>
                                         <state key="normal" image="delete"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -604,7 +593,6 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1qs-Jf-UWP" userLabel="TheImageView">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="540"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                        <accessibility key="accessibilityConfiguration" identifier="TheImageView" label="TheImageView"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No photos added (max 5 images)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EfA-gD-1oP" userLabel="NoImageLabel">
                                         <rect key="frame" x="173" y="260" width="254" height="21"/>
@@ -628,7 +616,6 @@
                                     <button opaque="NO" alpha="0.65000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZfS-tj-jX4" userLabel="previousImageButton">
                                         <rect key="frame" x="24" y="490" width="50" height="50"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <accessibility key="accessibilityConfiguration" identifier="previousImageButton" label="previousImageButton"/>
                                         <state key="normal" image="arrow-left"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -659,7 +646,6 @@
                                     <button opaque="NO" alpha="0.65000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yIE-Db-vr0" userLabel="nextImageButton">
                                         <rect key="frame" x="526" y="490" width="50" height="50"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <accessibility key="accessibilityConfiguration" identifier="nextImageButton" label="nextImageButton"/>
                                         <state key="normal" image="arrow-right"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -767,7 +753,6 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="23r-Mn-nhg" userLabel="cameraButton">
                                         <rect key="frame" x="0.0" y="0.0" width="200" height="50"/>
-                                        <accessibility key="accessibilityConfiguration" identifier="cameraButton" label="cameraButton"/>
                                         <state key="normal" image="video-cam"/>
                                         <connections>
                                             <action selector="onUseCameraButtonPressed:" destination="JI8-V8-0wz" eventType="touchUpInside" id="QSQ-6d-FE6"/>
@@ -775,7 +760,6 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2LZ-dX-Feb" userLabel="photosVideosButton">
                                         <rect key="frame" x="200" y="0.0" width="200" height="50"/>
-                                        <accessibility key="accessibilityConfiguration" identifier="photosVideosButton" label="photosVideosButton"/>
                                         <state key="normal" image="photos"/>
                                         <connections>
                                             <action selector="onPhotosLibraryButtonPressed:" destination="JI8-V8-0wz" eventType="touchUpInside" id="Uun-YS-esZ"/>
@@ -1187,9 +1171,6 @@
                                                     <segment title="Girl"/>
                                                 </segments>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="genderSegmentedControl"/>
-                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="onGenderSegmentChanged:" destination="KBN-8C-xNN" eventType="valueChanged" id="LUd-Y0-JxN"/>
                                                 </connections>
@@ -1695,7 +1676,7 @@
         <image name="video-cam" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="LJD-S7-dqK"/>
-        <segue reference="eUc-fk-lPY"/>
+        <segue reference="zFt-bB-jtg"/>
+        <segue reference="yaZ-H1-Lc3"/>
     </inferredMetricsTieBreakers>
 </document>
