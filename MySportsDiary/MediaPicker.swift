@@ -112,4 +112,18 @@ class MediaPicker: NSObject, UIImagePickerControllerDelegate, UINavigationContro
 	func imagePickerControllerDidCancel(picker: UIImagePickerController) {
 		picker.dismissViewControllerAnimated(true, completion: nil)
 	}
+
+///
+/// Check it the passed media is available using the image picker view controller.
+/// e.g. Check for .Camera, .PhotoLibrary
+///
+	private func imagePickerMediaAvailable(sourceType: UIImagePickerControllerSourceType) -> Bool {
+		if let mediaTypes = UIImagePickerController.availableMediaTypesForSourceType(sourceType)
+		where UIImagePickerController.isSourceTypeAvailable(sourceType)
+		&& mediaTypes.contains(kUTTypeImage as String) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 }

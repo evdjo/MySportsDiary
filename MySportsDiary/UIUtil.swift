@@ -51,20 +51,6 @@ internal func binaryChoiceMessage(sender: UIViewController, title: String,
 }
 
 ///
-/// Check it the passed media is available using the image picker view controller.
-/// e.g. Check for .Camera, .PhotoLibrary
-///
-internal func imagePickerMediaAvailable(sourceType: UIImagePickerControllerSourceType) -> Bool {
-	if let mediaTypes = UIImagePickerController.availableMediaTypesForSourceType(sourceType)
-	where UIImagePickerController.isSourceTypeAvailable(sourceType)
-	&& mediaTypes.contains(kUTTypeImage as String) {
-		return true;
-	} else {
-		return false;
-	}
-}
-
-///
 /// Dispatch a thread to navigate to the settings of this app
 ///
 internal func goToSettings() {
