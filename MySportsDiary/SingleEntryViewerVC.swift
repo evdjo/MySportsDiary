@@ -35,9 +35,14 @@ class SingleEntryViewerVC: UIViewController, UIPopoverPresentationControllerDele
 		comment: "Short text promting addition of a video");
 
 // UI elements
-	@IBOutlet weak var audioCountLabel: UILabel!
+	@IBOutlet weak var voiceCountLabel: UILabel!
 	@IBOutlet weak var videoCountLabel: UILabel!
-	@IBOutlet weak var imagesCountLabel: UILabel!;
+	@IBOutlet weak var imagesCountLabel: UILabel!
+
+	@IBOutlet weak var addVoiceLabel: UILabel!
+	@IBOutlet weak var addPhotoLabel: UILabel!
+	@IBOutlet weak var addVideoLabel: UILabel!
+
 	@IBOutlet weak var descriptionTextArea: UITextView!
 	@IBOutlet weak var topLabel: UILabel!
 	@IBOutlet weak var doneButton: UIButton!
@@ -94,6 +99,9 @@ class SingleEntryViewerVC: UIViewController, UIPopoverPresentationControllerDele
 			doneButton.backgroundColor = colorRGB(red: 151, green: 215, blue: 255, alpha: 1);
 			self.mediaDelegate = MediaPopoverDataDelegateNewEntry();
 			locationGetter = GPSLocationGetter(parentVC: self)
+			addVoiceLabel.text = "add voice";
+			addPhotoLabel.text = "add photo";
+			addVideoLabel.text = "add video";
 
 		case .Existing:
 			guard entry != nil else { print("entry found to be nil"); return }
@@ -105,9 +113,9 @@ class SingleEntryViewerVC: UIViewController, UIPopoverPresentationControllerDele
 			doneButton.setTitle("Done editing", forState: .Normal);
 			doneButton.backgroundColor = colorRGB(red: 151, green: 151, blue: 255, alpha: 1);
 			self.mediaDelegate = MediaPopoverDataDelegateExistingEntry(entry: entry!);
-			audioCountLabel.text = "change voice";
-			imagesCountLabel.text = "change photo";
-			videoCountLabel.text = "change video";
+			addVoiceLabel.text = "added voice";
+			addPhotoLabel.text = "added photo";
+			addVideoLabel.text = "added video";
 		}
 
 		updateAudioCountLabel();
@@ -118,8 +126,8 @@ class SingleEntryViewerVC: UIViewController, UIPopoverPresentationControllerDele
 /// Update the small label indicating the count of audio files.
 /// Currently, since only 1 audio is allowed, the possible values are 0 or 1
 	func updateAudioCountLabel() {
-		audioCountLabel.text = mediaDelegate.audio == nil ? "0" : "1";
-		audioCountLabel.hidden = mediaDelegate.audio == nil;
+		voiceCountLabel.text = mediaDelegate.audio == nil ? "0" : "1";
+		voiceCountLabel.hidden = mediaDelegate.audio == nil;
 	}
 
 /// Update the small label indicating the count of video files.

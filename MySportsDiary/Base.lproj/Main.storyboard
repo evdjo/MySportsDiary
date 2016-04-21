@@ -401,12 +401,15 @@
                     <tabBarItem key="tabBarItem" title="New Entry" image="add" id="acW-dT-cKf"/>
                     <navigationItem key="navigationItem" id="RMu-6b-IyS"/>
                     <connections>
-                        <outlet property="audioCountLabel" destination="jkv-TM-So7" id="cHp-b1-TB5"/>
+                        <outlet property="addPhotoLabel" destination="qVM-F2-2fi" id="ASH-VX-JT0"/>
+                        <outlet property="addVideoLabel" destination="KF0-Iy-h5L" id="RRZ-69-gds"/>
+                        <outlet property="addVoiceLabel" destination="pW6-Kt-tp9" id="Yp0-jR-Ra8"/>
                         <outlet property="descriptionTextArea" destination="9lY-Pa-Efy" id="rbX-wv-x5q"/>
                         <outlet property="doneButton" destination="ekE-3g-LTe" id="DYQ-PA-Sdz"/>
                         <outlet property="imagesCountLabel" destination="ho3-lR-U49" id="gTn-sW-0hl"/>
                         <outlet property="topLabel" destination="Ybj-XN-4wN" id="FxX-3L-dsD"/>
                         <outlet property="videoCountLabel" destination="jbs-JG-4Ux" id="lR8-tk-egD"/>
+                        <outlet property="voiceCountLabel" destination="jkv-TM-So7" id="rvI-hn-wVG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
