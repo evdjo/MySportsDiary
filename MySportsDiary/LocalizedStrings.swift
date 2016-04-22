@@ -15,6 +15,9 @@ let NO_LIBRARY = NSLocalizedString("NO_LIBRARY",
 let NO_CAMERA = NSLocalizedString("NO_CAMERA",
 	comment: "Text explaining that the device does not have a camera");
 
+let MICROPHONE_PERMISSION_DENIED = NSLocalizedString("MICROPHONE_PERMISSION_DENIED",
+	comment: "Text explaining that the user has denied this app to use the microphone");
+
 //"You've denied permission of this app to use the photo library. You can grant permission in the settings menu."
 let LIBRARY_PERMISSION_DENIED = NSLocalizedString("LIBRARY_PERMISSION_DENIED",
 	comment: "Text explaining that the user has denied this app to use his library");

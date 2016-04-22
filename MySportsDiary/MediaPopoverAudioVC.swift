@@ -32,10 +32,7 @@ class MediaPopoverAudioVC: UIViewController, AVAudioRecorderDelegate, AVAudioPla
 	@IBOutlet weak var recordButton: UIButton!
 
 	override func viewDidLoad() {
-		super.viewDidLoad()
-		setUpSession();
-		setUpRecorder();
-		setUpPlayer();
+		super.viewDidLoad();
 		adjustButtons();
 	}
 ///
@@ -56,19 +53,43 @@ class MediaPopoverAudioVC: UIViewController, AVAudioRecorderDelegate, AVAudioPla
 	private func setUpSession() {
 		let session = AVAudioSession.sharedInstance();
 		do {
-			try session.setCategory(AVAudioSessionCategoryPlayAndRecord,
-				withOptions: AVAudioSessionCategoryOptions.DefaultToSpeaker)
-			try session.setActive(true);
-			self.session = session;
+			let permission = session.recordPermission();
+			var canUseMicrophoneFlag: Bool = false;
+			switch permission {
+			case AVAudioSessionRecordPermission.Granted:
+				canUseMicrophoneFlag = true;
+
+			case AVAudioSessionRecordPermission.Denied:
+				canUseMicrophoneFlag = false;
+				binaryChoiceMessage(self, title: MICROPHONE_PERMISSION_DENIED,
+					choice0: GO_TO_SETTINGS,
+					handler0: { (_) in goToSettings(); },
+					choice1: CANCEL,
+					handler1: nil);
+			case AVAudioSessionRecordPermission.Undetermined:
+				session.requestRecordPermission({ response in
+					canUseMicrophoneFlag = response;
+				})
+			default:
+				canUseMicrophoneFlag = false;
+			}
+
+			if canUseMicrophoneFlag {
+				try session.setCategory(AVAudioSessionCategoryPlayAndRecord,
+					withOptions: AVAudioSessionCategoryOptions.DefaultToSpeaker)
+				try session.setActive(true);
+				self.session = session;
+			}
 		} catch {
 			self.session = nil;
 		}
 	}
+
 ///
 /// Creates the recorder. If a recorder creation fails, it will be nil.
 ///
 	private func setUpRecorder() {
-		guard session != nil else { return }
+		guard nil != session else { return }
 		do {
 			let temp = NSURL(fileURLWithPath: NSTemporaryDirectory())
 				.URLByAppendingPathComponent("temp_recording.caf")
@@ -84,8 +105,8 @@ class MediaPopoverAudioVC: UIViewController, AVAudioRecorderDelegate, AVAudioPla
 /// If creation fails or the file doesn't exist, the player is set to nil.
 ///
 	private func setUpPlayer() {
-		guard recorder != nil else { return }
-		guard session != nil else { return }
+		guard nil != recorder else { return }
+		guard nil != session else { return }
 		if let playFile = delegate?.audio {
 			do {
 				try player = AVAudioPlayer(contentsOfURL: playFile)
@@ -116,9 +137,14 @@ class MediaPopoverAudioVC: UIViewController, AVAudioRecorderDelegate, AVAudioPla
 /// Disable all other buttons if we record
 ///
 	@IBAction func onRecordButtonPressed(sender: UIButton) {
+		if nil == session {
+			setUpSession();
+			setUpRecorder();
+			adjustButtons();
+		}
 		guard !playing else { return; }
-		guard recorder != nil else { return; }
-		guard session != nil else { return; }
+		guard nil != recorder else { return; }
+		guard nil != session else { return; }
 
 		if recording {
 			recorder?.stop();
@@ -153,8 +179,14 @@ class MediaPopoverAudioVC: UIViewController, AVAudioRecorderDelegate, AVAudioPla
 ///
 	@IBAction func onPlayButtonPressed(sender: UIButton) {
 		guard !recording else { return; }
-		guard session != nil else { return; }
-		guard player != nil else { return; }
+		guard nil != session else { return; }
+
+		if nil == player {
+			setUpPlayer();
+			adjustButtons();
+		}
+
+		guard nil != player else { return; }
 
 		if playing {
 			playing = false;
@@ -178,10 +210,10 @@ class MediaPopoverAudioVC: UIViewController, AVAudioRecorderDelegate, AVAudioPla
 
 	private func adjustButtons() {
 		guard nil != session || nil != recorder else {
-			setStates(recordState: false, playState: false, deleteState: false);
+			setStates(recordState: true, playState: false, deleteState: false);
 			return;
 		}
-		if player == nil {
+		if nil == player {
 			setStates(recordState: true, playState: false, deleteState: false);
 		} else {
 			if recording {

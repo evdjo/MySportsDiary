@@ -54,9 +54,9 @@ internal func binaryChoiceMessage(sender: UIViewController, title: String,
 /// Dispatch a thread to navigate to the settings of this app
 ///
 internal func goToSettings() {
+	let appSettings = NSURL(string: UIApplicationOpenSettingsURLString)!;
 	dispatch_async(dispatch_get_main_queue(), {
-		UIApplication.sharedApplication().openURL(
-			NSURL(string: UIApplicationOpenSettingsURLString)!);
+		print(UIApplication.sharedApplication().openURL(appSettings));
 	})
 }
 
