@@ -7,7 +7,7 @@
 /* Class = "UIButton"; normalTitle = "Next"; ObjectID = "9iu-Ne-MxW"; */
 "9iu-Ne-MxW.normalTitle" = "Next";
 
-/* Class = "UILabel"; text = "Subtitle"; ObjectID = "80f-sT-7bZ"; */
+/* (No Commment) */
 "80f-sT-7bZ.text" = "Subtitle";
 
 /* Class = "UILabel"; text = "1 of 3"; ObjectID = "AEq-4L-DRe"; */
@@ -49,7 +49,7 @@
 /* Class = "UILabel"; text = "delete recording"; ObjectID = "TnE-ay-Dp3"; */
 "TnE-ay-Dp3.text" = "delete recording";
 
-/* Class = "UILabel"; text = "Title"; ObjectID = "Xcx-OV-B4O"; */
+/* (No Commment) */
 "Xcx-OV-B4O.text" = "Title";
 
 /* Class = "UITabBarItem"; title = "New Entry"; ObjectID = "acW-dT-cKf"; */

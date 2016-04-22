@@ -61,10 +61,10 @@ class AllEntriesViewerVC: UIViewController, UITableViewDelegate, UITableViewData
 	}
 
 	func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-		return 45;
+		return 35;
 	}
 	func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-		return 45;
+		return 40;
 	}
 ///
 /// The table headers are clickable and cause collapse/expand actions
@@ -75,7 +75,7 @@ class AllEntriesViewerVC: UIViewController, UITableViewDelegate, UITableViewData
 
 		switch section {
 		case 0, 1, 2:
-			label = UILabel.init(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 30));
+			label = UILabel.init(frame: CGRect(x: 0, y: 0, width: tableView.frame.width - 40, height: 45));
 			label?.textAlignment = .Center;
 			label?.backgroundColor = appBlueColor;
 			label?.userInteractionEnabled = true;
@@ -148,20 +148,6 @@ class AllEntriesViewerVC: UIViewController, UITableViewDelegate, UITableViewData
 	func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
 		return true
 	}
-///
-/// Clear color for the footer
-///
-//	func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-//		let view = UIView();
-//		view.backgroundColor = UIColor.clearColor();
-//		return view;
-//	}
-///
-/// Add small gray line as a footer.
-///
-//	func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-//		return CGFloat(4);
-//	}
 
 ///
 /// Enable deletion of entries

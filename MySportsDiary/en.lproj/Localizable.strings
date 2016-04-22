@@ -35,7 +35,7 @@
 "DIARY_DATE_TEXT" = "You will answer the initial questionnaire again on";
 
 /* Tell the user that he has unlocked the diary, and he can add entries to it. */
-"DIARY_TEXT" = "Hello. Leave text, audio, or video messages to explain how you think rugby helped change you today.\n\nYou can also add photos to help us see where you have been using your skills off the pitch.";
+"DIARY_TEXT" = "Hello. Leave text, audio, or video messages to explain how you think rugby helped change you today. You can also add photos to help us see where you have been using your skills off the pitch.";
 
 /* Text for a button indicating that pressing it will complete some action */
 "DONE" = "Done";
@@ -73,7 +73,10 @@
 /* Text explaining that the user has denied this app to use his library */
 "LIBRARY_PERMISSION_DENIED" = "You've denied permission of this app to use the photo library. You can grant permission in the settings menu.";
 
-/* The text to prompt the user describe the skill he is recording. This text appears before the skill. For example, if we have  this string equal to \"Today I showed\", and NEW_ENTRY_TEXT_2  equal to \"because of rugby.\", then we get the sentence:  Today I showed SKILL because of rugby. One of the strings can be ommited if it makes logical sentence in the target language. */
+/* Text explaining that the user has denied this app to use the microphone */
+"MICROPHONE_PERMISSION_DENIED" = "You've denied permission of this app to use the microphone. You can grant permission in the settings menu.";
+
+/* The text to prompt the user describe the skill he is recording. This text appears before the skill. For example, if we have  this string equal to \"Today I showed\", and NEW_ENTRY_TEXT_2  equal to \"because of rugby.\", then we get the sentence:  Today I showed SKILL because of rugby. One of the strings can be ommited if it makes logical sentences in the target language. */
 "NEW_ENTRY_TEXT_1" = "Tell us why rugby has helped you demonstrate ";
 
 /* See NEW_ENTRY_TEXT_1 */
@@ -84,6 +87,9 @@
 
 /* The negative answer -- Yes */
 "NO" = "No";
+
+/* Error message saying that the app could not use the phone's audio capabilities */
+"NO_AUDIO_ACCESS" = "Cannot access your audio device.";
 
 /* Text explaining that the device does not have a camera */
 "NO_CAMERA" = "The device does have camera.";
@@ -99,6 +105,9 @@
 
 /* An OK confirmation -- OK */
 "OK" = "OK";
+
+/* Text header for entries older than today and this week -- Older */
+"OLDER" = "Older";
 
 /* Text indicating that pressing the button will play the voice recording */
 "PLAY" = "play";
@@ -147,6 +156,12 @@
 
 /* Team work */
 "TEAM_WORK" = "Team work";
+
+/* Text header for entries from this week -- This week */
+"THIS_WEEK" = "This week";
+
+/* Text header for entries from today -- Today */
+"TODAY" = "Today";
 
 /* Trustworthiness */
 "TRUSTWORTHINESS" = "Trustworthiness";
