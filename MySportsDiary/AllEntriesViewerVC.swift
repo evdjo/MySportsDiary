@@ -48,9 +48,9 @@ class AllEntriesViewerVC: UIViewController, UITableViewDelegate, UITableViewData
 	func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
 		guard nil != entries else { return nil; }
 		switch section {
-		case 0: return "Today(\(entries.todayEntries.count))";
-		case 1: return "This week(\(entries.weekEntries.count))"
-		case 2: return "Older(\(entries.olderEntries.count))";
+		case 0: return "\(TODAY)(\(entries.todayEntries.count))";
+		case 1: return "\(THIS_WEEK)(\(entries.weekEntries.count)) "
+		case 2: return "\(OLDER)(\(entries.olderEntries.count)) ";
 		default: return nil;
 		}
 	}

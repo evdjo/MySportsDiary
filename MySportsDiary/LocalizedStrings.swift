@@ -143,3 +143,7 @@ let DIARY_DATE_TEXT = NSLocalizedString("DIARY_DATE_TEXT",
 	comment: "String to tell the user that he will answer the questionnaire again at the end");
 // "You will answer the questionnaire again on"
 
+let TODAY = NSLocalizedString("TODAY", comment: "Text header for entries from today -- Today")
+let THIS_WEEK = NSLocalizedString("THIS_WEEK", comment: "Text header for entries from this week -- This week");
+let OLDER = NSLocalizedString("OLDER", comment: "Text header for entries older than today and this week -- Older");
+
