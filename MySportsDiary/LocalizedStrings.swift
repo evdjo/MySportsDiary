@@ -38,6 +38,9 @@ let NO_LIBRARY_ACCESS = NSLocalizedString("NO_LIBRARY_ACCESS",
 let NO_CAMERA_ACCESS = NSLocalizedString("NO_CAMERA_ACCESS",
 	comment: "Text explaining that the camera cannot be accessed on this device");
 
+let NO_AUDIO_ACCESS = NSLocalizedString("NO_AUDIO_ACCESS",
+	comment: "Error message saying that the app could not use the phone's audio capabilities")
+
 // "Delete photo?"
 let DELETE_THE_PHOTO = NSLocalizedString("DELETE_THE_PHOTO",
 	comment: "Question asking confirmation to delete the photo");

@@ -16,7 +16,9 @@ class MediaPopoverAudioVC: UIViewController, AVAudioRecorderDelegate, AVAudioPla
 // Internal stuff
 	private var recorder: AVAudioRecorder?;
 	private var player: AVAudioPlayer?;
-	private var session: AVAudioSession?;
+	private var session: AVAudioSession = AVAudioSession.sharedInstance();
+	private var microphonePermissionGranted: Bool = false;
+	private var audioSessionOK: Bool = false;
 	private let settings: [String: AnyObject] = [
 		AVFormatIDKey: Int(kAudioFormatAppleIMA4), AVSampleRateKey: 44100.0,
 		AVNumberOfChannelsKey: 2, AVEncoderBitRateKey: 12800, AVLinearPCMBitDepthKey: 16,
@@ -33,7 +35,19 @@ class MediaPopoverAudioVC: UIViewController, AVAudioRecorderDelegate, AVAudioPla
 
 	override func viewDidLoad() {
 		super.viewDidLoad();
+		setUpSession();
+		setUpPlayer();
 		adjustButtons();
+	}
+
+///
+/// If the audio session set up flag is false, alert the user of the failure
+///
+	override func viewDidAppear(animated: Bool) {
+		super.viewDidAppear(animated);
+		if !audioSessionOK {
+			alertWithMessage(self, title: NO_AUDIO_ACCESS);
+		}
 	}
 ///
 /// Cancel any playback/recording
@@ -47,66 +61,31 @@ class MediaPopoverAudioVC: UIViewController, AVAudioRecorderDelegate, AVAudioPla
 			recorder.stop();
 		}
 	}
+
 ///
-/// Creates and sets up the audio session. If a failure occurs, the session is set to nil.
+/// Creates and sets up the audio session.
+/// If a failure occurs, audioSessionOK flag is set false
 ///
 	private func setUpSession() {
-		let session = AVAudioSession.sharedInstance();
 		do {
-			let permission = session.recordPermission();
-			var canUseMicrophoneFlag: Bool = false;
-			switch permission {
-			case AVAudioSessionRecordPermission.Granted:
-				canUseMicrophoneFlag = true;
-
-			case AVAudioSessionRecordPermission.Denied:
-				canUseMicrophoneFlag = false;
-				binaryChoiceMessage(self, title: MICROPHONE_PERMISSION_DENIED,
-					choice0: GO_TO_SETTINGS,
-					handler0: { (_) in goToSettings(); },
-					choice1: CANCEL,
-					handler1: nil);
-			case AVAudioSessionRecordPermission.Undetermined:
-				session.requestRecordPermission({ response in
-					canUseMicrophoneFlag = response;
-				})
-			default:
-				canUseMicrophoneFlag = false;
-			}
-
-			if canUseMicrophoneFlag {
-				try session.setCategory(AVAudioSessionCategoryPlayAndRecord,
-					withOptions: AVAudioSessionCategoryOptions.DefaultToSpeaker)
-				try session.setActive(true);
-				self.session = session;
-			}
+			try session.setCategory(AVAudioSessionCategoryPlayAndRecord,
+				withOptions: AVAudioSessionCategoryOptions.DefaultToSpeaker)
+			try session.setActive(true);
+			audioSessionOK = true;
 		} catch {
-			self.session = nil;
+			audioSessionOK = false;
 		}
 	}
 
-///
-/// Creates the recorder. If a recorder creation fails, it will be nil.
-///
-	private func setUpRecorder() {
-		guard nil != session else { return }
-		do {
-			let temp = NSURL(fileURLWithPath: NSTemporaryDirectory())
-				.URLByAppendingPathComponent("temp_recording.caf")
-			try recorder = AVAudioRecorder(URL: temp, settings: settings)
-			recorder?.prepareToRecord();
-			recorder?.delegate = self;
-		} catch {
-			recorder = nil;
-		}
-	}
 ///
 /// Creates the audio player, and assigns it the persistentAudioFileURL as file to play
 /// If creation fails or the file doesn't exist, the player is set to nil.
 ///
 	private func setUpPlayer() {
-		guard nil != recorder else { return }
-		guard nil != session else { return }
+		guard audioSessionOK else {
+			player = nil
+			return
+		}
 		if let playFile = delegate?.audio {
 			do {
 				try player = AVAudioPlayer(contentsOfURL: playFile)
@@ -119,6 +98,51 @@ class MediaPopoverAudioVC: UIViewController, AVAudioRecorderDelegate, AVAudioPla
 			player = nil;
 		}
 	}
+
+///
+/// Check permissions to use the micriphone
+///
+	private func checkMicrophonePermission() {
+		let permission = session.recordPermission();
+		switch permission {
+		case AVAudioSessionRecordPermission.Granted:
+			microphonePermissionGranted = true;
+
+		case AVAudioSessionRecordPermission.Denied:
+			microphonePermissionGranted = false;
+			binaryChoiceMessage(self, title: MICROPHONE_PERMISSION_DENIED,
+				choice0: GO_TO_SETTINGS,
+				handler0: { (_) in goToSettings(); },
+				choice1: CANCEL,
+				handler1: nil);
+		case AVAudioSessionRecordPermission.Undetermined:
+			session.requestRecordPermission({ response in
+				self.microphonePermissionGranted = response;
+			})
+		default:
+			microphonePermissionGranted = false;
+		}
+	}
+
+///
+/// Creates the recorder. If a recorder creation fails, it will be nil.
+///
+	private func setUpRecorder() {
+		if !microphonePermissionGranted {
+			checkMicrophonePermission();
+		}
+		guard microphonePermissionGranted else { return }
+		do {
+			let temp = NSURL(fileURLWithPath: NSTemporaryDirectory())
+				.URLByAppendingPathComponent("temp_recording.caf")
+			try recorder = AVAudioRecorder(URL: temp, settings: settings)
+			recorder?.prepareToRecord();
+			recorder?.delegate = self;
+		} catch {
+			recorder = nil;
+		}
+	}
+
 ///
 /// When delete pressed, stop any potential playing item,
 /// delete the persistent audio file, and adjust buttons
@@ -137,14 +161,13 @@ class MediaPopoverAudioVC: UIViewController, AVAudioRecorderDelegate, AVAudioPla
 /// Disable all other buttons if we record
 ///
 	@IBAction func onRecordButtonPressed(sender: UIButton) {
-		if nil == session {
-			setUpSession();
+		if nil == recorder {
 			setUpRecorder();
 			adjustButtons();
 		}
 		guard !playing else { return; }
 		guard nil != recorder else { return; }
-		guard nil != session else { return; }
+		guard audioSessionOK else { return; }
 
 		if recording {
 			recorder?.stop();
@@ -156,30 +179,13 @@ class MediaPopoverAudioVC: UIViewController, AVAudioRecorderDelegate, AVAudioPla
 	}
 
 ///
-/// When the recording finished, delete the old persistent file,
-/// copy the one from the recorder to the persistent file, and give it to the avpplayer
-/// adjust the buttons -- disable the play and delete buttons
-///
-	func audioRecorderDidFinishRecording(recorder: AVAudioRecorder, successfully flag: Bool) {
-		if (flag) {
-			delegate?.audio = recorder.url;
-			setUpPlayer();
-		} else {
-			delegate?.audio = nil;
-			alertWithMessage(self, title: FAILED_TO_RECORD);
-		}
-		recording = false;
-		adjustButtons();
-	}
-
-///
 /// If playing, stop playing
 /// If not playing, start playing
 /// Disable all other buttons while playing
 ///
 	@IBAction func onPlayButtonPressed(sender: UIButton) {
 		guard !recording else { return; }
-		guard nil != session else { return; }
+		guard audioSessionOK else { return; }
 
 		if nil == player {
 			setUpPlayer();
@@ -201,6 +207,23 @@ class MediaPopoverAudioVC: UIViewController, AVAudioRecorderDelegate, AVAudioPla
 	}
 
 ///
+/// When the recording finished, delete the old persistent file,
+/// copy the one from the recorder to the persistent file, and give it to the avpplayer
+/// adjust the buttons -- disable the play and delete buttons
+///
+	func audioRecorderDidFinishRecording(recorder: AVAudioRecorder, successfully flag: Bool) {
+		if (flag) {
+			delegate?.audio = recorder.url;
+			setUpPlayer();
+		} else {
+			delegate?.audio = nil;
+			alertWithMessage(self, title: FAILED_TO_RECORD);
+		}
+		recording = false;
+		adjustButtons();
+	}
+
+///
 /// When the playing finishes, reenable the play button
 ///
 	func audioPlayerDidFinishPlaying(player: AVAudioPlayer, successfully flag: Bool) {
@@ -209,8 +232,8 @@ class MediaPopoverAudioVC: UIViewController, AVAudioRecorderDelegate, AVAudioPla
 	}
 
 	private func adjustButtons() {
-		guard nil != session || nil != recorder else {
-			setStates(recordState: true, playState: false, deleteState: false);
+		guard audioSessionOK else {
+			setStates(recordState: false, playState: false, deleteState: false);
 			return;
 		}
 		if nil == player {
@@ -224,8 +247,10 @@ class MediaPopoverAudioVC: UIViewController, AVAudioRecorderDelegate, AVAudioPla
 				setStates(recordState: true, playState: true, deleteState: true);
 			}
 		}
-		playerButtonState();recordButtonState();
+		playerButtonState();
+		recordButtonState();
 	}
+
 ///
 /// Sets the states of the three buttons. If a button is disabled it's alpha will be changed to 0.5
 ///
@@ -238,7 +263,7 @@ class MediaPopoverAudioVC: UIViewController, AVAudioRecorderDelegate, AVAudioPla
 		deleteButton.alpha = deleteState ? 1 : 0.5;
 	}
 
-	func playerButtonState() {
+	private func playerButtonState() {
 		if !playing {
 			playButton.setImage(UIImage(named: "play"), forState: .Normal);
 			playButton.backgroundColor = nil;
@@ -249,7 +274,7 @@ class MediaPopoverAudioVC: UIViewController, AVAudioRecorderDelegate, AVAudioPla
 			playLabel.text = STOP; }
 	}
 
-	func recordButtonState() {
+	private func recordButtonState() {
 		if !recording {
 			recordButton.setImage(UIImage(named: "mic-2"), forState: .Normal);
 			recordButton.backgroundColor = nil;
