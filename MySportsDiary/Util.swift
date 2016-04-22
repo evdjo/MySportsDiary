@@ -87,18 +87,18 @@ internal func aspectFitResizeImageTo(wantedWidth wantedWidth: CGFloat, image: UI
 	return resizedImage
 }
 
-/// LOST AND FOUND
+internal func datesAreWithinWeek(fromDate: NSDate, _ toDate: NSDate) -> Bool {
+	let unitFlags = NSCalendarUnit.Day ;
+	let comps = NSCalendar.currentCalendar().components(
+		unitFlags,
+		fromDate: fromDate,
+		toDate: toDate,
+		options: NSCalendarOptions.init(rawValue: 0))
 
-///
-//        let fromView = self.tabBarController?.selectedViewController!.view;
-//        let toView = self.tabBarController?.viewControllers![2].view;
-//
-//        UIView.transitionFromView(
-//            fromView!, toView: toView!, duration: 0.56,
-//            options: .TransitionFlipFromRight,
-//            completion: { (finished) in
-//                if (finished) {
-//                    self.navigationController?.popViewControllerAnimated(false)
-//                    self.tabBarController?.selectedIndex = 2;
-//                }
-//        });
+	var days = comps.day;
+	if days < 0 {
+		days *= -1;
+	}
+	return days < 7;
+}
+

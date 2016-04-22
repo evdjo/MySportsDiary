@@ -46,4 +46,3 @@ UITabBarControllerDelegate {
 	}
 }
 
-// // SOURCE FROM -> https://www.reddit.com/r/swift/comments/2fc1ze/animated_switch_when_using_tabbarcontroller/

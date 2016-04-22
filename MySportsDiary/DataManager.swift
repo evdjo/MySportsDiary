@@ -10,7 +10,6 @@ import Foundation
 import UIKit
 
 protocol DataManager {
-
 	func getAge() -> Int?;
 	func getGender() -> Gender?;
 	func setAge(age: Int);
@@ -38,6 +37,8 @@ protocol DataManager {
 	func addNewEntry(entry: Entry);
 
 	func getEntries() -> [Entry]?
+	func getEntriesByDate() -> EntriesByDate?;
+    
 	func getEntryForID(entry_id: Int64) -> Entry?;
 	func updateEntryWithID(id id: Int64, newDescr: String);
 

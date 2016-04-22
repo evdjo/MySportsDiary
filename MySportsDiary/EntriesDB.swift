@@ -135,5 +135,7 @@ class EntriesDB {
 	static func purgeEntries() {
 		deleteFile(file: DataConfig.DB_URL);
 		deleteFile(file: DataConfig.ENTRIES_DIR_URL);
-	}
+	}     
+    
+    
 }
