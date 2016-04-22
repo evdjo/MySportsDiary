@@ -108,7 +108,7 @@ class QuestionsVC: UIViewController {
 				DataManagerInstance().setAppState(.Diary);
 				let dateNow = NSDate();
 				let dateAfter8Weeks = NSCalendar.currentCalendar()
-					.dateByAddingUnit(.Minute, value: 10, toDate: dateNow, options: [])!;
+					.dateByAddingUnit(.Day, value: 28, toDate: dateNow, options: [])!;
 
 				DataManagerInstance().setDiaryStart(dateString(dateAfter8Weeks));
 				// enable second and third tabs, disable first, switch to second
