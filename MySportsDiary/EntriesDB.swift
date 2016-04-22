@@ -105,6 +105,24 @@ class EntriesDB {
 	}
 
 	///
+	/// Delete the entry with the given ID
+	///
+	static func deleteEntryWithID(entry_id: Int64) {
+		let db: COpaquePointer! = openDB(DataConfig.DB_URL);
+		guard db != nil else { return; }
+		guard createTable(db!, create: ENTRIES_TABLE_CREATE) else { return; }
+		var statement: COpaquePointer = nil;
+		if (sqlite3_prepare_v2(db, ENTRY_WITH_ID_DELETE, -1, &statement, nil) == SQLITE_OK) {
+			sqlite3_bind_int64(statement, 1, entry_id)
+			if SQLITE_DONE == sqlite3_step(statement) {
+				print("Entry deleted");
+			}
+		}
+		sqlite3_finalize(statement);
+		sqlite3_close(db);
+	}
+
+	///
 	/// Updates the description of the entry with the passed id.
 	///
 	static func updateEntryWithID(id id: Int64, newDescr: String) {
@@ -135,7 +153,5 @@ class EntriesDB {
 	static func purgeEntries() {
 		deleteFile(file: DataConfig.DB_URL);
 		deleteFile(file: DataConfig.ENTRIES_DIR_URL);
-	}     
-    
-    
+	}
 }

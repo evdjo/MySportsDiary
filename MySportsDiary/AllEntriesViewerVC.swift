@@ -83,6 +83,24 @@ class AllEntriesViewerVC: UIViewController, UITableViewDelegate, UITableViewData
 		}
 	}
 
+	func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+		return true
+	}
+
+	func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle,
+		forRowAtIndexPath indexPath: NSIndexPath) {
+			if editingStyle == UITableViewCellEditingStyle.Delete {
+				if let entry = entryForIndexPath(indexPath) {
+					tableView.beginUpdates();
+					DataManagerInstance().deleteEntryWithID(entry.entry_id)
+					tableView.deleteRowsAtIndexPaths([indexPath],
+						withRowAnimation: UITableViewRowAnimation.Left)
+					refreshEntries();
+
+					tableView.endUpdates();
+				}
+	} }
+
 	private func entryForIndexPath(indexPath: NSIndexPath) -> Entry? {
 		let row = indexPath.row;
 

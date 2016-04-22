@@ -50,7 +50,15 @@ private class MainDataManager: DataManager {
 	func addNewEntry(entry: Entry) { EntriesDB.insertEntry(entry); }
 	func getEntries() -> [Entry]? { return EntriesDB.entries(); }
 	func getEntriesByDate() -> EntriesByDate { return EntriesByDate(entries: EntriesDB.entries()); }
-    
+	func deleteEntryWithID(entry_id: Int64) {
+		let entry = EntriesDB.entryForID(entry_id);
+		if let entry = entry {
+			let deleted = deleteFile(file: DataConfig.ENTRIES_DIR_URL.URLByAppendingPathComponent(entry.date_time));
+			print("Entry deleted : \(deleted) ");
+			EntriesDB.deleteEntryWithID(entry_id)
+		}
+	}
+
 	func getEntryForID(entry_id: Int64) -> Entry? { return EntriesDB.entryForID(entry_id); }
 	func updateEntryWithID(id id: Int64, newDescr: String) { EntriesDB.updateEntryWithID(id: id, newDescr: newDescr); }
 

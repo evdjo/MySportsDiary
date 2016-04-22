@@ -38,7 +38,7 @@ protocol DataManager {
 
 	func getEntries() -> [Entry]?
 	func getEntriesByDate() -> EntriesByDate;
-
+	func deleteEntryWithID(entry_id: Int64);
 	func getEntryForID(entry_id: Int64) -> Entry?;
 	func updateEntryWithID(id id: Int64, newDescr: String);
 
