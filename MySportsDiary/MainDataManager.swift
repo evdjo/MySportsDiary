@@ -49,7 +49,7 @@ private class MainDataManager: DataManager {
 
 	func addNewEntry(entry: Entry) { EntriesDB.insertEntry(entry); }
 	func getEntries() -> [Entry]? { return EntriesDB.entries(); }
-	func getEntriesByDate() -> EntriesByDate? { return EntriesByDate(entries: EntriesDB.entries()); }
+	func getEntriesByDate() -> EntriesByDate { return EntriesByDate(entries: EntriesDB.entries()); }
     
 	func getEntryForID(entry_id: Int64) -> Entry? { return EntriesDB.entryForID(entry_id); }
 	func updateEntryWithID(id id: Int64, newDescr: String) { EntriesDB.updateEntryWithID(id: id, newDescr: newDescr); }
