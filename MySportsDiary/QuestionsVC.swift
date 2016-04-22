@@ -20,8 +20,6 @@ class QuestionsVC: UIViewController {
 	@IBOutlet var theview: [CustomSliderOut]!
 	@IBOutlet var sliders: [UISlider]!
 
-	@IBOutlet var sliderValueLabel: [UILabel]!
-
 	@IBOutlet var disagree: [UILabel]!
 	@IBOutlet var agree: [UILabel]!
 
@@ -34,7 +32,6 @@ class QuestionsVC: UIViewController {
 
 			agree[index].alpha = CGFloat(sender.value / 10);
 			disagree[index].alpha = 1 - CGFloat(sender.value / 10);
-			sliderValueLabel[index].text = String(Int(sender.value));
 		}
 	}
 ///
@@ -52,6 +49,14 @@ class QuestionsVC: UIViewController {
 		questionLabels[0].text = questions[startIndex];
 		questionLabels[1].text = questions[startIndex + 1];
 		questionLabels[2].text = questions[startIndex + 2];
+//		questionLabels[0].adjustsFontSizeToFitWidth = true;
+//		questionLabels[1].adjustsFontSizeToFitWidth = true;
+//		questionLabels[2].adjustsFontSizeToFitWidth = true;
+
+//		fixLabelTextSize(questionLabels[0]);
+//		fixLabelTextSize(questionLabels[1]);
+//		fixLabelTextSize(questionLabels[2]);
+
 		switch page {
 		case 0, 1:
 			bottomButton.setTitle(NEXT, forState: .Normal);
@@ -60,6 +65,15 @@ class QuestionsVC: UIViewController {
 		}
 		pageLabel.text = "\(page + 1) / 3";
 	}
+//	private func fixLabelTextSize(label: UILabel) {
+//		label.numberOfLines = 1;
+//		label.lineBreakMode = .ByWordWrapping;
+//		let maximumLabelSize: CGSize = CGSizeMake(label.frame.size.width, CGFloat.max);
+//
+//		let expectSize: CGSize = label.sizeThatFits(maximumLabelSize);
+//		label.frame = CGRectMake(label.frame.origin.x, label.frame.origin.y,
+//			expectSize.width, expectSize.height);
+//	}
 
 	@IBAction func onBottomButtonPressed(sender: AnyObject) {
 		DataManagerInstance().setAnswer(page * 3 + 0, answer: Int(sliders[0].value));

@@ -1,0 +1,159 @@
+/* Indicate that there are photos added, and selecting the button will show the photos */
+"ADDED_PHOTO" = "ADDED_PHOTO";
+
+/* Indicate that there is video added, and selecting the button will show the video */
+"ADDED_VIDEO" = "ADDED_VIDEO";
+
+/* Indicate that there is voice added, and selecting the button will show the audio */
+"ADDED_VOICE" = "ADDED_VOICE";
+
+/* Short text promting addition of a photo */
+"ADD_PHOTO" = "ADD_PHOTO";
+
+/* Short text promting addition of a video */
+"ADD_VIDEO" = "ADD_VIDEO";
+
+/* Short text promting addition of a voice */
+"ADD_VOICE" = "ADD_VOICE";
+
+/* Ask the user if he is sure */
+"ARE_YOU_SURE" = "ARE_YOU_SURE";
+
+/* Text explaining that the user has denied this app to use the camera */
+"CAMERA_PERMISSION_DENIED" = "CAMERA_PERMISSION_DENIED";
+
+/* The canceling button label -- Cancel */
+"CANCEL" = "CANCEL";
+
+/* Question asking confirmation to delete the photo */
+"DELETE_THE_PHOTO" = "DELETE_THE_PHOTO";
+
+/* Question asking confirmation to delete the video */
+"DELETE_THE_VIDEO" = "DELETE_THE_VIDEO";
+
+/* String to tell the user that he will answer the questionnaire again at the end */
+"DIARY_DATE_TEXT" = "DIARY_DATE_TEXT";
+
+/* Tell the user that he has unlocked the diary, and he can add entries to it. */
+"DIARY_TEXT" = "DIARY_TEXT";
+
+/* Text for a button indicating that pressing it will complete some action */
+"DONE" = "DONE";
+
+/* Text description to appear in the entry description text area. */
+"ENTER_TEXT" = "ENTER_TEXT";
+
+/* Text explaining that the recording has failed */
+"FAILED_TO_RECORD" = "FAILED_TO_RECORD";
+
+/* Fairness */
+"FAIRNESS" = "FAIRNESS";
+
+/* Tell the user he has to answer the questionnaire again */
+"FINAL_TEXT" = "FINAL_TEXT";
+
+/* Finish button title */
+"FINISH" = "FINISH";
+
+/* The message below the prompt of ARE_YOU_SURE */
+"FINISH_QUESTIONNAIRE_CONFIRM" = "FINISH_QUESTIONNAIRE_CONFIRM";
+
+/* Text offering the user to go to the settgins of the app */
+"GO_TO_SETTINGS" = "GO_TO_SETTINGS";
+
+/* Honesty */
+"HONESTY" = "HONESTY";
+
+/* Kindness */
+"KINDNESS" = "KINDNESS";
+
+/* Leadership */
+"LEADERSHIP" = "LEADERSHIP";
+
+/* Text explaining that the user has denied this app to use his library */
+"LIBRARY_PERMISSION_DENIED" = "LIBRARY_PERMISSION_DENIED";
+
+/* The text to prompt the user describe the skill he is recording. This text appears before the skill. For example, if we have  this string equal to \"Today I showed\", and NEW_ENTRY_TEXT_2  equal to \"because of rugby.\", then we get the sentence:  Today I showed SKILL because of rugby. One of the strings can be ommited if it makes logical sentences in the target language. */
+"NEW_ENTRY_TEXT_1" = "NEW_ENTRY_TEXT_1";
+
+/* See NEW_ENTRY_TEXT_1 */
+"NEW_ENTRY_TEXT_2" = "NEW_ENTRY_TEXT_2";
+
+/* Next button title */
+"NEXT" = "NEXT";
+
+/* The negative answer -- Yes */
+"NO" = "NO";
+
+/* Text explaining that the device does not have a camera */
+"NO_CAMERA" = "NO_CAMERA";
+
+/* Text explaining that the camera cannot be accessed on this device */
+"NO_CAMERA_ACCESS" = "NO_CAMERA_ACCESS";
+
+/* Text explaining that the device does not have a library. */
+"NO_LIBRARY" = "NO_LIBRARY";
+
+/* Text explaining that there is  no access to the user's library */
+"NO_LIBRARY_ACCESS" = "NO_LIBRARY_ACCESS";
+
+/* An OK confirmation -- OK */
+"OK" = "OK";
+
+/* Text indicating that pressing the button will play the voice recording */
+"PLAY" = "PLAY";
+
+/* Problem solving */
+"PROBLEM_SOLVING" = "PROBLEM_SOLVING";
+
+/* I do well at any sports I play */
+"QUESTION_1" = "QUESTION_1";
+
+/* I am happy to be me */
+"QUESTION_2" = "QUESTION_2";
+
+/* I get angry often */
+"QUESTION_3" = "QUESTION_3";
+
+/* I hit people if they start the fight */
+"QUESTION_4" = "QUESTION_4";
+
+/* I accept responsibility for my behaviour if I make a mistake */
+"QUESTION_5" = "QUESTION_5";
+
+/* I do very well in my school work */
+"QUESTION_6" = "QUESTION_6";
+
+/* I use my imagination to solve problems */
+"QUESTION_7" = "QUESTION_7";
+
+/* I want to help to make my community a better place to live */
+"QUESTION_8" = "QUESTION_8";
+
+/* I feel important in my community */
+"QUESTION_9" = "QUESTION_9";
+
+/* Text indicating that pressing the button will start recording a voice */
+"RECORD" = "RECORD";
+
+/* Respect */
+"RESPECT" = "RESPECT";
+
+/* Self-belief */
+"SELF_BELIEF" = "SELF_BELIEF";
+
+/* Text indicating that pressing the button will stop the playback of the recording */
+"STOP" = "STOP";
+
+/* Team work */
+"TEAM_WORK" = "TEAM_WORK";
+
+/* Trustworthiness */
+"TRUSTWORTHINESS" = "TRUSTWORTHINESS";
+
+/* Welcome the user, by telling him that he has to answer few questions */
+"WELCOME_STRING" = "WELCOME_STRING";
+
+/* The positive answer -- Yes */
+"YES" = "YES";
+

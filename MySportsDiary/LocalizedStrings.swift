@@ -35,11 +35,11 @@ let NO_LIBRARY_ACCESS = NSLocalizedString("NO_LIBRARY_ACCESS",
 let NO_CAMERA_ACCESS = NSLocalizedString("NO_CAMERA_ACCESS",
 	comment: "Text explaining that the camera cannot be accessed on this device");
 
-// "Delete the image?"
+// "Delete photo?"
 let DELETE_THE_PHOTO = NSLocalizedString("DELETE_THE_PHOTO",
 	comment: "Question asking confirmation to delete the photo");
 
-// "Delete the video?"
+// "Delete video?"
 let DELETE_THE_VIDEO = NSLocalizedString("DELETE_THE_VIDEO",
 	comment: "Question asking confirmation to delete the video");
 
@@ -73,12 +73,7 @@ let DONE = NSLocalizedString("DONE", comment:
 		"Text for a button indicating that pressing it will complete some action");
 
 var NEW_ENTRY_TEXT_1 = NSLocalizedString("NEW_ENTRY_TEXT_1",
-	comment: "The text to prompt the user describe the skill he is recording."
-		+ " This text appears before the skill. For example, if we have "
-		+ " this string equal to \"Today I showed\", and NEW_ENTRY_TEXT_2 "
-		+ " equal to \"because of rugby.\", then we get the sentence: "
-		+ " Today I showed SKILL because of rugby. One of the strings"
-		+ " can be ommited if it makes logical sentences in the target language.")
+	comment: "The text to prompt the user describe the skill he is recording. This text appears before the skill. For example, if we have  this string equal to \"Today I showed\", and NEW_ENTRY_TEXT_2  equal to \"because of rugby.\", then we get the sentence:  Today I showed SKILL because of rugby. One of the strings can be ommited if it makes logical sentences in the target language.")
 
 var NEW_ENTRY_TEXT_2 = NSLocalizedString("NEW_ENTRY_TEXT_2",
 	comment: "See NEW_ENTRY_TEXT_1 ")
@@ -135,12 +130,7 @@ let WELCOME_STRING = NSLocalizedString("WELCOME_STRING",
 	comment: "Welcome the user, by telling him that he has to answer few questions");
 
 let DIARY_TEXT = NSLocalizedString("DIARY_TEXT",
-	comment: "Tell the user that he has unlocked the diary,"
-		+ " and he can add entries to it.");
-//        "Hello. Leave text, audio, or video messages to explain"
-//		+ " how you think rugby helped change you today.\n\n"
-//		+ " You can also add photos to help us see where you have"
-//		+ " been using your skills off the pitch.";
+	comment: "Tell the user that he has unlocked the diary, and he can add entries to it.");
 
 let FINAL_TEXT = NSLocalizedString("FINAL_TEXT",
 	comment: "Tell the user he has to answer the questionnaire again");

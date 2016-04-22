@@ -1,0 +1,147 @@
+/* Class = "UILabel"; text = "delete video"; ObjectID = "8uq-Xs-TVg"; */
+"8uq-Xs-TVg.text" = "delete video";
+
+/* Class = "UIButton"; normalTitle = "New entry"; ObjectID = "9EC-0B-12V"; */
+"9EC-0B-12V.normalTitle" = "New entry";
+
+/* Class = "UIButton"; normalTitle = "Next"; ObjectID = "9iu-Ne-MxW"; */
+"9iu-Ne-MxW.normalTitle" = "Next";
+
+/* Class = "UILabel"; text = "Subtitle"; ObjectID = "80f-sT-7bZ"; */
+"80f-sT-7bZ.text" = "Subtitle";
+
+/* Class = "UILabel"; text = "1 of 3"; ObjectID = "AEq-4L-DRe"; */
+"AEq-4L-DRe.text" = "1 of 3";
+
+/* Class = "UILabel"; text = "Disagree"; ObjectID = "DXo-58-xnF"; */
+"DXo-58-xnF.text" = "Disagree";
+
+/* Class = "UILabel"; text = "No photos added (max 5 images)"; ObjectID = "EfA-gD-1oP"; */
+"EfA-gD-1oP.text" = "No photos added (max 5 images)";
+
+/* Class = "UIButton"; normalTitle = "Next"; ObjectID = "FcI-tA-V46"; */
+"FcI-tA-V46.normalTitle" = "Next";
+
+/* Class = "UILabel"; text = "Disagree"; ObjectID = "GKo-jA-wiL"; */
+"GKo-jA-wiL.text" = "Disagree";
+
+/* Class = "UILabel"; text = "years old"; ObjectID = "Hhk-MM-bN7"; */
+"Hhk-MM-bN7.text" = "years old";
+
+/* Class = "UIButton"; normalTitle = "Next"; ObjectID = "II1-0a-9Up"; */
+"II1-0a-9Up.normalTitle" = "Next";
+
+/* Class = "UILabel"; text = "add video"; ObjectID = "KF0-Iy-h5L"; */
+"KF0-Iy-h5L.text" = "add video";
+
+/* Class = "UISegmentedControl"; Mer-OE-1HC.segmentTitles[0] = "Boy"; ObjectID = "Mer-OE-1HC"; */
+"Mer-OE-1HC.segmentTitles[0]" = "Boy";
+
+/* Class = "UISegmentedControl"; Mer-OE-1HC.segmentTitles[1] = "Girl"; ObjectID = "Mer-OE-1HC"; */
+"Mer-OE-1HC.segmentTitles[1]" = "Girl";
+
+/* Class = "UILabel"; text = "choose from existing"; ObjectID = "NCZ-5A-GiU"; */
+"NCZ-5A-GiU.text" = "choose from existing";
+
+/* Class = "UILabel"; text = "Agree"; ObjectID = "Pkq-Dg-6ro"; */
+"Pkq-Dg-6ro.text" = "Agree";
+
+/* Class = "UILabel"; text = "delete recording"; ObjectID = "TnE-ay-Dp3"; */
+"TnE-ay-Dp3.text" = "delete recording";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "Xcx-OV-B4O"; */
+"Xcx-OV-B4O.text" = "Title";
+
+/* Class = "UITabBarItem"; title = "New Entry"; ObjectID = "acW-dT-cKf"; */
+"acW-dT-cKf.title" = "New Entry";
+
+/* Class = "UILabel"; text = "question"; ObjectID = "b8b-4R-Hz6"; */
+"b8b-4R-Hz6.text" = "question";
+
+/* Class = "UITabBarItem"; title = "View Entries"; ObjectID = "cPa-gy-q4n"; */
+"cPa-gy-q4n.title" = "View Entries";
+
+/* Class = "UITabBarItem"; title = "Questionnaire"; ObjectID = "cX9-GF-L2i"; */
+"cX9-GF-L2i.title" = "Questionnaire";
+
+/* Class = "UILabel"; text = "choose from existing"; ObjectID = "dyJ-hU-N8M"; */
+"dyJ-hU-N8M.text" = "choose from existing";
+
+/* Class = "UILabel"; text = "delete image"; ObjectID = "e3Y-cY-Dwd"; */
+"e3Y-cY-Dwd.text" = "delete image";
+
+/* Class = "UIButton"; normalTitle = "Begin"; ObjectID = "eGO-aR-N2l"; */
+"eGO-aR-N2l.normalTitle" = "Begin";
+
+/* Class = "UITabBarItem"; title = "New Entry"; ObjectID = "eTn-o5-Exq"; */
+"eTn-o5-Exq.title" = "New Entry";
+
+/* Class = "UIButton"; normalTitle = "Done"; ObjectID = "ekE-3g-LTe"; */
+"ekE-3g-LTe.normalTitle" = "Done";
+
+/* Class = "UILabel"; text = "No video added (30 seconds max)"; ObjectID = "erV-Gi-n2a"; */
+"erV-Gi-n2a.text" = "No video added (30 seconds max)";
+
+/* Class = "UITabBarItem"; title = "Questionnaire"; ObjectID = "ers-Pe-uBA"; */
+"ers-Pe-uBA.title" = "Questionnaire";
+
+/* Class = "UILabel"; text = "Disagree"; ObjectID = "fIa-7H-rVb"; */
+"fIa-7H-rVb.text" = "Disagree";
+
+/* Class = "UILabel"; text = "Agree"; ObjectID = "hM9-bh-eLN"; */
+"hM9-bh-eLN.text" = "Agree";
+
+/* Class = "UILabel"; text = "use camera"; ObjectID = "hOb-1Z-RTz"; */
+"hOb-1Z-RTz.text" = "use camera";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "ho3-lR-U49"; */
+"ho3-lR-U49.text" = "0";
+
+/* Class = "UILabel"; text = "start recording"; ObjectID = "iks-ea-gvg"; */
+"iks-ea-gvg.text" = "start recording";
+
+/* Class = "UILabel"; text = "use camera"; ObjectID = "j32-7z-6N8"; */
+"j32-7z-6N8.text" = "use camera";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "jbs-JG-4Ux"; */
+"jbs-JG-4Ux.text" = "0";
+
+/* Class = "UILabel"; text = "Agree"; ObjectID = "jfl-SQ-vGB"; */
+"jfl-SQ-vGB.text" = "Agree";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "jkv-TM-So7"; */
+"jkv-TM-So7.text" = "0";
+
+/* Class = "UILabel"; text = "I am a"; ObjectID = "lwI-hM-qFL"; */
+"lwI-hM-qFL.text" = "I am a";
+
+/* Class = "UILabel"; text = "play"; ObjectID = "oNZ-xi-NZX"; */
+"oNZ-xi-NZX.text" = "play";
+
+/* Class = "UILabel"; text = "Entries"; ObjectID = "osP-jg-r3l"; */
+"osP-jg-r3l.text" = "Entries";
+
+/* Class = "UILabel"; text = "add voice"; ObjectID = "pW6-Kt-tp9"; */
+"pW6-Kt-tp9.text" = "add voice";
+
+/* Class = "UILabel"; text = "add photo"; ObjectID = "qVM-F2-2fi"; */
+"qVM-F2-2fi.text" = "add photo";
+
+/* Class = "UILabel"; text = "question"; ObjectID = "rbz-ES-RRq"; */
+"rbz-ES-RRq.text" = "question";
+
+/* Class = "UILabel"; text = "question"; ObjectID = "roz-TV-e0u"; */
+"roz-TV-e0u.text" = "question";
+
+/* Class = "UIButton"; normalTitle = "."; ObjectID = "rz0-NY-nT3"; */
+"rz0-NY-nT3.normalTitle" = ".";
+
+/* Class = "UILabel"; text = "Welcome to MyRugbyDiary"; ObjectID = "sZv-E5-9HB"; */
+"sZv-E5-9HB.text" = "Welcome to MyRugbyDiary";
+
+/* Class = "UILabel"; text = "1 / 1"; ObjectID = "t5T-vd-NuV"; */
+"t5T-vd-NuV.text" = "1 / 1";
+
+/* Class = "UILabel"; text = "I am "; ObjectID = "xUg-rL-XRX"; */
+"xUg-rL-XRX.text" = "I am ";
+
