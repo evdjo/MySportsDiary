@@ -73,7 +73,7 @@
 /* Text explaining that the user has denied this app to use his library */
 "LIBRARY_PERMISSION_DENIED" = "You've denied permission of this app to use the photo library. You can grant permission in the settings menu.";
 
-/* The text to prompt the user describe the skill he is recording. This text appears before the skill. For example, if we have  this string equal to \"Today I showed\", and NEW_ENTRY_TEXT_2  equal to \"because of rugby.\", then we get the sentence:  Today I showed SKILL because of rugby. One of the strings can be ommited if it makes logical sentence in the target language. */
+/* The text to prompt the user describe the skill he is recording. This text appears before the skill. For example, if we have  this string equal to \"Today I showed\", and NEW_ENTRY_TEXT_2  equal to \"because of rugby.\", then we get the sentence:  Today I showed SKILL because of rugby. One of the strings can be ommited if it makes logical sentences in the target language. */
 "NEW_ENTRY_TEXT_1" = "Tell us why rugby has helped you demonstrate ";
 
 /* See NEW_ENTRY_TEXT_1 */

@@ -17,7 +17,7 @@ class InitialVC: UIViewController {
 		get {
 			if let dateString = DataManagerInstance().getDiaryStart() {
 				let date = stringDate(dateString);
-				return "\n\n \(DIARY_DATE_TEXT) \n \(screenDateString(date))"
+				return "\n\n\(DIARY_DATE_TEXT)\n\(screenDateString(date))"
 			}
 			return "";
 		}

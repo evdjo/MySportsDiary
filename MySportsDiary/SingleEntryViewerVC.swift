@@ -68,7 +68,7 @@ class SingleEntryViewerVC: UIViewController, UIPopoverPresentationControllerDele
 
 		switch (entryType!) {
 		case .New:
-			topLabel.text = "\(NEW_ENTRY_TEXT_1)  \(skill.lowercaseString) \(NEW_ENTRY_TEXT_2)";
+			topLabel.text = "\(NEW_ENTRY_TEXT_1) \(skill.lowercaseString) \(NEW_ENTRY_TEXT_2)";
 			// "Tell us why rugby has helped you demonstrate \(skill.lowercaseString) today:";
 			descriptionTextArea.text = ENTER_TEXT;
 			doneButton.setTitle(DONE, forState: .Normal);
