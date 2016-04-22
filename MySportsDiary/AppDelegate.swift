@@ -33,7 +33,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			case "delete_tempmedia":
 				DataManagerInstance().purgeTempMedia()
 			case "delete_entries_db":
-				DataManagerInstance().getEntries()
+				DataManagerInstance().purgeEntries();
+			case "insert_dummy_entries":
+				DataManagerInstance().purgeEntries();
+				DataManagerInstance().generateDummyEntries();
 			default:
 				print("Warning -- unnrecognized launch argument: \(arg)")
 			}

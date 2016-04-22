@@ -10,10 +10,18 @@ import Foundation
 
 class DataConfig {
 	static func resetDirs() {
-		MASTER_DIR_URL = createSubDir(dir: "DiaryData", under: MASTER_DIR_LOCATION);
-		ENTRIES_DIR_URL = createSubDirUnderParent(dir: ENTRIES_DIR_NAME, parent: MASTER_DIR_URL);
-		TEMP_DIR_URL = createSubDir(dir: TEMP_MEDIA, under: TEMP_DIR_LOCATION);
-		TEMP_IMAGES_URL = createSubDirUnderParent(dir: IMAGES, parent: TEMP_DIR_URL);
+		if !fileExists(MASTER_DIR_URL) {
+			MASTER_DIR_URL = createSubDir(dir: "DiaryData", under: MASTER_DIR_LOCATION);
+		}
+		if !fileExists(ENTRIES_DIR_URL) {
+			ENTRIES_DIR_URL = createSubDirUnderParent(dir: ENTRIES_DIR_NAME, parent: MASTER_DIR_URL);
+		}
+		if !fileExists(TEMP_DIR_URL) {
+			TEMP_DIR_URL = createSubDir(dir: TEMP_MEDIA, under: TEMP_DIR_LOCATION);
+		}
+		if !fileExists(TEMP_IMAGES_URL) {
+			TEMP_IMAGES_URL = createSubDirUnderParent(dir: IMAGES, parent: TEMP_DIR_URL);
+		}
 	}
 ////
 /// Master folder

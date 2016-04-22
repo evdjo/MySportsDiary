@@ -171,13 +171,10 @@ class SingleEntryViewerVC: UIViewController, UIPopoverPresentationControllerDele
 /// That is the folder in Library/Caches/temp_media
 /// goes to Library/entries/[datetimestamp here]
 	private func addNewEntry() {
-		let del = mediaDelegate as! MediaPopoverDataDelegateNewEntry
-		let date = dateString(NSDate());
-		let dir = fileURLUnderParent(file: date, parent: DataConfig.ENTRIES_DIR_URL);
-		del.move(destination: dir);
-		let loc = locationGetter?.getLocation();
+ 		let date = dateString(NSDate());
+        let loc = locationGetter?.getLocation();
 		let lat = loc?.coordinate.latitude ?? 0.0;
-		let lon = loc?.coordinate.longitude ?? 0.0;
+		let lon = loc?.coordinate.longitude ?? 0.0;       
 
 		DataManagerInstance().addNewEntry(
 			Entry(entry_id: -1,

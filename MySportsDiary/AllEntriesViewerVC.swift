@@ -24,8 +24,8 @@ class AllEntriesViewerVC: UIViewController, UITableViewDelegate, UITableViewData
 	var todayGestureRecognizer: UITapGestureRecognizer?;
 
 	var showToday = true; // default true
-	var showWeek = false; // hide week entries initially
-	var showOlder = false; // hide older initially
+	var showWeek = true; // default true
+	var showOlder = true; // default true
 
 ///
 /// On appear load all the entries from the db
@@ -60,6 +60,12 @@ class AllEntriesViewerVC: UIViewController, UITableViewDelegate, UITableViewData
 		}
 	}
 
+	func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+		return 45;
+	}
+	func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+		return 45;
+	}
 ///
 /// The table headers are clickable and cause collapse/expand actions
 ///
@@ -69,12 +75,12 @@ class AllEntriesViewerVC: UIViewController, UITableViewDelegate, UITableViewData
 
 		switch section {
 		case 0, 1, 2:
-			label = UILabel();
+			label = UILabel.init(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 30));
 			label?.textAlignment = .Center;
 			label?.backgroundColor = appBlueColor;
 			label?.userInteractionEnabled = true;
-			label?.layer.cornerRadius = 10;
-			label?.layer.masksToBounds = true;
+//			label?.layer.cornerRadius = 23;
+//			label?.layer.masksToBounds = true;
 
 			switch section {
 			case 0:
@@ -145,17 +151,17 @@ class AllEntriesViewerVC: UIViewController, UITableViewDelegate, UITableViewData
 ///
 /// Clear color for the footer
 ///
-	func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-		let view = UIView();
-		view.backgroundColor = UIColor.clearColor();
-		return view;
-	}
+//	func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+//		let view = UIView();
+//		view.backgroundColor = UIColor.clearColor();
+//		return view;
+//	}
 ///
 /// Add small gray line as a footer.
 ///
-	func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-		return CGFloat(4);
-	}
+//	func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+//		return CGFloat(4);
+//	}
 
 ///
 /// Enable deletion of entries

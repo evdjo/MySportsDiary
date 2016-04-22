@@ -54,4 +54,6 @@ protocol DataManager {
 	func purgeTempMedia();
 	/// CAUTION --- deletes the ENTRIES DATABASE FILE & THE ENTRIES DATA!
 	func purgeEntries();
+
+	func generateDummyEntries();
 }

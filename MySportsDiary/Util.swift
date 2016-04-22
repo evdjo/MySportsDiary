@@ -102,3 +102,20 @@ internal func datesAreWithinWeek(fromDate: NSDate, _ toDate: NSDate) -> Bool {
 	return days < 7;
 }
 
+/// returns date displaced by days previously. So If today is 30/12/2000
+/// using this with days 10, will return 20/12/2000
+internal func entryFrom(days days: Int) -> Entry {
+	let date = NSDate();
+	let daysAgo = NSCalendar.currentCalendar().dateByAddingUnit(
+			.Day,
+		value: -days,
+		toDate: date,
+		options: NSCalendarOptions(rawValue: 0))!
+
+	return Entry(entry_id: Int64(days),
+		skill: String(days),
+		description: String(days),
+		date_time: dateString(daysAgo),
+		latitude: 0, longitude: 0)
+}
+

@@ -46,10 +46,25 @@ private class MainDataManager: DataManager {
 	func setVideo(oldVideo videoURL: NSURL, newVideo newVideoURL: NSURL?) { VideoIO.setVideo(oldVideo: videoURL, newVideo: newVideoURL); }
 	func getAudio(oldAudio audioURL: NSURL) -> NSURL? { return AudioIO.getAudio(oldAudio: audioURL); }
 	func setAudio(oldAudio audioURL: NSURL, newAudio newAudioURL: NSURL?) { AudioIO.setAudio(oldAudio: audioURL, newAudio: newAudioURL); }
-
-	func addNewEntry(entry: Entry) { EntriesDB.insertEntry(entry); }
+///
+/// Add a new entry to the database.
+/// Move the  temp files underneath current temp folder.
+/// Recreate those folders.
+///
+	func addNewEntry(entry: Entry) {
+		EntriesDB.insertEntry(entry);
+		let dir = fileURLUnderParent(file: entry.date_time, parent: DataConfig.ENTRIES_DIR_URL);
+		myMove(DataConfig.TEMP_DIR_URL, toPath: dir);
+		createSubDir(dir: DataConfig.TEMP_MEDIA, under: DataConfig.TEMP_DIR_LOCATION)
+		createSubDirUnderParent(dir: DataConfig.IMAGES, parent: DataConfig.TEMP_DIR_URL)
+	}
+/// Get all from the DB entries
 	func getEntries() -> [Entry]? { return EntriesDB.entries(); }
+
+/// Get the entries structured by the TODAY, THIS WEEK, and OLDER
 	func getEntriesByDate() -> EntriesByDate { return EntriesByDate(entries: EntriesDB.entries()); }
+
+/// Delete an entry with the specified entry_id
 	func deleteEntryWithID(entry_id: Int64) {
 		let entry = EntriesDB.entryForID(entry_id);
 		if let entry = entry {
@@ -71,14 +86,33 @@ private class MainDataManager: DataManager {
 		DataConfig.resetDirs();
 	}
 
-	func purgeUserData() { UserProperties.purgeData(); }
-	func purgeAppData() { AppProperties.purgeData(); }
-	func purgeQuestionnaireAnswers() { Questionnaire.purgeData(); }
-	func purgeEntries() { EntriesDB.purgeEntries(); }
+	func purgeUserData() {
+		UserProperties.purgeData();
+		DataConfig.resetDirs();
+	}
+	func purgeAppData() {
+		AppProperties.purgeData();
+		DataConfig.resetDirs();
+	}
+	func purgeQuestionnaireAnswers() {
+		Questionnaire.purgeData();
+		DataConfig.resetDirs();
+	}
+
+	func purgeEntries() {
+		EntriesDB.purgeEntries();
+		DataConfig.resetDirs();
+	}
 
 	func purgeTempMedia() {
 		ImagesIO.purgeImages(DataConfig.TEMP_DIR_URL);
 		AudioIO.purgeAudio(oldAudio: DataConfig.TEMP_DIR_URL);
 		VideoIO.purgeVideo(oldVideo: DataConfig.TEMP_DIR_URL);
+	}
+
+	func generateDummyEntries() {
+		for day in 1 ... 21 {
+			self.addNewEntry(entryFrom(days: day))
+		}
 	}
 }

@@ -40,9 +40,4 @@ class MediaPopoverDataDelegateNewEntry: MediaPopoverDataDelegate {
 		}
 	}
 
-	func move(destination dir: NSURL) {
-		myMove(DataConfig.TEMP_DIR_URL, toPath: dir);
-		createSubDir(dir: DataConfig.TEMP_MEDIA, under: DataConfig.TEMP_DIR_LOCATION)
-		createSubDirUnderParent(dir: DataConfig.IMAGES, parent: DataConfig.TEMP_DIR_URL)
-	}
 }
