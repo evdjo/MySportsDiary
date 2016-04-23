@@ -22,8 +22,8 @@ class AllEntriesViewerVC: UIViewController, UITableViewDelegate, UITableViewData
 	var entries: EntriesByDate!;
 
 	var showToday = true; // default true
-	var showWeek = true; // default true
-	var showOlder = true; // default true
+	var showWeek = false; // default true
+	var showOlder = false; // default true
 
 ///
 /// On appear load all the entries from the db
@@ -33,26 +33,35 @@ class AllEntriesViewerVC: UIViewController, UITableViewDelegate, UITableViewData
 ///
 	override func viewWillAppear(animated: Bool) {
 		super.viewWillAppear(animated);
-		self.navigationController?.navigationBarHidden = true ;
-		showToday = true; // show today's entries
-		showWeek = false;
-		showOlder = false;
 		refreshEntries();
+		tableView.reloadData();
+		self.navigationController?.navigationBarHidden = true;
 	}
-	override func viewDidAppear(animated: Bool) {
-		super.viewDidAppear(animated)
-		animateTableReload(NSRange(location: 0, length: 2));
-	}
+
 ///
 /// Refetch entries from DB, and reload the tabeView
 ///
 	private func refreshEntries() {
 		entries = DataManagerInstance().getEntriesByDate();
 	}
-	private func animateTableReload(range: NSRange,
-		animation: UITableViewRowAnimation = .Automatic) {
-			tableView.reloadSections(NSIndexSet(indexesInRange: range),
-				withRowAnimation: animation)
+	private func animateSectionReload(section: Int) {
+		tableView.reloadSections(NSIndexSet(index: section), withRowAnimation: .Automatic)
+	}
+/// The header view
+	func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+		guard nil != entries else { return nil; }
+		var header: UITableViewHeaderFooterView? = nil;
+
+		if 0 <= section && section <= 2 {
+			header = UITableViewHeaderFooterView.init();
+			header?.contentView.backgroundColor = appBlueColor;
+			header?.textLabel?.text = countHeader(section);
+			if let selector = selectorForHeader(section) {
+				header?.addGestureRecognizer(
+					UITapGestureRecognizer(target: self, action: selector));
+			}
+		}
+		return header;
 	}
 
 ///
@@ -69,70 +78,21 @@ class AllEntriesViewerVC: UIViewController, UITableViewDelegate, UITableViewData
 		}
 	}
 
-	func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-		return 35;
-	}
-	func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-		return 35;
-	}
-///
-/// The table headers are clickable and cause collapse/expand actions
-///
-	func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-		guard nil != entries else { return nil; }
-		var label: UILabel? = nil;
-
-		switch section {
-		case 0, 1, 2:
-			label = UILabel.init(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 50));
-			label?.textAlignment = .Center;
-			label?.backgroundColor = appBlueColor;
-			label?.userInteractionEnabled = true;
-			label?.layer.borderWidth = 1.0;
-			label?.layer.borderColor = UIColor.blackColor().CGColor;
-			label?.layer.cornerRadius = 10;
-			label?.layer.masksToBounds = true;
-
-			switch section {
-			case 0:
-				label?.text = "\(TODAY)(\(entries.todayEntries.count))";
-				label?.addGestureRecognizer(UITapGestureRecognizer(target: self,
-					action: #selector(onTodayTap)));
-				label?.userInteractionEnabled = true;
-
-			case 1:
-				label?.text = "\(THIS_WEEK)(\(entries.weekEntries.count)) "
-				label?.addGestureRecognizer(UITapGestureRecognizer(target: self,
-					action: #selector(onWeekTap)));
-
-			case 2:
-				label?.text = "\(OLDER)(\(entries.olderEntries.count)) ";
-				label?.addGestureRecognizer(UITapGestureRecognizer(target: self,
-					action: #selector(onOlderTap)));
-
-			default: break;
-			}
-		default: return nil;
-		}
-
-		return label;
-	}
-
-	func onTodayTap() { showToday = !showToday; animateTableReload(NSRange(location: 0, length: 1)) }
-	func onWeekTap() { showWeek = !showWeek; animateTableReload(NSRange(location: 1, length: 1)) }
-	func onOlderTap() { showOlder = !showOlder; animateTableReload(NSRange(location: 2, length: 1)) }
-
 /// The cell of each entry.
 /// Simply fetch the entry's skill and date.
 /// That's what we show for now.
-	func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-		let cell = tableView.dequeueReusableCellWithIdentifier(eventCellContentIdentifier, forIndexPath: indexPath)
-		if let entry = entryForIndexPath(indexPath) {
-			let date = stringDate(entry.date_time);
-			cell.detailTextLabel?.text = screenDateString(date);
-			cell.textLabel?.text = entry.skill
-		}
-		return cell;
+	func tableView(tableView: UITableView, cellForRowAtIndexPath
+		indexPath: NSIndexPath) -> UITableViewCell {
+			let cell = tableView.dequeueReusableCellWithIdentifier(
+				eventCellContentIdentifier,
+				forIndexPath: indexPath)
+
+			if let entry = entryForIndexPath(indexPath) {
+				let date = stringDate(entry.date_time);
+				cell.detailTextLabel?.text = screenDateString(date);
+				cell.textLabel?.text = entry.skill
+			}
+			return cell;
 	}
 
 ///
@@ -156,31 +116,70 @@ class AllEntriesViewerVC: UIViewController, UITableViewDelegate, UITableViewData
 ///
 /// Make entries editable
 ///
-	func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-		return true
+	func tableView(tableView: UITableView, canEditRowAtIndexPath
+		indexPath: NSIndexPath) -> Bool {
+			return true;
 	}
 
 ///
 /// Enable deletion of entries
 ///
-	func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle,
-		forRowAtIndexPath indexPath: NSIndexPath) {
-			if editingStyle == UITableViewCellEditingStyle.Delete {
-				if let entry = entryForIndexPath(indexPath) {
-					tableView.beginUpdates();
-					DataManagerInstance().deleteEntryWithID(entry.entry_id)
-					refreshEntries();
-					let row = indexPath.row;
-					let section = indexPath.section;
-					let view = tableView.headerViewForSection(section)
-					view!.setNeedsDisplay();
-					tableView.deleteRowsAtIndexPaths([indexPath],
-						withRowAnimation: .Automatic)
-
-					tableView.endUpdates();
-				}
+	func tableView(tableView: UITableView, commitEditingStyle editingStyle:
+			UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+				if editingStyle == UITableViewCellEditingStyle.Delete {
+					if let entry = entryForIndexPath(indexPath) {
+						DataManagerInstance().deleteEntryWithID(entry.entry_id)
+						refreshEntries();
+						tableView.beginUpdates();
+						tableView.deleteRowsAtIndexPaths([indexPath],
+							withRowAnimation: .Automatic)
+						tableView.endUpdates();
+					}
 	} }
 
+	func onTodayTap() {
+		showToday = !showToday;
+		animateSectionReload(0)
+	}
+	func onWeekTap() {
+		showWeek = !showWeek;
+		animateSectionReload(1)
+	}
+	func onOlderTap() {
+		showOlder = !showOlder;
+		animateSectionReload(2)
+	}
+
+	func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+		return 35;
+	}
+	func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+		return 35;
+	}
+
+///
+/// Selector for the headers
+///
+	private func selectorForHeader(headerIndex: Int) -> Selector? {
+		switch headerIndex {
+		case 0: return #selector(onTodayTap);
+		case 1: return #selector(onWeekTap);
+		case 2: return #selector(onOlderTap);
+		default: return nil;
+		}
+	}
+
+///
+/// Get name string to put in the header for each entry group
+///
+	private func countHeader(headerIndex: Int) -> String {
+		switch headerIndex {
+		case 0: return "\(TODAY)" // (\(entries.todayEntries.count))";
+		case 1: return "\(THIS_WEEK)"// (\(entries.weekEntries.count))"
+		case 2: return "\(OLDER)"// (\(entries.olderEntries.count))";
+		default: return "";
+		}
+	}
 ///
 /// Get the entry based on the indexPath
 ///

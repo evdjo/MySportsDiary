@@ -833,12 +833,12 @@
                         <viewControllerLayoutGuide type="top" id="L7p-HK-0SC"/>
                         <viewControllerLayoutGuide type="bottom" id="Djb-ko-YwX"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
+                    <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="QS5-Rx-YEW">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="black" dataMode="prototypes" style="grouped" sectionIndexMinimumDisplayRowCount="10" rowHeight="45" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="LOv-pc-pq6">
-                                <rect key="frame" x="0.0" y="138" width="600" height="405"/>
+                            <tableView clearsContextBeforeDrawing="NO" contentMode="scaleToFill" bounces="NO" indicatorStyle="black" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" dataMode="prototypes" style="grouped" separatorStyle="default" sectionIndexMinimumDisplayRowCount="10" rowHeight="45" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="LOv-pc-pq6">
+                                <rect key="frame" x="0.0" y="114" width="600" height="429"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" red="0.59215686270000001" green="0.84313725490000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
@@ -875,14 +875,21 @@
                                     <outlet property="delegate" destination="8rJ-Kc-sve" id="IL8-xy-euo"/>
                                 </connections>
                             </tableView>
-                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Entries" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="osP-jg-r3l">
-                                <rect key="frame" x="0.0" y="80" width="600" height="50"/>
+                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="osP-jg-r3l">
+                                <rect key="frame" x="0.0" y="64" width="600" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="t63-cq-EtI"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Entries">
+                                        <attributes>
+                                            <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="17" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -891,12 +898,12 @@
                             <constraint firstItem="osP-jg-r3l" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" id="Co4-w4-PNU"/>
                             <constraint firstItem="osP-jg-r3l" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" id="Gma-bn-bGb"/>
                             <constraint firstItem="LOv-pc-pq6" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" id="btb-fj-xj9"/>
-                            <constraint firstItem="LOv-pc-pq6" firstAttribute="top" secondItem="osP-jg-r3l" secondAttribute="bottom" constant="8" id="d42-7a-2K9"/>
+                            <constraint firstItem="LOv-pc-pq6" firstAttribute="top" secondItem="osP-jg-r3l" secondAttribute="bottom" id="d42-7a-2K9"/>
                             <constraint firstAttribute="trailingMargin" secondItem="osP-jg-r3l" secondAttribute="trailing" id="fcN-3S-RDe"/>
                             <constraint firstItem="Djb-ko-YwX" firstAttribute="top" secondItem="LOv-pc-pq6" secondAttribute="bottom" constant="8" id="gLe-ZH-41x"/>
                             <constraint firstAttribute="trailing" secondItem="osP-jg-r3l" secondAttribute="trailing" id="kpR-Co-9DY"/>
                             <constraint firstAttribute="trailing" secondItem="LOv-pc-pq6" secondAttribute="trailing" id="o2K-qv-IqD"/>
-                            <constraint firstItem="osP-jg-r3l" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" constant="16" id="pFF-0b-ahk"/>
+                            <constraint firstItem="osP-jg-r3l" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" id="pFF-0b-ahk"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">

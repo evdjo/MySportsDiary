@@ -56,3 +56,9 @@
 //				self.tabBarController?.tabBar.items![1].enabled = true;
 //			}
 //		}
+
+///
+/// The table headers are clickable and cause collapse/expand actions
+///
+
+
