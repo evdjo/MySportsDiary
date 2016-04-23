@@ -41,6 +41,7 @@
 		3F83D9DF1CCA74C70072956D /* LostAndFound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F83D9DE1CCA74C70072956D /* LostAndFound.swift */; };
 		3F83D9E11CCA77930072956D /* EntriesByDateTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F83D9E01CCA77930072956D /* EntriesByDateTest.swift */; };
 		3F83D9E31CCAD7380072956D /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F83D9E21CCAD7380072956D /* Config.swift */; };
+		3F8591381CCBB62100C7F152 /* EntriesHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8591371CCBB62100C7F152 /* EntriesHeader.swift */; };
 		3F86B04D1CC2642400DEA036 /* MediaPopoverDataDelegateExistingEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F86B04C1CC2642400DEA036 /* MediaPopoverDataDelegateExistingEntry.swift */; };
 		3F86B0561CC299F800DEA036 /* MediaPopover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F86B0551CC299F800DEA036 /* MediaPopover.swift */; };
 		3F86B07A1CC2F31700DEA036 /* GPSLocationGetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F86B0791CC2F31700DEA036 /* GPSLocationGetter.swift */; };
@@ -132,6 +133,7 @@
 		3F83D9DE1CCA74C70072956D /* LostAndFound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LostAndFound.swift; sourceTree = "<group>"; };
 		3F83D9E01CCA77930072956D /* EntriesByDateTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntriesByDateTest.swift; sourceTree = "<group>"; };
 		3F83D9E21CCAD7380072956D /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		3F8591371CCBB62100C7F152 /* EntriesHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntriesHeader.swift; sourceTree = "<group>"; };
 		3F86B04C1CC2642400DEA036 /* MediaPopoverDataDelegateExistingEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaPopoverDataDelegateExistingEntry.swift; sourceTree = "<group>"; };
 		3F86B0551CC299F800DEA036 /* MediaPopover.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaPopover.swift; sourceTree = "<group>"; };
 		3F86B0791CC2F31700DEA036 /* GPSLocationGetter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPSLocationGetter.swift; sourceTree = "<group>"; };
@@ -403,6 +405,7 @@
 				3F9455AE1CC3FCD300C73860 /* CustomSliderOut.swift */,
 				3F83D9DE1CCA74C70072956D /* LostAndFound.swift */,
 				3F83D9E21CCAD7380072956D /* Config.swift */,
+				3F8591371CCBB62100C7F152 /* EntriesHeader.swift */,
 			);
 			name = Util;
 			sourceTree = "<group>";
@@ -601,6 +604,7 @@
 				1B8866431C9F9C78007F7BEB /* Util.swift in Sources */,
 				1B5A3C371CAD0F3200DA118A /* MainDataManager.swift in Sources */,
 				1B5A3C341CAD0E2000DA118A /* ImagesIO.swift in Sources */,
+				3F8591381CCBB62100C7F152 /* EntriesHeader.swift in Sources */,
 				1B396B851C936B2F00986749 /* AgeGenderVC.swift in Sources */,
 				1BB5BEDD1CB46776009A4C3E /* LocalizedStrings.swift in Sources */,
 				1B8C20651CB7E01B0005AF1A /* NewEntryInitialVC.swift in Sources */,

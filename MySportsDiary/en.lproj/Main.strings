@@ -134,7 +134,7 @@
 "roz-TV-e0u.text" = "question";
 
 /* Class = "UIButton"; normalTitle = "."; ObjectID = "rz0-NY-nT3"; */
-"rz0-NY-nT3.normalTitle" = ".";
+"rz0-NY-nT3.normalTitle" = "debug_delete_all_app_contents";
 
 /* Class = "UILabel"; text = "Welcome to MyRugbyDiary"; ObjectID = "sZv-E5-9HB"; */
 "sZv-E5-9HB.text" = "Welcome to MyRugbyDiary";

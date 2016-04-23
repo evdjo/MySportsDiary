@@ -41,18 +41,7 @@ class AllEntriesViewerVC: UIViewController, UITableViewDelegate, UITableViewData
 	}
 	override func viewDidAppear(animated: Bool) {
 		super.viewDidAppear(animated)
-		animateTableReload(1.0);
-
-//		if let appState = DataManagerInstance().getAppState() {
-//			if (appState == .Diary && entries.todayEntries.count >= 5) {
-//				DataManagerInstance().setAppState(.DiaryDailyLimitReached);
-//				alertWithMessage(self, title: "The limit of 5 entries has been reached. You can add more entries tomorrow")
-//				self.tabBarController?.tabBar.items![1].enabled = false;
-//			} else if appState == .DiaryDailyLimitReached && entries.todayEntries.count < 5 {
-//				DataManagerInstance().setAppState(.Diary);
-//				self.tabBarController?.tabBar.items![1].enabled = true;
-//			}
-//		}
+		animateTableReload(NSRange(location: 0, length: 2));
 	}
 ///
 /// Refetch entries from DB, and reload the tabeView
@@ -60,12 +49,10 @@ class AllEntriesViewerVC: UIViewController, UITableViewDelegate, UITableViewData
 	private func refreshEntries() {
 		entries = DataManagerInstance().getEntriesByDate();
 	}
-	private func animateTableReload(duration: NSTimeInterval = 0.35) {
-		UIView.transitionWithView(tableView,
-			duration: duration,
-			options: .TransitionCrossDissolve,
-			animations: { () -> Void in self.tableView.reloadData() },
-			completion: nil);
+	private func animateTableReload(range: NSRange,
+		animation: UITableViewRowAnimation = .Automatic) {
+			tableView.reloadSections(NSIndexSet(indexesInRange: range),
+				withRowAnimation: animation)
 	}
 
 ///
@@ -83,10 +70,10 @@ class AllEntriesViewerVC: UIViewController, UITableViewDelegate, UITableViewData
 	}
 
 	func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-		return 50;
+		return 35;
 	}
 	func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-		return 40;
+		return 35;
 	}
 ///
 /// The table headers are clickable and cause collapse/expand actions
@@ -131,9 +118,9 @@ class AllEntriesViewerVC: UIViewController, UITableViewDelegate, UITableViewData
 		return label;
 	}
 
-	func onTodayTap() { showToday = !showToday; animateTableReload() }
-	func onWeekTap() { showWeek = !showWeek; animateTableReload() }
-	func onOlderTap() { showOlder = !showOlder; animateTableReload() }
+	func onTodayTap() { showToday = !showToday; animateTableReload(NSRange(location: 0, length: 1)) }
+	func onWeekTap() { showWeek = !showWeek; animateTableReload(NSRange(location: 1, length: 1)) }
+	func onOlderTap() { showOlder = !showOlder; animateTableReload(NSRange(location: 2, length: 1)) }
 
 /// The cell of each entry.
 /// Simply fetch the entry's skill and date.
@@ -182,10 +169,14 @@ class AllEntriesViewerVC: UIViewController, UITableViewDelegate, UITableViewData
 				if let entry = entryForIndexPath(indexPath) {
 					tableView.beginUpdates();
 					DataManagerInstance().deleteEntryWithID(entry.entry_id)
-					tableView.deleteRowsAtIndexPaths([indexPath],
-						withRowAnimation: UITableViewRowAnimation.Left)
 					refreshEntries();
-					animateTableReload();
+					let row = indexPath.row;
+					let section = indexPath.section;
+					let view = tableView.headerViewForSection(section)
+					view!.setNeedsDisplay();
+					tableView.deleteRowsAtIndexPaths([indexPath],
+						withRowAnimation: .Automatic)
+
 					tableView.endUpdates();
 				}
 	} }

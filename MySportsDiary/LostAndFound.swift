@@ -39,3 +39,20 @@
 //                    self.tabBarController?.selectedIndex = 2;
 //                }
 //        });
+
+//		UIView.transitionWithView(tableView,
+//			duration: duration,
+//			options: [.TransitionFlipFromTop, .CurveEaseOut],
+//			animations: { () -> Void in self.tableView.reloadData() },
+//			completion: nil);
+
+//		if let appState = DataManagerInstance().getAppState() {
+//			if (appState == .Diary && entries.todayEntries.count >= 5) {
+//				DataManagerInstance().setAppState(.DiaryDailyLimitReached);
+//				alertWithMessage(self, title: "The limit of 5 entries has been reached. You can add more entries tomorrow")
+//				self.tabBarController?.tabBar.items![1].enabled = false;
+//			} else if appState == .DiaryDailyLimitReached && entries.todayEntries.count < 5 {
+//				DataManagerInstance().setAppState(.Diary);
+//				self.tabBarController?.tabBar.items![1].enabled = true;
+//			}
+//		}

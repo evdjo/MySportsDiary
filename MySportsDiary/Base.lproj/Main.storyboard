@@ -1005,7 +1005,7 @@
                                     <constraint firstAttribute="height" constant="60" id="n5e-DB-BGW"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="."/>
+                                <state key="normal" title="delete_all_debug_button"/>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="S1m-Yq-VOp"/>
