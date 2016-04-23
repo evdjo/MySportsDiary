@@ -21,8 +21,6 @@ class AllEntriesViewerVC: UIViewController, UITableViewDelegate, UITableViewData
 /// The list of entries
 	var entries: EntriesByDate!;
 
-	var todayGestureRecognizer: UITapGestureRecognizer?;
-
 	var showToday = true; // default true
 	var showWeek = true; // default true
 	var showOlder = true; // default true
@@ -36,14 +34,38 @@ class AllEntriesViewerVC: UIViewController, UITableViewDelegate, UITableViewData
 	override func viewWillAppear(animated: Bool) {
 		super.viewWillAppear(animated);
 		self.navigationController?.navigationBarHidden = true ;
+		showToday = true; // show today's entries
+		showWeek = false;
+		showOlder = false;
 		refreshEntries();
+	}
+	override func viewDidAppear(animated: Bool) {
+		super.viewDidAppear(animated)
+		animateTableReload(1.0);
+
+//		if let appState = DataManagerInstance().getAppState() {
+//			if (appState == .Diary && entries.todayEntries.count >= 5) {
+//				DataManagerInstance().setAppState(.DiaryDailyLimitReached);
+//				alertWithMessage(self, title: "The limit of 5 entries has been reached. You can add more entries tomorrow")
+//				self.tabBarController?.tabBar.items![1].enabled = false;
+//			} else if appState == .DiaryDailyLimitReached && entries.todayEntries.count < 5 {
+//				DataManagerInstance().setAppState(.Diary);
+//				self.tabBarController?.tabBar.items![1].enabled = true;
+//			}
+//		}
 	}
 ///
 /// Refetch entries from DB, and reload the tabeView
 ///
 	private func refreshEntries() {
 		entries = DataManagerInstance().getEntriesByDate();
-		tableView.reloadData();
+	}
+	private func animateTableReload(duration: NSTimeInterval = 0.35) {
+		UIView.transitionWithView(tableView,
+			duration: duration,
+			options: .TransitionCrossDissolve,
+			animations: { () -> Void in self.tableView.reloadData() },
+			completion: nil);
 	}
 
 ///
@@ -61,7 +83,7 @@ class AllEntriesViewerVC: UIViewController, UITableViewDelegate, UITableViewData
 	}
 
 	func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-		return 35;
+		return 50;
 	}
 	func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
 		return 40;
@@ -75,12 +97,14 @@ class AllEntriesViewerVC: UIViewController, UITableViewDelegate, UITableViewData
 
 		switch section {
 		case 0, 1, 2:
-			label = UILabel.init(frame: CGRect(x: 0, y: 0, width: tableView.frame.width - 40, height: 45));
+			label = UILabel.init(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 50));
 			label?.textAlignment = .Center;
 			label?.backgroundColor = appBlueColor;
 			label?.userInteractionEnabled = true;
-//			label?.layer.cornerRadius = 23;
-//			label?.layer.masksToBounds = true;
+			label?.layer.borderWidth = 1.0;
+			label?.layer.borderColor = UIColor.blackColor().CGColor;
+			label?.layer.cornerRadius = 10;
+			label?.layer.masksToBounds = true;
 
 			switch section {
 			case 0:
@@ -107,9 +131,9 @@ class AllEntriesViewerVC: UIViewController, UITableViewDelegate, UITableViewData
 		return label;
 	}
 
-	func onTodayTap() { showToday = !showToday; tableView.reloadData(); }
-	func onWeekTap() { showWeek = !showWeek; tableView.reloadData(); }
-	func onOlderTap() { showOlder = !showOlder; tableView.reloadData(); }
+	func onTodayTap() { showToday = !showToday; animateTableReload() }
+	func onWeekTap() { showWeek = !showWeek; animateTableReload() }
+	func onOlderTap() { showOlder = !showOlder; animateTableReload() }
 
 /// The cell of each entry.
 /// Simply fetch the entry's skill and date.
@@ -161,7 +185,7 @@ class AllEntriesViewerVC: UIViewController, UITableViewDelegate, UITableViewData
 					tableView.deleteRowsAtIndexPaths([indexPath],
 						withRowAnimation: UITableViewRowAnimation.Left)
 					refreshEntries();
-
+					animateTableReload();
 					tableView.endUpdates();
 				}
 	} }

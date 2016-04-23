@@ -25,6 +25,7 @@ enum ApplicationState: String {
 	case Initial = "InitialState"
 	case Diary = "DiaryState"
 	case Final = "FinalState"
+//	case DiaryDailyLimitReached = "DiaryDailyLimitReached"
 }
 
 ///
@@ -76,6 +77,7 @@ internal func stringDate(string: String) -> NSDate {
 	return formatter.dateFromString(string)!;
 }
 
+/// Resize an image while preserving it's aspect ratio
 internal func aspectFitResizeImageTo(wantedWidth wantedWidth: CGFloat, image: UIImage) -> UIImage {
 	let ratioScale = wantedWidth / image.size.width
 	let newHeight = image.size.height * ratioScale

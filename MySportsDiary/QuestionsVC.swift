@@ -40,22 +40,16 @@ class QuestionsVC: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad();
 		bottomButton.enabled = false;
+		bottomButton.alpha = 0.5;
 	}
 
 	override func viewWillAppear(animated: Bool) {
-		bottomButton.enabled = true;
 		super.viewWillAppear(animated);
+
 		let startIndex = page * 3;
 		questionLabels[0].text = questions[startIndex];
 		questionLabels[1].text = questions[startIndex + 1];
 		questionLabels[2].text = questions[startIndex + 2];
-//		questionLabels[0].adjustsFontSizeToFitWidth = true;
-//		questionLabels[1].adjustsFontSizeToFitWidth = true;
-//		questionLabels[2].adjustsFontSizeToFitWidth = true;
-
-//		fixLabelTextSize(questionLabels[0]);
-//		fixLabelTextSize(questionLabels[1]);
-//		fixLabelTextSize(questionLabels[2]);
 
 		switch page {
 		case 0, 1:
@@ -64,16 +58,12 @@ class QuestionsVC: UIViewController {
 			bottomButton.setTitle(FINISH, forState: .Normal);
 		}
 		pageLabel.text = "\(page + 1) / 3";
+
+		dispatch_after(dispatchTime(sec: 3), dispatch_get_main_queue()) {
+			self.bottomButton.enabled = true;
+			self.bottomButton.alpha = 1.0;
+		}
 	}
-//	private func fixLabelTextSize(label: UILabel) {
-//		label.numberOfLines = 1;
-//		label.lineBreakMode = .ByWordWrapping;
-//		let maximumLabelSize: CGSize = CGSizeMake(label.frame.size.width, CGFloat.max);
-//
-//		let expectSize: CGSize = label.sizeThatFits(maximumLabelSize);
-//		label.frame = CGRectMake(label.frame.origin.x, label.frame.origin.y,
-//			expectSize.width, expectSize.height);
-//	}
 
 	@IBAction func onBottomButtonPressed(sender: AnyObject) {
 		DataManagerInstance().setAnswer(page * 3 + 0, answer: Int(sliders[0].value));
@@ -107,10 +97,13 @@ class QuestionsVC: UIViewController {
 				// then save answers
 				DataManagerInstance().setAppState(.Diary);
 				let dateNow = NSDate();
-				let dateAfter8Weeks = NSCalendar.currentCalendar()
-					.dateByAddingUnit(.Day, value: 28, toDate: dateNow, options: [])!;
+				let dateDiaryEnd = NSCalendar.currentCalendar().dateByAddingUnit(
+						.Day,
+					value: Config.DiaryPeriodInDays,
+					toDate: dateNow,
+					options: [])!;
 
-				DataManagerInstance().setDiaryStart(dateString(dateAfter8Weeks));
+				DataManagerInstance().setDiaryEndDate(dateString(dateDiaryEnd));
 				// enable second and third tabs, disable first, switch to second
 				// self.tabBarController!.tabBar.items![0].enabled = false;
 				self.tabBarController!.tabBar.items![1].enabled = true;

@@ -11,7 +11,6 @@ import UIKit
 class AgeGenderVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 	@IBOutlet weak var genderSegmentedControl: UISegmentedControl!
 	@IBOutlet weak var nextButton: UIButton!
-
 	@IBOutlet weak var agePickerView: UIPickerView!
 
 	private var ageIsSet = false;

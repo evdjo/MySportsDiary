@@ -61,6 +61,14 @@ internal func goToSettings() {
 }
 
 ///
+/// Dispatch time in seconds
+///
+internal func dispatchTime(sec seconds: Int64) -> dispatch_time_t {
+	return dispatch_time(dispatch_time_t(DISPATCH_TIME_NOW),
+		seconds * Int64(NSEC_PER_SEC))
+}
+
+///
 /// UIColor from 0 to 255 values
 ///
 internal func colorRGB(red red: Int, green: Int, blue: Int, alpha: Float) -> UIColor {

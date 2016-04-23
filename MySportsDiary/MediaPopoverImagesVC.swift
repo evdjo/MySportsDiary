@@ -13,7 +13,6 @@ import Photos
 import MobileCoreServices
 
 class MediaPopoverImagesVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, MediaPopover {
-
 // Delegate stuff
 	var delegate: MediaPopoverDataDelegate?;
 // Image stuff

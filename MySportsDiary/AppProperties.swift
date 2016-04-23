@@ -10,8 +10,8 @@ import Foundation
 
 class AppProperties {
 	///
-	/// GET
-	///
+	/// App state string
+	//
 	static func getAppState() -> ApplicationState? {
 		if let dict = NSDictionary(contentsOfURL: DataConfig.APP_PROP_URL)
 		as? Dictionary<String, String> {
@@ -21,9 +21,6 @@ class AppProperties {
 		}
 		return nil; // was never set before
 	}
-	///
-	/// SET
-	///
 	static func setAppState(state: ApplicationState) {
 		if var dict = NSDictionary(contentsOfURL: DataConfig.APP_PROP_URL)
 		as? Dictionary<String, String> {
@@ -36,9 +33,9 @@ class AppProperties {
 	}
 
 	///
-	/// GET
-	///
-	static func getDiaryStart() -> String? {
+	/// Survey end date string
+	//
+	static func getDiaryEndDate() -> String? {
 		if let dict = NSDictionary(contentsOfURL: DataConfig.APP_PROP_URL)
 		as? Dictionary<String, String> {
 			if let dateString = dict[DataConfig.APP_DIARY_START] {
@@ -47,8 +44,7 @@ class AppProperties {
 		}
 		return nil; // was never set before
 	}
-
-	static func setDiaryStart(dateString: String) {
+	static func setDiaryEndDate(dateString: String) {
 		if var dict = NSDictionary(contentsOfURL: DataConfig.APP_PROP_URL)
 		as? Dictionary<String, String> {
 			dict.updateValue(dateString, forKey: DataConfig.APP_DIARY_START);
@@ -60,8 +56,8 @@ class AppProperties {
 	}
 
 	///
-	/// PURGE
-	///
+	/// Clear properties
+	//
 	static func purgeData() {
 		deleteFile(file: DataConfig.APP_PROP_URL);
 	}

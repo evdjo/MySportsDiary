@@ -83,15 +83,18 @@ class SingleEntryViewerVC: UIViewController, UIPopoverPresentationControllerDele
 			guard entry != nil else { print("entry found to be nil"); return }
 			topLabel.text = entry!.skill;
 			descriptionTextArea.text = entry!.description;
-			if entry!.description == ENTER_TEXT {
-				descriptionTextArea.textColor = UIColor.lightGrayColor();
-			}
 			doneButton.setTitle(DONE, forState: .Normal);
 			doneButton.backgroundColor = colorRGB(red: 151, green: 151, blue: 255, alpha: 1);
 			self.mediaDelegate = MediaPopoverDataDelegateExistingEntry(entry: entry!);
 			addVoiceLabel.text = ADDED_VOICE
 			addPhotoLabel.text = ADDED_PHOTO
 			addVideoLabel.text = ADDED_VIDEO
+		}
+
+		if descriptionTextArea.text == ENTER_TEXT {
+			descriptionTextArea.textColor = UIColor.lightGrayColor();
+		} else {
+			descriptionTextArea.textColor = UIColor.blackColor();
 		}
 
 		updateAudioCountLabel();
@@ -171,10 +174,10 @@ class SingleEntryViewerVC: UIViewController, UIPopoverPresentationControllerDele
 /// That is the folder in Library/Caches/temp_media
 /// goes to Library/entries/[datetimestamp here]
 	private func addNewEntry() {
- 		let date = dateString(NSDate());
-        let loc = locationGetter?.getLocation();
+		let date = dateString(NSDate());
+		let loc = locationGetter?.getLocation();
 		let lat = loc?.coordinate.latitude ?? 0.0;
-		let lon = loc?.coordinate.longitude ?? 0.0;       
+		let lon = loc?.coordinate.longitude ?? 0.0;
 
 		DataManagerInstance().addNewEntry(
 			Entry(entry_id: -1,
@@ -186,6 +189,7 @@ class SingleEntryViewerVC: UIViewController, UIPopoverPresentationControllerDele
 		)
 
 		self.tabBarController?.selectedIndex = 2;
+		
 	}
 
 /// Change the alpha back to 1.0

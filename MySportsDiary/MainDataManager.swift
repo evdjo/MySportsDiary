@@ -11,7 +11,8 @@ import UIKit
 
 ///
 ///
-/// Handles all persistent data, such as user Age, Gender, Questionnaire Answers, Events
+/// Handles all persistent data, such as user Age, Gender, Questionnaire Answers,
+/// Entries
 ///
 /// To ensure that only the DataMangerInstance method can manipulate the data,
 /// moved the singleton implementation here.
@@ -35,8 +36,8 @@ private class MainDataManager: DataManager {
 	func getAnswer(questionID: Int) -> Int? { return Questionnaire.getAnswer(questionID); }
 	func setAppState(appState: ApplicationState) { AppProperties.setAppState(appState); }
 	func getAppState() -> ApplicationState? { return AppProperties.getAppState(); }
-	func setDiaryStart(dateString: String) { AppProperties.setDiaryStart(dateString); }
-	func getDiaryStart() -> String? { return AppProperties.getDiaryStart(); }
+	func setDiaryEndDate(dateString: String) { AppProperties.setDiaryEndDate(dateString); }
+	func getDiaryEndDate() -> String? { return AppProperties.getDiaryEndDate(); }
 
 	func getImages(imagesURL: NSURL) -> Array<UIImage>? { return ImagesIO.getImages(imagesURL); }
 	func saveImage(imagesURL: NSURL, image: UIImage) { ImagesIO.saveImage(imagesURL, image: image); }
@@ -58,13 +59,22 @@ private class MainDataManager: DataManager {
 		createSubDir(dir: DataConfig.TEMP_MEDIA, under: DataConfig.TEMP_DIR_LOCATION)
 		createSubDirUnderParent(dir: DataConfig.IMAGES, parent: DataConfig.TEMP_DIR_URL)
 	}
+///
 /// Get all from the DB entries
-	func getEntries() -> [Entry]? { return EntriesDB.entries(); }
-
+///
+	func getEntries() -> [Entry]? {
+		return EntriesDB.entries();
+	}
+///
 /// Get the entries structured by the TODAY, THIS WEEK, and OLDER
-	func getEntriesByDate() -> EntriesByDate { return EntriesByDate(entries: EntriesDB.entries()); }
+///
+	func getEntriesByDate() -> EntriesByDate {
+		return EntriesByDate(entries: EntriesDB.entries());
+	}
 
+///
 /// Delete an entry with the specified entry_id
+///
 	func deleteEntryWithID(entry_id: Int64) {
 		let entry = EntriesDB.entryForID(entry_id);
 		if let entry = entry {
@@ -73,10 +83,22 @@ private class MainDataManager: DataManager {
 			EntriesDB.deleteEntryWithID(entry_id)
 		}
 	}
+///
+/// Get the entry with the specified entry_id
+///
+	func getEntryForID(entry_id: Int64) -> Entry? {
+		return EntriesDB.entryForID(entry_id);
+	}
 
-	func getEntryForID(entry_id: Int64) -> Entry? { return EntriesDB.entryForID(entry_id); }
-	func updateEntryWithID(id id: Int64, newDescr: String) { EntriesDB.updateEntryWithID(id: id, newDescr: newDescr); }
-
+///
+/// Update the entry with the specified entry_id
+///
+	func updateEntryWithID(id id: Int64, newDescr: String) {
+		EntriesDB.updateEntryWithID(id: id, newDescr: newDescr);
+	}
+///
+/// Deletes all contents in the app
+///
 	func purgeAllData() {
 		purgeUserData();
 		purgeAppData();
@@ -85,33 +107,47 @@ private class MainDataManager: DataManager {
 		purgeEntries();
 		DataConfig.resetDirs();
 	}
-
+///
+/// Deletes the stored age and gender values of the user.
+///
 	func purgeUserData() {
 		UserProperties.purgeData();
 		DataConfig.resetDirs();
 	}
+///
+/// Resets the apps state to .Initial, and the diary end date.
+///
 	func purgeAppData() {
 		AppProperties.purgeData();
 		DataConfig.resetDirs();
 	}
+///
+/// Deletes the answer provided by the user
+///
 	func purgeQuestionnaireAnswers() {
 		Questionnaire.purgeData();
 		DataConfig.resetDirs();
 	}
-
+///
+/// Deletes the entries database file, along with the entries folder
+///
 	func purgeEntries() {
 		EntriesDB.purgeEntries();
 		DataConfig.resetDirs();
 	}
-
+///
+/// Purges the temp media
+///
 	func purgeTempMedia() {
 		ImagesIO.purgeImages(DataConfig.TEMP_DIR_URL);
 		AudioIO.purgeAudio(oldAudio: DataConfig.TEMP_DIR_URL);
 		VideoIO.purgeVideo(oldVideo: DataConfig.TEMP_DIR_URL);
 	}
-
+///
+/// Creates dummy entries
+///
 	func generateDummyEntries() {
-		for day in 1 ... 21 {
+		for day in 0 ... 13 {
 			self.addNewEntry(entryFrom(days: day))
 		}
 	}
