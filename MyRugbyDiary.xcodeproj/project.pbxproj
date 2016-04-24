@@ -93,8 +93,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1B396B6D1C9251D900986749 /* MySportsDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MySportsDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		1B396B701C9251D900986749 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = MySportsDiary/AppDelegate.swift; sourceTree = "<group>"; };
+		1B396B6D1C9251D900986749 /* MyRugbyDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyRugbyDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1B396B701C9251D900986749 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1B396B721C9251D900986749 /* SingleEntryViewerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleEntryViewerVC.swift; sourceTree = "<group>"; };
 		1B396B741C9251D900986749 /* AllEntriesViewerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllEntriesViewerVC.swift; sourceTree = "<group>"; };
 		1B396B771C9251D900986749 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -104,7 +104,7 @@
 		1B396B841C936B2F00986749 /* AgeGenderVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgeGenderVC.swift; sourceTree = "<group>"; };
 		1B396B881C936BBD00986749 /* QuestionsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionsVC.swift; sourceTree = "<group>"; };
 		1B396B8A1C93774C00986749 /* MasterTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterTabBarViewController.swift; sourceTree = "<group>"; };
-		1B396B921C93AD9600986749 /* MySportsDiaryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MySportsDiaryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1B396B921C93AD9600986749 /* MyRugbyDiary.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyRugbyDiary.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B396B941C93AD9600986749 /* AppStatesTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStatesTest.swift; sourceTree = "<group>"; };
 		1B396B961C93AD9600986749 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1B396BF11C96007400986749 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
@@ -126,7 +126,7 @@
 		1BB5BEDE1CB5355D009A4C3E /* MediaPopoverAudioVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaPopoverAudioVC.swift; sourceTree = "<group>"; };
 		1BB5BEE01CB58323009A4C3E /* MediaPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaPicker.swift; sourceTree = "<group>"; };
 		1BB5BEE21CB59427009A4C3E /* MediaPopoverVideoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaPopoverVideoVC.swift; sourceTree = "<group>"; };
-		1BC2B9C41CA7418A00F519AF /* MySportsDiaryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MySportsDiaryUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1BC2B9C41CA7418A00F519AF /* MyRugbyDiary.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyRugbyDiary.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BC2B9C81CA7418A00F519AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2F93CB82990A53BF73B2C3AC /* InitialVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialVC.swift; sourceTree = "<group>"; };
 		3F83D9AB1CCA68ED0072956D /* EntriesByDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntriesByDate.swift; sourceTree = "<group>"; };
@@ -208,11 +208,9 @@
 		1B396B641C9251D900986749 = {
 			isa = PBXGroup;
 			children = (
-				1B396B6F1C9251D900986749 /* MySportsDiary */,
-				1B396B761C9251D900986749 /* Main.storyboard */,
-				1B396B701C9251D900986749 /* AppDelegate.swift */,
-				1B396B931C93AD9600986749 /* MySportsDiaryTests */,
-				1BC2B9C51CA7418A00F519AF /* MySportsDiaryUITests */,
+				1B396B6F1C9251D900986749 /* MyRugbyDiary */,
+				1B396B931C93AD9600986749 /* MyRugbyDiaryTests */,
+				1BC2B9C51CA7418A00F519AF /* MyRugbyDiaryUITests */,
 				1B396B6E1C9251D900986749 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -220,26 +218,34 @@
 		1B396B6E1C9251D900986749 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1B396B6D1C9251D900986749 /* MySportsDiary.app */,
-				1B396B921C93AD9600986749 /* MySportsDiaryTests.xctest */,
-				1BC2B9C41CA7418A00F519AF /* MySportsDiaryUITests.xctest */,
+				1B396B6D1C9251D900986749 /* MyRugbyDiary.app */,
+				1B396B921C93AD9600986749 /* MyRugbyDiary.xctest */,
+				1BC2B9C41CA7418A00F519AF /* MyRugbyDiary.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		1B396B6F1C9251D900986749 /* MySportsDiary */ = {
+		1B396B6F1C9251D900986749 /* MyRugbyDiary */ = {
 			isa = PBXGroup;
 			children = (
+				1B396B791C9251D900986749 /* Assets.xcassets */,
+				3FAD4D4D1CC998FC00156615 /* InfoPlist.strings */,
+				3FAD4D481CC998FC00156615 /* Localizable.strings */,
+				1B396B7E1C9251D900986749 /* Info.plist */,
+				1B396B7B1C9251D900986749 /* LaunchScreen.storyboard */,
+				1B396B761C9251D900986749 /* Main.storyboard */,
+				1B396B701C9251D900986749 /* AppDelegate.swift */,
 				3FAD4D411CC973A500156615 /* Import */,
 				3FE3D94D1CBC20F40062DFA8 /* Util */,
 				3FAD4D401CC972A200156615 /* ViewControllers */,
 				1B8866471C9F9D87007F7BEB /* Other */,
 				1B8866451C9F9D42007F7BEB /* Model */,
 			);
+			name = MyRugbyDiary;
 			path = MySportsDiary;
 			sourceTree = "<group>";
 		};
-		1B396B931C93AD9600986749 /* MySportsDiaryTests */ = {
+		1B396B931C93AD9600986749 /* MyRugbyDiaryTests */ = {
 			isa = PBXGroup;
 			children = (
 				3FAD4D571CC998FC00156615 /* InfoPlist.strings */,
@@ -249,6 +255,7 @@
 				3FE3D9571CBD7F190062DFA8 /* Persistence */,
 				3FE3D93E1CBBF3D90062DFA8 /* TestUtil.swift */,
 			);
+			name = MyRugbyDiaryTests;
 			path = MySportsDiaryTests;
 			sourceTree = "<group>";
 		};
@@ -307,17 +314,12 @@
 		1B8866471C9F9D87007F7BEB /* Other */ = {
 			isa = PBXGroup;
 			children = (
-				3FAD4D4D1CC998FC00156615 /* InfoPlist.strings */,
-				3FAD4D481CC998FC00156615 /* Localizable.strings */,
-				1B396B791C9251D900986749 /* Assets.xcassets */,
-				1B396B7E1C9251D900986749 /* Info.plist */,
-				1B396B7B1C9251D900986749 /* LaunchScreen.storyboard */,
 				1B396BFB1C960F0D00986749 /* MySportsDiary-Bridging-Header.h */,
 			);
 			name = Other;
 			sourceTree = "<group>";
 		};
-		1BC2B9C51CA7418A00F519AF /* MySportsDiaryUITests */ = {
+		1BC2B9C51CA7418A00F519AF /* MyRugbyDiaryUITests */ = {
 			isa = PBXGroup;
 			children = (
 				3FAD4D521CC998FC00156615 /* InfoPlist.strings */,
@@ -327,6 +329,7 @@
 				3FAFCB371CC935C00048E48D /* InitialViewUITest.swift */,
 				3FAFCB391CC938380048E48D /* AgeGenderViewUITest.swift */,
 			);
+			name = MyRugbyDiaryUITests;
 			path = MySportsDiaryUITests;
 			sourceTree = "<group>";
 		};
@@ -447,9 +450,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1B396B6C1C9251D900986749 /* MySportsDiary */ = {
+		1B396B6C1C9251D900986749 /* MyRugbyDiary */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1B396B811C9251D900986749 /* Build configuration list for PBXNativeTarget "MySportsDiary" */;
+			buildConfigurationList = 1B396B811C9251D900986749 /* Build configuration list for PBXNativeTarget "MyRugbyDiary" */;
 			buildPhases = (
 				1B396B691C9251D900986749 /* Sources */,
 				1B396B6A1C9251D900986749 /* Frameworks */,
@@ -459,14 +462,14 @@
 			);
 			dependencies = (
 			);
-			name = MySportsDiary;
+			name = MyRugbyDiary;
 			productName = MySportsDiary;
-			productReference = 1B396B6D1C9251D900986749 /* MySportsDiary.app */;
+			productReference = 1B396B6D1C9251D900986749 /* MyRugbyDiary.app */;
 			productType = "com.apple.product-type.application";
 		};
-		1B396B911C93AD9600986749 /* MySportsDiaryTests */ = {
+		1B396B911C93AD9600986749 /* MyRugbyDiaryTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1B396B9B1C93AD9600986749 /* Build configuration list for PBXNativeTarget "MySportsDiaryTests" */;
+			buildConfigurationList = 1B396B9B1C93AD9600986749 /* Build configuration list for PBXNativeTarget "MyRugbyDiaryTests" */;
 			buildPhases = (
 				1B396B8E1C93AD9600986749 /* Sources */,
 				1B396B8F1C93AD9600986749 /* Frameworks */,
@@ -477,14 +480,14 @@
 			dependencies = (
 				1B396B981C93AD9600986749 /* PBXTargetDependency */,
 			);
-			name = MySportsDiaryTests;
+			name = MyRugbyDiaryTests;
 			productName = MySportsDiaryTests;
-			productReference = 1B396B921C93AD9600986749 /* MySportsDiaryTests.xctest */;
+			productReference = 1B396B921C93AD9600986749 /* MyRugbyDiary.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		1BC2B9C31CA7418A00F519AF /* MySportsDiaryUITests */ = {
+		1BC2B9C31CA7418A00F519AF /* MyRugbyDiaryUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1BC2B9CB1CA7418A00F519AF /* Build configuration list for PBXNativeTarget "MySportsDiaryUITests" */;
+			buildConfigurationList = 1BC2B9CB1CA7418A00F519AF /* Build configuration list for PBXNativeTarget "MyRugbyDiaryUITests" */;
 			buildPhases = (
 				1BC2B9C01CA7418A00F519AF /* Sources */,
 				1BC2B9C11CA7418A00F519AF /* Frameworks */,
@@ -495,9 +498,9 @@
 			dependencies = (
 				1BC2B9CA1CA7418A00F519AF /* PBXTargetDependency */,
 			);
-			name = MySportsDiaryUITests;
+			name = MyRugbyDiaryUITests;
 			productName = MySportsDiaryUITests;
-			productReference = 1BC2B9C41CA7418A00F519AF /* MySportsDiaryUITests.xctest */;
+			productReference = 1BC2B9C41CA7418A00F519AF /* MyRugbyDiary.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -531,7 +534,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 1B396B681C9251D900986749 /* Build configuration list for PBXProject "MySportsDiary" */;
+			buildConfigurationList = 1B396B681C9251D900986749 /* Build configuration list for PBXProject "MyRugbyDiary" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -544,9 +547,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1B396B6C1C9251D900986749 /* MySportsDiary */,
-				1B396B911C93AD9600986749 /* MySportsDiaryTests */,
-				1BC2B9C31CA7418A00F519AF /* MySportsDiaryUITests */,
+				1B396B6C1C9251D900986749 /* MyRugbyDiary */,
+				1B396B911C93AD9600986749 /* MyRugbyDiaryTests */,
+				1BC2B9C31CA7418A00F519AF /* MyRugbyDiaryUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -665,12 +668,12 @@
 /* Begin PBXTargetDependency section */
 		1B396B981C93AD9600986749 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 1B396B6C1C9251D900986749 /* MySportsDiary */;
+			target = 1B396B6C1C9251D900986749 /* MyRugbyDiary */;
 			targetProxy = 1B396B971C93AD9600986749 /* PBXContainerItemProxy */;
 		};
 		1BC2B9CA1CA7418A00F519AF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 1B396B6C1C9251D900986749 /* MySportsDiary */;
+			target = 1B396B6C1C9251D900986749 /* MyRugbyDiary */;
 			targetProxy = 1BC2B9C91CA7418A00F519AF /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -684,7 +687,6 @@
 				3FAD4D581CC99E3A00156615 /* en */,
 			);
 			name = Main.storyboard;
-			path = MySportsDiary;
 			sourceTree = "<group>";
 		};
 		1B396B7B1C9251D900986749 /* LaunchScreen.storyboard */ = {
@@ -832,7 +834,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = uk.ac.aber.MyRugbyDiary;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = MyRugbyDiary;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "MySportsDiary/MySportsDiary-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -850,7 +852,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = uk.ac.aber.MyRugbyDiary;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = MyRugbyDiary;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "MySportsDiary/MySportsDiary-Bridging-Header.h";
 			};
@@ -864,8 +866,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = uk.ac.aber.MySportsDiaryTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MySportsDiary.app/MySportsDiary";
+				PRODUCT_NAME = MyRugbyDiary;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyRugbyDiary.app/MyRugbyDiary";
 			};
 			name = Debug;
 		};
@@ -877,8 +879,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = uk.ac.aber.MySportsDiaryTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MySportsDiary.app/MySportsDiary";
+				PRODUCT_NAME = MyRugbyDiary;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyRugbyDiary.app/MyRugbyDiary";
 			};
 			name = Release;
 		};
@@ -890,7 +892,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = uk.ac.aber.enm3.MySportsDiaryUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = MyRugbyDiary;
 				TEST_HOST = host;
 				TEST_TARGET_NAME = MySportsDiary;
 			};
@@ -904,7 +906,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = uk.ac.aber.enm3.MySportsDiaryUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = MyRugbyDiary;
 				TEST_HOST = host;
 				TEST_TARGET_NAME = MySportsDiary;
 			};
@@ -913,7 +915,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1B396B681C9251D900986749 /* Build configuration list for PBXProject "MySportsDiary" */ = {
+		1B396B681C9251D900986749 /* Build configuration list for PBXProject "MyRugbyDiary" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1B396B7F1C9251D900986749 /* Debug */,
@@ -922,7 +924,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1B396B811C9251D900986749 /* Build configuration list for PBXNativeTarget "MySportsDiary" */ = {
+		1B396B811C9251D900986749 /* Build configuration list for PBXNativeTarget "MyRugbyDiary" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1B396B821C9251D900986749 /* Debug */,
@@ -931,7 +933,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1B396B9B1C93AD9600986749 /* Build configuration list for PBXNativeTarget "MySportsDiaryTests" */ = {
+		1B396B9B1C93AD9600986749 /* Build configuration list for PBXNativeTarget "MyRugbyDiaryTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1B396B991C93AD9600986749 /* Debug */,
@@ -940,7 +942,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1BC2B9CB1CA7418A00F519AF /* Build configuration list for PBXNativeTarget "MySportsDiaryUITests" */ = {
+		1BC2B9CB1CA7418A00F519AF /* Build configuration list for PBXNativeTarget "MyRugbyDiaryUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1BC2B9CC1CA7418A00F519AF /* Debug */,

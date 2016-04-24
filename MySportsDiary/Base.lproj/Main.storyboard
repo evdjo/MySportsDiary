@@ -30,7 +30,7 @@
         <!--New Entry InitialVC-->
         <scene sceneID="242-26-3by">
             <objects>
-                <viewController id="4bZ-St-0LU" customClass="NewEntryInitialVC" customModule="MySportsDiary" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="4bZ-St-0LU" customClass="NewEntryInitialVC" customModule="MyRugbyDiary" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1NM-JL-MCo"/>
                         <viewControllerLayoutGuide type="bottom" id="hkK-oy-fla"/>
@@ -110,7 +110,7 @@
         <!--SingleEntryViewerVC-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController id="9pv-A4-QxB" userLabel="SingleEntryViewerVC" customClass="SingleEntryViewerVC" customModule="MySportsDiary" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="9pv-A4-QxB" userLabel="SingleEntryViewerVC" customClass="SingleEntryViewerVC" customModule="MyRugbyDiary" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ia1-K6-d13"/>
                         <viewControllerLayoutGuide type="bottom" id="4ug-Mw-9AY"/>
@@ -154,7 +154,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="65" id="2bL-Ji-mWf"/>
                                         </constraints>
-                                        <state key="normal" image="record-voice"/>
+                                        <state key="normal" image="voice"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                 <integer key="value" value="7"/>
@@ -419,7 +419,7 @@
         <!--Media Popover AudioVC-->
         <scene sceneID="Kft-Te-bC4">
             <objects>
-                <viewController id="0nW-Z6-nqW" customClass="MediaPopoverAudioVC" customModule="MySportsDiary" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="0nW-Z6-nqW" customClass="MediaPopoverAudioVC" customModule="MyRugbyDiary" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="EeR-3v-Rhq"/>
                         <viewControllerLayoutGuide type="bottom" id="mYg-Ec-uqG"/>
@@ -433,7 +433,7 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gCD-Ba-9gZ" userLabel="recordButton">
                                         <rect key="frame" x="0.0" y="0.0" width="200" height="50"/>
-                                        <state key="normal" image="mic-2"/>
+                                        <state key="normal" image="microphone"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                 <integer key="value" value="7"/>
@@ -520,7 +520,7 @@
         <!--Media Popover ImagesVC-->
         <scene sceneID="XhY-w5-B2m">
             <objects>
-                <viewController id="Gey-6I-YOX" customClass="MediaPopoverImagesVC" customModule="MySportsDiary" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Gey-6I-YOX" customClass="MediaPopoverImagesVC" customModule="MyRugbyDiary" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="kRF-Ez-EwY"/>
                         <viewControllerLayoutGuide type="bottom" id="jUU-yB-yha"/>
@@ -716,7 +716,7 @@
         <!--Media Popover VideoVC-->
         <scene sceneID="yCO-G6-XP3">
             <objects>
-                <viewController id="JI8-V8-0wz" customClass="MediaPopoverVideoVC" customModule="MySportsDiary" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="JI8-V8-0wz" customClass="MediaPopoverVideoVC" customModule="MyRugbyDiary" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="n7V-7Q-NuD"/>
                         <viewControllerLayoutGuide type="bottom" id="bbh-Wu-nV2"/>
@@ -831,7 +831,7 @@
         <!--All Entries ViewerVC-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="8rJ-Kc-sve" customClass="AllEntriesViewerVC" customModule="MySportsDiary" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="8rJ-Kc-sve" customClass="AllEntriesViewerVC" customModule="MyRugbyDiary" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="L7p-HK-0SC"/>
                         <viewControllerLayoutGuide type="bottom" id="Djb-ko-YwX"/>
@@ -942,7 +942,7 @@
         <!--Master Tab Bar View Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
-                <tabBarController id="49e-Tb-3d3" customClass="MasterTabBarViewController" customModule="MySportsDiary" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController id="49e-Tb-3d3" customClass="MasterTabBarViewController" customModule="MyRugbyDiary" customModuleProvider="target" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
@@ -962,7 +962,7 @@
         <!--Questionnaire-->
         <scene sceneID="Adx-SM-VtV">
             <objects>
-                <viewController id="SN9-zF-AZY" customClass="InitialVC" customModule="MySportsDiary" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="SN9-zF-AZY" customClass="InitialVC" customModule="MyRugbyDiary" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="YmQ-Lb-w3J"/>
                         <viewControllerLayoutGuide type="bottom" id="Obc-kJ-r5S"/>
@@ -1081,7 +1081,7 @@
         <!--Age GenderVC-->
         <scene sceneID="Gd9-8Y-Ymc">
             <objects>
-                <viewController storyboardIdentifier="AgeAndGender" id="KBN-8C-xNN" customClass="AgeGenderVC" customModule="MySportsDiary" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AgeAndGender" id="KBN-8C-xNN" customClass="AgeGenderVC" customModule="MyRugbyDiary" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hjw-S0-fCh"/>
                         <viewControllerLayoutGuide type="bottom" id="r5y-Mz-RyC"/>
@@ -1178,7 +1178,7 @@
                                                     <segment title="Boy"/>
                                                     <segment title="Girl"/>
                                                 </segments>
-                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="tintColor" red="0.59215686270000001" green="0.84313725490000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <connections>
                                                     <action selector="onGenderSegmentChanged:" destination="KBN-8C-xNN" eventType="valueChanged" id="LUd-Y0-JxN"/>
                                                 </connections>
@@ -1234,7 +1234,7 @@
         <!--QuestionsVC-->
         <scene sceneID="u7F-RL-OaB">
             <objects>
-                <viewController storyboardIdentifier="Questionnaire" useStoryboardIdentifierAsRestorationIdentifier="YES" id="pbZ-6v-qqf" customClass="QuestionsVC" customModule="MySportsDiary" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Questionnaire" useStoryboardIdentifierAsRestorationIdentifier="YES" id="pbZ-6v-qqf" customClass="QuestionsVC" customModule="MyRugbyDiary" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="w7K-eN-w2N"/>
                         <viewControllerLayoutGuide type="bottom" id="b30-bO-0re"/>
@@ -1258,7 +1258,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d3H-gy-zL2">
                                         <rect key="frame" x="0.0" y="0.0" width="570" height="121"/>
                                         <subviews>
-                                            <view clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="544" placeholderIntrinsicHeight="20" translatesAutoresizingMaskIntoConstraints="NO" id="kmE-ai-3GM" customClass="CustomSliderOut" customModule="MySportsDiary" customModuleProvider="target">
+                                            <view clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="544" placeholderIntrinsicHeight="20" translatesAutoresizingMaskIntoConstraints="NO" id="kmE-ai-3GM" customClass="CustomSliderOut" customModule="MyRugbyDiary" customModuleProvider="target">
                                                 <rect key="frame" x="8" y="86" width="554" height="20"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
@@ -1357,7 +1357,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ivx-wq-D5s">
                                         <rect key="frame" x="0.0" y="131" width="570" height="122"/>
                                         <subviews>
-                                            <view clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="544" placeholderIntrinsicHeight="20" translatesAutoresizingMaskIntoConstraints="NO" id="Qe4-DX-p5D" customClass="CustomSliderOut" customModule="MySportsDiary" customModuleProvider="target">
+                                            <view clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="544" placeholderIntrinsicHeight="20" translatesAutoresizingMaskIntoConstraints="NO" id="Qe4-DX-p5D" customClass="CustomSliderOut" customModule="MyRugbyDiary" customModuleProvider="target">
                                                 <rect key="frame" x="8" y="87" width="554" height="20"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
@@ -1450,7 +1450,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k7S-Mp-Kfb">
                                         <rect key="frame" x="0.0" y="263" width="570" height="121"/>
                                         <subviews>
-                                            <view clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="544" placeholderIntrinsicHeight="20" translatesAutoresizingMaskIntoConstraints="NO" id="psR-FV-KCf" customClass="CustomSliderOut" customModule="MySportsDiary" customModuleProvider="target">
+                                            <view clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="544" placeholderIntrinsicHeight="20" translatesAutoresizingMaskIntoConstraints="NO" id="psR-FV-KCf" customClass="CustomSliderOut" customModule="MyRugbyDiary" customModuleProvider="target">
                                                 <rect key="frame" x="8" y="86" width="554" height="20"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
@@ -1621,7 +1621,7 @@
         <scene sceneID="rQw-Kf-MLZ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cLT-0y-iCz" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="View Entries" image="list" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="View Entries" image="entries" id="cPa-gy-q4n"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Qkw-6e-y92">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1643,19 +1643,19 @@
         <image name="arrow-left" width="50" height="50"/>
         <image name="arrow-right" width="50" height="50"/>
         <image name="delete" width="50" height="50"/>
-        <image name="list" width="25" height="25"/>
-        <image name="mic-2" width="50" height="50"/>
+        <image name="entries" width="25" height="25"/>
+        <image name="microphone" width="50" height="50"/>
         <image name="movie" width="50" height="50"/>
         <image name="photo" width="50" height="50"/>
         <image name="photo-cam" width="50" height="50"/>
         <image name="photos" width="50" height="50"/>
         <image name="play" width="50" height="50"/>
         <image name="questionnaire" width="25" height="25"/>
-        <image name="record-voice" width="50" height="50"/>
         <image name="video-cam" width="50" height="50"/>
+        <image name="voice" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="wNC-3o-Mek"/>
-        <segue reference="eUc-fk-lPY"/>
+        <segue reference="yaZ-H1-Lc3"/>
+        <segue reference="zFt-bB-jtg"/>
     </inferredMetricsTieBreakers>
 </document>
