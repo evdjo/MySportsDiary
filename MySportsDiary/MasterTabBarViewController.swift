@@ -21,24 +21,24 @@ UITabBarControllerDelegate {
 			object: app)
 		appState();
 	}
-
+	
 	func appState() {
 		checkIfDiaryPeriodIsOver();
-
+		
 		switch DataManagerInstance().getAppState() ?? .Initial {
 		case .Diary:
 			self.selectedIndex = 1;
 			self.tabBar.items![0].enabled = true;
 			self.tabBar.items![1].enabled = true;
 			self.tabBar.items![2].enabled = true;
-		case .Initial, .Final:
+		case .Initial, .Final, .Epilogue:
 			self.selectedIndex = 0;
 			self.tabBar.items![0].enabled = true;
 			self.tabBar.items![1].enabled = false;
 			self.tabBar.items![2].enabled = false;
 		}
 	}
-
+	
 	private func checkIfDiaryPeriodIsOver() {
 		if let endDateString = DataManagerInstance().getDiaryEndDate() {
 			if let endDate = stringDate(endDateString) {

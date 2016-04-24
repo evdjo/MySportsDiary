@@ -999,7 +999,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9EC-0B-12V">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9EC-0B-12V">
                                 <rect key="frame" x="20" y="493" width="560" height="50"/>
                                 <color key="backgroundColor" red="0.59215686270000001" green="0.84313725490000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -1047,7 +1047,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Questionnaire" image="Survey-25" id="ers-Pe-uBA"/>
+                    <tabBarItem key="tabBarItem" title="Questionnaire" image="entries" id="ers-Pe-uBA"/>
                     <navigationItem key="navigationItem" id="WdW-tH-lRF"/>
                     <connections>
                         <outlet property="beginButton" destination="eGO-aR-N2l" id="9AT-e4-sSj"/>
@@ -1638,7 +1638,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Survey-25" width="25" height="25"/>
         <image name="add" width="25" height="25"/>
         <image name="arrow-left" width="50" height="50"/>
         <image name="arrow-right" width="50" height="50"/>
@@ -1655,7 +1654,7 @@
         <image name="voice" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="eUc-fk-lPY"/>
         <segue reference="yaZ-H1-Lc3"/>
-        <segue reference="zFt-bB-jtg"/>
     </inferredMetricsTieBreakers>
 </document>

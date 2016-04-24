@@ -13,10 +13,10 @@ class InitialVC: UIViewController {
 	@IBAction func onNewEntryPressed(sender: AnyObject) {
 		self.tabBarController?.selectedIndex = 1;
 	}
-
+	
 	@IBOutlet weak var mainLabel: UILabel!;
 	@IBOutlet weak var beginButton: UIButton!;
-
+	
 	///
 	/// Hide back button. If enable the second and third
 	/// tab bars if we are in Diary mode, else only the first tab bar is enabled.
@@ -25,23 +25,28 @@ class InitialVC: UIViewController {
 		super.viewWillAppear(animated);
 		// hide the bar above, since there is no back screen to move to,
 		self.navigationController?.setNavigationBarHidden(true, animated: false);
-
+		
 		let appState = DataManagerInstance().getAppState() ?? .Initial
 		switch (appState) {
-		case (.Diary):
-			mainLabel.text = DIARY_TEXT + dateToDisplay;
-			newEntryButton.hidden = false;
-			newEntryButton.enabled = true;
-			beginButton.hidden = true;
-
-		case (.Initial), (.Final):
+		case (.Initial):
 			newEntryButton.hidden = true;
-			newEntryButton.enabled = false;
 			beginButton.hidden = false;
-			mainLabel.text = appState == .Initial ? WELCOME_TEXT : FINAL_TEXT;
+			mainLabel.text = WELCOME_TEXT;
+		case (.Diary):
+			newEntryButton.hidden = false;
+			beginButton.hidden = true;
+			mainLabel.text = DIARY_TEXT + dateToDisplay;
+		case (.Final):
+			newEntryButton.hidden = true;
+			beginButton.hidden = false;
+			mainLabel.text = FINAL_TEXT
+		case (.Epilogue):
+			newEntryButton.hidden = true;
+			beginButton.hidden = true;
+			mainLabel.text = EPILOGUE_TEXT;
 		}
 	}
-
+	
 	///
 	/// See if it is the first survey or final survey...
 	///
@@ -53,7 +58,7 @@ class InitialVC: UIViewController {
 			self.performSegueWithIdentifier("QuestionnaireSegue", sender: sender);
 		}
 	}
-
+	
 	private var dateToDisplay: String {
 		get {
 			if let dateString = DataManagerInstance().getDiaryEndDate() {

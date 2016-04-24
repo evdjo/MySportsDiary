@@ -25,7 +25,7 @@ enum ApplicationState: String {
 	case Initial = "InitialState"
 	case Diary = "DiaryState"
 	case Final = "FinalState"
-//	case DiaryDailyLimitReached = "DiaryDailyLimitReached"
+	case Epilogue = "Epilogue"
 }
 
 ///

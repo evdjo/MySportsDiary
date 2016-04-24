@@ -172,3 +172,7 @@
 /* The positive answer -- Yes */
 "YES" = "Yes";
 
+
+/* The text after the date is sent. The app is rendered no longer active */
+"EPILOGUE_TEXT" = "Thank you for participating.";
+

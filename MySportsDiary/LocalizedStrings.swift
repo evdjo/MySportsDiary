@@ -142,6 +142,9 @@ let FINAL_TEXT = NSLocalizedString("FINAL_TEXT",
 	comment: "Tell the user he has to answer the questionnaire again");
 // "Now you must answer the final questionnaire.";
 
+let EPILOGUE_TEXT = NSLocalizedString("EPILOGUE_TEXT",
+	comment: "Text to appear after the data has been send. The user should delete the app")
+
 let DIARY_DATE_TEXT = NSLocalizedString("DIARY_DATE_TEXT",
 	comment: "String to tell the user that he will answer the questionnaire again at the end");
 // "You will answer the questionnaire again on"

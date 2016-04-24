@@ -9,31 +9,43 @@
 import Foundation
 
 class Questionnaire {
-
 	///
-	/// Questionnaire temp answers
+	/// Set questionnaire answer
 	///
-	static func setAnswer(questionID: Int, answer: Int) {
-		if var dict = NSDictionary(contentsOfURL: DataConfig.ANSWERS_URL) as? Dictionary<String, Int> {
+	static func setAnswer(questionID: Int, answer: Int, forState: ApplicationState) {
+		let url = forState == .Initial ?
+		DataConfig.ANSWERS_URL_I : DataConfig.ANSWERS_URL_F
+		
+		if var dict = NSDictionary(contentsOfURL: url)
+		as? Dictionary<String, Int> {
 			dict.updateValue(answer, forKey: String(questionID));
-			(dict as NSDictionary).writeToURL(DataConfig.ANSWERS_URL, atomically: true);
+			(dict as NSDictionary).writeToURL(url, atomically: true);
 		} else {
-			([String(questionID): answer] as NSDictionary).writeToURL(DataConfig.ANSWERS_URL, atomically: true);
+			([String(questionID): answer] as NSDictionary)
+				.writeToURL(url, atomically: true);
 		}
 	}
-
-	static func getAnswer(questionID: Int) -> Int? {
-		if var dict = NSDictionary(contentsOfURL: DataConfig.ANSWERS_URL) as? Dictionary<String, Int> {
+	
+	///
+	/// Get questionnaire answer
+	///
+	static func getAnswer(questionID: Int, forState: ApplicationState) -> Int? {
+		let url = forState == .Initial ?
+		DataConfig.ANSWERS_URL_I : DataConfig.ANSWERS_URL_F
+		
+		if var dict = NSDictionary(contentsOfURL: url)
+		as? Dictionary<String, Int> {
 			return dict[String(questionID)];
 		} else {
 			return nil;
 		}
 	}
-
+	
 	///
-	/// PURGE
+	/// Delete answers
 	///
 	static func purgeData() {
-		deleteFile(file: DataConfig.ANSWERS_URL)
+		deleteFile(file: DataConfig.ANSWERS_URL_I)
+		deleteFile(file: DataConfig.ANSWERS_URL_F)
 	}
 }

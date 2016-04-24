@@ -66,16 +66,31 @@ class QuestionsVC: UIViewController {
 	}
 	
 	@IBAction func onBottomButtonPressed(sender: AnyObject) {
-		DataManagerInstance().setAnswer(page * 3 + 0, answer: Int(sliders[0].value));
-		DataManagerInstance().setAnswer(page * 3 + 1, answer: Int(sliders[1].value));
-		DataManagerInstance().setAnswer(page * 3 + 2, answer: Int(sliders[2].value));
+		let state = DataManagerInstance().getAppState() ?? .Initial;
+		
+		DataManagerInstance().setAnswer(page * 3 + 0,
+			answer: Int(sliders[0].value),
+			forState: state);
+		
+		DataManagerInstance().setAnswer(page * 3 + 1,
+			answer: Int(sliders[1].value),
+			forState: state);
+		
+		DataManagerInstance().setAnswer(page * 3 + 2,
+			answer: Int(sliders[2].value),
+			forState: state);
+		
 		if page < 2 {
 			let vc = UIStoryboard(name: "Main", bundle: nil)
 				.instantiateViewControllerWithIdentifier("Questionnaire");
 			(vc as! QuestionsVC).page = self.page + 1;
 			self.navigationController?.pushViewController(vc, animated: true);
 		} else {
-			initialQuestionnaireFinished();
+			switch state {
+			case .Initial: initialQuestionnaireFinished();
+			case .Final: finalQuestionnaireFinished();
+			default: return;
+			}
 		}
 	}
 	
@@ -98,27 +113,27 @@ class QuestionsVC: UIViewController {
 				DataManagerInstance().setAppState(.Diary);
 				let dateNow = NSDate();
 				let dateDiaryEnd = NSCalendar.currentCalendar().dateByAddingUnit(
-						.Day,
-					value: Config.DiaryPeriodInDays,
+					Config.DiaryPeriodUnit,
+					value: Config.DiaryPeriod,
 					toDate: dateNow,
 					options: [])!;
 				
 				DataManagerInstance().setDiaryEndDate(dateString(dateDiaryEnd));
-				// enable second and third tabs, disable first, switch to second
-				// self.tabBarController!.tabBar.items![0].enabled = false;
 				self.tabBarController!.tabBar.items![1].enabled = true;
 				self.tabBarController!.tabBar.items![2].enabled = true;
-				// self.tabBarController!.selectedIndex = 1;
 				self.navigationController?.popToRootViewControllerAnimated(true);
 		});
 		
-		let noAction = UIAlertAction(
-			title: NO,
-			style: .Cancel,
-			handler: nil);
-		
 		controller.addAction(yesAction)
-		controller.addAction(noAction)
+		controller.addAction(UIAlertAction(title: NO, style: .Cancel, handler: nil))
 		presentViewController(controller, animated: true, completion: nil)
+	}
+	
+	private func finalQuestionnaireFinished() {
+		// SEND THE DATA HERE ...
+		DataManagerInstance().purgeAllData();
+		DataManagerInstance().setAppState(.Epilogue)
+		
+		self.navigationController?.popToRootViewControllerAnimated(true);
 	}
 }

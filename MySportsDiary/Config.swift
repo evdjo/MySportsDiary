@@ -9,5 +9,6 @@
 import Foundation
 
 class Config {
-	static var DiaryPeriodInDays: Int = 28;
+	static var DiaryPeriod: Int = 1;
+	static var DiaryPeriodUnit: NSCalendarUnit = .Minute
 }
