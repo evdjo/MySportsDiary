@@ -17,13 +17,14 @@ class EntriesByDate {
 		let timeNow = NSDate();
 		if let entries = entries {
 			entries.forEach({ entry in
-				let date = stringDate(entry.date_time);
-				if NSCalendar.currentCalendar().isDateInToday(date) {
-					todayEntries.append(entry);
-				} else if datesAreWithinWeek(date, timeNow) {
-					weekEntries.append(entry);
-				} else {
-					olderEntries.append(entry);
+				if let date = stringDate(entry.date_time) {
+					if NSCalendar.currentCalendar().isDateInToday(date) {
+						todayEntries.append(entry);
+					} else if datesAreWithinWeek(date, timeNow) {
+						weekEntries.append(entry);
+					} else {
+						olderEntries.append(entry);
+					}
 				}
 			})
 		}

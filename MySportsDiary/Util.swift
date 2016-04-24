@@ -41,6 +41,12 @@ enum EntryType {
 	case Existing
 }
 
+enum ShownEntries {
+	case Today
+	case Week
+	case Older
+}
+
 ///
 /// Timestamp since epoch
 ///
@@ -73,8 +79,8 @@ internal func dateString(date: NSDate) -> String {
 }
 
 // to be used when read from DB
-internal func stringDate(string: String) -> NSDate {
-	return formatter.dateFromString(string)!;
+internal func stringDate(string: String) -> NSDate? {
+	return formatter.dateFromString(string);
 }
 
 /// Resize an image while preserving it's aspect ratio

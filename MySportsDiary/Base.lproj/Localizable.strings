@@ -152,7 +152,7 @@
 "TRUSTWORTHINESS" = "Trustworthiness";
 
 /* Welcome the user, by telling him that he has to answer few questions */
-"WELCOME_STRING" = "Hello. You will see a few requests for information appear on the next two screens. Please respond in order to access your diary.";
+"WELCOME_TEXT" = "Hello. You will see a few requests for information appear on the next two screens. Please respond in order to access your diary.";
 
 /* The positive answer -- Yes */
 "YES" = "Yes";

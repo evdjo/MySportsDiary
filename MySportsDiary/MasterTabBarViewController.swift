@@ -41,13 +41,14 @@ UITabBarControllerDelegate {
 
 	private func checkIfDiaryPeriodIsOver() {
 		if let endDateString = DataManagerInstance().getDiaryEndDate() {
-			let endDate = stringDate(endDateString);
-			let nowDate = NSDate();
-			switch endDate.compare(nowDate) {
-			case .OrderedAscending, .OrderedSame:
-				DataManagerInstance().setAppState(.Final);
-			case .OrderedDescending:
-				break; // no op
+			if let endDate = stringDate(endDateString) {
+				let nowDate = NSDate();
+				switch endDate.compare(nowDate) {
+				case .OrderedAscending, .OrderedSame:
+					DataManagerInstance().setAppState(.Final);
+				case .OrderedDescending:
+					break; // no op
+				}
 			}
 		}
 	}

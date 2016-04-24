@@ -132,7 +132,7 @@ let questions = [
 	NSLocalizedString("QUESTION_9", comment: "I feel important in my community"),
 ]
 
-let WELCOME_STRING = NSLocalizedString("WELCOME_STRING",
+let WELCOME_TEXT = NSLocalizedString("WELCOME_TEXT",
 	comment: "Welcome the user, by telling him that he has to answer few questions");
 
 let DIARY_TEXT = NSLocalizedString("DIARY_TEXT",

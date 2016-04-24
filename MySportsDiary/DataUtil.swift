@@ -138,7 +138,7 @@ internal func myMove(srcPath: NSURL, toPath: NSURL) -> Bool {
 		try fileManager.moveItemAtURL(srcPath, toURL: toPath)
 		return true;
 	} catch {
-		fatalError("Error moving a file");
+		print("Fail moving \(srcPath.absoluteURL) to \(toPath)");
 	}
 	debugPrint("Failed to move");
 	return false;

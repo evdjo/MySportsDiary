@@ -15,40 +15,40 @@ class SingleEntryViewerVC: UIViewController, UIPopoverPresentationControllerDele
 	@IBOutlet weak var voiceCountLabel: UILabel!
 	@IBOutlet weak var videoCountLabel: UILabel!
 	@IBOutlet weak var imagesCountLabel: UILabel!
-
+	
 	@IBOutlet weak var addVoiceLabel: UILabel!
 	@IBOutlet weak var addPhotoLabel: UILabel!
 	@IBOutlet weak var addVideoLabel: UILabel!
-
+	
 	@IBOutlet weak var descriptionTextArea: UITextView!
 	@IBOutlet weak var topLabel: UILabel!
 	@IBOutlet weak var doneButton: UIButton!
-
+	
 ///The entry if this is an existing entry
 	internal var entry: Entry?;
-
+	
 /// Is this a new entry or an existing one ?
 	internal var entryType: EntryType?;
-
+	
 /// The skill chosen, if this is a new entry
 	internal var skill: String = "";
-
+	
 /// The delegate delegate that is responsible for where the media is saved/loaded from
 	internal var mediaDelegate: MediaPopoverDataDelegate!;
-
+	
 /// Delegate for the text view
 	private var textDelegate: DescriptionTextDelegate?;
-
+	
 /// GPS Location getter
 	private var locationGetter: GPSLocationGetter?;
-
+	
 /// just set the text delegate on load
 	override func viewDidLoad() {
 		super.viewDidLoad();
 		textDelegate = DescriptionTextDelegate();
 		descriptionTextArea.delegate = textDelegate;
 	}
-
+	
 ///
 /// Hide the navigation bar.
 ///
@@ -63,9 +63,9 @@ class SingleEntryViewerVC: UIViewController, UIPopoverPresentationControllerDele
 	override func viewWillAppear(animated: Bool) {
 		super.viewWillAppear(animated);
 		navigationController?.navigationBarHidden = false;
-
+		
 		guard entryType != nil else { print("entry type not set"); return }
-
+		
 		switch (entryType!) {
 		case .New:
 			topLabel.text = "\(NEW_ENTRY_TEXT_1) \(skill.lowercaseString) \(NEW_ENTRY_TEXT_2)";
@@ -78,7 +78,7 @@ class SingleEntryViewerVC: UIViewController, UIPopoverPresentationControllerDele
 			addVoiceLabel.text = ADD_VOICE
 			addPhotoLabel.text = ADD_PHOTO
 			addVideoLabel.text = ADD_VIDEO
-
+			
 		case .Existing:
 			guard entry != nil else { print("entry found to be nil"); return }
 			topLabel.text = entry!.skill;
@@ -90,25 +90,25 @@ class SingleEntryViewerVC: UIViewController, UIPopoverPresentationControllerDele
 			addPhotoLabel.text = ADDED_PHOTO
 			addVideoLabel.text = ADDED_VIDEO
 		}
-
+		
 		if descriptionTextArea.text == ENTER_TEXT {
 			descriptionTextArea.textColor = UIColor.lightGrayColor();
 		} else {
 			descriptionTextArea.textColor = UIColor.blackColor();
 		}
-
+		
 		updateAudioCountLabel();
 		updateImagesCountLabel();
 		updateVideoCountLabel();
 	}
-
+	
 /// Update the small label indicating the count of audio files.
 /// Currently, since only 1 audio is allowed, the possible values are 0 or 1
 	func updateAudioCountLabel() {
 		voiceCountLabel.text = mediaDelegate.audio == nil ? "0" : "1";
 		voiceCountLabel.hidden = mediaDelegate.audio == nil;
 	}
-
+	
 /// Update the small label indicating the count of video files.
 /// Currently, since only 1 video is allowed, the possible values are 0 or 1
 	func updateImagesCountLabel() {
@@ -116,13 +116,13 @@ class SingleEntryViewerVC: UIViewController, UIPopoverPresentationControllerDele
 		imagesCountLabel.text = String(imagesCount);
 		imagesCountLabel.hidden = 0 == imagesCount;
 	}
-
+	
 /// Update the small label indicating the count of images.
 	func updateVideoCountLabel() {
 		videoCountLabel.text = mediaDelegate.video == nil ? "0" : "1";
 		videoCountLabel.hidden = mediaDelegate.video == nil;
 	}
-
+	
 /// Save the description text field if this is existing entry.
 	override func viewWillDisappear(animated: Bool) {
 		super.viewWillDisappear(animated);
@@ -131,15 +131,20 @@ class SingleEntryViewerVC: UIViewController, UIPopoverPresentationControllerDele
 				newDescr: descriptionTextArea.text)
 		}
 		self.navigationController?.popToRootViewControllerAnimated(false);
-
+		
 		locationGetter?.stop();
 	}
-
+	
 /// Set the presentaion view controller
 /// If this is the audio popover, set its height to 60
 /// Set the delegate of the media popover to be the mediaDelegate,
 /// which resides in this class as property
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+		guard nil != segue.identifier else {
+			print("Tried to segue without identifier");
+			return;
+		}
+		
 		let dest = segue.destinationViewController;
 		if var mediaVC = dest as? MediaPopover {
 			mediaVC.delegate = self.mediaDelegate;
@@ -167,7 +172,7 @@ class SingleEntryViewerVC: UIViewController, UIPopoverPresentationControllerDele
 	private func onExistingSave() {
 		self.navigationController?.popToRootViewControllerAnimated(false);
 	}
-
+	
 /// When this is a new entry, save all the details added so far,
 /// add a new entry in the database, and move the temp media folder,
 /// to the entries folder.
@@ -178,7 +183,7 @@ class SingleEntryViewerVC: UIViewController, UIPopoverPresentationControllerDele
 		let loc = locationGetter?.getLocation();
 		let lat = loc?.coordinate.latitude ?? 0.0;
 		let lon = loc?.coordinate.longitude ?? 0.0;
-
+		
 		DataManagerInstance().addNewEntry(
 			Entry(entry_id: -1,
 				skill: skill,
@@ -187,11 +192,13 @@ class SingleEntryViewerVC: UIViewController, UIPopoverPresentationControllerDele
 				latitude: lat,
 				longitude: lon)
 		)
-
-		self.tabBarController?.selectedIndex = 2;
+		let vc = self.tabBarController?.viewControllers?[2] as? UINavigationController;
+		let entriesVC = vc?.viewControllers.last as? AllEntriesViewerVC;
+		entriesVC?.newEntryAdded = true;
 		
+		self.tabBarController?.selectedIndex = 2;
 	}
-
+	
 /// Change the alpha back to 1.0
 /// Update the count on the small labels.
 	func popoverPresentationControllerDidDismissPopover(_: UIPopoverPresentationController) {
@@ -200,12 +207,12 @@ class SingleEntryViewerVC: UIViewController, UIPopoverPresentationControllerDele
 		updateImagesCountLabel();
 		updateVideoCountLabel();
 	}
-
+	
 /// To back the popovers work.
 	func adaptivePresentationStyleForPresentationController(_: UIPresentationController) -> UIModalPresentationStyle {
 		return .None;
 	}
-
+	
 /// So that the keyboard closes on when the user taps in the background
 	@IBAction func onBackgroundTap(_: UITapGestureRecognizer) {
 		descriptionTextArea.resignFirstResponder();

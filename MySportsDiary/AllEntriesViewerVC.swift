@@ -10,21 +10,18 @@ import UIKit
 import QuartzCore
 
 class AllEntriesViewerVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate {
-/// The table view shows all the entries added so far.
+	/// The table view shows all the entries added so far.
 	@IBOutlet weak var tableView: UITableView!
-
-// The cell identifiers
-	let eventCellContentIdentifier = "eventCellContent"
-	let eventCellHeaderIdentifier = "eventCellHeader"
-	let newEntryCellIdentifier = "newEntryCellIdentifier"
-
-/// The list of entries
-	var entries: EntriesByDate!;
-
-	var showToday = true; // default true
-	var showWeek = false; // default true
-	var showOlder = false; // default true
-
+	@IBOutlet weak var noEntriesLabel: UILabel!
+	@IBOutlet weak var todayWeekOlderSegControl: UISegmentedControl!
+	// The cell identifier
+	private let eventCellID = "eventCellID";
+	
+	/// The list of entries
+	private var entries: EntriesByDate?;
+	private var shownEntries: ShownEntries = .Today;
+	
+	var newEntryAdded = false;
 ///
 /// On appear load all the entries from the db
 /// Then show them on the tableview.
@@ -33,75 +30,92 @@ class AllEntriesViewerVC: UIViewController, UITableViewDelegate, UITableViewData
 ///
 	override func viewWillAppear(animated: Bool) {
 		super.viewWillAppear(animated);
-		refreshEntries();
-		tableView.reloadData();
-		self.navigationController?.navigationBarHidden = true;
-	}
-
-///
-/// Refetch entries from DB, and reload the tabeView
-///
-	private func refreshEntries() {
+		navigationController?.navigationBarHidden = true;
 		entries = DataManagerInstance().getEntriesByDate();
+		hideTableIfNoEntries();
 	}
-	private func animateSectionReload(section: Int) {
-		tableView.reloadSections(NSIndexSet(index: section), withRowAnimation: .Automatic)
-	}
-/// The header view
-	func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-		guard nil != entries else { return nil; }
-		var header: UITableViewHeaderFooterView? = nil;
-
-		if 0 <= section && section <= 2 {
-			header = UITableViewHeaderFooterView.init();
-			header?.contentView.backgroundColor = appBlueColor;
-			header?.textLabel?.text = countHeader(section);
-			if let selector = selectorForHeader(section) {
-				header?.addGestureRecognizer(
-					UITapGestureRecognizer(target: self, action: selector));
+	
+	override func viewDidAppear(animated: Bool) {
+		super.viewDidAppear(animated);
+		if newEntryAdded {
+			newEntryAdded = false;
+			shownEntries = .Today
+			
+			UIView.transitionWithView(tableView,
+				duration: 0.275,
+				options: .TransitionCrossDissolve,
+				animations: {
+					self.todayWeekOlderSegControl.selectedSegmentIndex = 0;
+					self.tableView.reloadData();
+					self.tableView.scrollToRowAtIndexPath(self.lastIndex, atScrollPosition: .Bottom, animated: false)
+					self.tableView.cellForRowAtIndexPath(self.lastIndex)?.highlighted = true;
+				},
+				completion: nil);
+			
+			dispatch_after(dispatchTime(sec: 1), dispatch_get_main_queue()) {
+				self.tableView.cellForRowAtIndexPath(self.lastIndex)?.highlighted = false;
 			}
 		}
-		return header;
+		// if entriesCount != 0 {
+		// }
 	}
-
+	private var lastIndex: NSIndexPath {
+		return NSIndexPath(forRow: 0, inSection: self.tableView.numberOfSections - 1)
+	}
+	
 ///
-/// The count of table cells, is the number of entries + 1.
-/// The last table cell, is the add new entry button.
+/// The empty view to serve as a margin
 ///
-	func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+	func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+		let header = UIView()
+		header.backgroundColor = UIColor.clearColor()
+		return header
+	}
+///
+/// Margin between cells
+///
+	func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+		return 4.0;
+	}
+///
+/// Number of 1 cell sections, that is the number of currently viewed entries
+///
+	func numberOfSectionsInTableView(tableView: UITableView) -> Int {
 		guard nil != entries else { return 0; }
-		switch section {
-		case 0: return showToday ? entries.todayEntries.count : 0;
-		case 1: return showWeek ? entries.weekEntries.count : 0;
-		case 2: return showOlder ? entries.olderEntries.count : 0;
-		default: return 0;
+		switch shownEntries {
+		case .Today: return entries?.todayEntries.count ?? 0;
+		case .Week: return entries?.weekEntries.count ?? 0;
+		case .Older: return entries?.olderEntries.count ?? 0;
 		}
 	}
-
+///
+/// The count of table cells of entries for today, the week or older
+///
+	func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		return 1;
+	}
+	
 /// The cell of each entry.
 /// Simply fetch the entry's skill and date.
 /// That's what we show for now.
 	func tableView(tableView: UITableView, cellForRowAtIndexPath
 		indexPath: NSIndexPath) -> UITableViewCell {
 			let cell = tableView.dequeueReusableCellWithIdentifier(
-				eventCellContentIdentifier,
+				eventCellID,
 				forIndexPath: indexPath)
-
+			
 			if let entry = entryForIndexPath(indexPath) {
-				let date = stringDate(entry.date_time);
-				cell.detailTextLabel?.text = screenDateString(date);
+				if let date = stringDate(entry.date_time) {
+					cell.detailTextLabel?.text = screenDateString(date);
+				}
 				cell.textLabel?.text = entry.skill
+				cell.layer.borderWidth = 1.0
+				cell.layer.borderColor = UIColor.blackColor().CGColor;
+				cell.layer.cornerRadius = 4;
 			}
 			return cell;
 	}
-
-///
-/// Three sections -- today's entries, this weeks entries, and older.
-///
-	func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-		return 3;
-	}
-
+	
 /// When we press a entry cell, we set the entry of the SingleEntryViewerVC
 /// We also set it's type of .Existing.
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -112,91 +126,78 @@ class AllEntriesViewerVC: UIViewController, UITableViewDelegate, UITableViewData
 				vc.entryType = .Existing;
 		}
 	}
-
+	
 ///
 /// Make entries editable
-///
 	func tableView(tableView: UITableView, canEditRowAtIndexPath
 		indexPath: NSIndexPath) -> Bool {
 			return true;
 	}
-
+	
 ///
 /// Enable deletion of entries
-///
 	func tableView(tableView: UITableView, commitEditingStyle editingStyle:
 			UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
 				if editingStyle == UITableViewCellEditingStyle.Delete {
 					if let entry = entryForIndexPath(indexPath) {
 						DataManagerInstance().deleteEntryWithID(entry.entry_id)
-						refreshEntries();
+						self.entries = DataManagerInstance().getEntriesByDate();
 						tableView.beginUpdates();
-						tableView.deleteRowsAtIndexPaths([indexPath],
-							withRowAnimation: .Automatic)
+						tableView.deleteSections(NSIndexSet(index: indexPath.section), withRowAnimation: .Automatic)
 						tableView.endUpdates();
+						hideTableIfNoEntries();
 					}
-	} }
-
-	func onTodayTap() {
-		showToday = !showToday;
-		animateSectionReload(0)
+				}
 	}
-	func onWeekTap() {
-		showWeek = !showWeek;
-		animateSectionReload(1)
-	}
-	func onOlderTap() {
-		showOlder = !showOlder;
-		animateSectionReload(2)
-	}
-
-	func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-		return 35;
-	}
-	func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-		return 35;
-	}
-
-///
-/// Selector for the headers
-///
-	private func selectorForHeader(headerIndex: Int) -> Selector? {
-		switch headerIndex {
-		case 0: return #selector(onTodayTap);
-		case 1: return #selector(onWeekTap);
-		case 2: return #selector(onOlderTap);
-		default: return nil;
-		}
-	}
-
-///
-/// Get name string to put in the header for each entry group
-///
-	private func countHeader(headerIndex: Int) -> String {
-		switch headerIndex {
-		case 0: return "\(TODAY)" // (\(entries.todayEntries.count))";
-		case 1: return "\(THIS_WEEK)"// (\(entries.weekEntries.count))"
-		case 2: return "\(OLDER)"// (\(entries.olderEntries.count))";
-		default: return "";
-		}
-	}
+	
 ///
 /// Get the entry based on the indexPath
-///
 	private func entryForIndexPath(indexPath: NSIndexPath) -> Entry? {
-		let row = indexPath.row;
-		switch indexPath.section {
-		case 0: if 0 <= row && row < entries.todayEntries.count {
-			return entries.todayEntries[indexPath.row];
+		let index = indexPath.section;
+		if let entries = entries {
+			switch shownEntries {
+			case .Today: if 0 <= index && index < entries.todayEntries.count {
+				return entries.todayEntries[index];
+				}
+			case .Week: if 0 <= index && index < entries.weekEntries.count {
+				return entries.weekEntries[index];
+				}
+			case .Older: if 0 <= index && index < entries.olderEntries.count {
+				return entries.olderEntries[index];
+				}
 			}
-		case 1: if 0 <= row && row < entries.weekEntries.count {
-			return entries.weekEntries[indexPath.row];
-			}
-		case 2: if 0 <= row && row < entries.olderEntries.count {
-			return entries.olderEntries[indexPath.row];
-			}
-		default: break;
 		}
 		return nil;
 	}
+	@IBAction func onShownEntriesPressed(sender: UISegmentedControl) {
+		let selected = sender.selectedSegmentIndex;
+		guard 0 <= selected && selected <= 2 else { return }
+		
+		switch selected {
+		case 0: shownEntries = .Today
+		case 1: shownEntries = .Week
+		case 2: shownEntries = .Older
+		default: break;
+		}
+		tableView.reloadData();
+		hideTableIfNoEntries();
+	}
+	
+	private func hideTableIfNoEntries() {
+		let hideTable = entriesCount == 0;
+		tableView.hidden = hideTable;
+		noEntriesLabel.hidden = !hideTable;
+	}
+	
+	private var entriesCount: Int {
+		get {
+			let count: Int;
+			switch shownEntries {
+			case .Today: count = entries?.todayEntries.count ?? 0;
+			case .Week: count = entries?.weekEntries.count ?? 0
+			case .Older: count = entries?.olderEntries.count ?? 0
+			}
+			return count;
+		}
+	};
 }

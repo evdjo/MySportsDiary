@@ -78,8 +78,7 @@ private class MainDataManager: DataManager {
 	func deleteEntryWithID(entry_id: Int64) {
 		let entry = EntriesDB.entryForID(entry_id);
 		if let entry = entry {
-			let deleted = deleteFile(file: DataConfig.ENTRIES_DIR_URL.URLByAppendingPathComponent(entry.date_time));
-			print("Entry deleted : \(deleted) ");
+			deleteFile(file: DataConfig.ENTRIES_DIR_URL.URLByAppendingPathComponent(entry.date_time));
 			EntriesDB.deleteEntryWithID(entry_id)
 		}
 	}
@@ -147,7 +146,10 @@ private class MainDataManager: DataManager {
 /// Creates dummy entries
 ///
 	func generateDummyEntries() {
-		for day in 0 ... 13 {
+		for _ in 0 ... 10 {
+			self.addNewEntry(entryFrom(days: 0))
+		}
+		for day in 0 ... 30 {
 			self.addNewEntry(entryFrom(days: day))
 		}
 	}

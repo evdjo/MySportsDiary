@@ -15,21 +15,21 @@ class QuestionsVC: UIViewController {
 	private var page: Int = 0;
 	@IBOutlet weak var pageLabel: UILabel!
 	@IBOutlet weak var bottomButton: UIButton!
-
+	
 	@IBOutlet var questionLabels: [UILabel]!
 	@IBOutlet var theview: [CustomSliderOut]!
 	@IBOutlet var sliders: [UISlider]!
-
+	
 	@IBOutlet var disagree: [UILabel]!
 	@IBOutlet var agree: [UILabel]!
-
+	
 	@IBAction func onSliderMoved(sender: UISlider) {
 		if let index = sliders.indexOf(sender) {
 			// scale to the max of the selected value
 			let scale = sender.value / sender.maximumValue * CustomSliderOut.maxValue
-
+			
 			theview[index].scale = scale
-
+			
 			agree[index].alpha = CGFloat(sender.value / 10);
 			disagree[index].alpha = 1 - CGFloat(sender.value / 10);
 		}
@@ -42,15 +42,15 @@ class QuestionsVC: UIViewController {
 		bottomButton.enabled = false;
 		bottomButton.alpha = 0.5;
 	}
-
+	
 	override func viewWillAppear(animated: Bool) {
 		super.viewWillAppear(animated);
-
+		
 		let startIndex = page * 3;
 		questionLabels[0].text = questions[startIndex];
 		questionLabels[1].text = questions[startIndex + 1];
 		questionLabels[2].text = questions[startIndex + 2];
-
+		
 		switch page {
 		case 0, 1:
 			bottomButton.setTitle(NEXT, forState: .Normal);
@@ -58,13 +58,13 @@ class QuestionsVC: UIViewController {
 			bottomButton.setTitle(FINISH, forState: .Normal);
 		}
 		pageLabel.text = "\(page + 1) / 3";
-
-		dispatch_after(dispatchTime(sec: 3), dispatch_get_main_queue()) {
+		
+		dispatch_after(dispatchTime(sec: 1), dispatch_get_main_queue()) {
 			self.bottomButton.enabled = true;
 			self.bottomButton.alpha = 1.0;
 		}
 	}
-
+	
 	@IBAction func onBottomButtonPressed(sender: AnyObject) {
 		DataManagerInstance().setAnswer(page * 3 + 0, answer: Int(sliders[0].value));
 		DataManagerInstance().setAnswer(page * 3 + 1, answer: Int(sliders[1].value));
@@ -78,7 +78,7 @@ class QuestionsVC: UIViewController {
 			initialQuestionnaireFinished();
 		}
 	}
-
+	
 //
 // After the inital questionnaire, set the mode to .Diary save the anwers,
 // enable the other two tab bars, and let the user create events
@@ -89,7 +89,7 @@ class QuestionsVC: UIViewController {
 			title: ARE_YOU_SURE,
 			message: FINISH_QUESTIONNAIRE_CONFIRM,
 			preferredStyle: .Alert)
-
+		
 		let yesAction = UIAlertAction(
 			title: YES,
 			style: .Default,
@@ -102,7 +102,7 @@ class QuestionsVC: UIViewController {
 					value: Config.DiaryPeriodInDays,
 					toDate: dateNow,
 					options: [])!;
-
+				
 				DataManagerInstance().setDiaryEndDate(dateString(dateDiaryEnd));
 				// enable second and third tabs, disable first, switch to second
 				// self.tabBarController!.tabBar.items![0].enabled = false;
@@ -111,12 +111,12 @@ class QuestionsVC: UIViewController {
 				// self.tabBarController!.selectedIndex = 1;
 				self.navigationController?.popToRootViewControllerAnimated(true);
 		});
-
+		
 		let noAction = UIAlertAction(
 			title: NO,
 			style: .Cancel,
 			handler: nil);
-
+		
 		controller.addAction(yesAction)
 		controller.addAction(noAction)
 		presentViewController(controller, animated: true, completion: nil)

@@ -9,19 +9,6 @@
 import UIKit
 
 class InitialVC: UIViewController {
-	@IBAction func reset(sender: AnyObject) {
-		DataManagerInstance().purgeAllData();
-	}
-
-	private var dateToDisplay: String {
-		get {
-			if let dateString = DataManagerInstance().getDiaryEndDate() {
-				let date = stringDate(dateString);
-				return "\n\n\(DIARY_DATE_TEXT)\n\(screenDateString(date))"
-			}
-			return "";
-		}
-	}
 	@IBOutlet weak var newEntryButton: UIButton!
 	@IBAction func onNewEntryPressed(sender: AnyObject) {
 		self.tabBarController?.selectedIndex = 1;
@@ -51,7 +38,7 @@ class InitialVC: UIViewController {
 			newEntryButton.hidden = true;
 			newEntryButton.enabled = false;
 			beginButton.hidden = false;
-			mainLabel.text = appState == .Initial ? WELCOME_STRING : FINAL_TEXT;
+			mainLabel.text = appState == .Initial ? WELCOME_TEXT : FINAL_TEXT;
 		}
 	}
 
@@ -64,6 +51,17 @@ class InitialVC: UIViewController {
 			self.performSegueWithIdentifier("AgeAndGenderSegue", sender: sender);
 		} else {
 			self.performSegueWithIdentifier("QuestionnaireSegue", sender: sender);
+		}
+	}
+
+	private var dateToDisplay: String {
+		get {
+			if let dateString = DataManagerInstance().getDiaryEndDate() {
+				if let date = stringDate(dateString) {
+					return "\n\n\(DIARY_DATE_TEXT)\n\(screenDateString(date))"
+				}
+			}
+			return "";
 		}
 	}
 }
