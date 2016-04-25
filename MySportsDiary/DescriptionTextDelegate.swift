@@ -12,7 +12,12 @@ class DescriptionTextDelegate: NSObject, UITextViewDelegate {
 	///
 	/// Hide the keyboard on done pressed
 	///
-	func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+	func textView(
+		textView: UITextView,
+		shouldChangeTextInRange range: NSRange,
+		replacementText text: String)
+		-> Bool
+	{
 		if text == "\n" {
 			textView.resignFirstResponder();
 			return false;
@@ -20,7 +25,7 @@ class DescriptionTextDelegate: NSObject, UITextViewDelegate {
 		return textView.text.characters.count
 			+ (text.characters.count - range.length) <= 255;
 	}
-
+	
 	///
 	/// If the text is equal to the "enterText" we delete the contents,
 	/// and change the input color to black.

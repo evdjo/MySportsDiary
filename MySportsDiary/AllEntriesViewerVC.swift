@@ -11,25 +11,26 @@ import QuartzCore
 
 class AllEntriesViewerVC: UIViewController, UITableViewDelegate,
 UITableViewDataSource, UIGestureRecognizerDelegate {
-	/// The table view shows all the entries added so far.
-	@IBOutlet weak var tableView: UITableView!
+    
+/// The table view shows all the entries added so far.
+    @IBOutlet weak var tableView: UITableView!;
 	
-	/// The label to show when the shown entries count is 0
-	@IBOutlet weak var noEntriesLabel: UILabel!
+/// The label to show when the shown entries count is 0
+    @IBOutlet weak var noEntriesLabel: UILabel!;
 	
-	/// The segmented control to switch between Today, Week and Older
-	@IBOutlet weak var todayWeekOlderSegControl: UISegmentedControl!
+/// The segmented control to switch between Today, Week and Older
+    @IBOutlet weak var todayWeekOlderSegControl: UISegmentedControl!;
 	
-	// The cell identifier
+/// The entry cell identifier
 	private let eventCellID = "eventCellID";
 	
-	/// The list of entries
+/// The list of entries
 	private var entries: EntriesByDate?;
 	
-	/// Which entries are shown
+/// Which entries are shown
 	private var shownEntries: ShownEntries = .Today;
 	
-	/// Flag to indicate if a new entry was added
+/// Flag to indicate if a new entry was added
 	var newEntryAdded = false;
 	
 	override func viewDidLoad() {
@@ -49,10 +50,11 @@ UITableViewDataSource, UIGestureRecognizerDelegate {
 		entries = DataManagerInstance().getEntriesByDate();
 		if newEntryAdded {
 			todayWeekOlderSegControl.selectedSegmentIndex = 0;
-			shownEntries = .Today
+            shownEntries = .Today;
 		}
 		hideTableIfNoEntries();
 	}
+    
 ///
 /// After we appear, animate the table reload if there was new entry added
 ///
@@ -75,9 +77,10 @@ UITableViewDataSource, UIGestureRecognizerDelegate {
 				completion: nil);
 			
 			// undo the highlight after 1 second
-			dispatch_after(dispatchTime(sec: 1), dispatch_get_main_queue()) {
-				self.lastCell?.highlighted = false;
-			}
+            executeThis(afterDelayInSeconds: 0.5, {
+                self.lastCell?.highlighted = false;
+            })
+			 
 		}
 	}
 	
@@ -93,6 +96,7 @@ UITableViewDataSource, UIGestureRecognizerDelegate {
 		header.backgroundColor = UIColor.clearColor();
 		return header;
 	}
+    
 ///
 /// Margin between cells
 ///
@@ -103,6 +107,7 @@ UITableViewDataSource, UIGestureRecognizerDelegate {
 	{
 		return 4.0;
 	}
+    
 ///
 /// Number of 1 cell sections, that is the number of currently viewed entries
 ///
@@ -117,6 +122,7 @@ UITableViewDataSource, UIGestureRecognizerDelegate {
 		case .Older: return entries?.olderEntries.count ?? 0;
 		}
 	}
+    
 ///
 /// The count of table cells of entries for today, the week or older
 ///

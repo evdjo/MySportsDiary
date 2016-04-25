@@ -38,7 +38,6 @@ class QuestionsVC: UIViewController {
 		bottomButton.enabled = false;
 		bottomButton.alpha = 0.5;
 		setButton(bottomButton);
-        
 	}
 	
 	override func viewWillAppear(animated: Bool) {
@@ -50,31 +49,36 @@ class QuestionsVC: UIViewController {
 		questionLabels[2].text = questions[startIndex + 2];
 		
 		switch page {
-		case 0, 1:
-			bottomButton.setTitle(NEXT, forState: .Normal);
-		default:
-			bottomButton.setTitle(FINISH, forState: .Normal);
+		case 0, 1: bottomButton.setTitle(NEXT, forState: .Normal);
+		default: bottomButton.setTitle(FINISH, forState: .Normal);
 		}
 		pageLabel.text = "\(page + 1) / 3";
 		
-		dispatch_after(dispatchTime(sec: 1), dispatch_get_main_queue()) {
+		executeThis(afterDelayInSeconds: 0.5, {
 			self.bottomButton.enabled = true;
 			self.bottomButton.alpha = 1.0;
-		}
+		});
 	}
-	
+///
+/// When the slider is dragged,
+/// normalize the slider's value to the custom view.
+/// Then set the agree/disagree's transparency
+///
 	@IBAction func onSliderMoved(sender: UISlider) {
 		if let index = sliders.indexOf(sender) {
-			// scale to the max of the selected value
-			let scale = sender.value / sender.maximumValue * CustomSliderOut.maxValue
+			// normalize to fit the custom slider out view
+			let norm = sender.value / sender.maximumValue * CustomSliderOut.maxValue
+			theview[index].scale = norm
 			
-			theview[index].scale = scale
-			
+			// set the alphas
 			agree[index].alpha = CGFloat(sender.value / 10);
 			disagree[index].alpha = 1 - CGFloat(sender.value / 10);
 		}
 	}
-	
+///
+/// On bottom press save the answers on the current page.
+/// If on the final page ask if the users wants to finish the questionnaire
+///
 	@IBAction func onBottomButtonPressed(sender: AnyObject) {
 		let state = DataManagerInstance().getAppState() ?? .Initial;
 		
@@ -104,10 +108,10 @@ class QuestionsVC: UIViewController {
 		}
 	}
 	
-//
-// After the inital questionnaire, set the mode to .Diary save the anwers,
-// enable the other two tab bars, and let the user create events
-//
+///
+/// After the inital questionnaire, set the mode to .Diary save the anwers,
+/// enable the other two tab bars, and let the user create events
+///
 	private func initialQuestionnaireFinished() {
 		// confirm
 		let controller = UIAlertController(
@@ -119,30 +123,38 @@ class QuestionsVC: UIViewController {
 			title: YES,
 			style: .Default,
 			handler: { action in
-				// then save answers
 				DataManagerInstance().setAppState(.Diary);
 				let dateNow = NSDate();
-				let dateDiaryEnd = NSCalendar.currentCalendar().dateByAddingUnit(
-					Config.DiaryPeriodUnit,
-					value: Config.DiaryPeriod,
-					toDate: dateNow,
-					options: [])!;
+				let dateDiaryEnd = NSCalendar.currentCalendar()
+					.dateByAddingUnit(
+						Config.DiaryPeriodUnit,
+						value: Config.DiaryPeriod,
+						toDate: dateNow,
+						options: [])!;
 				
 				DataManagerInstance().setDiaryEndDate(dateString(dateDiaryEnd));
 				self.tabBarController!.tabBar.items![1].enabled = true;
 				self.tabBarController!.tabBar.items![2].enabled = true;
-				self.navigationController?.popToRootViewControllerAnimated(true);
+				self.navigationController?
+					.popToRootViewControllerAnimated(true);
 		});
 		
-		controller.addAction(yesAction)
-		controller.addAction(UIAlertAction(title: NO, style: .Cancel, handler: nil))
+		let noAction = UIAlertAction(title: NO, style: .Cancel, handler: nil);
+		
+		controller.addAction(yesAction);
+		controller.addAction(noAction);
+		
 		presentViewController(controller, animated: true, completion: nil)
 	}
-	
+///
+/// <<-- UNDER CONSTRUCTION -->>
+/// <<-- UNDER CONSTRUCTION -->>
+/// <<-- UNDER CONSTRUCTION -->>
+///
 	private func finalQuestionnaireFinished() {
 		// SEND THE DATA HERE ...
 		DataManagerInstance().purgeAllData();
-        DataManagerInstance().setAppState(.Epilogue);
+		DataManagerInstance().setAppState(.Epilogue);
 		
 		self.navigationController?.popToRootViewControllerAnimated(true);
 	}

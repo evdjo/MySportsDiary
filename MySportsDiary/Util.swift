@@ -35,12 +35,19 @@ enum mediaType {
 	case photo
 	case video
 }
-
+///
+/// To determine if the shown entry in SingleEntryViewController
+// is New or Existing
+///
 enum EntryType {
 	case New
 	case Existing
 }
 
+///
+/// The entries shown in the table view in the third tab bar
+/// sorted used the enum below
+///
 enum ShownEntries {
 	case Today
 	case Week
@@ -84,25 +91,35 @@ internal func stringDate(string: String) -> NSDate? {
 }
 
 /// Resize an image while preserving it's aspect ratio
-internal func aspectFitResizeImageTo(wantedWidth wantedWidth: CGFloat, image: UIImage) -> UIImage {
+internal func aspectFitResizeImageTo(
+	wantedWidth wantedWidth: CGFloat,
+	image: UIImage)
+	-> UIImage
+{
 	let ratioScale = wantedWidth / image.size.width
 	let newHeight = image.size.height * ratioScale
 	UIGraphicsBeginImageContext(CGSizeMake(wantedWidth, newHeight))
 	image.drawInRect(CGRectMake(0, 0, wantedWidth, newHeight))
 	let resizedImage = UIGraphicsGetImageFromCurrentImageContext()
 	UIGraphicsEndImageContext()
-
+	
 	return resizedImage
 }
-
-internal func datesAreWithinWeek(fromDate: NSDate, _ toDate: NSDate) -> Bool {
+///
+/// Check if the two dates are within 7 days if each other
+///
+internal func datesAreWithinWeek(
+	fromDate: NSDate,
+	_ toDate: NSDate)
+	-> Bool
+{
 	let unitFlags = NSCalendarUnit.Day ;
 	let comps = NSCalendar.currentCalendar().components(
 		unitFlags,
 		fromDate: fromDate,
 		toDate: toDate,
 		options: NSCalendarOptions.init(rawValue: 0))
-
+	
 	var days = comps.day;
 	if days < 0 {
 		days *= -1;
@@ -110,8 +127,10 @@ internal func datesAreWithinWeek(fromDate: NSDate, _ toDate: NSDate) -> Bool {
 	return days < 7;
 }
 
+///
 /// returns date displaced by days previously. So If today is 30/12/2000
 /// using this with days 10, will return 20/12/2000
+///
 internal func entryFrom(days days: Int) -> Entry {
 	let date = NSDate();
 	let daysAgo = NSCalendar.currentCalendar().dateByAddingUnit(
@@ -119,8 +138,9 @@ internal func entryFrom(days days: Int) -> Entry {
 		value: -days,
 		toDate: date,
 		options: NSCalendarOptions(rawValue: 0))!
-
-	return Entry(entry_id: Int64(days),
+	
+	return Entry(
+		entry_id: Int64(days),
 		skill: String(days),
 		description: String(days),
 		date_time: dateString(daysAgo),

@@ -8,8 +8,24 @@
 
 import UIKit
 
+///
+/// This is the main tab bar view controller.
+/// It leads to:
+///     - index 0 --> InitialVC
+///     - index 1 --> NewEntryInitialVC
+///     - index 2 --> AllEntriesViewerVC
+///
 class MasterTabBarViewController: UITabBarController,
 UITabBarControllerDelegate {
+	///
+/// Set self as the delegate.
+///
+/// Add self as observer to WillEnterForegroundNotification
+///
+/// Check if the diarty period is over.
+///
+/// Set the tab bar's enabledness based on what state we we're in.
+///
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		self.delegate = self;
@@ -21,7 +37,9 @@ UITabBarControllerDelegate {
 			object: app)
 		refreshBasedOnAppState();
 	}
-	
+///
+/// Check if diary period is over. Set which tabs are enabled.
+///
 	func refreshBasedOnAppState() {
 		checkIfDiaryPeriodIsOver();
 		
@@ -52,25 +70,39 @@ UITabBarControllerDelegate {
 			}
 		}
 	}
-	///
-	/// If selecting the very same tab bar, don't select.
-	///
-	func tabBarController(tabBarController: UITabBarController,
-		shouldSelectViewController viewController: UIViewController) -> Bool {
-			let targetIndex = self.viewControllers?.indexOf(viewController);
-			if targetIndex == self.selectedIndex {
-				return false;
-			}
-			return true;
+	
+///
+/// (If selecting the very same first ab bar, don't select navigate back)
+/// The above is false. Now default to true. Keeping old code in case
+/// requirements change again.
+///
+	func tabBarController(
+		tabBarController: UITabBarController,
+		shouldSelectViewController viewController: UIViewController)
+		-> Bool
+	{
+		if 0 == selectedIndex {
+			let newSelectedIndex = viewControllers?.indexOf(viewController);
+			let newSelectedIsCurrentSelected = newSelectedIndex == selectedIndex;
+			let shouldSelect = !newSelectedIsCurrentSelected; // reverse it
+			return shouldSelect;
+		}
+		
+		return true; // read comments above. Don't delete please.
 	}
-	///
-	/// Navigate to root of navigation controller when switching tabs
-	///
-	func tabBarController(tabBarController: UITabBarController,
-		didSelectViewController viewController: UIViewController) {
-			if let vc = viewController as? UINavigationController {
-				vc.popToRootViewControllerAnimated(false);
-			}
-	}
+///
+/// Navigate to root of navigation controller when switching tabs
+///
+//	func tabBarController(
+//		tabBarController: UITabBarController,
+//		didSelectViewController viewController: UIViewController)
+//		-> Void
+//	{
+//		if 1 == selectedIndex || 2 == selectedIndex {
+//			if let vc = viewController as? UINavigationController {
+//				vc.popToRootViewControllerAnimated(false);
+//			}
+//		}
+//	}
 }
 

@@ -24,9 +24,13 @@ internal var fileManager: NSFileManager {
 ///
 /// - parameters:
 ///   - file: the file name e.g. myFile.txt or myDir
-///   - under: the directory to create under e.g. NSSearchPathDirectory.LibraryDirectory
+///   - under: the directory to create under e.g. .LibraryDirectory
 /// - returns: a NSURL to the file
-internal func fileURL(file file: String, under: NSSearchPathDirectory) -> NSURL {
+internal func fileURL(
+	file file: String,
+	under: NSSearchPathDirectory)
+	-> NSURL
+{
 	return dirURL(under).URLByAppendingPathComponent(file)
 }
 ///
@@ -36,7 +40,11 @@ internal func fileURL(file file: String, under: NSSearchPathDirectory) -> NSURL 
 ///   - file: the file name e.g. myFile.txt
 ///   - under: the directory beneath which file is e.g. myDir
 /// - returns: a NSURL to the file
-internal func fileURLUnderParent(file file: String, parent: NSURL) -> NSURL {
+internal func fileURLUnderParent(
+	file file: String,
+	parent: NSURL)
+	-> NSURL
+{
 	return parent.URLByAppendingPathComponent(file)
 }
 
@@ -46,7 +54,10 @@ internal func fileURLUnderParent(file file: String, parent: NSURL) -> NSURL {
 /// - parameters:
 ///   - under: the search path, e.g. NSSearchPathDirectory.LibraryDirectory
 /// - returns: a NSURL to the directory
-internal func dirURL(under: NSSearchPathDirectory) -> NSURL {
+internal func dirURL(
+	under: NSSearchPathDirectory)
+	-> NSURL
+{
 	return fileManager.URLsForDirectory(under, inDomains: .UserDomainMask)[0]
 }
 ///
@@ -56,13 +67,18 @@ internal func dirURL(under: NSSearchPathDirectory) -> NSURL {
 ///   - dir: the name of the sub directory
 ///   - under: the search path, e.g. NSSearchPathDirectory.LibraryDirectory
 /// - returns: a NSURL to the directory
-internal func createSubDir(dir subDirName: String, under: NSSearchPathDirectory) -> NSURL {
+internal func createSubDir(
+	dir subDirName: String,
+	under: NSSearchPathDirectory)
+	-> NSURL
+{
 	let subDir = dirURL(under).URLByAppendingPathComponent(subDirName);
 	do {
-		try fileManager.createDirectoryAtURL(subDir, withIntermediateDirectories: true, attributes: nil);
+		try fileManager.createDirectoryAtURL(subDir,
+			withIntermediateDirectories: true, attributes: nil);
 	}
 	catch {
-		fatalError("Could not create dir at the specified location");
+		print("Could not create dir at the specified location");
 	}
 	return subDir;
 }
@@ -74,13 +90,18 @@ internal func createSubDir(dir subDirName: String, under: NSSearchPathDirectory)
 ///   - dir: the name of the sub directory
 ///   - parent: the parent NSURL
 /// - returns: a NSURL to the directory
-internal func createSubDirUnderParent(dir subDirName: String, parent: NSURL) -> NSURL {
+internal func createSubDirUnderParent(
+	dir subDirName: String,
+	parent: NSURL)
+	-> NSURL
+{
 	let subDir = parent.URLByAppendingPathComponent(subDirName);
 	do {
-		try fileManager.createDirectoryAtURL(subDir, withIntermediateDirectories: true, attributes: nil);
+		try fileManager.createDirectoryAtURL(subDir,
+			withIntermediateDirectories: true, attributes: nil);
 	}
 	catch {
-		fatalError("Could not create dir at the specified location");
+		print("Could not create dir at the specified location");
 	}
 	return subDir;
 }
@@ -92,7 +113,10 @@ internal func createSubDirUnderParent(dir subDirName: String, parent: NSURL) -> 
 ///  - file the file to delete
 /// - returns true if the deletion succeeeded
 ///
-internal func deleteFile(file fileToDeleteURL: NSURL) -> Bool {
+internal func deleteFile(
+	file fileToDeleteURL: NSURL)
+	-> Bool
+{
 	if let filePath = fileToDeleteURL.path {
 		if (NSFileManager.defaultManager().fileExistsAtPath(filePath)) {
 			do {
@@ -113,17 +137,20 @@ internal func deleteFile(file fileToDeleteURL: NSURL) -> Bool {
 ///   - srcPath: the source NSURL
 ///   - toPath: the destination NSURL
 /// - returns: was the copying successful
-internal func myCopy(srcPath: NSURL, toPath: NSURL) -> Bool {
+internal func myCopy(
+	srcPath: NSURL,
+	toPath: NSURL)
+	-> Bool
+{
 	do {
 		if let srcPath = srcPath.path, let toPath = toPath.path {
 			try fileManager.copyItemAtPath(srcPath, toPath: toPath)
 			return true
 		}
 	} catch {
-		fatalError("Error copying a file");
+		print("Error copying a file");
 	}
-	debugPrint("Failed to copy");
-
+	
 	return false;
 }
 ///
@@ -133,7 +160,11 @@ internal func myCopy(srcPath: NSURL, toPath: NSURL) -> Bool {
 ///   - srcPath: the source NSURL
 ///   - toPath: the destination NSURL
 /// - returns: was the move successful
-internal func myMove(srcPath: NSURL, toPath: NSURL) -> Bool {
+internal func myMove(
+	srcPath: NSURL,
+	toPath: NSURL)
+	-> Bool
+{
 	do {
 		try fileManager.moveItemAtURL(srcPath, toURL: toPath)
 		return true;
@@ -147,7 +178,10 @@ internal func myMove(srcPath: NSURL, toPath: NSURL) -> Bool {
 ///
 /// See if file exists
 ///
-internal func fileExists(fileURL: NSURL) -> Bool {
+internal func fileExists(
+	fileURL: NSURL)
+	-> Bool
+{
 	if let filePath = fileURL.path {
 		return fileManager.fileExistsAtPath(filePath)
 	} else {
@@ -158,7 +192,10 @@ internal func fileExists(fileURL: NSURL) -> Bool {
 ///
 /// Check if NSURL is a directory
 ///
-internal func fileIsDir(fileURL: NSURL) -> Bool {
+internal func fileIsDir(
+	fileURL: NSURL)
+	-> Bool
+{
 	var isDir: ObjCBool = false;
 	fileManager.fileExistsAtPath(fileURL.path!, isDirectory: &isDir)
 	return Bool(isDir);
@@ -167,7 +204,10 @@ internal func fileIsDir(fileURL: NSURL) -> Bool {
 ///
 /// Check if a path is a directory
 ///
-internal func fileIsDir(path: String) -> Bool {
+internal func fileIsDir(
+	path: String)
+	-> Bool
+{
 	var isDir: ObjCBool = false;
 	fileManager.fileExistsAtPath(path, isDirectory: &isDir)
 	return Bool(isDir);

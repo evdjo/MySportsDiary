@@ -9,26 +9,35 @@
 import UIKit
 import QuartzCore
 class InitialVC: UIViewController {
+    
+// UI elements
 	@IBOutlet weak var mainLabel: UILabel!;
 	@IBOutlet weak var beginButton: UIButton!;
 	@IBOutlet weak var newEntryButton: UIButton!
-	
+
+///
+/// Set the buttons
+///
 	override func viewDidLoad() {
 		super.viewDidLoad();
 		setButton(beginButton);
 		setButton(newEntryButton);
 	}
-	///
-	/// Hide back button. If enable the second and third
-	/// tab bars if we are in Diary mode, else only the first tab bar is enabled.
-	///
+
+///
+/// Hide back button. If enable the second and third
+/// tab bars if we are in Diary mode, else only the first tab bar is enabled.
+///
 	override func viewWillAppear(animated: Bool) {
 		super.viewWillAppear(animated);
 		// hide the bar above, since there is no back screen to move to,
 		self.navigationController?.setNavigationBarHidden(true, animated: false);
 		setUpBasedOnAppState();
 	}
-	
+    
+///
+/// Set the labels and buttons based on the state
+///
 	private func setUpBasedOnAppState() {
 		let appState = DataManagerInstance().getAppState() ?? .Initial
 		switch (appState) {
@@ -51,9 +60,9 @@ class InitialVC: UIViewController {
 		}
 	}
 	
-	///
-	/// See if it is the first survey or final survey...
-	///
+///
+/// See if it is the first survey or final survey...
+///
 	@IBAction func onSurveyBegin(sender: AnyObject) {
 		let appState = DataManagerInstance().getAppState() ?? .Initial;
 		if (appState == .Initial) {
@@ -62,12 +71,18 @@ class InitialVC: UIViewController {
 			self.performSegueWithIdentifier("QuestionnaireSegue", sender: sender);
 		}
 	}
-	
+    
+///
+/// Simply to to the new entry tab bar
+///
 	@IBAction func onNewEntryPressed(sender: AnyObject) {
 		self.tabBarController?.selectedIndex = 1;
 	}
-	
-	private var dateToDisplay: String {
+    
+///
+/// The date text to show when we're in diary mode
+///
+    private var dateToDisplay: String {
 		get {
 			if let dateString = DataManagerInstance().getDiaryEndDate() {
 				if let date = stringDate(dateString) {
@@ -77,6 +92,10 @@ class InitialVC: UIViewController {
 			return "";
 		}
 	}
+    
+///
+/// This is developemend button only. Will be removed
+///
 	@IBAction func on_developer_tap(sender: AnyObject) {
 		DataManagerInstance().purgeAllData();
 		DataManagerInstance().setAppState(.Initial);

@@ -22,9 +22,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	func applicationWillTerminate(application: UIApplication) {
 		clearContentsIfTestEnvironment();
 	}
+	
+	private func initApp() {
+		if DataManagerInstance().getAppState() == nil {
+			DataManagerInstance().setAppState(.Initial);
+		}
+	}
 	private func clearContentsIfTestEnvironment() {
 		for arg in Process.arguments {
-			print(arg);
 			switch (arg) {
 			case "delete_all":
 				DataManagerInstance().purgeAllData()
@@ -41,15 +46,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			case "insert_dummy_entries":
 				DataManagerInstance().purgeEntries();
 				DataManagerInstance().generateDummyEntries();
+				
 			default:
-				print("Warning -- unnrecognized launch argument: \(arg)")
+				print("Warning -- unnrecognized launch argument:")
 			}
-		}
-	}
-	
-	private func initApp() {
-		if DataManagerInstance().getAppState() == nil {
-			DataManagerInstance().setAppState(.Initial);
+			print(arg);
 		}
 	}
 }

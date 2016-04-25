@@ -42,7 +42,13 @@ class SingleEntryViewerVC: UIViewController, UIPopoverPresentationControllerDele
 /// GPS Location getter
 	private var locationGetter: GPSLocationGetter?;
 	
+/// The presented view controller if any
+	private var presentationVC: UIPopoverPresentationController?;
+    
+    
+///
 /// just set the text delegate on load
+///
 	override func viewDidLoad() {
 		super.viewDidLoad();
 		textDelegate = DescriptionTextDelegate();
@@ -51,7 +57,7 @@ class SingleEntryViewerVC: UIViewController, UIPopoverPresentationControllerDele
 		setCountLabel(voiceCountLabel);
 		setCountLabel(videoCountLabel);
 		setCountLabel(imagesCountLabel);
-		descriptionTextArea.__setRadius(5);
+		descriptionTextArea.setRadius(5);
 	}
 	
 ///
@@ -65,6 +71,7 @@ class SingleEntryViewerVC: UIViewController, UIPopoverPresentationControllerDele
 /// on if this is existing entry or newly added one.
 ///
 /// Set the appropriate delegate for the data to use by the media pickers.
+///
 	override func viewWillAppear(animated: Bool) {
 		super.viewWillAppear(animated);
 		navigationController?.navigationBarHidden = false;
@@ -105,65 +112,79 @@ class SingleEntryViewerVC: UIViewController, UIPopoverPresentationControllerDele
 		updateImagesCountLabel();
 		updateVideoCountLabel();
 	}
-	
+    
+///
 /// Update the small label indicating the count of audio files.
 /// Currently, since only 1 audio is allowed, the possible values are 0 or 1
-	func updateAudioCountLabel() {
+///
+    func updateAudioCountLabel() {
 		voiceCountLabel.text = mediaDelegate.audio == nil ? "0" : "1";
 		voiceCountLabel.hidden = mediaDelegate.audio == nil;
 	}
-	
+    
+///
 /// Update the small label indicating the count of video files.
 /// Currently, since only 1 video is allowed, the possible values are 0 or 1
-	func updateImagesCountLabel() {
+///
+    func updateImagesCountLabel() {
 		let imagesCount = mediaDelegate.getImagesCount()
 		imagesCountLabel.text = String(imagesCount);
 		imagesCountLabel.hidden = 0 == imagesCount;
 	}
-	
+    
+///
 /// Update the small label indicating the count of images.
-	func updateVideoCountLabel() {
+///
+    func updateVideoCountLabel() {
 		videoCountLabel.text = mediaDelegate.video == nil ? "0" : "1";
 		videoCountLabel.hidden = mediaDelegate.video == nil;
 	}
-	
+    
+///
 /// Save the description text field if this is existing entry.
+///
 	override func viewWillDisappear(animated: Bool) {
 		super.viewWillDisappear(animated);
 		if let entry = entry, let entryType = entryType where entryType == .Existing {
 			DataManagerInstance().updateEntryWithID(id: entry.entry_id,
 				newDescr: descriptionTextArea.text)
 		}
-		self.navigationController?.popToRootViewControllerAnimated(false);
-		
 		locationGetter?.stop();
+		presentationVC?.presentedViewController
+			.dismissViewControllerAnimated(false, completion: nil);
+        self.navigationController?.popToRootViewControllerAnimated(false);
+
 	}
-	
+    
+///
 /// Set the presentaion view controller
 /// If this is the audio popover, set its height to 60
 /// Set the delegate of the media popover to be the mediaDelegate,
 /// which resides in this class as property
+///
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-		guard nil != segue.identifier else {
-			print("Tried to segue without identifier");
-			return;
-		}
+		guard nil != segue.identifier else { print("Tried to segue without identifier"); return; }
+		guard sender is UIButton else { print("Didn't expect to segue from non button sender"); return; }
 		
-		let dest = segue.destinationViewController;
-		if var mediaVC = dest as? MediaPopover {
-			mediaVC.delegate = self.mediaDelegate;
+		let destination = segue.destinationViewController;
+		
+		if var mediaPopover = destination as? MediaPopover {
+			mediaPopover.delegate = self.mediaDelegate;
 		}
-		var size = CGSize(width: view.frame.width, height: view.frame.height);
-		if segue.identifier! == "audioSegue" { size.height = 60; }
-		dest.preferredContentSize = size;
-		dest.popoverPresentationController?.delegate = self;
-		if let button = sender as? UIButton {
-			dest.popoverPresentationController?.sourceRect = button.bounds;
-		}
-		dest.popoverPresentationController?.backgroundColor = Config.popoverBackgroundColor;
+		let height = segue.identifier! == "audioSegue" ? 60 : view.frame.height ;
+		destination.preferredContentSize = CGSize(width: view.frame.width, height: height);
+		
+		presentationVC = destination.popoverPresentationController
+		presentationVC?.delegate = self;
+		presentationVC?.sourceRect = (sender as! UIButton).bounds;
+		presentationVC?.backgroundColor = Config.popoverBackgroundColor;
+		
 		self.view.alpha = 0.20;
 	}
+    
+///
 /// When we either add a new entry or save existing one.
+///
 	@IBAction func onAddEntryPressed(_: AnyObject) {
 		switch (entryType!) {
 		case .New:
@@ -172,7 +193,10 @@ class SingleEntryViewerVC: UIViewController, UIPopoverPresentationControllerDele
 			onExistingSave();
 		}
 	}
+    
+///
 /// Just popback to the entries view controller
+///
 	private func onExistingSave() {
 		self.navigationController?.popToRootViewControllerAnimated(false);
 	}
@@ -196,28 +220,44 @@ class SingleEntryViewerVC: UIViewController, UIPopoverPresentationControllerDele
 				latitude: lat,
 				longitude: lon)
 		)
-		let vc = self.tabBarController?.viewControllers?[2] as? UINavigationController;
+		
+		/// set the new entry flag to true
+		let vc = self.tabBarController?.viewControllers?[2]
+            as? UINavigationController;
+        
 		let entriesVC = vc?.viewControllers.last as? AllEntriesViewerVC;
 		entriesVC?.newEntryAdded = true;
 		
 		self.tabBarController?.selectedIndex = 2;
 	}
-	
+    
+///
 /// Change the alpha back to 1.0
 /// Update the count on the small labels.
-	func popoverPresentationControllerDidDismissPopover(_: UIPopoverPresentationController) {
+///
+	func popoverPresentationControllerDidDismissPopover(
+        _: UIPopoverPresentationController)
+        -> Void
+    {
 		self.view.alpha = 1.0;
 		updateAudioCountLabel();
 		updateImagesCountLabel();
 		updateVideoCountLabel();
 	}
-	
+    
+///
 /// To back the popovers work.
-	func adaptivePresentationStyleForPresentationController(_: UIPresentationController) -> UIModalPresentationStyle {
+///
+	func adaptivePresentationStyleForPresentationController(
+        _: UIPresentationController)
+        -> UIModalPresentationStyle
+    {
 		return .None;
 	}
-	
+    
+///
 /// So that the keyboard closes on when the user taps in the background
+///
 	@IBAction func onBackgroundTap(_: UITapGestureRecognizer) {
 		descriptionTextArea.resignFirstResponder();
 	}

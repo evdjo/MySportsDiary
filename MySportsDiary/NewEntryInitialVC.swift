@@ -9,11 +9,15 @@
 import UIKit
 
 class NewEntryInitialVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+
 /// The picker with the skill list to choose from
 	@IBOutlet weak var skillPickerView: UIPickerView!
+
 	@IBOutlet weak var nextButton: UIButton!
-	
+
+///
 /// The data source comes from this array.
+///
 	private lazy var skills = [
 		NSLocalizedString("SELF_BELIEF", comment: "Self-belief"),
 		NSLocalizedString("LEADERSHIP", comment: "Leadership"),
@@ -25,9 +29,11 @@ class NewEntryInitialVC: UIViewController, UIPickerViewDelegate, UIPickerViewDat
 		NSLocalizedString("TEAM_WORK", comment: "Team work"),
 		NSLocalizedString("RESPECT", comment: "Respect")
 	]
-	
+    
+///
 /// Set the delegates, and select the middle element in the picker
-	override func viewDidLoad() {
+///
+    override func viewDidLoad() {
 		super.viewDidLoad();
 		skillPickerView.dataSource = self;
 		skillPickerView.delegate = self;
@@ -35,14 +41,20 @@ class NewEntryInitialVC: UIViewController, UIPickerViewDelegate, UIPickerViewDat
 			inComponent: 0, animated: false);
 		setButton(nextButton);
 	}
+
+///
 /// Hide the navigation bar
-	override func viewWillAppear(animated: Bool) {
+///
+    override func viewWillAppear(animated: Bool) {
 		super.viewWillAppear(animated);
 		navigationController?.navigationBarHidden = true;
 	}
+    
+///
 /// Set the SingleEntryViewVC's type to .New,
 /// Also set it's skill to the selected one.
-	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+///
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 		let vc = segue.destinationViewController as! SingleEntryViewerVC;
 		vc.entryType = .New;
 		vc.skill = skills[skillPickerView.selectedRowInComponent(0)]
@@ -54,6 +66,7 @@ class NewEntryInitialVC: UIViewController, UIPickerViewDelegate, UIPickerViewDat
 	func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
 		return skills[row];
 	}
+    
 ///
 /// skillPickerView data source methods
 ///

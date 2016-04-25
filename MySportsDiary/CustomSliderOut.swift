@@ -9,16 +9,17 @@
 import UIKit
 
 class CustomSliderOut: UIView {
-    
- 	static let minValue: Float = 0.0;
+	static let minValue: Float = 0.0;
 	static let maxValue: Float = 1.0;
 	
 	var scale: Float = 0.5 {
 		didSet {
-			if (CustomSliderOut.minValue <= scale && scale <= CustomSliderOut.maxValue) {
-				self.layer.setNeedsDisplay();
+			if (CustomSliderOut.minValue <= scale
+				&& scale <= CustomSliderOut.maxValue) {
+					self.layer.setNeedsDisplay();
 			} else {
-				print("bad input \(scale)");
+					print("bad input \(scale)");
+					scale = oldValue; // revert the change
 			}
 		}
 	}
