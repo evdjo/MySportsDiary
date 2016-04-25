@@ -11,7 +11,8 @@ import UIKit
 class NewEntryInitialVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 /// The picker with the skill list to choose from
 	@IBOutlet weak var skillPickerView: UIPickerView!
-
+	@IBOutlet weak var nextButton: UIButton!
+	
 /// The data source comes from this array.
 	private lazy var skills = [
 		NSLocalizedString("SELF_BELIEF", comment: "Self-belief"),
@@ -24,13 +25,15 @@ class NewEntryInitialVC: UIViewController, UIPickerViewDelegate, UIPickerViewDat
 		NSLocalizedString("TEAM_WORK", comment: "Team work"),
 		NSLocalizedString("RESPECT", comment: "Respect")
 	]
-
+	
 /// Set the delegates, and select the middle element in the picker
 	override func viewDidLoad() {
-		super.viewDidLoad()
+		super.viewDidLoad();
 		skillPickerView.dataSource = self;
 		skillPickerView.delegate = self;
-		skillPickerView.selectRow(skills.count / 2, inComponent: 0, animated: false);
+		skillPickerView.selectRow(skills.count / 2,
+			inComponent: 0, animated: false);
+		setButton(nextButton);
 	}
 /// Hide the navigation bar
 	override func viewWillAppear(animated: Bool) {
@@ -44,7 +47,7 @@ class NewEntryInitialVC: UIViewController, UIPickerViewDelegate, UIPickerViewDat
 		vc.entryType = .New;
 		vc.skill = skills[skillPickerView.selectedRowInComponent(0)]
 	}
-
+	
 ///
 /// skillPickerView delegate methods
 ///

@@ -15,6 +15,7 @@ import UIKit
 import AVKit
 import AVFoundation
 import MobileCoreServices
+import QuartzCore
 
 ///
 /// Alert with the passed message, with single OK button to dismiss the alert.
@@ -71,15 +72,62 @@ internal func dispatchTime(sec seconds: Int64) -> dispatch_time_t {
 ///
 /// UIColor from 0 to 255 values
 ///
-internal func colorRGB(red red: Int, green: Int, blue: Int, alpha: Float) -> UIColor {
+internal func colorFromRGB(red red: Int, green: Int, blue: Int, alpha: Float) -> UIColor {
 	return UIColor(
 		colorLiteralRed: Float(red) / 255,
 		green: Float(green) / 255,
 		blue: Float(blue) / 255,
 		alpha: alpha)
 }
-///
-/// The blue color used across the app
-///
-internal var appBlueColor = colorRGB(red: 151, green: 215, blue: 255, alpha: 1.0);
+
+enum ColorIndex {
+	case MyBlue
+	case Background
+	case Black
+	case Clear
+	case White
+	case Cyan
+	case HalfMyBlue
+}
+internal func getColor(colorIndex: ColorIndex) -> UIColor {
+	switch colorIndex {
+	case .MyBlue: return colorFromRGB(red: 11, green: 106, blue: 255, alpha: 1.0)
+	case .Background: return colorFromRGB(red: 233, green: 233, blue: 233, alpha: 1.0)
+	case .Black: return UIColor.blackColor();
+	case .Clear: return UIColor.clearColor();
+	case .White: return UIColor.whiteColor();
+	case .Cyan: return UIColor.cyanColor();
+	case .HalfMyBlue: return colorFromRGB(red: 22, green: 156, blue: 175, alpha: 1.0)
+	}
+}
+
+internal func setButton(button: UIButton) {
+	button.backgroundColor = Config.buttonsColor;
+	button.__setBorder(Config.borderWidth, Config.borderColor);
+	button.__setRadius(Config.buttonsRadius);
+	button.setTitleColor(Config.buttonsTextColor, forState: .Normal)
+}
+internal func setCountLabel(label: UILabel) {
+	label.backgroundColor = Config.labelColor;
+	label.__setRadius(Config.labelRadius);
+	label.textColor = Config.buttonsTextColor
+}
+
+internal func setSegmentedControl(segControl: UISegmentedControl) {
+	segControl.backgroundColor = Config.segControlsBackColor;
+	segControl.tintColor = Config.segControlsTintColor;
+}
+
+// Mark:-
+// Mark: extracted  functions to help with the setting of buttons/labels
+extension UIView {
+	func __setBorder(borderWith: CGFloat, _ borderColor: CGColor) {
+		self.layer.borderWidth = borderWith;
+		self.layer.borderColor = borderColor;
+	}
+	func __setRadius(radius: CGFloat) {
+		self.layer.cornerRadius = radius;
+		self.layer.masksToBounds = true;
+	}
+}
 

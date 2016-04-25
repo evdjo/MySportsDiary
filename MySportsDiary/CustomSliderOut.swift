@@ -9,11 +9,10 @@
 import UIKit
 
 class CustomSliderOut: UIView {
-
-	var color: UIColor = appBlueColor;
-	static let minValue: Float = 0.0;
+    
+ 	static let minValue: Float = 0.0;
 	static let maxValue: Float = 1.0;
-
+	
 	var scale: Float = 0.5 {
 		didSet {
 			if (CustomSliderOut.minValue <= scale && scale <= CustomSliderOut.maxValue) {
@@ -23,30 +22,26 @@ class CustomSliderOut: UIView {
 			}
 		}
 	}
-
+	
 	override func drawRect(rect: CGRect) {
-
 		let height = self.layer.frame.height;
 		let width = self.layer.frame.width;
-
+		
 		// scale the width & height
 		let scaledWidth = CGFloat(scale) * width;
 		let scaledHeight = height - (CGFloat(scale) * height);
 		let path = UIBezierPath();
-
-		// print(scaledWidth);
-		// print(scaledHeight);
-
+		
 		// draw our triangle
 		path.moveToPoint(CGPointMake(0, height));
 		path.addLineToPoint(CGPointMake(scaledWidth, height));
 		path.addLineToPoint(CGPointMake(scaledWidth, scaledHeight));
 		path.addLineToPoint(CGPointMake(0, height));
 		path.closePath();
-
-		// default to appBlueColor
-		(appBlueColor).setFill();
-
+		
+		// default to color
+		(Config.appSliderColor).setFill();
+		
 		path.fill();
 		let layer = CAShapeLayer();
 		layer.path = path.CGPath;

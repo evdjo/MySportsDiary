@@ -25,7 +25,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nIq-Gp-hGE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-231" y="-1134"/>
+            <point key="canvasLocation" x="-792" y="-894"/>
         </scene>
         <!--New Entry InitialVC-->
         <scene sceneID="242-26-3by">
@@ -61,22 +61,12 @@
                                     </pickerView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9iu-Ne-MxW">
                                         <rect key="frame" x="0.0" y="397" width="560" height="50"/>
-                                        <color key="backgroundColor" red="0.59215686270000001" green="0.84313725490000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="Hy1-bF-NRi"/>
                                         </constraints>
                                         <state key="normal" title="Next">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                                <integer key="value" value="1"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="7"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
-                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <segue destination="9pv-A4-QxB" kind="show" id="yaZ-H1-Lc3"/>
                                         </connections>
@@ -100,12 +90,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="dkg-Ut-vTS"/>
                     <connections>
+                        <outlet property="nextButton" destination="9iu-Ne-MxW" id="1Ce-5K-bVo"/>
                         <outlet property="skillPickerView" destination="RMk-kP-xtM" id="HIC-7h-Zij"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CYv-U9-B7z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-10" y="-1102"/>
+            <point key="canvasLocation" x="-92" y="-894"/>
         </scene>
         <!--SingleEntryViewerVC-->
         <scene sceneID="hNz-n2-bh7">
@@ -155,11 +146,6 @@
                                             <constraint firstAttribute="height" constant="65" id="2bL-Ji-mWf"/>
                                         </constraints>
                                         <state key="normal" image="voice"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="7"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <segue destination="0nW-Z6-nqW" kind="popoverPresentation" identifier="audioSegue" popoverAnchorView="dGx-5A-Xwu" id="C7L-yI-wvp">
                                                 <popoverArrowDirection key="popoverArrowDirection" down="YES"/>
@@ -172,11 +158,6 @@
                                             <constraint firstAttribute="height" constant="65" id="UW8-eK-YOP"/>
                                         </constraints>
                                         <state key="normal" image="photo"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="7"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <segue destination="Gey-6I-YOX" kind="popoverPresentation" identifier="photoSegue" popoverAnchorView="bTr-zN-c7S" id="jos-Am-bly">
                                                 <popoverArrowDirection key="popoverArrowDirection" down="YES"/>
@@ -189,11 +170,6 @@
                                             <constraint firstAttribute="height" constant="65" id="ZBl-45-Ne3"/>
                                         </constraints>
                                         <state key="normal" image="movie"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="7"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <segue destination="JI8-V8-0wz" kind="popoverPresentation" identifier="videoSegue" popoverAnchorView="XJY-ap-NON" id="4Bh-eZ-f48">
                                                 <popoverArrowDirection key="popoverArrowDirection" down="YES"/>
@@ -205,9 +181,8 @@
                                     <constraint firstAttribute="height" constant="65" id="Ifd-s4-KMa"/>
                                 </constraints>
                             </stackView>
-                            <label opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ho3-lR-U49" userLabel="imagesCountLabel">
+                            <label hidden="YES" opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ho3-lR-U49" userLabel="imagesCountLabel">
                                 <rect key="frame" x="375" y="413" width="15" height="15"/>
-                                <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="Jw2-tB-mKP"/>
                                     <constraint firstAttribute="height" constant="15" id="Rvf-D4-D0E"/>
@@ -215,15 +190,8 @@
                                     <constraint firstAttribute="width" constant="15" id="yF7-Ix-UXf"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                                 <size key="shadowOffset" width="0.0" height="0.0"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="7"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                </userDefinedRuntimeAttributes>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="Jw2-tB-mKP"/>
@@ -231,9 +199,8 @@
                                     </mask>
                                 </variation>
                             </label>
-                            <label opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jbs-JG-4Ux" userLabel="videoCountLabel">
+                            <label hidden="YES" opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jbs-JG-4Ux" userLabel="videoCountLabel">
                                 <rect key="frame" x="565" y="413" width="15" height="15"/>
-                                <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="15" id="CkC-ja-KGe"/>
                                     <constraint firstAttribute="width" constant="30" id="SS5-BE-ZZ6"/>
@@ -241,15 +208,8 @@
                                     <constraint firstAttribute="width" constant="15" id="yAB-d1-2cZ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                                 <size key="shadowOffset" width="0.0" height="0.0"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="7"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                </userDefinedRuntimeAttributes>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="SS5-BE-ZZ6"/>
@@ -257,9 +217,8 @@
                                     </mask>
                                 </variation>
                             </label>
-                            <label opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jkv-TM-So7" userLabel="voiceCountLabel">
+                            <label hidden="YES" opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jkv-TM-So7" userLabel="voiceCountLabel">
                                 <rect key="frame" x="185" y="413" width="15" height="15"/>
-                                <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="15" id="FF2-3W-IZX"/>
                                     <constraint firstAttribute="height" constant="30" id="Hco-KO-z8f"/>
@@ -267,15 +226,8 @@
                                     <constraint firstAttribute="width" constant="30" id="zcl-x7-C3k"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                                 <size key="shadowOffset" width="0.0" height="0.0"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="7"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                </userDefinedRuntimeAttributes>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="Hco-KO-z8f"/>
@@ -301,19 +253,13 @@
                             <textView clearsContextBeforeDrawing="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="onDrag" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="9lY-Pa-Efy">
                                 <rect key="frame" x="20" y="124" width="560" height="241"/>
                                 <color key="backgroundColor" red="0.84705882349999995" green="0.92549019610000005" blue="0.65490196079999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.043137254901960784" green="0.37647058823529411" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" returnKeyType="done"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="7"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                </userDefinedRuntimeAttributes>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ekE-3g-LTe">
                                 <rect key="frame" x="20" y="493" width="560" height="50"/>
-                                <color key="backgroundColor" red="0.59215686270000001" green="0.84313725490000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="94C-Jr-PYr"/>
@@ -321,15 +267,6 @@
                                 <state key="normal" title="Done">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                        <integer key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="7"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
-                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="onAddEntryPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="nLt-Vy-GU9"/>
                                 </connections>
@@ -414,7 +351,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="832" y="-567"/>
+            <point key="canvasLocation" x="640" y="-894"/>
         </scene>
         <!--Media Popover AudioVC-->
         <scene sceneID="Kft-Te-bC4">
@@ -434,12 +371,6 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gCD-Ba-9gZ" userLabel="recordButton">
                                         <rect key="frame" x="0.0" y="0.0" width="200" height="50"/>
                                         <state key="normal" image="microphone"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="7"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="onRecordButtonPressed:" destination="0nW-Z6-nqW" eventType="touchUpInside" id="Bhi-el-7UF"/>
                                         </connections>
@@ -447,12 +378,6 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lla-sa-wtW" userLabel="playButton">
                                         <rect key="frame" x="200" y="0.0" width="200" height="50"/>
                                         <state key="normal" image="play"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="7"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="onPlayButtonPressed:" destination="0nW-Z6-nqW" eventType="touchUpInside" id="bi2-4s-Cyj"/>
                                         </connections>
@@ -460,12 +385,6 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hfZ-fg-O6J" userLabel="deleteButton">
                                         <rect key="frame" x="400" y="0.0" width="200" height="50"/>
                                         <state key="normal" image="delete"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="7"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="onDeleteButtonPressed:" destination="0nW-Z6-nqW" eventType="touchUpInside" id="WIn-ng-dBC"/>
                                         </connections>
@@ -515,7 +434,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jp0-kZ-Gnw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1456" y="123"/>
+            <point key="canvasLocation" x="1366" y="-463"/>
         </scene>
         <!--Media Popover ImagesVC-->
         <scene sceneID="XhY-w5-B2m">
@@ -575,12 +494,6 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Zp-ZC-dXp" userLabel="deleteButton">
                                         <rect key="frame" x="400" y="0.0" width="200" height="50"/>
                                         <state key="normal" image="delete"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="7"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="onDeleteButtonPressed:" destination="Gey-6I-YOX" eventType="touchUpInside" id="jys-Yg-jXg"/>
                                         </connections>
@@ -616,21 +529,20 @@
                             <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ull-YM-qSk" userLabel="ImageNavigateControls">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="540"/>
                                 <subviews>
-                                    <button opaque="NO" alpha="0.65000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZfS-tj-jX4" userLabel="previousImageButton">
+                                    <button opaque="NO" alpha="0.34999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZfS-tj-jX4" userLabel="previousImageButton">
                                         <rect key="frame" x="24" y="490" width="50" height="50"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <state key="normal" image="arrow-left"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="7"/>
+                                                <integer key="value" value="5"/>
                                             </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="onPreviousButtonPressed:" destination="Gey-6I-YOX" eventType="touchUpInside" id="D0B-4w-Ga5"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.65000000000000002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 / 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t5T-vd-NuV">
+                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.34999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 / 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t5T-vd-NuV">
                                         <rect key="frame" x="275" y="501" width="50" height="23"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -641,20 +553,19 @@
                                         <nil key="highlightedColor"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="7"/>
+                                                <integer key="value" value="10"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                         </userDefinedRuntimeAttributes>
                                     </label>
-                                    <button opaque="NO" alpha="0.65000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yIE-Db-vr0" userLabel="nextImageButton">
+                                    <button opaque="NO" alpha="0.34999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yIE-Db-vr0" userLabel="nextImageButton">
                                         <rect key="frame" x="526" y="490" width="50" height="50"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <state key="normal" image="arrow-right"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="7"/>
+                                                <integer key="value" value="5"/>
                                             </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="onNextButtonPressed:" destination="Gey-6I-YOX" eventType="touchUpInside" id="Si8-Jn-0Nv"/>
@@ -711,7 +622,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bfe-kU-T8V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1456" y="-1300"/>
+            <point key="canvasLocation" x="1372" y="-1258"/>
         </scene>
         <!--Media Popover VideoVC-->
         <scene sceneID="yCO-G6-XP3">
@@ -826,7 +737,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CeR-sA-UbN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1456" y="-656"/>
+            <point key="canvasLocation" x="1366" y="-894"/>
         </scene>
         <!--All Entries ViewerVC-->
         <scene sceneID="wg7-f3-ORb">
@@ -857,17 +768,16 @@
                                     <segment title="Week"/>
                                     <segment title="Older"/>
                                 </segments>
-                                <color key="tintColor" red="0.59215686270000001" green="0.84313725490000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="onShownEntriesPressed:" destination="8rJ-Kc-sve" eventType="valueChanged" id="BCE-vU-uDx"/>
                                 </connections>
                             </segmentedControl>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KLH-cY-kaX">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="KLH-cY-kaX">
                                 <rect key="frame" x="4" y="88" width="592" height="407"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="eventCellID" textLabel="fpZ-kC-GWo" detailTextLabel="qAl-56-DOy" style="IBUITableViewCellStyleSubtitle" id="bJw-ux-6f7">
-                                        <rect key="frame" x="0.0" y="28" width="592" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="eventCellID" textLabel="fpZ-kC-GWo" detailTextLabel="qAl-56-DOy" style="IBUITableViewCellStyleSubtitle" id="bJw-ux-6f7">
+                                        <rect key="frame" x="0.0" y="50" width="592" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bJw-ux-6f7" id="CIL-lf-bpq">
                                             <rect key="frame" x="0.0" y="0.0" width="559" height="43"/>
@@ -889,8 +799,7 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.84705882349999995" green="0.92549019610000005" blue="0.65490196079999996" alpha="1" colorSpace="calibratedRGB"/>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                         <connections>
                                             <segue destination="9pv-A4-QxB" kind="show" id="etF-VG-fFu"/>
                                             <segue destination="9pv-A4-QxB" kind="show" trigger="accessoryAction" id="wNC-3o-Mek"/>
@@ -937,7 +846,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="97" y="-215"/>
+            <point key="canvasLocation" x="-100" y="-213"/>
         </scene>
         <!--Master Tab Bar View Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -957,7 +866,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-920" y="-390"/>
+            <point key="canvasLocation" x="-1536" y="-213"/>
         </scene>
         <!--Questionnaire-->
         <scene sceneID="Adx-SM-VtV">
@@ -971,54 +880,55 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eGO-aR-N2l">
-                                <rect key="frame" x="20" y="493" width="560" height="50"/>
-                                <color key="backgroundColor" red="0.59215686270000001" green="0.84313725490000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="4ww-9E-mRM"/>
-                                </constraints>
-                                <state key="normal" title="Begin">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                        <integer key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="7"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="onSurveyBegin:" destination="SN9-zF-AZY" eventType="touchUpInside" id="BPK-my-MBD"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to MyRugbyDiary" textAlignment="center" lineBreakMode="middleTruncation" numberOfLines="15" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sZv-E5-9HB">
                                 <rect key="frame" x="28" y="96" width="544" height="365"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eGO-aR-N2l">
+                                <rect key="frame" x="20" y="493" width="560" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="4ww-9E-mRM"/>
+                                </constraints>
+                                <state key="normal" title="Begin">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onSurveyBegin:" destination="SN9-zF-AZY" eventType="touchUpInside" id="BPK-my-MBD"/>
+                                </connections>
+                            </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9EC-0B-12V">
                                 <rect key="frame" x="20" y="493" width="560" height="50"/>
-                                <color key="backgroundColor" red="0.59215686270000001" green="0.84313725490000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="OZN-Az-HoT"/>
                                 </constraints>
                                 <state key="normal" title="New entry">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                        <integer key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="7"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
-                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="onNewEntryPressed:" destination="SN9-zF-AZY" eventType="touchUpInside" id="xPz-ZN-MNX"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KyG-Ek-ZlY">
+                                <rect key="frame" x="0.0" y="64" width="600" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="46" id="kqx-LW-Bso"/>
+                                    <constraint firstAttribute="height" constant="30" id="w4s-QX-Ubl"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <size key="titleShadowOffset" width="2.2250738585072014e-308" height="2.2250738585072014e-308"/>
+                                <state key="normal" title="developer_clear_contents">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="kqx-LW-Bso"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="on_developer_tap:" destination="SN9-zF-AZY" eventType="touchUpInside" id="AGR-0W-q04"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1032,9 +942,12 @@
                             <constraint firstItem="eGO-aR-N2l" firstAttribute="top" secondItem="9EC-0B-12V" secondAttribute="bottom" constant="8" id="EXQ-v9-w6F"/>
                             <constraint firstItem="sZv-E5-9HB" firstAttribute="top" secondItem="YmQ-Lb-w3J" secondAttribute="bottom" constant="32" id="OJ8-4D-9VC"/>
                             <constraint firstAttribute="trailingMargin" secondItem="eGO-aR-N2l" secondAttribute="trailing" id="VNT-FB-wod"/>
+                            <constraint firstItem="KyG-Ek-ZlY" firstAttribute="leading" secondItem="b4z-xb-da7" secondAttribute="leading" id="WLW-7Y-0GW"/>
                             <constraint firstItem="9EC-0B-12V" firstAttribute="leading" secondItem="b4z-xb-da7" secondAttribute="leadingMargin" id="Wcg-9P-JYx"/>
                             <constraint firstAttribute="trailingMargin" secondItem="sZv-E5-9HB" secondAttribute="trailing" constant="8" id="XhR-1t-SZK"/>
+                            <constraint firstAttribute="trailing" secondItem="KyG-Ek-ZlY" secondAttribute="trailing" id="aKH-rI-aFm"/>
                             <constraint firstItem="eGO-aR-N2l" firstAttribute="centerX" secondItem="b4z-xb-da7" secondAttribute="centerX" id="dMC-Pc-uLb"/>
+                            <constraint firstItem="KyG-Ek-ZlY" firstAttribute="top" secondItem="YmQ-Lb-w3J" secondAttribute="bottom" id="gEz-Yy-X4U"/>
                             <constraint firstItem="eGO-aR-N2l" firstAttribute="top" secondItem="sZv-E5-9HB" secondAttribute="bottom" constant="32" id="gdj-q6-Que"/>
                             <constraint firstAttribute="trailingMargin" secondItem="9EC-0B-12V" secondAttribute="trailing" id="pyz-ab-wp0"/>
                             <constraint firstItem="Obc-kJ-r5S" firstAttribute="top" secondItem="eGO-aR-N2l" secondAttribute="bottom" constant="8" id="te9-cW-aOE"/>
@@ -1052,14 +965,14 @@
                     <connections>
                         <outlet property="beginButton" destination="eGO-aR-N2l" id="9AT-e4-sSj"/>
                         <outlet property="mainLabel" destination="sZv-E5-9HB" id="zB9-mt-shB"/>
-                        <outlet property="newEntryButton" destination="9EC-0B-12V" id="IfH-gM-aSK"/>
+                        <outlet property="newEntryButton" destination="9EC-0B-12V" id="fI4-J3-AYF"/>
                         <segue destination="KBN-8C-xNN" kind="show" identifier="AgeAndGenderSegue" id="EQZ-N2-YRl"/>
                         <segue destination="pbZ-6v-qqf" kind="show" identifier="QuestionnaireSegue" id="eUc-fk-lPY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uqr-Hg-57q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136" y="577"/>
+            <point key="canvasLocation" x="-792" y="540"/>
         </scene>
         <!--Questionnaire-->
         <scene sceneID="Uje-Gp-RRb">
@@ -1076,7 +989,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ebl-1W-3SF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-792" y="546"/>
+            <point key="canvasLocation" x="-1536" y="546"/>
         </scene>
         <!--Age GenderVC-->
         <scene sceneID="Gd9-8Y-Ymc">
@@ -1091,8 +1004,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FcI-tA-V46">
-                                <rect key="frame" x="28" y="493" width="544" height="50"/>
-                                <color key="backgroundColor" red="0.59215686270000001" green="0.84313725490000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="20" y="493" width="560" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="O4u-ep-xdZ"/>
                                 </constraints>
@@ -1100,15 +1012,6 @@
                                 <state key="normal" title="Next">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                        <integer key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="7"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
-                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <segue destination="pbZ-6v-qqf" kind="show" identifier="toPageOne" id="zFt-bB-jtg"/>
                                 </connections>
@@ -1134,7 +1037,6 @@
                                             <pickerView clearsContextBeforeDrawing="NO" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="ipc-vU-bDC">
                                                 <rect key="frame" x="255" y="41" width="50" height="125"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                <color key="tintColor" red="0.59215686270000001" green="0.84313725490000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="75" id="bYA-J5-TYX"/>
                                                     <constraint firstAttribute="width" constant="50" id="hrq-t8-dXg"/>
@@ -1173,12 +1075,10 @@
                                         <subviews>
                                             <segmentedControl opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="Mer-OE-1HC">
                                                 <rect key="frame" x="8" y="89" width="544" height="29"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <segments>
                                                     <segment title="Boy"/>
                                                     <segment title="Girl"/>
                                                 </segments>
-                                                <color key="tintColor" red="0.59215686270000001" green="0.84313725490000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <connections>
                                                     <action selector="onGenderSegmentChanged:" destination="KBN-8C-xNN" eventType="valueChanged" id="LUd-Y0-JxN"/>
                                                 </connections>
@@ -1210,9 +1110,9 @@
                             <constraint firstItem="mzv-8X-TFa" firstAttribute="top" secondItem="hjw-S0-fCh" secondAttribute="bottom" constant="8" id="C6a-ex-LcR"/>
                             <constraint firstItem="FcI-tA-V46" firstAttribute="top" secondItem="mzv-8X-TFa" secondAttribute="bottom" constant="8" id="EQW-wN-weO"/>
                             <constraint firstItem="r5y-Mz-RyC" firstAttribute="top" secondItem="mzv-8X-TFa" secondAttribute="bottom" constant="80" id="FEZ-wO-frz"/>
-                            <constraint firstItem="FcI-tA-V46" firstAttribute="leading" secondItem="RxC-LA-IAW" secondAttribute="leadingMargin" constant="8" id="Ss7-FV-P15"/>
+                            <constraint firstItem="FcI-tA-V46" firstAttribute="leading" secondItem="RxC-LA-IAW" secondAttribute="leadingMargin" id="Ss7-FV-P15"/>
                             <constraint firstAttribute="trailingMargin" secondItem="mzv-8X-TFa" secondAttribute="trailing" id="g5J-hZ-udB"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="FcI-tA-V46" secondAttribute="trailing" constant="8" id="ixp-fJ-dlU"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="FcI-tA-V46" secondAttribute="trailing" id="ixp-fJ-dlU"/>
                             <constraint firstItem="r5y-Mz-RyC" firstAttribute="top" secondItem="FcI-tA-V46" secondAttribute="bottom" constant="8" id="kL3-oX-tW4"/>
                         </constraints>
                         <variation key="default">
@@ -1229,7 +1129,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iMB-Je-KZn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-729" y="1529"/>
+            <point key="canvasLocation" x="-1162" y="1317"/>
         </scene>
         <!--QuestionsVC-->
         <scene sceneID="u7F-RL-OaB">
@@ -1269,11 +1169,6 @@
                                                 <rect key="frame" x="6" y="76" width="558" height="31"/>
                                                 <color key="minimumTrackTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <color key="maximumTrackTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                        <integer key="value" value="7"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="onSliderMoved:" destination="pbZ-6v-qqf" eventType="valueChanged" id="R0U-Bw-8uQ"/>
                                                 </connections>
@@ -1334,11 +1229,6 @@
                                             <constraint firstItem="rbz-ES-RRq" firstAttribute="top" secondItem="d3H-gy-zL2" secondAttribute="top" id="ucn-97-FCz"/>
                                             <constraint firstItem="kmE-ai-3GM" firstAttribute="leading" secondItem="d3H-gy-zL2" secondAttribute="leading" constant="8" id="utx-fd-6Yq"/>
                                         </constraints>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="7"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
                                         <variation key="default">
                                             <mask key="constraints">
                                                 <exclude reference="f0M-tm-LlG"/>
@@ -1368,11 +1258,6 @@
                                                 <rect key="frame" x="6" y="77" width="558" height="31"/>
                                                 <color key="minimumTrackTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <color key="maximumTrackTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                        <integer key="value" value="7"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="onSliderMoved:" destination="pbZ-6v-qqf" eventType="valueChanged" id="YeR-1r-CSF"/>
                                                 </connections>
@@ -1430,11 +1315,6 @@
                                             <constraint firstItem="b8b-4R-Hz6" firstAttribute="leading" secondItem="Ivx-wq-D5s" secondAttribute="leading" id="psY-PR-P0p"/>
                                             <constraint firstItem="jfl-SQ-vGB" firstAttribute="top" secondItem="Qe4-DX-p5D" secondAttribute="top" id="rvJ-EE-H30"/>
                                         </constraints>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="7"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
                                         <variation key="default">
                                             <mask key="constraints">
                                                 <exclude reference="MSW-Hc-jxX"/>
@@ -1461,11 +1341,6 @@
                                                 <rect key="frame" x="6" y="76" width="558" height="31"/>
                                                 <color key="minimumTrackTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <color key="maximumTrackTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                        <integer key="value" value="7"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="onSliderMoved:" destination="pbZ-6v-qqf" eventType="valueChanged" id="Lqc-Yc-07w"/>
                                                 </connections>
@@ -1522,11 +1397,6 @@
                                             <constraint firstItem="Pkq-Dg-6ro" firstAttribute="bottom" secondItem="psR-FV-KCf" secondAttribute="bottom" id="ssJ-NU-kMe"/>
                                             <constraint firstAttribute="trailing" secondItem="psR-FV-KCf" secondAttribute="trailing" constant="8" id="taK-3G-K3J"/>
                                         </constraints>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="7"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
                                         <variation key="default">
                                             <mask key="constraints">
                                                 <exclude reference="3o6-q8-kYx"/>
@@ -1539,11 +1409,9 @@
                                         </variation>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="II1-0a-9Up">
                                 <rect key="frame" x="20" y="493" width="560" height="50"/>
-                                <color key="backgroundColor" red="0.59215686270000001" green="0.84313725490000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="0RK-5w-LiF"/>
                                     <constraint firstAttribute="height" constant="50" id="gRy-WM-4T8"/>
@@ -1552,15 +1420,6 @@
                                 <state key="normal" title="Next">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                        <integer key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="7"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
-                                </userDefinedRuntimeAttributes>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="0RK-5w-LiF"/>
@@ -1615,7 +1474,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wEi-FR-lqE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136" y="1529"/>
+            <point key="canvasLocation" x="-476" y="1317"/>
         </scene>
         <!--View Entries-->
         <scene sceneID="rQw-Kf-MLZ">
@@ -1634,7 +1493,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nnx-AK-UX4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-189" y="-357"/>
+            <point key="canvasLocation" x="-792" y="-213"/>
         </scene>
     </scenes>
     <resources>
@@ -1654,7 +1513,7 @@
         <image name="voice" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="eUc-fk-lPY"/>
         <segue reference="yaZ-H1-Lc3"/>
+        <segue reference="eUc-fk-lPY"/>
     </inferredMetricsTieBreakers>
 </document>

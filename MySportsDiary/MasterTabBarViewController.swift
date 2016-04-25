@@ -16,13 +16,13 @@ UITabBarControllerDelegate {
 		let app = UIApplication.sharedApplication();
 		NSNotificationCenter.defaultCenter().addObserver(
 			self,
-			selector: #selector(self.appState),
+			selector: #selector(self.refreshBasedOnAppState),
 			name: UIApplicationWillEnterForegroundNotification,
 			object: app)
-		appState();
+		refreshBasedOnAppState();
 	}
 	
-	func appState() {
+	func refreshBasedOnAppState() {
 		checkIfDiaryPeriodIsOver();
 		
 		switch DataManagerInstance().getAppState() ?? .Initial {

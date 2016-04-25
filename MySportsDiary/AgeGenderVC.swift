@@ -12,15 +12,17 @@ class AgeGenderVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
 	@IBOutlet weak var genderSegmentedControl: UISegmentedControl!
 	@IBOutlet weak var nextButton: UIButton!
 	@IBOutlet weak var agePickerView: UIPickerView!
-
+	
 	private var ageIsSet = false;
 	private var genderIsSet = false;
-
+	
 	override func viewDidLoad() {
 		agePickerView.delegate = self;
 		agePickerView.dataSource = self;
+		setButton(nextButton);
+		setSegmentedControl(genderSegmentedControl);
 	}
-
+	
 	///
 	/// Put age and gender back
 	/// enable/disable next button
@@ -36,7 +38,7 @@ class AgeGenderVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
 			nextButton.enabled = false;
 			nextButton.alpha = 0.5;
 		}
-
+		
 		self.navigationController?.setNavigationBarHidden(false, animated: animated);
 	}
 	///
@@ -61,7 +63,7 @@ class AgeGenderVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
 			ageIsSet = false;
 		}
 	}
-
+	
 	///
 	/// Age picker
 	//
@@ -80,16 +82,16 @@ class AgeGenderVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
 				}
 			}
 	}
-
+	
 	func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
 		return 1;
 	}
-
+	
 	func pickerView(pickerView: UIPickerView,
 		numberOfRowsInComponent component: Int) -> Int {
 			return 150;
 	}
-
+	
 	func pickerView(pickerView: UIPickerView, titleForRow row: Int,
 		forComponent component: Int) -> String? {
 			if (row == 0) {
@@ -103,7 +105,7 @@ class AgeGenderVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
 	@IBAction func onGenderSegmentChanged(sender: AnyObject) {
 		let gender: Gender =
 			genderSegmentedControl.selectedSegmentIndex == 0 ? .BOY : .GIRL;
-
+		
 		DataManagerInstance().setGender(gender);
 		genderIsSet = true;
 		if (ageIsSet) {

@@ -19,13 +19,25 @@ class MediaPopoverImagesVC: UIViewController, UIImagePickerControllerDelegate, U
 	private var picker: MediaPicker?;
 	private var images: [UIImage]?; /// The images shown in the image view
 	private var imageIndex = 0; /// Which image showing currently
-
+	
 	@IBOutlet weak var deleteImageButton: UIButton!
 	@IBOutlet weak var imageIndexLabel: UILabel!
 	@IBOutlet weak var navigationViews: UIView!
 	@IBOutlet weak var currentlyShownImage: UIImageView!
 	@IBOutlet weak var noImageLabel: UILabel!
-
+	
+	///
+	/// Load any temp images, and show the first
+	///
+	override func viewWillAppear(animated: Bool) {
+		super.viewWillAppear(animated);
+		// dispatch_async(dispatch_get_main_queue(), {
+		self.picker = MediaPicker(parentVC: self, mediaType: kUTTypeImage as String)
+		self.loadTempImages();
+		self.setCurrentImage();
+		// });
+	}
+	
 	@IBAction func onCameraButtonPressed(sender: AnyObject) {
 		picker?.pickUsingCamera();
 	}
@@ -36,7 +48,7 @@ class MediaPopoverImagesVC: UIViewController, UIImagePickerControllerDelegate, U
 		if let images = self.images where images.count > imageIndex {
 			let controller = UIAlertController(title: DELETE_THE_PHOTO,
 				message: nil, preferredStyle: .ActionSheet)
-
+			
 			let yesAction = UIAlertAction(title: YES, style: .Destructive, handler: {
 				action in
 				self.images!.removeAtIndex(self.imageIndex);
@@ -49,7 +61,7 @@ class MediaPopoverImagesVC: UIViewController, UIImagePickerControllerDelegate, U
 			presentViewController(controller, animated: true, completion: nil)
 		}
 	}
-
+	
 	@IBAction func onPreviousButtonPressed(sender: AnyObject) {
 		if let images = images where images.count > 1 {
 			imageIndex = imageIndex - 1 < 0 ? images.count - 1: imageIndex - 1;
@@ -64,19 +76,7 @@ class MediaPopoverImagesVC: UIViewController, UIImagePickerControllerDelegate, U
 			setCurrentImage();
 		}
 	}
-
-///
-/// Load any temp images, and show the first
-///
-	override func viewWillAppear(animated: Bool) {
-		super.viewWillAppear(animated);
-		// dispatch_async(dispatch_get_main_queue(), {
-		self.picker = MediaPicker(parentVC: self, mediaType: kUTTypeImage as String)
-		self.loadTempImages();
-		self.setCurrentImage();
-		// });
-	}
-
+	
 ///
 /// If we have images in the images array, set the one at position image index to our image view
 /// else hide the image view, along with the controls assosicated with it
@@ -106,7 +106,7 @@ class MediaPopoverImagesVC: UIViewController, UIImagePickerControllerDelegate, U
 		guard nil == images else { return }
 		images = delegate?.images();
 	}
-
+	
 	func onNewImage(image: UIImage) {
 		let resizedImage = aspectFitResizeImageTo(wantedWidth: 480, image: image)
 		if nil == images {

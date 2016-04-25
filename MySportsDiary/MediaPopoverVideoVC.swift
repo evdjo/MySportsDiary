@@ -15,21 +15,21 @@ import MobileCoreServices
 class MediaPopoverVideoVC: UIViewController, MediaPopover {
 	// Delegate stuff
 	var delegate: MediaPopoverDataDelegate?;
-
+	
 	private lazy var mediaPicker: MediaPicker = MediaPicker(parentVC: self, mediaType: kUTTypeMovie as String);
 	private var avPlayerViewController: AVPlayerViewController?;
 	private var videoToPlayURL: NSURL? = nil;
 	@IBOutlet weak var videoContainer: UIView!
 	@IBOutlet weak var pickFromSourceButtons: UIStackView!
 	@IBOutlet weak var deleteVideoButton: UIButton!
-
+	
 	@IBAction func onUseCameraButtonPressed(sender: AnyObject) {
 		mediaPicker.pickUsingCamera();
 	}
 	@IBAction func onPhotosLibraryButtonPressed(sender: AnyObject) {
 		mediaPicker.pickFromLibrary();
 	}
-
+	
 	override func viewWillAppear(animated: Bool) {
 		super.viewWillAppear(animated);
 		// dispatch_async(dispatch_get_main_queue(), {
@@ -37,13 +37,13 @@ class MediaPopoverVideoVC: UIViewController, MediaPopover {
 		self.setUp();
 		// });
 	}
-
+	
 	func onNewVideo(videoURL: NSURL) {
 		videoToPlayURL = videoURL;
 		delegate?.video = videoURL;
 		setUp();
 	}
-
+	
 	private func setUp() {
 		if let url = videoToPlayURL {
 			if avPlayerViewController == nil {
@@ -64,10 +64,10 @@ class MediaPopoverVideoVC: UIViewController, MediaPopover {
 	}
 	@IBAction func onDeletePressed(sender: AnyObject) {
 		guard videoToPlayURL != nil else { return }
-
+		
 		let controller = UIAlertController(title: DELETE_THE_VIDEO,
 			message: nil, preferredStyle: .ActionSheet)
-
+		
 		let yesAction = UIAlertAction(title: YES, style: .Destructive, handler: {
 			action in
 			self.avPlayerViewController?.player = nil

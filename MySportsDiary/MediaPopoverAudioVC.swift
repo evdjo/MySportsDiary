@@ -266,7 +266,7 @@ class MediaPopoverAudioVC: UIViewController, AVAudioRecorderDelegate, AVAudioPla
 	private func playerButtonState() {
 		if !playing {
 			playButton.setImage(UIImage(named: "play"), forState: .Normal);
-			playButton.backgroundColor = nil;
+			playButton.backgroundColor = Config.playButtonPlayColor;
 			playLabel.text = PLAY;
 		} else {
 			playButton.setImage(UIImage(named: "stop"), forState: .Normal);
@@ -277,7 +277,7 @@ class MediaPopoverAudioVC: UIViewController, AVAudioRecorderDelegate, AVAudioPla
 	private func recordButtonState() {
 		if !recording {
 			recordButton.setImage(UIImage(named: "microphone"), forState: .Normal);
-			recordButton.backgroundColor = nil;
+			recordButton.backgroundColor = Config.recordButtonRecordColor;
 			recordingLabel.text = RECORD;
 		} else {
 			recordButton.setImage(UIImage(named: "stop"), forState: .Normal);

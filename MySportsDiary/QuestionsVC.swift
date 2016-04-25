@@ -9,38 +9,36 @@
 import UIKit
 
 class QuestionsVC: UIViewController {
-	///
-	/// Variables and outlets
-	//
+	/// the current page of the questionnaire
 	private var page: Int = 0;
+	
+	/// The label showing which page we are currently at
 	@IBOutlet weak var pageLabel: UILabel!
+	
+	/// The button on the bottom -- either 'Next' or 'Finish'
 	@IBOutlet weak var bottomButton: UIButton!
 	
+	/// The labels to hold the text of the questions being asked currently
 	@IBOutlet var questionLabels: [UILabel]!
+	
+	/// The custom views to indicate the slider's position
 	@IBOutlet var theview: [CustomSliderOut]!
+	
+	/// The three sliders to accept the user input on the answers
 	@IBOutlet var sliders: [UISlider]!
 	
+	/// The disagree labels
 	@IBOutlet var disagree: [UILabel]!
+	
+	/// The agree labels
 	@IBOutlet var agree: [UILabel]!
 	
-	@IBAction func onSliderMoved(sender: UISlider) {
-		if let index = sliders.indexOf(sender) {
-			// scale to the max of the selected value
-			let scale = sender.value / sender.maximumValue * CustomSliderOut.maxValue
-			
-			theview[index].scale = scale
-			
-			agree[index].alpha = CGFloat(sender.value / 10);
-			disagree[index].alpha = 1 - CGFloat(sender.value / 10);
-		}
-	}
-///
-/// App lifecycle methods
-//
 	override func viewDidLoad() {
 		super.viewDidLoad();
 		bottomButton.enabled = false;
 		bottomButton.alpha = 0.5;
+		setButton(bottomButton);
+        
 	}
 	
 	override func viewWillAppear(animated: Bool) {
@@ -62,6 +60,18 @@ class QuestionsVC: UIViewController {
 		dispatch_after(dispatchTime(sec: 1), dispatch_get_main_queue()) {
 			self.bottomButton.enabled = true;
 			self.bottomButton.alpha = 1.0;
+		}
+	}
+	
+	@IBAction func onSliderMoved(sender: UISlider) {
+		if let index = sliders.indexOf(sender) {
+			// scale to the max of the selected value
+			let scale = sender.value / sender.maximumValue * CustomSliderOut.maxValue
+			
+			theview[index].scale = scale
+			
+			agree[index].alpha = CGFloat(sender.value / 10);
+			disagree[index].alpha = 1 - CGFloat(sender.value / 10);
 		}
 	}
 	
@@ -132,7 +142,7 @@ class QuestionsVC: UIViewController {
 	private func finalQuestionnaireFinished() {
 		// SEND THE DATA HERE ...
 		DataManagerInstance().purgeAllData();
-		DataManagerInstance().setAppState(.Epilogue)
+        DataManagerInstance().setAppState(.Epilogue);
 		
 		self.navigationController?.popToRootViewControllerAnimated(true);
 	}

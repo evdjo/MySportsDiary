@@ -47,6 +47,11 @@ class SingleEntryViewerVC: UIViewController, UIPopoverPresentationControllerDele
 		super.viewDidLoad();
 		textDelegate = DescriptionTextDelegate();
 		descriptionTextArea.delegate = textDelegate;
+		setButton(doneButton);
+		setCountLabel(voiceCountLabel);
+		setCountLabel(videoCountLabel);
+		setCountLabel(imagesCountLabel);
+		descriptionTextArea.__setRadius(5);
 	}
 	
 ///
@@ -69,10 +74,9 @@ class SingleEntryViewerVC: UIViewController, UIPopoverPresentationControllerDele
 		switch (entryType!) {
 		case .New:
 			topLabel.text = "\(NEW_ENTRY_TEXT_1) \(skill.lowercaseString) \(NEW_ENTRY_TEXT_2)";
-			// "Tell us why rugby has helped you demonstrate \(skill.lowercaseString) today:";
 			descriptionTextArea.text = ENTER_TEXT;
 			doneButton.setTitle(DONE, forState: .Normal);
-			doneButton.backgroundColor = colorRGB(red: 151, green: 215, blue: 255, alpha: 1);
+			doneButton.backgroundColor = Config.buttonsColor;
 			self.mediaDelegate = MediaPopoverDataDelegateNewEntry();
 			locationGetter = GPSLocationGetter(parentVC: self)
 			addVoiceLabel.text = ADD_VOICE
@@ -84,7 +88,7 @@ class SingleEntryViewerVC: UIViewController, UIPopoverPresentationControllerDele
 			topLabel.text = entry!.skill;
 			descriptionTextArea.text = entry!.description;
 			doneButton.setTitle(DONE, forState: .Normal);
-			doneButton.backgroundColor = colorRGB(red: 151, green: 151, blue: 255, alpha: 1);
+			doneButton.backgroundColor = Config.buttonsColor;
 			self.mediaDelegate = MediaPopoverDataDelegateExistingEntry(entry: entry!);
 			addVoiceLabel.text = ADDED_VOICE
 			addPhotoLabel.text = ADDED_PHOTO
@@ -156,7 +160,7 @@ class SingleEntryViewerVC: UIViewController, UIPopoverPresentationControllerDele
 		if let button = sender as? UIButton {
 			dest.popoverPresentationController?.sourceRect = button.bounds;
 		}
-		dest.popoverPresentationController?.backgroundColor = appBlueColor;
+		dest.popoverPresentationController?.backgroundColor = Config.popoverBackgroundColor;
 		self.view.alpha = 0.20;
 	}
 /// When we either add a new entry or save existing one.
