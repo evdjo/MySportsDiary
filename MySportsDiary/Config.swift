@@ -12,7 +12,7 @@ import UIKit
 class Config {
 	// MARK:-
 	// MARK: The duration of the diary. For testing set this to 2-3 minutes.
-	static var DiaryPeriod: Int = 60;
+	static var DiaryPeriod: Int = 1;
 	static var DiaryPeriodUnit: NSCalendarUnit = .Minute
 	
 	// Mark:-
