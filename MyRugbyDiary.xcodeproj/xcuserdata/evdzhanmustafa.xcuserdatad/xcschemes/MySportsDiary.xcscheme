@@ -86,6 +86,10 @@
             argument = "insert_dummy_entries"
             isEnabled = "NO">
          </CommandLineArgument>
+         <CommandLineArgument
+            argument = "delete_all"
+            isEnabled = "NO">
+         </CommandLineArgument>
       </CommandLineArguments>
       <AdditionalOptions>
       </AdditionalOptions>

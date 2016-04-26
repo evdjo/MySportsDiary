@@ -11,15 +11,14 @@ import QuartzCore
 
 class AllEntriesViewerVC: UIViewController, UITableViewDelegate,
 UITableViewDataSource, UIGestureRecognizerDelegate {
-    
-/// The table view shows all the entries added so far.
-    @IBOutlet weak var tableView: UITableView!;
+	/// The table view shows all the entries added so far.
+	@IBOutlet weak var tableView: UITableView!;
 	
 /// The label to show when the shown entries count is 0
-    @IBOutlet weak var noEntriesLabel: UILabel!;
+	@IBOutlet weak var noEntriesLabel: UILabel!;
 	
 /// The segmented control to switch between Today, Week and Older
-    @IBOutlet weak var todayWeekOlderSegControl: UISegmentedControl!;
+	@IBOutlet weak var todayWeekOlderSegControl: UISegmentedControl!;
 	
 /// The entry cell identifier
 	private let eventCellID = "eventCellID";
@@ -36,7 +35,8 @@ UITableViewDataSource, UIGestureRecognizerDelegate {
 	override func viewDidLoad() {
 		super.viewDidLoad();
 		setSegmentedControl(todayWeekOlderSegControl);
-	}
+		
+ 	}
 	
 ///
 /// Before we appear, reload the entries
@@ -50,11 +50,12 @@ UITableViewDataSource, UIGestureRecognizerDelegate {
 		entries = DataManagerInstance().getEntriesByDate();
 		if newEntryAdded {
 			todayWeekOlderSegControl.selectedSegmentIndex = 0;
-            shownEntries = .Today;
+			shownEntries = .Today;
+			tableView.reloadData();
 		}
 		hideTableIfNoEntries();
 	}
-    
+	
 ///
 /// After we appear, animate the table reload if there was new entry added
 ///
@@ -65,22 +66,22 @@ UITableViewDataSource, UIGestureRecognizerDelegate {
 			
 			// scroll to the bottom of the table, and highligh the last cell
 			UIView.transitionWithView(tableView,
-				duration: 0.275,
+				duration: 0.6,
 				options: .TransitionCrossDissolve,
 				animations: {
-					self.tableView.reloadData();
-					self.tableView.scrollToRowAtIndexPath(self.lastIndex,
+					self.tableView.scrollToRowAtIndexPath(
+						self.lastIndex,
 						atScrollPosition: .Bottom,
 						animated: false);
 					self.lastCell?.highlighted = true;
 				},
-				completion: nil);
-			
-			// undo the highlight after 1 second
-            executeThis(afterDelayInSeconds: 0.5, {
-                self.lastCell?.highlighted = false;
-            })
-			 
+				completion: { success in
+					UIView.transitionWithView(self.tableView,
+						duration: 0.6,
+						options: .TransitionCrossDissolve,
+						animations: { self.lastCell?.highlighted = false; },
+						completion: nil);
+			});
 		}
 	}
 	
@@ -96,7 +97,7 @@ UITableViewDataSource, UIGestureRecognizerDelegate {
 		header.backgroundColor = UIColor.clearColor();
 		return header;
 	}
-    
+	
 ///
 /// Margin between cells
 ///
@@ -107,7 +108,7 @@ UITableViewDataSource, UIGestureRecognizerDelegate {
 	{
 		return 4.0;
 	}
-    
+	
 ///
 /// Number of 1 cell sections, that is the number of currently viewed entries
 ///
@@ -119,10 +120,10 @@ UITableViewDataSource, UIGestureRecognizerDelegate {
 		switch shownEntries {
 		case .Today: return entries?.todayEntries.count ?? 0;
 		case .Week: return entries?.weekEntries.count ?? 0;
-		case .Older: return entries?.olderEntries.count ?? 0;
+		case .Month: return entries?.monthEntries.count ?? 0;
 		}
 	}
-    
+	
 ///
 /// The count of table cells of entries for today, the week or older
 ///
@@ -226,7 +227,7 @@ UITableViewDataSource, UIGestureRecognizerDelegate {
 		switch selected {
 		case 0: shownEntries = .Today
 		case 1: shownEntries = .Week
-		case 2: shownEntries = .Older
+		case 2: shownEntries = .Month
 		default: break;
 		}
 		tableView.reloadData();
@@ -246,8 +247,8 @@ UITableViewDataSource, UIGestureRecognizerDelegate {
 			case .Week: if 0 <= index && index < entries.weekEntries.count {
 				return entries.weekEntries[index];
 				}
-			case .Older: if 0 <= index && index < entries.olderEntries.count {
-				return entries.olderEntries[index];
+			case .Month: if 0 <= index && index < entries.monthEntries.count {
+				return entries.monthEntries[index];
 				}
 			}
 		}
@@ -272,7 +273,7 @@ UITableViewDataSource, UIGestureRecognizerDelegate {
 			switch shownEntries {
 			case .Today: count = entries?.todayEntries.count ?? 0;
 			case .Week: count = entries?.weekEntries.count ?? 0
-			case .Older: count = entries?.olderEntries.count ?? 0
+			case .Month: count = entries?.monthEntries.count ?? 0
 			}
 			return count;
 		}

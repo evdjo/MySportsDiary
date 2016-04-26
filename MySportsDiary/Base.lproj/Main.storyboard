@@ -44,7 +44,6 @@
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iir-Mu-EW1">
                                         <rect key="frame" x="0.0" y="0.0" width="560" height="38"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <attributedString key="attributedText">
                                             <fragment content="Today, rugby has helped me to demonstrate:">
                                                 <attributes>
@@ -74,7 +73,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Hab-rs-kLH" firstAttribute="leading" secondItem="9UU-f8-1l2" secondAttribute="leadingMargin" id="Fbf-kL-twG"/>
                             <constraint firstItem="Hab-rs-kLH" firstAttribute="top" secondItem="1NM-JL-MCo" secondAttribute="bottom" constant="32" id="GdI-GS-I3v"/>
@@ -272,7 +271,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="pW6-Kt-tp9" firstAttribute="width" secondItem="dGx-5A-Xwu" secondAttribute="width" id="02E-nN-fRv"/>
@@ -415,6 +414,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
+                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="OdA-Gl-hwG" firstAttribute="top" secondItem="GjN-fa-38c" secondAttribute="bottom" id="Tgc-Zs-5jw"/>
                             <constraint firstItem="mYg-Ec-uqG" firstAttribute="top" secondItem="OdA-Gl-hwG" secondAttribute="bottom" id="gjx-BB-45f"/>
@@ -582,6 +582,7 @@
                                 </constraints>
                             </view>
                         </subviews>
+                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="TTE-Qv-8iP" secondAttribute="trailing" id="2g0-xy-n2G"/>
                             <constraint firstItem="p6Q-dS-fV4" firstAttribute="top" secondItem="pYY-8L-iCP" secondAttribute="bottom" id="4Ow-VM-EYJ"/>
@@ -708,6 +709,7 @@
                                 </constraints>
                             </view>
                         </subviews>
+                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="S2S-2r-qiz" firstAttribute="leading" secondItem="Nel-1g-x5h" secondAttribute="leading" id="1lI-W0-k3g"/>
                             <constraint firstItem="S2S-2r-qiz" firstAttribute="top" secondItem="Nel-1g-x5h" secondAttribute="topMargin" id="3eZ-cC-t6I"/>
@@ -752,35 +754,35 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No entries to show" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uw8-gz-pt0">
-                                <rect key="frame" x="4" y="88" width="592" height="407"/>
+                                <rect key="frame" x="8" y="88" width="584" height="395"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <segmentedControl clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Pad-8d-OLd">
-                                <rect key="frame" x="20" y="507" width="560" height="33"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <rect key="frame" x="20" y="495" width="560" height="33"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32" id="TXs-eR-6n9"/>
                                 </constraints>
                                 <segments>
                                     <segment title="Today"/>
                                     <segment title="Week"/>
-                                    <segment title="Older"/>
+                                    <segment title="Month"/>
                                 </segments>
+                                <color key="tintColor" red="0.0" green="0.43137254901960786" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="onShownEntriesPressed:" destination="8rJ-Kc-sve" eventType="valueChanged" id="BCE-vU-uDx"/>
                                 </connections>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="KLH-cY-kaX">
-                                <rect key="frame" x="4" y="88" width="592" height="407"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <rect key="frame" x="8" y="88" width="584" height="395"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="eventCellID" textLabel="fpZ-kC-GWo" detailTextLabel="qAl-56-DOy" style="IBUITableViewCellStyleSubtitle" id="bJw-ux-6f7">
-                                        <rect key="frame" x="0.0" y="50" width="592" height="44"/>
+                                        <rect key="frame" x="0.0" y="50" width="584" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bJw-ux-6f7" id="CIL-lf-bpq">
-                                            <rect key="frame" x="0.0" y="0.0" width="559" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="551" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fpZ-kC-GWo">
@@ -799,7 +801,7 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <segue destination="9pv-A4-QxB" kind="show" id="etF-VG-fFu"/>
                                             <segue destination="9pv-A4-QxB" kind="show" trigger="accessoryAction" id="wNC-3o-Mek"/>
@@ -812,7 +814,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="KLH-cY-kaX" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" constant="24" id="2Po-BI-RNh"/>
                             <constraint firstAttribute="trailingMargin" secondItem="KLH-cY-kaX" secondAttribute="trailing" id="5tD-gT-2pT"/>
@@ -820,14 +822,14 @@
                             <constraint firstItem="Uw8-gz-pt0" firstAttribute="height" secondItem="KLH-cY-kaX" secondAttribute="height" id="Bmm-LS-udV"/>
                             <constraint firstItem="Uw8-gz-pt0" firstAttribute="centerY" secondItem="KLH-cY-kaX" secondAttribute="centerY" id="Hyc-gR-KpF"/>
                             <constraint firstItem="Pad-8d-OLd" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" id="SWQ-3K-q3e"/>
-                            <constraint firstAttribute="trailing" secondItem="KLH-cY-kaX" secondAttribute="trailing" constant="4" id="Sbu-kt-2pn"/>
+                            <constraint firstAttribute="trailing" secondItem="KLH-cY-kaX" secondAttribute="trailing" constant="8" id="Sbu-kt-2pn"/>
                             <constraint firstItem="Pad-8d-OLd" firstAttribute="top" secondItem="KLH-cY-kaX" secondAttribute="bottom" constant="12" id="b1V-1M-Yg7"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Pad-8d-OLd" secondAttribute="trailing" id="cqe-pn-STf"/>
                             <constraint firstItem="Uw8-gz-pt0" firstAttribute="centerX" secondItem="KLH-cY-kaX" secondAttribute="centerX" id="guf-dd-ZRd"/>
-                            <constraint firstItem="KLH-cY-kaX" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" constant="4" id="h5I-9s-LxZ"/>
+                            <constraint firstItem="KLH-cY-kaX" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" constant="8" id="h5I-9s-LxZ"/>
                             <constraint firstItem="KLH-cY-kaX" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" id="nrJ-Zl-tns"/>
                             <constraint firstItem="Uw8-gz-pt0" firstAttribute="width" secondItem="KLH-cY-kaX" secondAttribute="width" id="pyx-E1-ZAO"/>
-                            <constraint firstItem="Djb-ko-YwX" firstAttribute="top" secondItem="Pad-8d-OLd" secondAttribute="bottom" constant="12" id="seH-vy-GbE"/>
+                            <constraint firstItem="Djb-ko-YwX" firstAttribute="top" secondItem="Pad-8d-OLd" secondAttribute="bottom" constant="24" id="seH-vy-GbE"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -932,7 +934,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Obc-kJ-r5S" firstAttribute="top" secondItem="9EC-0B-12V" secondAttribute="bottom" constant="8" id="0b1-82-uh9"/>
                             <constraint firstItem="eGO-aR-N2l" firstAttribute="top" secondItem="YmQ-Lb-w3J" secondAttribute="bottom" constant="265" id="6n3-Bm-9oR"/>
@@ -1090,7 +1092,6 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="lwI-hM-qFL" secondAttribute="trailing" constant="8" id="4rL-9q-9sF"/>
                                             <constraint firstItem="Mer-OE-1HC" firstAttribute="centerY" secondItem="Vlr-b6-4ia" secondAttribute="centerY" id="Cxf-bZ-2aL"/>
@@ -1104,7 +1105,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="mzv-8X-TFa" firstAttribute="leading" secondItem="RxC-LA-IAW" secondAttribute="leadingMargin" id="AhB-Ih-Hh2"/>
                             <constraint firstItem="mzv-8X-TFa" firstAttribute="top" secondItem="hjw-S0-fCh" secondAttribute="bottom" constant="8" id="C6a-ex-LcR"/>
@@ -1160,7 +1161,6 @@
                                         <subviews>
                                             <view clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="544" placeholderIntrinsicHeight="20" translatesAutoresizingMaskIntoConstraints="NO" id="kmE-ai-3GM" customClass="CustomSliderOut" customModule="MyRugbyDiary" customModuleProvider="target">
                                                 <rect key="frame" x="8" y="86" width="554" height="20"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="lVd-8h-aVV"/>
                                                 </constraints>
@@ -1202,7 +1202,6 @@
                                                 </variation>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="rbz-ES-RRq" firstAttribute="leading" secondItem="d3H-gy-zL2" secondAttribute="leading" id="2K0-P8-ffC"/>
                                             <constraint firstAttribute="trailing" secondItem="rbz-ES-RRq" secondAttribute="trailing" id="8CB-kn-Wct"/>
@@ -1249,7 +1248,6 @@
                                         <subviews>
                                             <view clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="544" placeholderIntrinsicHeight="20" translatesAutoresizingMaskIntoConstraints="NO" id="Qe4-DX-p5D" customClass="CustomSliderOut" customModule="MyRugbyDiary" customModuleProvider="target">
                                                 <rect key="frame" x="8" y="87" width="554" height="20"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="Jvo-sK-rgm"/>
                                                 </constraints>
@@ -1291,7 +1289,6 @@
                                                 </variation>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="GKo-jA-wiL" firstAttribute="top" secondItem="Qe4-DX-p5D" secondAttribute="top" id="2W8-ZK-7Iu"/>
                                             <constraint firstItem="GKo-jA-wiL" firstAttribute="leading" secondItem="Ivx-wq-D5s" secondAttribute="leading" id="ANc-iV-Xlx"/>
@@ -1332,7 +1329,6 @@
                                         <subviews>
                                             <view clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="544" placeholderIntrinsicHeight="20" translatesAutoresizingMaskIntoConstraints="NO" id="psR-FV-KCf" customClass="CustomSliderOut" customModule="MyRugbyDiary" customModuleProvider="target">
                                                 <rect key="frame" x="8" y="86" width="554" height="20"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="Xqp-DA-bqn"/>
                                                 </constraints>
@@ -1374,7 +1370,6 @@
                                                 </variation>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="DXo-58-xnF" firstAttribute="top" secondItem="psR-FV-KCf" secondAttribute="top" id="3o6-q8-kYx"/>
                                             <constraint firstItem="roz-TV-e0u" firstAttribute="leading" secondItem="k7S-Mp-Kfb" secondAttribute="leading" id="5BD-y2-M9h"/>
@@ -1431,7 +1426,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="bqd-gw-jY6" secondAttribute="trailing" id="02a-h1-mdl"/>
                             <constraint firstItem="AEq-4L-DRe" firstAttribute="centerX" secondItem="CFz-Ps-dlT" secondAttribute="centerX" id="0Dw-Ff-uIO"/>
@@ -1513,7 +1508,7 @@
         <image name="voice" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="yaZ-H1-Lc3"/>
-        <segue reference="eUc-fk-lPY"/>
+        <segue reference="zFt-bB-jtg"/>
+        <segue reference="wNC-3o-Mek"/>
     </inferredMetricsTieBreakers>
 </document>

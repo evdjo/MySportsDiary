@@ -12,13 +12,13 @@ import UIKit
 class Config {
 	// MARK:-
 	// MARK: The duration of the diary. For testing set this to 2-3 minutes.
-	static var DiaryPeriod: Int = 1;
+	static var DiaryPeriod: Int = 60;
 	static var DiaryPeriodUnit: NSCalendarUnit = .Minute
 	
 	// Mark:-
 	// Mark: The views's border radius and color
-	static var borderWidth: CGFloat { return 1 }
-	static var borderColor: CGColor { return Colors.getColor(.Clear).CGColor }
+	static var borderWidth: CGFloat { return 0.5 }
+	static var borderColor: CGColor { return Colors.getColor(.Black).CGColor }
 	
 	// MARK:-
 	// MARK: The small bubble labels settings
@@ -27,7 +27,7 @@ class Config {
 	
 	// Mark:-
 	// Mark: Segmented controls
-	static var segControlsBackColor: UIColor { return Colors.getColor(.White) }
+	static var segControlsBackColor: UIColor { return Colors.getColor(.Clear) }
 	static var segControlsTintColor: UIColor { return Colors.getColor(.MyBlue) }
 	static var segControlsRadius: CGFloat { return 1 }
 	
@@ -40,7 +40,7 @@ class Config {
 	// MARK:-
 	// MARK: Cell colors
 	static var cellBackgroundColor: UIColor { return Colors.getColor(.MyBlue) }
-	static var cellHighlightedColor: UIColor { return Colors.getColor(.HalfMyBlue) }
+	static var cellHighlightedColor: UIColor { return Colors.getColor(.MyBlue_2) }
 	static var cellTextcolor: UIColor { return Colors.getColor(.White) }
 	
 	// MARK:-

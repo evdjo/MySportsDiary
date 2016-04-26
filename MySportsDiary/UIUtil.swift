@@ -134,23 +134,20 @@ enum Colors {
 	case MyBlue
 	case Clear
 	case White
-	case HalfMyBlue
+	case Black
+	case MyBlue_2
+	case MercuryGray
 }
 
 extension Colors {
 	static func getColor(colorIndex: Colors) -> UIColor {
 		switch colorIndex {
-		case .MyBlue:
-			return colorFromRGB(red: 11, green: 106, blue: 255, alpha: 1.0)
-			
-		case .Clear:
-			return UIColor.clearColor();
-			
-		case .White:
-			return UIColor.whiteColor();
-			
-		case .HalfMyBlue:
-			return colorFromRGB(red: 222, green: 222, blue: 255, alpha: 1.0)
+		case .MyBlue: return colorFromRGB(red: 0, green: 110, blue: 255, alpha: 1.0)
+		case .Clear: return UIColor.clearColor();
+		case .White: return UIColor.whiteColor();
+		case .Black: return UIColor.blackColor();
+		case .MyBlue_2: return colorFromRGB(red: 135, green: 206, blue: 250, alpha: 1.0)
+		case .MercuryGray: return colorFromRGB(red: 230, green: 230, blue: 230, alpha: 1.0);
 		}
 	}
 }
@@ -185,7 +182,7 @@ extension UIView {
 	}
 	
 	func setRadius(radius: CGFloat? = nil) {
-		self.layer.cornerRadius = radius ?? self.frame.width / 2;
+		self.layer.cornerRadius = radius ?? self.frame.height / 2;
 		self.layer.masksToBounds = true;
 	}
 }

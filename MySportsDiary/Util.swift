@@ -51,7 +51,7 @@ enum EntryType {
 enum ShownEntries {
 	case Today
 	case Week
-	case Older
+	case Month
 }
 
 ///

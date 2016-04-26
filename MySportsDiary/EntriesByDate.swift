@@ -12,7 +12,7 @@ class EntriesByDate {
     
 	lazy var todayEntries: [Entry] = [Entry]();
 	lazy var weekEntries: [Entry] = [Entry]();
-	lazy var olderEntries: [Entry] = [Entry]();
+	lazy var monthEntries: [Entry] = [Entry]();
 
 	init(entries: [Entry]?) {
         
@@ -25,10 +25,13 @@ class EntriesByDate {
 				if let date = stringDate(entry.date_time) {
 					if NSCalendar.currentCalendar().isDateInToday(date) {
 						todayEntries.append(entry);
+                        weekEntries.append(entry);
+                        monthEntries.append(entry);
 					} else if datesAreWithinWeek(date, timeNow) {
 						weekEntries.append(entry);
+                        monthEntries.append(entry);
 					} else {
-						olderEntries.append(entry);
+						monthEntries.append(entry);
 					}
 				}
 			})
