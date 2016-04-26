@@ -128,20 +128,20 @@ internal func datesAreWithinWeek(
 }
 
 ///
-/// returns date displaced by days previously. So If today is 30/12/2000
-/// using this with days 10, will return 20/12/2000
+/// Dummy entry with date 'days' before today.
 ///
-internal func entryFrom(days days: Int) -> Entry {
+internal func dummyEntry(days days: Int) -> Entry {
 	let date = NSDate();
 	let daysAgo = NSCalendar.currentCalendar().dateByAddingUnit(
 			.Day,
 		value: -days,
 		toDate: date,
 		options: NSCalendarOptions(rawValue: 0))!
-	
+    
+	let randomEntryIndex = Int(arc4random_uniform(UInt32(SKILLS.count)))
 	return Entry(
 		entry_id: Int64(days),
-		skill: String(days),
+		skill: SKILLS[randomEntryIndex],
 		description: String(days),
 		date_time: dateString(daysAgo),
 		latitude: 0, longitude: 0)

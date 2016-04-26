@@ -35,8 +35,7 @@ UITableViewDataSource, UIGestureRecognizerDelegate {
 	override func viewDidLoad() {
 		super.viewDidLoad();
 		setSegmentedControl(todayWeekOlderSegControl);
-		
- 	}
+	}
 	
 ///
 /// Before we appear, reload the entries
@@ -51,8 +50,8 @@ UITableViewDataSource, UIGestureRecognizerDelegate {
 		if newEntryAdded {
 			todayWeekOlderSegControl.selectedSegmentIndex = 0;
 			shownEntries = .Today;
-			tableView.reloadData();
 		}
+		tableView.reloadData();
 		hideTableIfNoEntries();
 	}
 	

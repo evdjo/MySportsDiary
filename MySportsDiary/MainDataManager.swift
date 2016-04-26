@@ -189,11 +189,8 @@ private class MainDataManager: DataManager {
 /// Creates dummy entries
 ///
 	func generateDummyEntries() {
-		for _ in 0 ... 10 {
-			self.addNewEntry(entryFrom(days: 0))
-		}
-		for day in 0 ... 30 {
-			self.addNewEntry(entryFrom(days: day))
-		}
+		self.addNewEntry(dummyEntry(days: 0))
+		self.addNewEntry(dummyEntry(days: 3))
+		self.addNewEntry(dummyEntry(days: 10))
 	}
 }

@@ -73,7 +73,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Hab-rs-kLH" firstAttribute="leading" secondItem="9UU-f8-1l2" secondAttribute="leadingMargin" id="Fbf-kL-twG"/>
                             <constraint firstItem="Hab-rs-kLH" firstAttribute="top" secondItem="1NM-JL-MCo" secondAttribute="bottom" constant="32" id="GdI-GS-I3v"/>
@@ -271,7 +271,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="pW6-Kt-tp9" firstAttribute="width" secondItem="dGx-5A-Xwu" secondAttribute="width" id="02E-nN-fRv"/>
@@ -414,7 +414,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="OdA-Gl-hwG" firstAttribute="top" secondItem="GjN-fa-38c" secondAttribute="bottom" id="Tgc-Zs-5jw"/>
                             <constraint firstItem="mYg-Ec-uqG" firstAttribute="top" secondItem="OdA-Gl-hwG" secondAttribute="bottom" id="gjx-BB-45f"/>
@@ -582,7 +582,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="TTE-Qv-8iP" secondAttribute="trailing" id="2g0-xy-n2G"/>
                             <constraint firstItem="p6Q-dS-fV4" firstAttribute="top" secondItem="pYY-8L-iCP" secondAttribute="bottom" id="4Ow-VM-EYJ"/>
@@ -709,7 +709,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="S2S-2r-qiz" firstAttribute="leading" secondItem="Nel-1g-x5h" secondAttribute="leading" id="1lI-W0-k3g"/>
                             <constraint firstItem="S2S-2r-qiz" firstAttribute="top" secondItem="Nel-1g-x5h" secondAttribute="topMargin" id="3eZ-cC-t6I"/>
@@ -814,7 +814,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="KLH-cY-kaX" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" constant="24" id="2Po-BI-RNh"/>
                             <constraint firstAttribute="trailingMargin" secondItem="KLH-cY-kaX" secondAttribute="trailing" id="5tD-gT-2pT"/>
@@ -882,12 +882,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to MyRugbyDiary" textAlignment="center" lineBreakMode="middleTruncation" numberOfLines="15" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sZv-E5-9HB">
-                                <rect key="frame" x="28" y="96" width="544" height="365"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eGO-aR-N2l">
                                 <rect key="frame" x="20" y="493" width="560" height="50"/>
                                 <constraints>
@@ -912,29 +906,58 @@
                                     <action selector="onNewEntryPressed:" destination="SN9-zF-AZY" eventType="touchUpInside" id="xPz-ZN-MNX"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KyG-Ek-ZlY">
-                                <rect key="frame" x="0.0" y="64" width="600" height="30"/>
-                                <color key="backgroundColor" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Has-KU-wG3">
+                                <rect key="frame" x="20" y="64" width="560" height="33"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KyG-Ek-ZlY">
+                                        <rect key="frame" x="0.0" y="0.0" width="180" height="33"/>
+                                        <color key="backgroundColor" red="0.98431372549999996" green="0.0" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <size key="titleShadowOffset" width="2.2250738585072014e-308" height="2.2250738585072014e-308"/>
+                                        <state key="normal" title="wipe_all">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="___on_wipe_all_tap:" destination="SN9-zF-AZY" eventType="touchUpInside" id="0NE-MW-uf2"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tfy-wV-yGA">
+                                        <rect key="frame" x="190" y="0.0" width="180" height="33"/>
+                                        <color key="backgroundColor" red="0.98431372549999996" green="0.0" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <size key="titleShadowOffset" width="2.2250738585072014e-308" height="2.2250738585072014e-308"/>
+                                        <state key="normal" title="fill_db">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="___on_fill_db_tap:" destination="SN9-zF-AZY" eventType="touchUpInside" id="pMy-vM-yGG"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DqD-ty-R9J">
+                                        <rect key="frame" x="380" y="0.0" width="180" height="33"/>
+                                        <color key="backgroundColor" red="0.98431372549999996" green="0.0" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <size key="titleShadowOffset" width="2.2250738585072014e-308" height="2.2250738585072014e-308"/>
+                                        <state key="normal" title="wipe_db">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="___on_wipe_db_tap:" destination="SN9-zF-AZY" eventType="touchUpInside" id="6ff-Sk-fGV"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="46" id="kqx-LW-Bso"/>
-                                    <constraint firstAttribute="height" constant="30" id="w4s-QX-Ubl"/>
+                                    <constraint firstAttribute="height" constant="33" id="Jkv-oK-t3t"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <size key="titleShadowOffset" width="2.2250738585072014e-308" height="2.2250738585072014e-308"/>
-                                <state key="normal" title="developer_clear_contents">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="kqx-LW-Bso"/>
-                                    </mask>
-                                </variation>
-                                <connections>
-                                    <action selector="on_developer_tap:" destination="SN9-zF-AZY" eventType="touchUpInside" id="AGR-0W-q04"/>
-                                </connections>
-                            </button>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to MyRugbyDiary" textAlignment="center" lineBreakMode="middleTruncation" numberOfLines="15" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sZv-E5-9HB">
+                                <rect key="frame" x="28" y="96" width="544" height="365"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Obc-kJ-r5S" firstAttribute="top" secondItem="9EC-0B-12V" secondAttribute="bottom" constant="8" id="0b1-82-uh9"/>
                             <constraint firstItem="eGO-aR-N2l" firstAttribute="top" secondItem="YmQ-Lb-w3J" secondAttribute="bottom" constant="265" id="6n3-Bm-9oR"/>
@@ -942,17 +965,17 @@
                             <constraint firstItem="eGO-aR-N2l" firstAttribute="leading" secondItem="b4z-xb-da7" secondAttribute="leadingMargin" id="B1n-f1-990"/>
                             <constraint firstItem="sZv-E5-9HB" firstAttribute="leading" secondItem="b4z-xb-da7" secondAttribute="leadingMargin" constant="8" id="Clu-sL-Bym"/>
                             <constraint firstItem="eGO-aR-N2l" firstAttribute="top" secondItem="9EC-0B-12V" secondAttribute="bottom" constant="8" id="EXQ-v9-w6F"/>
+                            <constraint firstAttribute="trailing" secondItem="Has-KU-wG3" secondAttribute="trailing" constant="20" id="MxO-U8-oER"/>
                             <constraint firstItem="sZv-E5-9HB" firstAttribute="top" secondItem="YmQ-Lb-w3J" secondAttribute="bottom" constant="32" id="OJ8-4D-9VC"/>
+                            <constraint firstItem="Has-KU-wG3" firstAttribute="top" secondItem="YmQ-Lb-w3J" secondAttribute="bottom" id="PJh-vc-f7O"/>
                             <constraint firstAttribute="trailingMargin" secondItem="eGO-aR-N2l" secondAttribute="trailing" id="VNT-FB-wod"/>
-                            <constraint firstItem="KyG-Ek-ZlY" firstAttribute="leading" secondItem="b4z-xb-da7" secondAttribute="leading" id="WLW-7Y-0GW"/>
                             <constraint firstItem="9EC-0B-12V" firstAttribute="leading" secondItem="b4z-xb-da7" secondAttribute="leadingMargin" id="Wcg-9P-JYx"/>
                             <constraint firstAttribute="trailingMargin" secondItem="sZv-E5-9HB" secondAttribute="trailing" constant="8" id="XhR-1t-SZK"/>
-                            <constraint firstAttribute="trailing" secondItem="KyG-Ek-ZlY" secondAttribute="trailing" id="aKH-rI-aFm"/>
                             <constraint firstItem="eGO-aR-N2l" firstAttribute="centerX" secondItem="b4z-xb-da7" secondAttribute="centerX" id="dMC-Pc-uLb"/>
-                            <constraint firstItem="KyG-Ek-ZlY" firstAttribute="top" secondItem="YmQ-Lb-w3J" secondAttribute="bottom" id="gEz-Yy-X4U"/>
                             <constraint firstItem="eGO-aR-N2l" firstAttribute="top" secondItem="sZv-E5-9HB" secondAttribute="bottom" constant="32" id="gdj-q6-Que"/>
                             <constraint firstAttribute="trailingMargin" secondItem="9EC-0B-12V" secondAttribute="trailing" id="pyz-ab-wp0"/>
                             <constraint firstItem="Obc-kJ-r5S" firstAttribute="top" secondItem="eGO-aR-N2l" secondAttribute="bottom" constant="8" id="te9-cW-aOE"/>
+                            <constraint firstItem="Has-KU-wG3" firstAttribute="leading" secondItem="b4z-xb-da7" secondAttribute="leading" constant="20" id="xxl-by-SVV"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -1105,7 +1128,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="mzv-8X-TFa" firstAttribute="leading" secondItem="RxC-LA-IAW" secondAttribute="leadingMargin" id="AhB-Ih-Hh2"/>
                             <constraint firstItem="mzv-8X-TFa" firstAttribute="top" secondItem="hjw-S0-fCh" secondAttribute="bottom" constant="8" id="C6a-ex-LcR"/>
@@ -1426,7 +1449,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="bqd-gw-jY6" secondAttribute="trailing" id="02a-h1-mdl"/>
                             <constraint firstItem="AEq-4L-DRe" firstAttribute="centerX" secondItem="CFz-Ps-dlT" secondAttribute="centerX" id="0Dw-Ff-uIO"/>
@@ -1508,7 +1531,7 @@
         <image name="voice" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="zFt-bB-jtg"/>
-        <segue reference="wNC-3o-Mek"/>
+        <segue reference="yaZ-H1-Lc3"/>
+        <segue reference="eUc-fk-lPY"/>
     </inferredMetricsTieBreakers>
 </document>

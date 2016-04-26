@@ -14,22 +14,6 @@ class NewEntryInitialVC: UIViewController, UIPickerViewDelegate, UIPickerViewDat
 	@IBOutlet weak var skillPickerView: UIPickerView!
 
 	@IBOutlet weak var nextButton: UIButton!
-
-///
-/// The data source comes from this array.
-///
-	private lazy var skills = [
-		NSLocalizedString("SELF_BELIEF", comment: "Self-belief"),
-		NSLocalizedString("LEADERSHIP", comment: "Leadership"),
-		NSLocalizedString("HONESTY", comment: "Honesty"),
-		NSLocalizedString("FAIRNESS", comment: "Fairness"),
-		NSLocalizedString("TRUSTWORTHINESS", comment: "Trustworthiness"),
-		NSLocalizedString("PROBLEM_SOLVING", comment: "Problem solving"),
-		NSLocalizedString("KINDNESS", comment: "Kindness"),
-		NSLocalizedString("TEAM_WORK", comment: "Team work"),
-		NSLocalizedString("RESPECT", comment: "Respect")
-	]
-    
 ///
 /// Set the delegates, and select the middle element in the picker
 ///
@@ -37,7 +21,7 @@ class NewEntryInitialVC: UIViewController, UIPickerViewDelegate, UIPickerViewDat
 		super.viewDidLoad();
 		skillPickerView.dataSource = self;
 		skillPickerView.delegate = self;
-		skillPickerView.selectRow(skills.count / 2,
+		skillPickerView.selectRow(SKILLS.count / 2,
 			inComponent: 0, animated: false);
 		setButton(nextButton);
 	}
@@ -57,14 +41,14 @@ class NewEntryInitialVC: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 		let vc = segue.destinationViewController as! SingleEntryViewerVC;
 		vc.entryType = .New;
-		vc.skill = skills[skillPickerView.selectedRowInComponent(0)]
+		vc.skill = SKILLS[skillPickerView.selectedRowInComponent(0)]
 	}
 	
 ///
 /// skillPickerView delegate methods
 ///
 	func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-		return skills[row];
+		return SKILLS[row];
 	}
     
 ///
@@ -74,6 +58,6 @@ class NewEntryInitialVC: UIViewController, UIPickerViewDelegate, UIPickerViewDat
 		return 1
 	}
 	func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-		return skills.count;
+		return SKILLS.count;
 	}
 }

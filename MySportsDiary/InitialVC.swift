@@ -9,12 +9,11 @@
 import UIKit
 import QuartzCore
 class InitialVC: UIViewController {
-    
-// UI elements
+	// UI elements
 	@IBOutlet weak var mainLabel: UILabel!;
 	@IBOutlet weak var beginButton: UIButton!;
 	@IBOutlet weak var newEntryButton: UIButton!
-
+	
 ///
 /// Set the buttons
 ///
@@ -23,7 +22,7 @@ class InitialVC: UIViewController {
 		setButton(beginButton);
 		setButton(newEntryButton);
 	}
-
+	
 ///
 /// Hide back button. If enable the second and third
 /// tab bars if we are in Diary mode, else only the first tab bar is enabled.
@@ -34,7 +33,7 @@ class InitialVC: UIViewController {
 		self.navigationController?.setNavigationBarHidden(true, animated: false);
 		setUpBasedOnAppState();
 	}
-    
+	
 ///
 /// Set the labels and buttons based on the state
 ///
@@ -71,18 +70,18 @@ class InitialVC: UIViewController {
 			self.performSegueWithIdentifier("QuestionnaireSegue", sender: sender);
 		}
 	}
-    
+	
 ///
 /// Simply to to the new entry tab bar
 ///
 	@IBAction func onNewEntryPressed(sender: AnyObject) {
 		self.tabBarController?.selectedIndex = 1;
 	}
-    
+	
 ///
 /// The date text to show when we're in diary mode
 ///
-    private var dateToDisplay: String {
+	private var dateToDisplay: String {
 		get {
 			if let dateString = DataManagerInstance().getDiaryEndDate() {
 				if let date = stringDate(dateString) {
@@ -92,14 +91,23 @@ class InitialVC: UIViewController {
 			return "";
 		}
 	}
-    
-///
-/// This is developemend button only. Will be removed
-///
-	@IBAction func on_developer_tap(sender: AnyObject) {
+	
+	///
+	/// This is developemend button only. Will be removed
+	///
+	@IBAction func ___on_wipe_all_tap(sender: AnyObject) {
 		DataManagerInstance().purgeAllData();
 		DataManagerInstance().setAppState(.Initial);
-		(tabBarController as? MasterTabBarViewController)?.refreshBasedOnAppState();
+		(tabBarController as? MasterTabBarViewController)?
+			.refreshBasedOnAppState();
 		setUpBasedOnAppState();
+	}
+	
+	@IBAction func ___on_fill_db_tap(sender: AnyObject) {
+        DataManagerInstance().generateDummyEntries();
+    }
+	
+	@IBAction func ___on_wipe_db_tap(sender: AnyObject) {
+        DataManagerInstance().purgeEntries();
 	}
 }
