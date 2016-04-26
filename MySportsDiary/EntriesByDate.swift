@@ -21,7 +21,7 @@ class EntriesByDate {
 		entriesCopy?.sortInPlace({ (entry1, entry2) -> Bool in
 			if let date1 = stringDate(entry1.date_time),
 				let date2 = stringDate(entry2.date_time) {
-                return date1.compare(date2) == .OrderedDescending;
+                return date1.compare(date2) == .OrderedAscending;
 			}
 			return false;
 		})
