@@ -25,7 +25,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nIq-Gp-hGE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-792" y="-894"/>
+            <point key="canvasLocation" x="-836" y="163"/>
         </scene>
         <!--New Entry InitialVC-->
         <scene sceneID="242-26-3by">
@@ -95,7 +95,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CYv-U9-B7z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-92" y="-894"/>
+            <point key="canvasLocation" x="-836" y="976"/>
         </scene>
         <!--SingleEntryViewerVC-->
         <scene sceneID="hNz-n2-bh7">
@@ -350,7 +350,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="640" y="-894"/>
+            <point key="canvasLocation" x="-1224" y="1773"/>
         </scene>
         <!--Media Popover AudioVC-->
         <scene sceneID="Kft-Te-bC4">
@@ -434,7 +434,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jp0-kZ-Gnw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1366" y="-463"/>
+            <point key="canvasLocation" x="-1880" y="2578"/>
         </scene>
         <!--Media Popover ImagesVC-->
         <scene sceneID="XhY-w5-B2m">
@@ -623,7 +623,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bfe-kU-T8V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1372" y="-1258"/>
+            <point key="canvasLocation" x="-1224" y="2578"/>
         </scene>
         <!--Media Popover VideoVC-->
         <scene sceneID="yCO-G6-XP3">
@@ -739,7 +739,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CeR-sA-UbN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1366" y="-894"/>
+            <point key="canvasLocation" x="-572" y="2578"/>
         </scene>
         <!--All Entries ViewerVC-->
         <scene sceneID="wg7-f3-ORb">
@@ -848,7 +848,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-100" y="-213"/>
+            <point key="canvasLocation" x="-1626" y="976"/>
         </scene>
         <!--Master Tab Bar View Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -868,7 +868,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1536" y="-213"/>
+            <point key="canvasLocation" x="-1626" y="-645"/>
         </scene>
         <!--Questionnaire-->
         <scene sceneID="Adx-SM-VtV">
@@ -911,7 +911,7 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KyG-Ek-ZlY">
                                         <rect key="frame" x="0.0" y="0.0" width="180" height="33"/>
-                                        <color key="backgroundColor" red="0.98431372549999996" green="0.0" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <size key="titleShadowOffset" width="2.2250738585072014e-308" height="2.2250738585072014e-308"/>
                                         <state key="normal" title="wipe_all">
@@ -923,7 +923,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tfy-wV-yGA">
                                         <rect key="frame" x="190" y="0.0" width="180" height="33"/>
-                                        <color key="backgroundColor" red="0.98431372549999996" green="0.0" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <size key="titleShadowOffset" width="2.2250738585072014e-308" height="2.2250738585072014e-308"/>
                                         <state key="normal" title="fill_db">
@@ -935,7 +935,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DqD-ty-R9J">
                                         <rect key="frame" x="380" y="0.0" width="180" height="33"/>
-                                        <color key="backgroundColor" red="0.98431372549999996" green="0.0" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <size key="titleShadowOffset" width="2.2250738585072014e-308" height="2.2250738585072014e-308"/>
                                         <state key="normal" title="wipe_db">
@@ -997,7 +997,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uqr-Hg-57q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-792" y="540"/>
+            <point key="canvasLocation" x="-2416" y="976"/>
         </scene>
         <!--Questionnaire-->
         <scene sceneID="Uje-Gp-RRb">
@@ -1014,7 +1014,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ebl-1W-3SF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1536" y="546"/>
+            <point key="canvasLocation" x="-2416" y="169"/>
         </scene>
         <!--Age GenderVC-->
         <scene sceneID="Gd9-8Y-Ymc">
@@ -1153,7 +1153,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iMB-Je-KZn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1162" y="1317"/>
+            <point key="canvasLocation" x="-3176" y="1767"/>
         </scene>
         <!--QuestionsVC-->
         <scene sceneID="u7F-RL-OaB">
@@ -1492,7 +1492,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wEi-FR-lqE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-476" y="1317"/>
+            <point key="canvasLocation" x="-2416" y="1767"/>
         </scene>
         <!--View Entries-->
         <scene sceneID="rQw-Kf-MLZ">
@@ -1511,7 +1511,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nnx-AK-UX4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-792" y="-213"/>
+            <point key="canvasLocation" x="-1626" y="169"/>
         </scene>
     </scenes>
     <resources>
@@ -1531,7 +1531,7 @@
         <image name="voice" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="yaZ-H1-Lc3"/>
         <segue reference="eUc-fk-lPY"/>
+        <segue reference="yaZ-H1-Lc3"/>
     </inferredMetricsTieBreakers>
 </document>

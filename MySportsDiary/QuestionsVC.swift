@@ -41,9 +41,8 @@ class QuestionsVC: UIViewController {
 	}
 	
 	override func viewWillAppear(animated: Bool) {
-		super.viewWillAppear(animated);
-		
-		let startIndex = page * 3;
+		super.viewWillAppear(animated);        
+ 		let startIndex = page * 3;
 		questionLabels[0].text = questions[startIndex];
 		questionLabels[1].text = questions[startIndex + 1];
 		questionLabels[2].text = questions[startIndex + 2];
@@ -58,6 +57,8 @@ class QuestionsVC: UIViewController {
 			self.bottomButton.enabled = true;
 			self.bottomButton.alpha = 1.0;
 		});
+        self.navigationController?
+            .setNavigationBarHidden(false, animated: animated);
 	}
 ///
 /// When the slider is dragged,
