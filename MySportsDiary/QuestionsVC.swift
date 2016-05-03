@@ -41,8 +41,8 @@ class QuestionsVC: UIViewController {
 	}
 	
 	override func viewWillAppear(animated: Bool) {
-		super.viewWillAppear(animated);        
- 		let startIndex = page * 3;
+		super.viewWillAppear(animated);
+		let startIndex = page * 3;
 		questionLabels[0].text = questions[startIndex];
 		questionLabels[1].text = questions[startIndex + 1];
 		questionLabels[2].text = questions[startIndex + 2];
@@ -57,8 +57,8 @@ class QuestionsVC: UIViewController {
 			self.bottomButton.enabled = true;
 			self.bottomButton.alpha = 1.0;
 		});
-        self.navigationController?
-            .setNavigationBarHidden(false, animated: animated);
+		self.navigationController?
+			.setNavigationBarHidden(false, animated: animated);
 	}
 ///
 /// When the slider is dragged,
@@ -81,19 +81,12 @@ class QuestionsVC: UIViewController {
 /// If on the final page ask if the users wants to finish the questionnaire
 ///
 	@IBAction func onBottomButtonPressed(sender: AnyObject) {
+        
 		let state = DataManagerInstance().getAppState() ?? .Initial;
 		
-		DataManagerInstance().setAnswer(page * 3 + 0,
-			answer: Int(sliders[0].value),
-			forState: state);
-		
-		DataManagerInstance().setAnswer(page * 3 + 1,
-			answer: Int(sliders[1].value),
-			forState: state);
-		
-		DataManagerInstance().setAnswer(page * 3 + 2,
-			answer: Int(sliders[2].value),
-			forState: state);
+		DataManagerInstance().setAnswer(page * 3 + 0, answer: Int(sliders[0].value), forState: state);
+		DataManagerInstance().setAnswer(page * 3 + 1, answer: Int(sliders[1].value), forState: state);
+		DataManagerInstance().setAnswer(page * 3 + 2, answer: Int(sliders[2].value), forState: state);
 		
 		if page < 2 {
 			let vc = UIStoryboard(name: "Main", bundle: nil)

@@ -94,8 +94,8 @@ class SingleEntryViewerVC: UIViewController, UIPopoverPresentationControllerDele
 			guard entry != nil else { print("entry found to be nil"); return }
 			topLabel.text = entry!.skill;
 			descriptionTextArea.text = entry!.description;
-			doneButton.setTitle(DONE, forState: .Normal);
-			doneButton.backgroundColor = Config.buttonsColor;
+			doneButton.setTitle(DONE_EDITING, forState: .Normal);
+			doneButton.backgroundColor = Config.cellHighlightedColor;
 			self.mediaDelegate = MediaPopoverDataDelegateExistingEntry(entry: entry!);
 			addVoiceLabel.text = ADDED_VOICE
 			addPhotoLabel.text = ADDED_PHOTO

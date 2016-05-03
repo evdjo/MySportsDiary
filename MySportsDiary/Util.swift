@@ -17,15 +17,16 @@ enum Gender: Int {
 }
 
 ///
-/// Initial means we need to ask initial questionnaire & age/gender
-/// Diary means the user is currently able to record new events
-/// Final means the user must answer the final questionnaire and send the data
+/// Initial - ask initial questionnaire & age/gender
+/// Diary - currently able to record new events
+/// Final - must answer the final questionnaire and send the data
+/// Epilogue - user has sent the data.
 ///
 enum ApplicationState: String {
-	case Initial = "InitialState"
-	case Diary = "DiaryState"
-	case Final = "FinalState"
-	case Epilogue = "Epilogue"
+    case Initial = "InitialState"
+    case Diary = "DiaryState"
+    case Final = "FinalState"
+    case Epilogue = "EpilogueState"
 }
 
 ///
@@ -37,7 +38,7 @@ enum mediaType {
 }
 ///
 /// To determine if the shown entry in SingleEntryViewController
-// is New or Existing
+/// is New or Existing
 ///
 enum EntryType {
 	case New

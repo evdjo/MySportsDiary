@@ -25,7 +25,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nIq-Gp-hGE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-836" y="163"/>
+            <point key="canvasLocation" x="-976" y="169"/>
         </scene>
         <!--New Entry InitialVC-->
         <scene sceneID="242-26-3by">
@@ -95,7 +95,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CYv-U9-B7z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-836" y="976"/>
+            <point key="canvasLocation" x="-976" y="878"/>
         </scene>
         <!--SingleEntryViewerVC-->
         <scene sceneID="hNz-n2-bh7">
@@ -255,7 +255,7 @@
                                 <color key="tintColor" red="0.043137254901960784" green="0.37647058823529411" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" returnKeyType="done"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" keyboardType="alphabet" returnKeyType="done"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ekE-3g-LTe">
                                 <rect key="frame" x="20" y="493" width="560" height="50"/>
@@ -848,7 +848,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1626" y="976"/>
+            <point key="canvasLocation" x="-1626" y="870"/>
         </scene>
         <!--Master Tab Bar View Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -868,7 +868,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1626" y="-645"/>
+            <point key="canvasLocation" x="-1626" y="-585"/>
         </scene>
         <!--Questionnaire-->
         <scene sceneID="Adx-SM-VtV">
@@ -997,7 +997,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uqr-Hg-57q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2416" y="976"/>
+            <point key="canvasLocation" x="-2272" y="878"/>
         </scene>
         <!--Questionnaire-->
         <scene sceneID="Uje-Gp-RRb">
@@ -1014,7 +1014,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ebl-1W-3SF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2416" y="169"/>
+            <point key="canvasLocation" x="-2272" y="163"/>
         </scene>
         <!--Age GenderVC-->
         <scene sceneID="Gd9-8Y-Ymc">
@@ -1531,7 +1531,7 @@
         <image name="voice" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="eUc-fk-lPY"/>
         <segue reference="yaZ-H1-Lc3"/>
+        <segue reference="eUc-fk-lPY"/>
     </inferredMetricsTieBreakers>
 </document>

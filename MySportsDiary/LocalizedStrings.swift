@@ -78,6 +78,10 @@ let RECORD = NSLocalizedString("RECORD",
 let DONE = NSLocalizedString("DONE", comment:
 		"Text for a button indicating that pressing it will complete some action");
 
+// "Done Editing"
+let DONE_EDITING = NSLocalizedString("DONE_EDITING", comment:
+    "Text for a button indicating that pressing it will complete some action");
+
 var NEW_ENTRY_TEXT_1 = NSLocalizedString("NEW_ENTRY_TEXT_1",
 	comment: "The text to prompt the user describe the skill he is recording. This text appears before the skill. For example, if we have  this string equal to \"Today I showed\", and NEW_ENTRY_TEXT_2  equal to \"because of rugby.\", then we get the sentence:  Today I showed SKILL because of rugby. One of the strings can be ommited if it makes logical sentences in the target language.")
 

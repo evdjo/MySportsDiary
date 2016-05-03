@@ -9,6 +9,12 @@
 import UIKit
 
 class DescriptionTextDelegate: NSObject, UITextViewDelegate {
+	
+    ///
+	/// TODO -- THIS HAS TO BE TRANSLATED TO PORTUGUESSE/SPANISH !!!
+	///
+	let allowedCharacters = " ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_.!?";
+	
 	///
 	/// Hide the keyboard on done pressed
 	///
@@ -22,8 +28,26 @@ class DescriptionTextDelegate: NSObject, UITextViewDelegate {
 			textView.resignFirstResponder();
 			return false;
 		}
-		return textView.text.characters.count
-			+ (text.characters.count - range.length) <= 255;
+		
+        
+/// TODO NEED TO TRANSLATE THE ALLOWED CHARACTERS STRING
+        
+//		let set = NSCharacterSet(charactersInString: allowedCharacters).invertedSet;
+// 		let filtered = text
+//			.componentsSeparatedByCharactersInSet(set).joinWithSeparator("");
+//        
+//		if filtered != text {
+//			return false;
+//		}
+        
+		
+		if textView.text.characters.count
+			+ (text.characters.count - range.length) > 255 {
+				return false;
+		}
+		
+		return true;
+		
 	}
 	
 	///
@@ -47,4 +71,6 @@ class DescriptionTextDelegate: NSObject, UITextViewDelegate {
 			textView.textColor = UIColor.lightGrayColor();
 		}
 	}
+	
+
 }

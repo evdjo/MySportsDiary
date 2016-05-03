@@ -40,6 +40,9 @@
 /* Text for a button indicating that pressing it will complete some action */
 "DONE" = "Done";
 
+/* Text for a button that will complete editting of something one the screen */
+"DONE_EDITING" = "Done editing";
+
 /* Text description to appear in the entry description text area. */
 "ENTER_TEXT" = "[enter text]";
 
