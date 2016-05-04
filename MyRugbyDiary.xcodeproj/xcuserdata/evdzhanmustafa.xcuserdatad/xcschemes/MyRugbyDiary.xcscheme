@@ -32,9 +32,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1B396B911C93AD9600986749"
-               BuildableName = "MyRugbyDiary.xctest"
-               BlueprintName = "MyRugbyDiaryTests"
+               BlueprintIdentifier = "3FD46DB71CD9761600F28546"
+               BuildableName = "MyRugbyDiaryUnitTests.xctest"
+               BlueprintName = "MyRugbyDiaryUnitTests"
                ReferencedContainer = "container:MyRugbyDiary.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -42,8 +42,8 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1BC2B9C31CA7418A00F519AF"
-               BuildableName = "MyRugbyDiary.xctest"
+               BlueprintIdentifier = "3FD46DC51CD9762F00F28546"
+               BuildableName = "MyRugbyDiaryUITests.xctest"
                BlueprintName = "MyRugbyDiaryUITests"
                ReferencedContainer = "container:MyRugbyDiary.xcodeproj">
             </BuildableReference>
@@ -81,16 +81,6 @@
             ReferencedContainer = "container:MyRugbyDiary.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
-      <CommandLineArguments>
-         <CommandLineArgument
-            argument = "insert_dummy_entries"
-            isEnabled = "NO">
-         </CommandLineArgument>
-         <CommandLineArgument
-            argument = "delete_all"
-            isEnabled = "NO">
-         </CommandLineArgument>
-      </CommandLineArguments>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>

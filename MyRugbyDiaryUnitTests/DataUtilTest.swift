@@ -1,13 +1,13 @@
 //
 //  DataUtilTest.swift
-//  MySportsDiary
+//  MyRugbyDiary
 //
 //  Created by Evdzhan Mustafa on 12/04/2016.
 //  Copyright © 2016 Evdzhan Mustafa. All rights reserved.
 //
 
 import XCTest
-@testable import MySportsDiary
+@testable import MyRugbyDiary
 class DataUtilTest: XCTestCase {
 	let manager = NSFileManager.defaultManager();
 	let myFile = "myFile";
@@ -23,7 +23,7 @@ class DataUtilTest: XCTestCase {
 	}
 
 	func testDataManagerPropery() {
-		let manager = MySportsDiary.fileManager;
+		let manager = MyRugbyDiary.fileManager;
 		XCTAssertEqual(manager, NSFileManager.defaultManager(),
 			"The manager used is not valid!.")
 	}

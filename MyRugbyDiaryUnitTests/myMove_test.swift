@@ -1,13 +1,13 @@
 //
 //  myMove_test.swift
-//  MySportsDiary
+//  MyRugbyDiary
 //
 //  Created by Evdzhan Mustafa on 12/04/2016.
 //  Copyright © 2016 Evdzhan Mustafa. All rights reserved.
 //
 
 import XCTest
-@testable import MySportsDiary
+@testable import MyRugbyDiary
 class myMove_test: DataUtilTest {
 
 	func test_myMove_FileUnderCachesToCaches() {

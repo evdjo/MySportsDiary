@@ -1,6 +1,6 @@
 //
 //  DBConfig.swift
-//  MySportsDiary
+//  MyRugbyDiary
 //
 //  Created by Evdzhan Mustafa on 11/04/2016.
 //  Copyright © 2016 Evdzhan Mustafa. All rights reserved.

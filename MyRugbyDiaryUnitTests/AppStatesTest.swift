@@ -1,13 +1,13 @@
 //
-//  MySportsDiaryTests.swift
-//  MySportsDiaryTests
+//  MyRugbyDiaryTests.swift
+//  MyRugbyDiaryTests
 //
 //  Created by Evdzhan Mustafa on 12/03/2016.
 //  Copyright © 2016 Evdzhan Mustafa. All rights reserved.
 //
 
 import XCTest
-@testable import MySportsDiary
+@testable import MyRugbyDiary
 class AppStatesTest: XCTestCase {
 	override func setUp() {
 		super.setUp()

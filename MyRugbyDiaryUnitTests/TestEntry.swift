@@ -8,7 +8,7 @@
 //
 
 import XCTest
-@testable import MySportsDiary
+@testable import MyRugbyDiary
 class TestEntry: XCTestCase {
 
 	///

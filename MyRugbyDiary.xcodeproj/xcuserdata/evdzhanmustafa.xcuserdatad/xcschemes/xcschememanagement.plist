@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>MySportsDiary.xcscheme</key>
+		<key>MyRugbyDiary.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
@@ -23,6 +23,16 @@
 			<true/>
 		</dict>
 		<key>1BC2B9C31CA7418A00F519AF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3FD46DB71CD9761600F28546</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3FD46DC51CD9762F00F28546</key>
 		<dict>
 			<key>primary</key>
 			<true/>

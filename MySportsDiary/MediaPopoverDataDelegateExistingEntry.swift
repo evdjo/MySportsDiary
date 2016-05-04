@@ -1,6 +1,6 @@
 //
 //  MediaPopoverDataDelegateExistingEntry.swift
-//  MySportsDiary
+//  MyRugbyDiary
 //
 //  Created by Evdzhan Mustafa on 16/04/2016.
 //  Copyright © 2016 Evdzhan Mustafa. All rights reserved.

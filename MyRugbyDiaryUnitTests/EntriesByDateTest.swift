@@ -1,13 +1,13 @@
 //
 //  EntriesByDateTest.swift
-//  MySportsDiary
+//  MyRugbyDiary
 //
 //  Created by Evdzhan Mustafa on 22/04/2016.
 //  Copyright © 2016 Evdzhan Mustafa. All rights reserved.
 //
 
 import XCTest
-@testable import MySportsDiary
+@testable import MyRugbyDiary
 class EntriesByDateTest: XCTestCase {
 	var dm = DataManagerInstance();
 	override func setUp() {
@@ -28,25 +28,25 @@ class EntriesByDateTest: XCTestCase {
 		dm.addNewEntry(todayEntry());
 		dm.addNewEntry(todayEntry());
 
-		assertCountsOfEntriesByDate(3, 0, 0);
+		assertCountsOfEntriesByDate(3, 3, 3);
 		dm.addNewEntry(todayEntry());
-		assertCountsOfEntriesByDate(4, 0, 0);
+		assertCountsOfEntriesByDate(4, 4, 4);
 	}
 	func testFromWeekOnly() {
 		assertCountsOfEntriesByDate(0, 0, 0);
 
 		dm.addNewEntry(entryFrom(days: 3));
-		assertCountsOfEntriesByDate(0, 1, 0);
+		assertCountsOfEntriesByDate(0, 1, 1);
 
 		dm.addNewEntry(entryFrom(days: 4));
-		assertCountsOfEntriesByDate(0, 2, 0);
+		assertCountsOfEntriesByDate(0, 2, 2);
 
 		dm.addNewEntry(entryFrom(days: 2));
-		assertCountsOfEntriesByDate(0, 3, 0);
+		assertCountsOfEntriesByDate(0, 3, 3);
 
 		dm.addNewEntry(entryFrom(days: 6));
 		dm.addNewEntry(entryFrom(days: 6));
-		assertCountsOfEntriesByDate(0, 5, 0);
+		assertCountsOfEntriesByDate(0, 5, 5);
 	}
 
 	func testFromWeekAndToday() {
@@ -54,33 +54,33 @@ class EntriesByDateTest: XCTestCase {
 		dm.addNewEntry(todayEntry());
 
 		dm.addNewEntry(entryFrom(days: 3));
-		assertCountsOfEntriesByDate(1, 1, 0);
+		assertCountsOfEntriesByDate(1, 2, 2);
 
 		dm.addNewEntry(entryFrom(days: 4));
-		assertCountsOfEntriesByDate(1, 2, 0);
+		assertCountsOfEntriesByDate(1, 3, 3);
 
 		dm.addNewEntry(entryFrom(days: 2));
-		assertCountsOfEntriesByDate(1, 3, 0);
+		assertCountsOfEntriesByDate(1, 4, 4);
 
 		dm.addNewEntry(entryFrom(days: 6));
 		dm.addNewEntry(entryFrom(days: 6));
-		assertCountsOfEntriesByDate(1, 5, 0);
+		assertCountsOfEntriesByDate(1, 6, 6);
 
 		dm.addNewEntry(todayEntry());
-		assertCountsOfEntriesByDate(2, 5, 0);
+		assertCountsOfEntriesByDate(2, 7, 7);
 
 		dm.addNewEntry(entryFrom(days: 2));
-		assertCountsOfEntriesByDate(2, 6, 0);
-
-		dm.addNewEntry(todayEntry());
-		dm.addNewEntry(entryFrom(days: 2));
-		assertCountsOfEntriesByDate(3, 7, 0);
+		assertCountsOfEntriesByDate(2, 8, 8);
 
 		dm.addNewEntry(todayEntry());
 		dm.addNewEntry(entryFrom(days: 2));
+		assertCountsOfEntriesByDate(3, 10, 10);
+
 		dm.addNewEntry(todayEntry());
 		dm.addNewEntry(entryFrom(days: 2));
-		assertCountsOfEntriesByDate(5, 9, 0);
+		dm.addNewEntry(todayEntry());
+		dm.addNewEntry(entryFrom(days: 2));
+		assertCountsOfEntriesByDate(5, 14, 14);
 	}
 
 	func testFromTodayAndOlder() {
@@ -88,77 +88,77 @@ class EntriesByDateTest: XCTestCase {
 		dm.addNewEntry(todayEntry());
 
 		dm.addNewEntry(entryFrom(days: 8));
-		assertCountsOfEntriesByDate(1, 0, 1);
+		assertCountsOfEntriesByDate(1, 1, 2);
 
 		dm.addNewEntry(entryFrom(days: 14));
-		assertCountsOfEntriesByDate(1, 0, 2);
+		assertCountsOfEntriesByDate(1, 1, 3);
 
 		dm.addNewEntry(entryFrom(days: 9));
-		assertCountsOfEntriesByDate(1, 0, 3);
+		assertCountsOfEntriesByDate(1, 1, 4);
 
 		dm.addNewEntry(entryFrom(days: 10));
 		dm.addNewEntry(entryFrom(days: 11));
-		assertCountsOfEntriesByDate(1, 0, 5);
+		assertCountsOfEntriesByDate(1, 1, 6);
 
 		dm.addNewEntry(todayEntry());
-		assertCountsOfEntriesByDate(2, 0, 5);
+		assertCountsOfEntriesByDate(2, 2, 7);
 
 		dm.addNewEntry(entryFrom(days: 12));
-		assertCountsOfEntriesByDate(2, 0, 6);
+		assertCountsOfEntriesByDate(2, 2, 8);
 
 		dm.addNewEntry(todayEntry());
 		dm.addNewEntry(entryFrom(days: 13));
-		assertCountsOfEntriesByDate(3, 0, 7);
+		assertCountsOfEntriesByDate(3, 3, 10);
 
 		dm.addNewEntry(todayEntry());
 		dm.addNewEntry(entryFrom(days: 14));
 		dm.addNewEntry(todayEntry());
 		dm.addNewEntry(entryFrom(days: 15));
-		assertCountsOfEntriesByDate(5, 0, 9);
+		assertCountsOfEntriesByDate(5, 5, 14);
 	}
 
 	func testFromTodayWeekAndOlder() {
 		assertCountsOfEntriesByDate(0, 0, 0);
 		dm.addNewEntry(todayEntry());
-		assertCountsOfEntriesByDate(1, 0, 0);
-		dm.addNewEntry(entryFrom(days: 8));
-		assertCountsOfEntriesByDate(1, 0, 1);
-		dm.addNewEntry(entryFrom(days: 1));
 		assertCountsOfEntriesByDate(1, 1, 1);
+		dm.addNewEntry(entryFrom(days: 8));
+		assertCountsOfEntriesByDate(1, 1, 2);
+		dm.addNewEntry(entryFrom(days: 1));
+		assertCountsOfEntriesByDate(1, 2, 3);
 
 		dm.addNewEntry(entryFrom(days: 2));
 		dm.addNewEntry(entryFrom(days: 3));
-		assertCountsOfEntriesByDate(1, 3, 1);
+		assertCountsOfEntriesByDate(1, 4, 5);
 
 		dm.addNewEntry(entryFrom(days: 9));
 		dm.addNewEntry(entryFrom(days: 10));
-		assertCountsOfEntriesByDate(1, 3, 3);
+		assertCountsOfEntriesByDate(1, 4, 7);
 
 		dm.addNewEntry(todayEntry());
 		dm.addNewEntry(todayEntry());
-		assertCountsOfEntriesByDate(3, 3, 3);
+		assertCountsOfEntriesByDate(3, 6, 9);
 
 		dm.addNewEntry(entryFrom(days: 4));
 		dm.addNewEntry(entryFrom(days: 11));
-		assertCountsOfEntriesByDate(3, 4, 4);
+		assertCountsOfEntriesByDate(3, 7, 11);
 
 		dm.addNewEntry(entryFrom(days: 5));
 		dm.addNewEntry(entryFrom(days: 6));
 		dm.addNewEntry(entryFrom(days: 12));
 		dm.addNewEntry(entryFrom(days: 13));
-		assertCountsOfEntriesByDate(3, 6, 6);
+		assertCountsOfEntriesByDate(3, 9, 15);
 
 		dm.addNewEntry(todayEntry());
 		dm.addNewEntry(todayEntry());
 		dm.addNewEntry(entryFrom(days: 14));
 		dm.addNewEntry(entryFrom(days: 15));
-		assertCountsOfEntriesByDate(5, 6, 8);
+		assertCountsOfEntriesByDate(5, 11, 19);
 
 		dm.addNewEntry(todayEntry());
 		dm.addNewEntry(todayEntry());
 		dm.addNewEntry(entryFrom(days: 2));
 		dm.addNewEntry(entryFrom(days: 3));
-		assertCountsOfEntriesByDate(7, 8, 8);
+		assertCountsOfEntriesByDate(7, 15, 23);
 	}
 
 	/// Entry with todays date.
@@ -188,6 +188,6 @@ class EntriesByDateTest: XCTestCase {
 			let entriesByDate = dm.getEntriesByDate();
 			XCTAssertEqual(entriesByDate.todayEntries.count, todayCount);
 			XCTAssertEqual(entriesByDate.weekEntries.count, weekCount);
-			XCTAssertEqual(entriesByDate.olderEntries.count, olderCount);
+			XCTAssertEqual(entriesByDate.monthEntries.count, olderCount);
 	}
 }
