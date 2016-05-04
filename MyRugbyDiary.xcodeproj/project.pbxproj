@@ -80,7 +80,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1B396B6D1C9251D900986749 /* MyRugbyDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = MyRugbyDiary.app; path = "/Users/evdzhanmustafa/Documents/MajorProject/Code/MySportsDiary/build/Debug-iphoneos/MyRugbyDiary.app"; sourceTree = "<absolute>"; };
 		1B396B701C9251D900986749 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1B396B721C9251D900986749 /* SingleEntryViewerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleEntryViewerVC.swift; sourceTree = "<group>"; };
 		1B396B741C9251D900986749 /* AllEntriesViewerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllEntriesViewerVC.swift; sourceTree = "<group>"; };
@@ -109,6 +108,7 @@
 		1BB5BEE01CB58323009A4C3E /* MediaPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaPicker.swift; sourceTree = "<group>"; };
 		1BB5BEE21CB59427009A4C3E /* MediaPopoverVideoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaPopoverVideoVC.swift; sourceTree = "<group>"; };
 		2F93CB82990A53BF73B2C3AC /* InitialVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialVC.swift; sourceTree = "<group>"; };
+		3F62F84A1CDA2521009F77B9 /* MyRugbyDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyRugbyDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F686CC41CCEF7150035B5DE /* EntriesList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntriesList.swift; sourceTree = "<group>"; };
 		3F83D9AB1CCA68ED0072956D /* EntriesByDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntriesByDate.swift; sourceTree = "<group>"; };
 		3F83D9DE1CCA74C70072956D /* LostAndFound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LostAndFound.swift; sourceTree = "<group>"; };
@@ -181,6 +181,7 @@
 				1B396B6F1C9251D900986749 /* MyRugbyDiary */,
 				3FD46DB81CD9761600F28546 /* MyRugbyDiaryUnitTests.xctest */,
 				3FD46DB91CD9761600F28546 /* MyRugbyDiaryUnitTests */,
+				3F62F84A1CDA2521009F77B9 /* MyRugbyDiary.app */,
 			);
 			sourceTree = "<group>";
 		};
@@ -392,7 +393,7 @@
 			);
 			name = MyRugbyDiary;
 			productName = MySportsDiary;
-			productReference = 1B396B6D1C9251D900986749 /* MyRugbyDiary.app */;
+			productReference = 3F62F84A1CDA2521009F77B9 /* MyRugbyDiary.app */;
 			productType = "com.apple.product-type.application";
 		};
 		3FD46DB71CD9761600F28546 /* MyRugbyDiaryUnitTests */ = {
@@ -425,7 +426,6 @@
 				TargetAttributes = {
 					1B396B6C1C9251D900986749 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = THUMBBZ8LL;
 						SystemCapabilities = {
 							com.apple.Maps.iOS = {
 								enabled = 1;
@@ -774,6 +774,7 @@
 				3FD46DC11CD9761600F28546 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
