@@ -48,7 +48,6 @@
 		3FD3E0FA1CBE1DA900A07F53 /* MediaPopoverDataDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD3E0F91CBE1DA900A07F53 /* MediaPopoverDataDelegate.swift */; };
 		3FD3E0FC1CBE1E7D00A07F53 /* MediaPopoverDataDelegateNewEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD3E0FB1CBE1E7D00A07F53 /* MediaPopoverDataDelegateNewEntry.swift */; };
 		3FD46DBB1CD9761600F28546 /* MyRugbyDiaryUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD46DBA1CD9761600F28546 /* MyRugbyDiaryUnitTests.swift */; };
-		3FD46DC91CD9762F00F28546 /* MyRugbyDiaryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD46DC81CD9762F00F28546 /* MyRugbyDiaryUITests.swift */; };
 		3FD46DD51CD9764800F28546 /* AppStatesTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD46DD01CD9764800F28546 /* AppStatesTest.swift */; };
 		3FD46DD61CD9764800F28546 /* createSubDir_test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD46DD11CD9764800F28546 /* createSubDir_test.swift */; };
 		3FD46DD71CD9764800F28546 /* DataUtilTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD46DD21CD9764800F28546 /* DataUtilTest.swift */; };
@@ -72,13 +71,6 @@
 
 /* Begin PBXContainerItemProxy section */
 		3FD46DBD1CD9761600F28546 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1B396B651C9251D900986749 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 1B396B6C1C9251D900986749;
-			remoteInfo = MyRugbyDiary;
-		};
-		3FD46DCB1CD9762F00F28546 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 1B396B651C9251D900986749 /* Project object */;
 			proxyType = 1;
@@ -142,9 +134,6 @@
 		3FD46DB81CD9761600F28546 /* MyRugbyDiaryUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyRugbyDiaryUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FD46DBA1CD9761600F28546 /* MyRugbyDiaryUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRugbyDiaryUnitTests.swift; sourceTree = "<group>"; };
 		3FD46DBC1CD9761600F28546 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3FD46DC61CD9762F00F28546 /* MyRugbyDiaryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyRugbyDiaryUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3FD46DC81CD9762F00F28546 /* MyRugbyDiaryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRugbyDiaryUITests.swift; sourceTree = "<group>"; };
-		3FD46DCA1CD9762F00F28546 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3FD46DD01CD9764800F28546 /* AppStatesTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppStatesTest.swift; sourceTree = "<group>"; };
 		3FD46DD11CD9764800F28546 /* createSubDir_test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = createSubDir_test.swift; sourceTree = "<group>"; };
 		3FD46DD21CD9764800F28546 /* DataUtilTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataUtilTest.swift; sourceTree = "<group>"; };
@@ -183,13 +172,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3FD46DC31CD9762F00F28546 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -199,8 +181,6 @@
 				1B396B6F1C9251D900986749 /* MyRugbyDiary */,
 				3FD46DB81CD9761600F28546 /* MyRugbyDiaryUnitTests.xctest */,
 				3FD46DB91CD9761600F28546 /* MyRugbyDiaryUnitTests */,
-				3FD46DC61CD9762F00F28546 /* MyRugbyDiaryUITests.xctest */,
-				3FD46DC71CD9762F00F28546 /* MyRugbyDiaryUITests */,
 			);
 			sourceTree = "<group>";
 		};
@@ -350,15 +330,6 @@
 			path = MyRugbyDiaryUnitTests;
 			sourceTree = "<group>";
 		};
-		3FD46DC71CD9762F00F28546 /* MyRugbyDiaryUITests */ = {
-			isa = PBXGroup;
-			children = (
-				3FD46DC81CD9762F00F28546 /* MyRugbyDiaryUITests.swift */,
-				3FD46DCA1CD9762F00F28546 /* Info.plist */,
-			);
-			path = MyRugbyDiaryUITests;
-			sourceTree = "<group>";
-		};
 		3FE3D9431CBBF52A0062DFA8 /* Entries */ = {
 			isa = PBXGroup;
 			children = (
@@ -442,24 +413,6 @@
 			productReference = 3FD46DB81CD9761600F28546 /* MyRugbyDiaryUnitTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		3FD46DC51CD9762F00F28546 /* MyRugbyDiaryUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 3FD46DCD1CD9762F00F28546 /* Build configuration list for PBXNativeTarget "MyRugbyDiaryUITests" */;
-			buildPhases = (
-				3FD46DC21CD9762F00F28546 /* Sources */,
-				3FD46DC31CD9762F00F28546 /* Frameworks */,
-				3FD46DC41CD9762F00F28546 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				3FD46DCC1CD9762F00F28546 /* PBXTargetDependency */,
-			);
-			name = MyRugbyDiaryUITests;
-			productName = MyRugbyDiaryUITests;
-			productReference = 3FD46DC61CD9762F00F28546 /* MyRugbyDiaryUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -484,11 +437,6 @@
 						DevelopmentTeam = THUMBBZ8LL;
 						TestTargetID = 1B396B6C1C9251D900986749;
 					};
-					3FD46DC51CD9762F00F28546 = {
-						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = THUMBBZ8LL;
-						TestTargetID = 1B396B6C1C9251D900986749;
-					};
 				};
 			};
 			buildConfigurationList = 1B396B681C9251D900986749 /* Build configuration list for PBXProject "MyRugbyDiary" */;
@@ -506,7 +454,6 @@
 			targets = (
 				1B396B6C1C9251D900986749 /* MyRugbyDiary */,
 				3FD46DB71CD9761600F28546 /* MyRugbyDiaryUnitTests */,
-				3FD46DC51CD9762F00F28546 /* MyRugbyDiaryUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -525,13 +472,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		3FD46DB61CD9761600F28546 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3FD46DC41CD9762F00F28546 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -608,14 +548,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3FD46DC21CD9762F00F28546 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3FD46DC91CD9762F00F28546 /* MyRugbyDiaryUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -623,11 +555,6 @@
 			isa = PBXTargetDependency;
 			target = 1B396B6C1C9251D900986749 /* MyRugbyDiary */;
 			targetProxy = 3FD46DBD1CD9761600F28546 /* PBXContainerItemProxy */;
-		};
-		3FD46DCC1CD9762F00F28546 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 1B396B6C1C9251D900986749 /* MyRugbyDiary */;
-			targetProxy = 3FD46DCB1CD9762F00F28546 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -819,30 +746,6 @@
 			};
 			name = Release;
 		};
-		3FD46DCE1CD9762F00F28546 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ANALYZER_NONNULL = YES;
-				INFOPLIST_FILE = MyRugbyDiaryUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = uk.ac.uk.aber.EvdzhanMustafa.MyRugbyDiaryUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = MyRugbyDiary;
-			};
-			name = Debug;
-		};
-		3FD46DCF1CD9762F00F28546 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ANALYZER_NONNULL = YES;
-				INFOPLIST_FILE = MyRugbyDiaryUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = uk.ac.uk.aber.EvdzhanMustafa.MyRugbyDiaryUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = MyRugbyDiary;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -869,14 +772,6 @@
 			buildConfigurations = (
 				3FD46DC01CD9761600F28546 /* Debug */,
 				3FD46DC11CD9761600F28546 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-		};
-		3FD46DCD1CD9762F00F28546 /* Build configuration list for PBXNativeTarget "MyRugbyDiaryUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				3FD46DCE1CD9762F00F28546 /* Debug */,
-				3FD46DCF1CD9762F00F28546 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};

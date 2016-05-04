@@ -18,16 +18,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rugby-loadingscreen" translatesAutoresizingMaskIntoConstraints="NO" id="t6g-qM-J1r">
-                                <rect key="frame" x="20" y="20" width="560" height="580"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nMM-3C-ISK">
+                                <rect key="frame" x="20" y="288" width="560" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rugbyimg" translatesAutoresizingMaskIntoConstraints="NO" id="loC-7m-d0r">
+                                <rect key="frame" x="20" y="504" width="96" height="96"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rugbyimg" translatesAutoresizingMaskIntoConstraints="NO" id="t6g-qM-J1r">
+                                <rect key="frame" x="484" y="20" width="96" height="96"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="t6g-qM-J1r" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" id="4LV-DH-sDY"/>
-                            <constraint firstItem="t6g-qM-J1r" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" id="7kn-l5-4JB"/>
-                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="t6g-qM-J1r" secondAttribute="bottom" id="Ct6-iR-bS3"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="t6g-qM-J1r" secondAttribute="trailing" id="oh7-AF-cWM"/>
+                            <constraint firstItem="nMM-3C-ISK" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="HYM-7M-yzD"/>
+                            <constraint firstItem="nMM-3C-ISK" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="SdY-aM-a5g"/>
+                            <constraint firstItem="t6g-qM-J1r" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" id="bFo-ac-sBr"/>
+                            <constraint firstItem="nMM-3C-ISK" firstAttribute="trailing" secondItem="Ze5-6b-2t3" secondAttribute="trailingMargin" id="hZc-bk-wfc"/>
+                            <constraint firstItem="loC-7m-d0r" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" id="iH2-dM-4kh"/>
+                            <constraint firstItem="nMM-3C-ISK" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" id="ktY-Wp-FSD"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="loC-7m-d0r" secondAttribute="bottom" id="lgu-G7-72d"/>
+                            <constraint firstItem="t6g-qM-J1r" firstAttribute="trailing" secondItem="Ze5-6b-2t3" secondAttribute="trailingMargin" id="wZy-My-XV6"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -37,6 +50,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="rugby-loadingscreen" width="1280" height="1256"/>
+        <image name="rugbyimg" width="96" height="96"/>
     </resources>
 </document>
