@@ -131,7 +131,7 @@
 		3FD3E0F51CBDE1E400A07F53 /* DescriptionTextDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescriptionTextDelegate.swift; sourceTree = "<group>"; };
 		3FD3E0F91CBE1DA900A07F53 /* MediaPopoverDataDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaPopoverDataDelegate.swift; sourceTree = "<group>"; };
 		3FD3E0FB1CBE1E7D00A07F53 /* MediaPopoverDataDelegateNewEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaPopoverDataDelegateNewEntry.swift; sourceTree = "<group>"; };
-		3FD46DB81CD9761600F28546 /* MyRugbyDiaryUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyRugbyDiaryUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3FD46DB81CD9761600F28546 /* MyRugbyDiaryUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = MyRugbyDiaryUnitTests.xctest; path = "/Users/evdzhanmustafa/Downloads/enm3_MyRugbyDiary/MySportsDiary/build/Debug-iphoneos/MyRugbyDiaryUnitTests.xctest"; sourceTree = "<absolute>"; };
 		3FD46DBA1CD9761600F28546 /* MyRugbyDiaryUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRugbyDiaryUnitTests.swift; sourceTree = "<group>"; };
 		3FD46DBC1CD9761600F28546 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3FD46DD01CD9764800F28546 /* AppStatesTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppStatesTest.swift; sourceTree = "<group>"; };
@@ -179,7 +179,6 @@
 			isa = PBXGroup;
 			children = (
 				1B396B6F1C9251D900986749 /* MyRugbyDiary */,
-				3FD46DB81CD9761600F28546 /* MyRugbyDiaryUnitTests.xctest */,
 				3FD46DB91CD9761600F28546 /* MyRugbyDiaryUnitTests */,
 				3F62F84A1CDA2521009F77B9 /* MyRugbyDiary.app */,
 			);
